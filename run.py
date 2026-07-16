@@ -65,13 +65,17 @@ TOOL_MARKERS = (
     "browser_action",
 )
 ODD_BASE_COUNTS = {1, 3, 5, 7, 9, 11, 13, 15}
-REVIEW_COUNTS = {0, 1, 3, 5}
+REVIEW_COUNTS = {0, 1, 3, 4, 5}
 REVIEW_TRIGGERS = {"never", "always", "any_disagreement", "no_strict_majority", "committee_disagreement"}
-REVIEW_MODES = {"none", "choose", "repair", "cross_examine", "regenerate"}
+REVIEW_MODES = {
+    "none", "choose", "repair", "cross_examine", "regenerate",
+    "regenerate_then_repair",
+}
 REVIEW_STYLES = {"verify", "rederive", "falsify", "compare"}
 FINAL_RULES = {
     "base_plurality", "review_plurality_fallback_base", "review_plus_base_plurality",
     "last_review_fallback_base", "augmented_plurality",
+    "generated_review_fallback_base",
 }
 CANDIDATE_SOURCES = {"base_unique", "committee_delegates"}
 FAMILY_LABELS = {"sequence": "Sequence", "constraint": "Planning", "logic": "Logic"}
@@ -687,6 +691,8 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
             return None, "zero-review strategies must be pure base plurality"
     elif value["review_mode"] == "none" or value["review_trigger"] == "never" or value["final_rule"] == "base_plurality":
         return None, "review strategies must specify a real review mode, trigger, and final rule"
+    if value["review_count"] == 4 and value["review_mode"] != "regenerate_then_repair":
+        return None, "four follow-up calls are reserved for regenerate-then-repair"
     if value["review_mode"] == "cross_examine":
         if value["review_count"] != 3:
             return None, "cross-examination currently requires exactly three sequential reviewers"
@@ -711,6 +717,19 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
             return None, "blind regeneration requires candidate_limit to equal base_count"
     elif value["final_rule"] == "augmented_plurality":
         return None, "augmented plurality is reserved for blind regeneration"
+    if value["review_mode"] == "regenerate_then_repair":
+        if value["review_count"] != 4:
+            return None, "regenerate-then-repair requires three regenerators and one integrator"
+        if value["final_rule"] != "generated_review_fallback_base":
+            return None, "regenerate-then-repair requires generated-review fallback"
+        if value["base_count"] != 5 or value["candidate_limit"] != 8:
+            return None, "the first regenerate-then-repair primitive requires five bases and eight candidates"
+        if candidate_source != "base_unique" or value["review_trigger"] != "any_disagreement":
+            return None, "regenerate-then-repair requires a disagreeing raw base bank"
+        if value["review_style"] != "falsify" or value["show_frequencies"]:
+            return None, "regenerate-then-repair uses one hidden-frequency falsifying integrator"
+    elif value["final_rule"] == "generated_review_fallback_base":
+        return None, "generated-review fallback is reserved for regenerate-then-repair"
     normalized = dict(value)
     normalized["candidate_source"] = candidate_source
     return normalized, None
@@ -1031,16 +1050,12 @@ def review_needed(
     return False
 
 
-def candidates_for(
-    strategy: dict[str, Any],
-    base_documents: list[dict[str, Any] | None],
+def shuffled_unique_candidates(
+    documents: list[dict[str, Any] | None],
+    limit: int,
     seed: int,
 ) -> list[dict[str, Any]]:
-    selected = base_documents[: strategy["base_count"]]
-    if strategy.get("candidate_source", "base_unique") == "committee_delegates":
-        valid = [item for item in committee_delegates(selected) if item is not None]
-    else:
-        valid = [item for item in selected if item is not None]
+    valid = [item for item in documents if item is not None]
     counts = Counter(canonical(item) for item in valid)
     first_seen: dict[str, int] = {}
     values: dict[str, dict[str, Any]] = {}
@@ -1048,13 +1063,26 @@ def candidates_for(
         key = canonical(item)
         first_seen.setdefault(key, index)
         values[key] = item
-    ordered = sorted(values, key=lambda key: (-counts[key], first_seen[key]))[: strategy["candidate_limit"]]
+    ordered = sorted(values, key=lambda key: (-counts[key], first_seen[key]))[:limit]
     rng = random.Random(seed)
     rng.shuffle(ordered)
     return [
         {"document": values[key], "frequency": counts[key]}
         for key in ordered
     ]
+
+
+def candidates_for(
+    strategy: dict[str, Any],
+    base_documents: list[dict[str, Any] | None],
+    seed: int,
+) -> list[dict[str, Any]]:
+    selected = base_documents[: strategy["base_count"]]
+    if strategy.get("candidate_source", "base_unique") == "committee_delegates":
+        source = committee_delegates(selected)
+    else:
+        source = selected
+    return shuffled_unique_candidates(source, strategy["candidate_limit"], seed)
 
 
 def review_prompt(
@@ -1129,9 +1157,13 @@ def freeze_review_jobs(
             _, metrics = plurality(documents)
             if not review_needed(strategy, metrics, documents):
                 continue
-            for reviewer_index in range(1, strategy["review_count"] + 1):
+            initial_followups = (
+                3 if strategy["review_mode"] == "regenerate_then_repair"
+                else strategy["review_count"]
+            )
+            for reviewer_index in range(1, initial_followups + 1):
                 seed = number * 1_000_000 + strategy_index * 10_000 + case_index * 100 + reviewer_index
-                if strategy["review_mode"] == "regenerate":
+                if strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}:
                     candidates: list[dict[str, Any]] = []
                 else:
                     candidates = candidates_for(strategy, documents, seed)
@@ -1141,7 +1173,7 @@ def freeze_review_jobs(
                 schema = choice_schema(len(candidates)) if strategy["review_mode"] == "choose" else output_schema(case)
                 prompt = (
                     regeneration_prompt(case, reviewer_index)
-                    if strategy["review_mode"] == "regenerate"
+                    if strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}
                     else review_prompt(case, strategy, candidates)
                 )
                 job = {
@@ -1152,6 +1184,11 @@ def freeze_review_jobs(
                     "case_id": case["case_id"],
                     "family": case["family"],
                     "reviewer_index": reviewer_index,
+                    "review_role": (
+                        "regenerator"
+                        if strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}
+                        else "reviewer"
+                    ),
                     "review_mode": strategy["review_mode"],
                     "candidate_documents": [item["document"] for item in candidates],
                     "candidate_frequencies": [item["frequency"] for item in candidates],
@@ -1186,6 +1223,133 @@ def freeze_review_jobs(
         "base_jobs_sha256": sha256_file(iteration_dir(number) / "base" / "jobs.jsonl"),
     })
     return jobs, normalizers
+
+
+def freeze_regen_integrator_plan(
+    number: int,
+    cases: list[dict[str, Any]],
+    strategies: list[dict[str, Any]],
+    base_documents: dict[str, list[dict[str, Any] | None]],
+) -> list[dict[str, Any]]:
+    plans: list[dict[str, Any]] = []
+    for strategy_index, strategy in enumerate(strategies):
+        if strategy["review_mode"] != "regenerate_then_repair":
+            continue
+        for case_index, case in enumerate(cases):
+            documents = base_documents[case["case_id"]][: strategy["base_count"]]
+            _, metrics = plurality(documents)
+            if not review_needed(strategy, metrics, documents):
+                continue
+            plans.append({
+                "strategy_id": strategy["strategy_id"],
+                "case_id": case["case_id"],
+                "family": case["family"],
+                "reviewer_index": 4,
+                "candidate_order_seed": (
+                    number * 1_000_000 + strategy_index * 10_000 + case_index * 100 + 4
+                ),
+            })
+    stage = iteration_dir(number) / "regenerate-integrator"
+    plan_path = stage / "plan.json"
+    freeze_json(plan_path, {
+        "registered_before_regeneration_calls": True,
+        "registered_at": registered_at(plan_path),
+        "plans": plans,
+    })
+    freeze_json(stage / "plan_manifest.json", {
+        "registered_before_regeneration_calls": True,
+        "plan_sha256": sha256_file(plan_path),
+        "planned_integrator_calls": len(plans),
+        "derived_only_from_public_cases_and_base_outputs": True,
+        "sealed_answers_unopened": True,
+    })
+    return plans
+
+
+def run_regen_integrators(
+    number: int,
+    cases: list[dict[str, Any]],
+    strategies: list[dict[str, Any]],
+    plans: list[dict[str, Any]],
+    base_documents: dict[str, list[dict[str, Any] | None]],
+    review_jobs: list[dict[str, Any]],
+    review_results: dict[str, dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
+    config = protocol()
+    cases_by_id = {case["case_id"]: case for case in cases}
+    strategies_by_id = {strategy["strategy_id"]: strategy for strategy in strategies}
+    jobs: list[dict[str, Any]] = []
+    normalizers: dict[str, Normalizer] = {}
+    source_documents: list[dict[str, Any]] = []
+    for plan in plans:
+        case = cases_by_id[plan["case_id"]]
+        strategy = strategies_by_id[plan["strategy_id"]]
+        regenerators = sorted(
+            (
+                job for job in review_jobs
+                if job["strategy_id"] == strategy["strategy_id"]
+                and job["case_id"] == case["case_id"]
+                and job.get("review_role") == "regenerator"
+            ),
+            key=lambda item: item["reviewer_index"],
+        )
+        generated = [review_results[job["job_id"]].get("document") for job in regenerators]
+        augmented = base_documents[case["case_id"]][: strategy["base_count"]] + generated
+        candidates = shuffled_unique_candidates(
+            augmented, strategy["candidate_limit"], plan["candidate_order_seed"]
+        )
+        if not candidates:
+            continue
+        job_id = f"i{number:03d}-integrator-{strategy['strategy_id']}-{case['case_id']}-r04"
+        job = {
+            "job_id": job_id,
+            "iteration": number,
+            "stage": "regenerate-integrator",
+            "strategy_id": strategy["strategy_id"],
+            "case_id": case["case_id"],
+            "family": case["family"],
+            "reviewer_index": 4,
+            "review_role": "integrator",
+            "review_mode": strategy["review_mode"],
+            "candidate_documents": [item["document"] for item in candidates],
+            "candidate_frequencies": [item["frequency"] for item in candidates],
+            "candidate_order_seed": plan["candidate_order_seed"],
+            "model": config["worker_model"],
+            "reasoning_effort": config["worker_reasoning_effort"],
+            "prompt": review_prompt(case, strategy, candidates),
+            "output_schema": output_schema(case),
+        }
+        jobs.append(job)
+        normalizers[job_id] = lambda value, case=case: normalize_answer(case, value)
+        source_documents.append({
+            "strategy_id": strategy["strategy_id"],
+            "case_id": case["case_id"],
+            "regenerator_documents": generated,
+        })
+    stage = iteration_dir(number) / "regenerate-integrator"
+    rendered = "".join(canonical(job) + "\n" for job in jobs)
+    registry_path = stage / "jobs.jsonl"
+    if registry_path.exists() and registry_path.read_text(encoding="utf-8") != rendered:
+        raise LabError("Frozen regenerate-integrator registry changed")
+    if not registry_path.exists():
+        atomic_text(registry_path, rendered)
+    freeze_json(stage / "manifest.json", {
+        "registered_after_regeneration_before_integrator_calls": True,
+        "registered_at": registered_at(stage / "manifest.json"),
+        "jobs": len(jobs),
+        "jobs_sha256": sha256_file(registry_path),
+        "regenerator_source_sha256": sha256_bytes(canonical(source_documents).encode("utf-8")),
+        "sealed_answers_unopened": True,
+        "model": config["worker_model"],
+        "reasoning_effort": config["worker_reasoning_effort"],
+    })
+    return jobs, run_jobs(
+        jobs,
+        stage,
+        int(config["max_concurrency"]),
+        int(config["timeout_seconds"]),
+        normalizers,
+    )
 
 
 def cross_exam_prompt(
@@ -1462,6 +1626,24 @@ def terminal_cross_answer_for(
     return None
 
 
+def terminal_generated_review_for(
+    strategy: dict[str, Any],
+    case_id: str,
+    review_jobs: list[dict[str, Any]],
+    review_results: dict[str, dict[str, Any]],
+) -> dict[str, Any] | None:
+    terminal = next((
+        job for job in review_jobs
+        if job["strategy_id"] == strategy["strategy_id"]
+        and job["case_id"] == case_id
+        and job.get("review_role") == "integrator"
+    ), None)
+    if terminal is None:
+        return None
+    document = review_results[terminal["job_id"]].get("document")
+    return document if isinstance(document, dict) else None
+
+
 def final_answer_for(
     strategy: dict[str, Any],
     case_id: str,
@@ -1483,6 +1665,10 @@ def final_answer_for(
         final, _ = plurality(reviewed + [base_answer])
     elif strategy["final_rule"] == "augmented_plurality":
         final, _ = plurality_prefer(base + reviewed, base_answer)
+    elif strategy["final_rule"] == "generated_review_fallback_base":
+        final = terminal_generated_review_for(
+            strategy, case_id, review_jobs, review_results
+        ) or base_answer
     else:
         final = review_answer
     return final, {
@@ -1565,9 +1751,11 @@ def score_iteration(
                 job for job in review_jobs
                 if job["strategy_id"] == strategy["strategy_id"] and job["case_id"] == case_id
             ]
-            exposed_candidates = (
-                matching_review_jobs[0]["candidate_documents"] if matching_review_jobs else []
-            )
+            candidate_job = next((
+                job for job in matching_review_jobs
+                if job.get("candidate_documents")
+            ), None)
+            exposed_candidates = candidate_job["candidate_documents"] if candidate_job else []
             review_candidate_oracle = (
                 int(any(item == answer for item in exposed_candidates))
                 if matching_review_jobs else None
@@ -1575,13 +1763,28 @@ def score_iteration(
             reviewed_outputs = review_outputs_for(
                 strategy, case_id, review_jobs, review_results
             )
+            if strategy["review_mode"] == "regenerate":
+                generated_outputs = reviewed_outputs
+            elif strategy["review_mode"] == "regenerate_then_repair":
+                generated_outputs = [
+                    review_results[job["job_id"]].get("document")
+                    for job in matching_review_jobs
+                    if job.get("review_role") == "regenerator"
+                ]
+            else:
+                generated_outputs = []
+            oracle_additions = (
+                generated_outputs
+                if strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}
+                else reviewed_outputs
+            )
             expanded_oracle = int(any(
-                item == answer for item in candidate_pool + reviewed_outputs
+                item == answer for item in candidate_pool + oracle_additions
             ))
             new_correct_generated = int(
-                strategy["review_mode"] == "regenerate"
+                strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}
                 and not base_oracle
-                and any(item == answer for item in reviewed_outputs)
+                and any(item == answer for item in generated_outputs)
             )
             repair_created_correct_answer = int(
                 bool(matching_review_jobs)
@@ -1592,7 +1795,7 @@ def score_iteration(
                         and review_candidate_oracle == 0
                     )
                     or (
-                        strategy["review_mode"] == "regenerate"
+                        strategy["review_mode"] in {"regenerate", "regenerate_then_repair"}
                         and base_oracle == 0
                     )
                 )
@@ -2047,7 +2250,9 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
         + "must use review_plurality_fallback_base or review_plus_base_plurality. Cross-examination requires exactly three "
         + "reviewers, raw base candidates, and last_review_fallback_base. Blind regeneration requires exactly three "
         + "regenerators, review_style rederive, raw base candidates, candidate_limit equal to base_count, hidden frequencies, "
-        + "and augmented_plurality. Base your diagnosis on the numbers, "
+        + "and augmented_plurality. Regenerate-then-repair requires five bases, three blind regenerators, one terminal "
+        + "falsifying integrator, eight candidates, hidden frequencies, and generated_review_fallback_base. "
+        + "Base your diagnosis on the numbers, "
         + "especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions."
     )
 
@@ -2331,12 +2536,20 @@ def run_one(number: int | None = None) -> dict[str, Any]:
     base_documents = result_documents(base_jobs, base_results)
     review_jobs, review_normalizers = freeze_review_jobs(number, cases, strategies, base_documents)
     cross_plans = freeze_cross_exam_plan(number, cases, strategies, base_documents)
+    regen_integrator_plans = freeze_regen_integrator_plan(
+        number, cases, strategies, base_documents
+    )
     planned_cross_calls = sum(plan["review_count"] for plan in cross_plans)
+    planned_integrator_calls = len(regen_integrator_plans)
     maximum = len(base_jobs) + sum(len(cases) * item["review_count"] for item in strategies)
-    actual = len(base_jobs) + len(review_jobs) + planned_cross_calls
+    actual = (
+        len(base_jobs) + len(review_jobs) + planned_cross_calls
+        + planned_integrator_calls
+    )
     print(
         f"Iteration {number} review registry frozen: {len(review_jobs)} parallel and up to "
-        f"{planned_cross_calls} sequential calls; planned total {actual}, registered maximum {maximum}.",
+        f"{planned_cross_calls} cross-examination plus {planned_integrator_calls} integrator calls; "
+        f"planned total {actual}, registered maximum {maximum}.",
         flush=True,
     )
     review_results = run_jobs(
@@ -2347,8 +2560,19 @@ def run_one(number: int | None = None) -> dict[str, Any]:
         review_normalizers,
     )
     cross_jobs, cross_results = run_cross_exam_reviews(number, cases, strategies, cross_plans)
+    integrator_jobs, integrator_results = run_regen_integrators(
+        number,
+        cases,
+        strategies,
+        regen_integrator_plans,
+        base_documents,
+        review_jobs,
+        review_results,
+    )
     review_jobs.extend(cross_jobs)
     review_results.update(cross_results)
+    review_jobs.extend(integrator_jobs)
+    review_results.update(integrator_results)
     summary = score_iteration(number, cases, strategies, base_jobs, base_results, review_jobs, review_results)
     render_iteration_plot(summary, directory / "results" / "plot.svg")
     print(

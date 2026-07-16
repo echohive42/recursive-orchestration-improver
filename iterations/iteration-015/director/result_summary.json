@@ -1,0 +1,94 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 15 favors retaining the five-base, one-review falsifying repair mechanism, not adding parallel reviewers. It achieved 11/18 exact, 0.50 weakest-family accuracy, and eight helpful versus zero harmful interventions at six calls per case. Five-base three-review repair fell to 8/18 despite five helpful and zero harmful interventions, indicating reviewer dilution. Candidate scarcity remains the main ceiling: five- and nine-answer oracle coverage was only 8/18 and 10/18. Regeneration again improved coverage, but augmented plurality failed to convert it, so the next integration experiment requires a new two-stage primitive.",
+    "extensions_requested": [
+      "Add `regenerate_then_repair`: three fixed-lens blind regenerators join the raw five-answer bank, after which one falsifying repair reviewer sees the shuffled augmented unique candidates with hidden frequencies. A valid reviewer answer is final; invalid output falls back to the original base plurality. Track base oracle, augmented oracle, newly generated correct answers, and helpful and harmful final interventions separately."
+    ],
+    "most_important_evidence": [
+      "Five-base one-review repair scored 11/18 with 0.50 weakest-family accuracy, eight helpful interventions, no harmful interventions, and six mean calls.",
+      "Five-base three-review repair scored 8/18 with 0.333 weakest-family accuracy; the extra reviewers cost two calls per case without improving this panel.",
+      "Nine-base one-review repair scored 6/18, with three helpful and two harmful interventions; its weakest-family accuracy was only 0.167.",
+      "Oracle coverage remained low: 8/18 for five bases and 10/18 for nine bases. The corresponding base pluralities were only 3/18 and 5/18.",
+      "Regeneration raised five-base coverage from 8/18 to 9/18 and introduced one new correct answer, but augmented plurality scored 4/18 and 0/6 on sequence. Iteration 14 showed the same coverage-selection gap.",
+      "Sequential cross-examination previously scored 7/18 in Iteration 10 and 5/12 in Iteration 12; the latter included four helpful and zero harmful corrections."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Compressing nine independent answers into three committee delegates may reduce candidate overload and correlated noise for a single falsifying repairer. Comparing its helpful and harmful interventions with raw-bank nine-by-one repair tests whether the Iteration 15 harm came from reviewer variance or excessive candidate exposure.",
+        "name": "Committee-Delegate One-Review Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-delegate-falsify-9x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Sequential falsification may preserve the constructive correction ability of three reviewers while avoiding the dilution seen when their independent outputs are resolved by plurality. This replicates an operationally distinct mechanism with prior positive correction balance.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A deterministic nine-answer plurality isolates the value of additional candidate generation from reviewer effects and reuses the largest shared bank without adding review calls.",
+        "name": "Nine-Vote Plurality Control",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-9-control"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "augmented_plurality",
+        "hypothesis": "Retain the unchanged regeneration mechanism only as a backup replication of its coverage effect while the more informative reviewer-over-augmented-bank integration awaits grammar support.",
+        "name": "Blind Diversified Regeneration Replication",
+        "review_count": 3,
+        "review_mode": "regenerate",
+        "review_style": "rederive",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-rederive-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The strong correction balance of five-base one-review repair indicates that reviewer quality and independence matter more than reviewer count.",
+      "Committee compression can improve a reviewer only if reduced overload outweighs the loss of correct minority candidates during delegation.",
+      "Sequential cross-examination may reduce parallel-review variance by forcing each later reviewer to test explicit decisive claims.",
+      "Regeneration has a reproducible but modest oracle-coverage benefit; its main unresolved problem is final-answer integration rather than candidate production alone."
+    ],
+    "risk_note": "The intended first two fillers, together with Direct One, Five-Vote Plurality, the retained champion, and the current winner, cost at most 204 calls: 108 for a shared nine-answer bank and at most 96 review calls. Committee delegation can discard correct minorities, while sequential review can anchor on an early error. All results remain development evidence from small, variable panels and require frozen testing on untouched families."
+  },
+  "duration_ms": 200421,
+  "job_id": "i015-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "413c4dbc586d021c0e742c9ef901c9fb05ca5900f40aeaf948d2befe1ac855c7",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 20348,
+    "output_tokens": 8535,
+    "reasoning_output_tokens": 7427
+  }
+}

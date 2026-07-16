@@ -44,6 +44,8 @@ The `cross_examine` review mode is a sequential architecture with exactly three 
 
 The `regenerate` mode is a candidate-generation architecture, not a judge. Exactly three blind Luna Light solvers see only the original problem, never the base answers. They use fixed domain-neutral lenses: first-principles construction, contradiction hunting, and independent reformulation. Their answers join the raw base votes under `augmented_plurality`; a top-count tie favors the original base plurality. Require `review_style: rederive`, `candidate_source: base_unique`, `candidate_limit` equal to `base_count`, and hidden frequencies. Track expanded-oracle coverage and correct answers newly introduced by regeneration.
 
+The `regenerate_then_repair` mode uses five base solvers, the same three blind regenerators, then one terminal falsifying integrator. The integrator sees at most eight shuffled unique base-plus-regenerated candidates with frequencies hidden and may return a new exact answer. A valid terminal answer is final; otherwise the original base plurality is the fallback. It uses four follow-up calls, `candidate_limit: 8`, `review_style: falsify`, and `generated_review_fallback_base`. The activation plan is frozen before regeneration; the integrator registry is frozen after regeneration and before its calls while answers remain sealed.
+
 Every proposal must explicitly set `candidate_source` to `base_unique` or `committee_delegates`.
 
 Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.

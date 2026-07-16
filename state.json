@@ -1,9 +1,9 @@
 {
   "best_observed": {
-    "accuracy": 0.5833333333333334,
-    "iteration": 6,
-    "name": "Efficient Five-Bank Falsifying Repair",
-    "strategy_id": "repair-falsify-5x3-efficient",
+    "accuracy": 0.6111111111111112,
+    "iteration": 15,
+    "name": "One-Review Five-Bank Falsifying Repair",
+    "strategy_id": "repair-falsify-5x1-efficient",
     "worst_family_accuracy": 0.5
   },
   "completed_iterations": [
@@ -20,17 +20,18 @@
     11,
     12,
     13,
-    14
+    14,
+    15
   ],
   "created_at": "2026-07-16T08:00:16.409Z",
-  "current_strategy_file": "strategies/iteration-015.json",
+  "current_strategy_file": "strategies/iteration-016.json",
   "experiment_id": "orchestration-autoresearch-lab-v1",
-  "next_iteration": 15,
+  "next_iteration": 16,
   "notes": [
     "Fresh panels are disposable search evidence, not independent final validation.",
     "The main agent may revise researcher.md between iterations; every director call records its hash."
   ],
-  "snapshot_scope": "completed iterations 1-14",
+  "snapshot_scope": "completed iterations 1-15",
   "status": "public-snapshot",
-  "updated_at": "2026-07-16T12:39:55.540Z"
+  "updated_at": "2026-07-16T13:04:13.117Z"
 }
