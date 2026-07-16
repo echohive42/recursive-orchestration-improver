@@ -155,7 +155,11 @@ def export(source_root: Path, through: int | None = None) -> None:
     manifest_files = sorted(
         path
         for path in PUBLIC_ROOT.rglob("*")
-        if path.is_file() and ".git" not in path.parts and path.name != "snapshot_manifest.json"
+        if path.is_file()
+        and ".git" not in path.parts
+        and "__pycache__" not in path.parts
+        and path.suffix != ".pyc"
+        and path.name not in {".DS_Store", "snapshot_manifest.json"}
     )
     write_json(
         PUBLIC_ROOT / "snapshot_manifest.json",

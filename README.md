@@ -1,13 +1,21 @@
-# Swarmwright Lab
+# Recursive Swarm Lab
 
-### An open-ended search for better agent orchestration
+### A self-improving search for better agent orchestration
 
 What happens when independent AI solvers are allowed to disagree, then a second group tries to repair their answers instead of merely judging them?
 
-Swarmwright Lab is a small, reproducible auto-research system that searches for domain-neutral ways to organize agents. Luna Light workers solve fresh, sealed sequence, planning, and logic problems. A Sol research director studies the results and proposes the next orchestration batch. A human-guided Codex agent remains the meta-director.
+Recursive Swarm Lab is a small, reproducible auto-research system that searches for domain-neutral ways to organize agents. Luna Light workers solve fresh, sealed sequence, planning, and logic problems. A Sol research director studies the results and proposes the next orchestration batch. A human-guided Codex agent remains the meta-director, improving both the search direction and the improver itself.
+
+The recursion is in the research process, not the model weights: each completed experiment changes how the next swarm is designed, while fresh panels test whether those changes actually help.
 
 > [!IMPORTANT]
 > **This is active research, not a finished benchmark.** The repository currently contains three completed search iterations and the registered strategy for Iteration 4. The numbers below are promising development evidence, not independent final validation.
+
+## Explore the wider lab
+
+- [Echohive](https://www.echohive.ai/) is the living laboratory where these systems, experiments, and ideas are built in public.
+- [Get Amplified](https://www.echohive.ai/get-amplified) is a practical field guide for using current AI models, agents, and harnesses to attempt larger work.
+- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday session where new methods, research, and experiments are worked through together.
 
 ## Current signal
 
@@ -37,6 +45,10 @@ That does **not** mean performance improved from 50.0% to 41.7% to 41.7%. Every 
 5. Score exact and partial accuracy, family performance, cost, helpful repairs, and harmful reversals.
 6. Let a Sol xhigh research director diagnose the evidence and propose the next small batch.
 7. Preserve fixed controls and the current winner while testing new mechanisms on another fresh panel.
+
+That creates a compact recursive loop:
+
+> **swarm → evidence → research director → meta-director → improved swarm**
 
 Only infrastructure failures are retried. Valid but wrong, malformed, or protocol-violating outputs are kept as outcomes. The answer key is never included in a worker prompt.
 
@@ -91,12 +103,6 @@ python3 run.py one
 ```
 
 `python3 run.py loop` continues until a file named `STOP` is present or the process receives an interrupt. Review model names, service tier, concurrency, and budgets in `protocol.json` before launching calls.
-
-## Explore the wider lab
-
-- [Echohive](https://www.echohive.ai/) is the living laboratory where these systems, experiments, and ideas are built in public.
-- [Get Amplified](https://www.echohive.ai/get-amplified) is a practical field guide for using current AI models, agents, and harnesses to attempt larger work.
-- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday session where new methods, research, and experiments are worked through together.
 
 ## License
 
