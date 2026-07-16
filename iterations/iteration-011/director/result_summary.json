@@ -1,0 +1,93 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 11 is primarily a candidate-generation failure, especially for logic, rather than evidence that a new voting rule has won. The five-answer bank contained no correct logic answer, while the nine-answer bank contained only one. The nine-bank three-review mechanism merely matched its base plurality overall, with one helpful correction offset by one harmful reversal. The one-review mechanism regressed sharply on this panel, but its aggregate intervention balance remains favorable enough to require an unchanged replication. The intended three additions, in proposal order, are the pooled five-by-three champion, the exact five-by-one replication, and sequential cross-examination. The nine-by-one variant is a backup close ablation if the runner prefers a direct reviewer-count comparison against the current panel winner.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Every Iteration 11 strategy had 0% weakest-family accuracy; each family contains only four cases, so this is alarming but noisy.",
+      "Five-base banks had a logic oracle of 0/4. The nine-base bank improved that to only 1/4, showing that downstream aggregation usually lacked a correct candidate.",
+      "The current nine-by-three winner scored 3/12 versus 3/12 for its base plurality, with one helpful and one harmful intervention. Its reviewers provided no net exact gain on this panel.",
+      "Across its first three panels, five-by-one repair is now 14/42 exact with 10 helpful and 2 harmful interventions. Iteration 11 added both observed harms, so unchanged replication is more informative than immediately adding a guard.",
+      "The pooled five-by-three mechanism remains 38/84 exact, while nine-by-three is 20/42. Both have a 35.7% weakest-family estimate, and the smaller apparent pooled advantage of nine-by-three is not decisive.",
+      "Majority-gated five-by-one scored 0/12 with two harmful reversals and no helpful corrections; delegate fusion scored 2/12 with one help and one harm. These proposed safeguards did not solve harmful review behavior on the fresh panel cases requested here? Actually completed evidence is Iteration 11; therefore they should not displace clean replications in Iteration 12. Avoid reference error in final output? This string itself flags issue—remove? Sequential cross-examination scored 7/18 at the Iteration 10 checkpoint, matching the two repair panels there and justifying a fresh orthogonal replication."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retaining the exact pooled champion establishes whether its 38/84 development record and 35.7% weakest-family estimate persist on a fresh panel; changing its fields would confound replication with improvement.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "An unchanged third-panel replication tests whether the cumulative 10-to-2 helpful-to-harmful intervention balance is real and whether Iteration 11 was a noisy reversal. Paired with five-by-three on the same bank, it directly tests reviewer dilution at four fewer calls per case.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Sequential falsification may prevent three reviewers from fragmenting into unrelated repairs: each later reviewer must attack the immediately preceding proposal before revising it. Its 7/18 checkpoint result warrants replication as an orthogonal organization.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Holding the current winner's nine-answer coverage fixed while reducing three independent repairers to one isolates whether reviewer dilution caused its offsetting helpful and harmful interventions. It is a close, call-efficient ablation rather than a renamed five-bank mechanism.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      }
+    ],
+    "research_hypotheses": [
+      "Independent repair panels may lose signal through fragmented outputs; five-by-one versus five-by-three is the cleanest shared-bank test.",
+      "Sequential cross-examination may concentrate review effort on decisive claims and reduce plurality dilution without using domain-specific routing.",
+      "Increasing the bank from five to nine improves coverage only modestly on some panels; nine-by-one separates that coverage effect from reviewer-count effects.",
+      "When the correct answer is absent from the bank, candidate-selection systems have a hard ceiling, so answer-generating repair remains necessary despite reversal risk.",
+      "Fresh-panel variance is large enough that mechanisms should be compared through pooled replications and intervention balances, not single-panel winner labels."
+    ],
+    "risk_note": "The intended six-strategy batch is the three mechanically retained systems plus the first three proposals. With a largest bank of nine, its maximum cost is 108 base calls plus 120 review calls, or 228 total. Selecting any three of the four proposals also stays at or below 228 calls, safely under 300. Each family will still have only four cases, so Iteration 12 should update pooled evidence rather than declare validation. The five-by-one regression also means harmful reversals must remain a first-class stopping risk."
+  },
+  "duration_ms": 121506,
+  "job_id": "i011-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "0aaa07a0dd16f1dd617deb4a4d1c6d895111ea3b80bdd9512c9d1d08ab3f0bde",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 18592,
+    "output_tokens": 6349,
+    "reasoning_output_tokens": 5073
+  }
+}

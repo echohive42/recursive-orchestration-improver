@@ -11,7 +11,7 @@ The recursion is in the research process, not the model weights: each completed 
 > **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains 10 completed research rounds and the registered strategy for Round 11. The numbers below are promising development evidence, not independent final validation.
+> **This is active research, not a finished benchmark.** The repository currently contains 11 completed research rounds and the registered strategy for Round 12. The numbers below are promising development evidence, not independent final validation.
 
 ## Explore the wider lab
 
@@ -22,7 +22,7 @@ The recursion is in the research process, not the model weights: each completed 
 <!-- LIVE_PROGRESS_START -->
 ## Live research progress
 
-**10 completed rounds.** Latest panel winner: **One-Review Five-Bank Falsifying Repair**, **9/18 (50.0%)**, with **33.3%** weakest-family accuracy.
+**11 completed rounds.** Latest panel winner: **Nine Solvers plus Three Falsifying Repairers**, **3/12 (25.0%)**, with **0.0%** weakest-family accuracy.
 
 **Best single-panel observation:** **Efficient Five-Bank Falsifying Repair**, **7/12 (58.3%)** in Round 6. This is one panel, not the expected accuracy of a new architecture.
 
@@ -31,7 +31,7 @@ The recursion is in the research process, not the model weights: each completed 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
 | Efficient Five-Bank Falsifying Repair | 8 | 45/102 · **44.1%** | 41.2% | 8.0 |
-| One-Review Five-Bank Falsifying Repair | 2 | 13/30 · **43.3%** | 40.0% | 6.0 |
+| One-Review Five-Bank Falsifying Repair | 3 | 14/42 · **33.3%** | 28.6% | 6.0 |
 
 The retention fix affects future strategy selection, not historical scores. It now groups operationally identical systems across panels and retains repeated evidence instead of the latest panel winner.
 
@@ -47,6 +47,7 @@ The retention fix affects future strategy selection, not historical scores. It n
 | 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
 | 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
 | 10 | One-Review Five-Bank Falsifying Repair | 9/18 · **50.0%** | 33.3% | 0/18 · 0.0% | 342 |
+| 11 | Nine Solvers plus Three Falsifying Repairers | 3/12 · **25.0%** | 0.0% | 2/12 · 16.7% | 202 |
 
 ![Research progress across completed rounds](images/progress.svg)
 

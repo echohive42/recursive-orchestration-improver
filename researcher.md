@@ -24,6 +24,8 @@ Through Iteration 9, the five-base, three-review, disagreement-triggered falsify
 
 Iteration 10 was an 18-case checkpoint. One five-bank falsifying reviewer scored 9/18, while five-bank three-review repair, nine-bank three-review repair, and sequential cross-examination each scored 7/18. The one-review mechanism made six helpful corrections, no harmful reversals, and created three correct answers absent from its base bank. Across its first two panels it is 13/30 exact with nine helpful and zero harmful interventions. This is promising development evidence, not validation; retain the exact mechanism for replication while testing why extra reviewers diluted it.
 
+Iteration 11 was much harder. Five-answer banks contained a correct answer on only 2/12 cases and nine-answer banks on only 3/12. Nine-bank three-review repair won at 3/12, merely matching its base plurality after one helpful and one harmful intervention. Five-bank one-review repair fell to 1/12 after one helpful and two harmful interventions; pooled through three panels it is 14/42 with ten helpful and two harmful interventions. The dip is evidence of candidate-generation failure plus reviewer variance, not a reason to discard prior mechanisms or specialize to this panel.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
