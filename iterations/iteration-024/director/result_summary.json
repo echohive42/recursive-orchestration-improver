@@ -1,0 +1,119 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 24 primarily showed progress in candidate selection, not candidate generation. The nine-bank three-selector panel converted 6 of 7 oracle-covered cases, improving a 1/12 base plurality through five helpful and zero harmful interventions. Its weakest family was still constraint at 1/4 because the nine-answer bank itself covered only one constraint case. The five-bank champion and regenerate-then-repair each reached 5/12 with four helpful and one harmful intervention; regeneration introduced one correct candidate but did not outperform ordinary repair, again exposing an integration gap. Meanwhile, nine-bank one-review repair converted the same 7/12 oracle coverage into only 2/12, so unrestricted answer-generating review remains substantially more variable than candidate-only selection. The next batch should replicate the strong selector, preserve the pooled repair champion and regeneration pipeline, and use a one-selector candidate-only ablation to separate the value of constrained selection from the value of reviewer plurality.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Nine-bank three-review candidate selection scored 6/12 from 7/12 oracle coverage, with five helpful and zero harmful interventions; it converted three logic oracle cases into 3/4 logic accuracy.",
+      "All leading systems had only 1/4 constraint accuracy. For the nine-bank selector this matched its 1/4 constraint oracle coverage, so selection changes alone cannot raise that family on similarly scarce banks.",
+      "Five-bank three-review repair and regenerate-then-repair both scored 5/12 with four helpful and one harmful intervention. Regeneration added one correct candidate absent from the base bank but produced no final-accuracy gain over standard repair.",
+      "Nine-bank one-review repair scored 2/12 despite 7/12 oracle coverage and made only one helpful intervention. This contrasts sharply with candidate-only three-review selection on the identical bank.",
+      "The six-strategy batch costs at most 360 Luna calls: 18×9 for the largest shared base bank plus 18×(3+3+1+4) follow-up calls."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-cost independent-answer baseline unchanged for call-efficiency calibration.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain deterministic five-answer plurality unchanged to measure the value added by every review and generation architecture.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged as the replicated answer-generating repair control and continue measuring helpful corrections against harmful reversals.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the Iteration 24 winner unchanged to test whether three independent falsifying selectors reliably preserve its high oracle-to-final conversion and zero-harm profile on a fresh checkpoint.",
+        "name": "Nine-Bank Falsifying Selection Panel",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x3-full-bank"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Ablate selector plurality while preserving the successful candidate-only constraint. If one falsifying selector approaches the three-selector panel, the selection architecture—not reviewer voting—is the main gain and two calls per case can be removed.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Preserve the frozen candidate-generation pipeline unchanged. Its repeated introduction of correct answers absent from the base bank tests the orthogonal hypothesis that blind diversified construction can lift oracle coverage, while the terminal integrator measures whether those gains can be converted safely.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      }
+    ],
+    "research_hypotheses": [
+      "Candidate-only falsifying selection is safer than unrestricted answer-generating repair when the correct answer is already present in a diverse bank.",
+      "Comparing one versus three selectors on the identical nine-answer bank isolates whether reviewer plurality materially reduces selection variance.",
+      "Blind diversified regeneration remains necessary because even strong selection is capped by weak family-level oracle coverage.",
+      "Helpful and harmful intervention counts should be pooled across fresh panels; one strong selector panel is insufficient for promotion."
+    ],
+    "risk_note": "The Iteration 24 selector result is a single 12-case observation and may regress sharply on the 18-case checkpoint. The one-selector ablation is especially variance-sensitive, while regeneration can expand coverage without improving the final answer. No mechanism should be promoted from this checkpoint alone; prioritize weakest-family accuracy and pooled correction balance. The proposed complete batch remains below the 500-call limit at a worst-case 360 calls."
+  },
+  "duration_ms": 88518,
+  "job_id": "i024-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "7b802c4803676ad9732a402d4ea95734033746a44e655cef0e355f4f54002c4d",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 22595,
+    "output_tokens": 3857,
+    "reasoning_output_tokens": 2588
+  }
+}

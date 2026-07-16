@@ -1,0 +1,13 @@
+{
+  "accuracy_withheld": true,
+  "completed": 114,
+  "estimated_seconds_remaining": 0.0,
+  "jobs_per_minute": 34.58967981665546,
+  "percent": 1.0,
+  "stage": "review",
+  "status_counts": {
+    "valid_output": 114
+  },
+  "total": 114,
+  "updated_at": "2026-07-16T15:56:53.964Z"
+}

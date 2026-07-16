@@ -50,6 +50,8 @@ Iteration 22 gave nine-bank one-review repair the fresh-panel lead at 7/12, with
 
 Iteration 23 was a difficult panel. Regenerate-then-repair won by family balance at 4/12, solving at least one case in every family, while nine-bank one-review repair also reached 4/12 but solved no logic case. The five-bank three-review pooled champion scored 2/12; its base bank covered only 4/12 cases, and repair expanded coverage to 6/12 but converted only two. Regeneration raised coverage from 4/12 to 5/12 with one new correct candidate and finished 4/12 through three helpful and zero harmful interventions. Retain both the pooled champion and current pipeline winner, and test selection over an uncompressed nine-answer bank rather than another committee variation.
 
+Iteration 24 gave the new full nine-bank, three-selector panel 6/12 with five helpful and zero harmful interventions. One-review nine-bank repair saw the same 7/12 base-oracle coverage but finished only 2/12, so the three-selector panel produced a real same-panel conversion gain. The five-bank pooled champion and regeneration pipeline each scored 5/12. This is one fresh development panel, not promotion evidence. Retain the exact full-bank selector unchanged and compare it with a one-selector choose-only version to separate panel depth from answer-generating repair.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
