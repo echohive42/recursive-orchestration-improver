@@ -1,0 +1,124 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 20 reinforces that candidate selection, not merely candidate supply, is the central bottleneck. The automatically retained five-bank, three-review champion/current winner scored 6/18 with balanced 2/6 accuracy in every family and four helpful versus zero harmful interventions. Five-base oracle coverage was only 6/18, while regenerate-then-repair raised coverage to 9/18 but converted only 5/18. More starkly, nine-bank one-review repair had 10/18 oracle coverage but only 5/18 exact; in logic it converted 5/6 oracle coverage into 0/6 exact. The regeneration pipeline nevertheless retains a strong pooled correction balance: updating through Iteration 20 gives 26/66 exact, expanded oracle 34/66 versus base oracle 25/66, and 21 helpful versus three harmful interventions, although logic remains weakest at 7/22. The next batch should therefore retain the champion automatically, replicate regeneration unchanged, preserve the one-review efficiency probe, and revisit sequential falsification as an orthogonal way to improve selection without adding candidates.",
+    "extensions_requested": [
+      "shared_evidence_board: after candidates are sealed, freeze independent reviewers that each post a candidate-indexed audit of decisive claims, consistency checks, and falsification results with frequencies hidden; then freeze one terminal integrator that sees only the shuffled candidates and board and may repair, with invalid output falling back to base plurality. Track oracle-to-final conversion and harmful reversals."
+    ],
+    "most_important_evidence": [
+      "The retained five-bank three-review mechanism won Iteration 20 at 6/18, achieved 33.3% in every family, and made four helpful corrections with no harmful reversal.",
+      "Regenerate-then-repair improved current-panel coverage from 6/18 to 9/18 but finished 5/18, leaving four expanded-oracle cases unconverted.",
+      "Across five pipeline panels, regenerate-then-repair is now 26/66 exact with 34/66 expanded-oracle coverage versus 25/66 base-oracle coverage, 21 helpful interventions, and three harmful reversals.",
+      "Nine-bank one-review repair exposed the selection failure most clearly: 10/18 oracle coverage yielded 5/18 exact, including 5/6 logic oracle coverage but 0/6 logic accuracy.",
+      "Five-bank one-review repair cost six calls per case versus eight for the champion, but its Iteration 20 balance was four helpful and two harmful interventions; it remains an efficiency probe rather than a promotion candidate.",
+      "Sequential cross-examination previously scored 7/18 in Iteration 10 and 5/12 in Iteration 12; the latter run made four helpful and zero harmful interventions, supporting another unchanged replication."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Fill priority 1: replicate the pipeline unchanged. Blind lens diversity should continue increasing oracle coverage, while the terminal falsifying integrator tests whether that gain can be converted with a persistently positive correction balance on fresh cases.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Fill priority 2: retain the exact one-review mechanism as the clean call-efficiency comparison with the retained three-review champion. The test is whether its historically positive correction balance recovers without the reviewer dilution or extra calls of a panel.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Fill priority 3: replicate sequential cross-examination as an orthogonal selection architecture. Passing one provisional answer and critique forward may focus later calls on falsifying decisive claims instead of producing three uncoordinated judgments.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Alternate close improvement: give the base plurality one delegate vote alongside three repair outputs. This tests whether a small amount of base anchoring reduces harmful reviewer reversals without recreating full raw-vote pooling.",
+        "name": "Five-Bank Repair with Base-Delegate Fusion",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-base-delegate"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Alternate breadth replication: preserve the exact nine-bank one-review mechanism to test whether its substantial oracle advantage can be converted on a fresh panel after the severe Iteration 20 logic-selection failure.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Lower-priority orthogonal diagnostic: compress a nine-answer bank into three independent committee delegates before one falsifying repair. This tests whether reducing distractor load improves integration, while acknowledging the risk that committee compression discards a correct minority candidate.",
+        "name": "Committee-Delegate Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-delegate-repair-9x1"
+      }
+    ],
+    "research_hypotheses": [
+      "Regeneration's pooled nine-case oracle gain is real enough to replicate, but exact performance will depend on stabilizing the terminal selector rather than adding more generated votes.",
+      "A single falsifying reviewer may retain most useful repairs at materially lower cost, but its harmful-reversal rate must be estimated across fresh panels.",
+      "Sequential falsification may outperform parallel review plurality by concentrating each later call on unresolved decisive claims.",
+      "Base-delegate fusion may guard correct base pluralities, but it can also obstruct helpful repairs; helpful and harmful interventions must be reported separately.",
+      "Large-bank oracle coverage is not useful unless selection improves, especially in logic where Iteration 20 showed a five-case oracle-to-final collapse.",
+      "Committee compression is informative only as a distinct aggregation test, not as a renamed repair-panel variant."
+    ],
+    "risk_note": "The recommended fill is the first three proposals. Together with Direct One, Five-Vote Plurality, and the automatically retained five-bank three-review champion, it costs at most 192 calls: 60 shared base-bank calls plus 132 review/regeneration calls. Any three proposals from the full alternate list remain within 264 calls. With only four cases per family, Iteration 21 should be treated as replication evidence; no mechanism should be promoted from a single-panel win, and operationally identical runs should be pooled under their existing IDs."
+  },
+  "duration_ms": 231397,
+  "job_id": "i020-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "7e5a6270edf3eb6647cf20eec5402d7032888cb28503472658fb4c65109d9231",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 21562,
+    "output_tokens": 9639,
+    "reasoning_output_tokens": 8023
+  }
+}

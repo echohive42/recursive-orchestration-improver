@@ -1,0 +1,13 @@
+{
+  "accuracy_withheld": true,
+  "completed": 18,
+  "estimated_seconds_remaining": 0.0,
+  "jobs_per_minute": 12.926973495862354,
+  "percent": 1.0,
+  "stage": "regenerate-integrator",
+  "status_counts": {
+    "valid_output": 18
+  },
+  "total": 18,
+  "updated_at": "2026-07-16T14:39:23.909Z"
+}

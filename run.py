@@ -520,7 +520,10 @@ def execute_job(
     job_dir = stage_dir / "jobs" / job["job_id"]
     final_path = job_dir / "result.json"
     if final_path.is_file():
-        return load_json(final_path)
+        prior_final = load_json(final_path)
+        if prior_final.get("outcome") != "infrastructure_exhausted":
+            return prior_final
+        final_path.unlink()
     job_dir.mkdir(parents=True, exist_ok=True)
     atomic_json(job_dir / "request.json", {
         key: value for key, value in job.items() if key not in {"prompt", "output_schema"}
@@ -543,7 +546,8 @@ def execute_job(
             atomic_json(result_path, synthetic)
             attempts.append(synthetic)
     terminal = next((item for item in attempts if item["status"] != "infrastructure_failure"), None)
-    while terminal is None and len(attempts) < max_infrastructure_attempts:
+    attempt_limit = len(attempts) + max_infrastructure_attempts
+    while terminal is None and len(attempts) < attempt_limit:
         attempt = run_attempt(
             binary,
             job,
@@ -570,6 +574,41 @@ def execute_job(
     }
     atomic_json(final_path, final)
     return final
+
+
+def require_infrastructure_complete(
+    number: int,
+    stage: str,
+    jobs: list[dict[str, Any]],
+    results: dict[str, dict[str, Any]],
+) -> None:
+    exhausted = [
+        job["job_id"] for job in jobs
+        if results[job["job_id"]].get("outcome") == "infrastructure_exhausted"
+    ]
+    marker = iteration_dir(number) / "infrastructure_hold.json"
+    if not exhausted:
+        marker.unlink(missing_ok=True)
+        return
+    atomic_json(marker, {
+        "iteration": number,
+        "stage": stage,
+        "status": "retry_needed",
+        "failed_jobs": exhausted,
+        "failed_count": len(exhausted),
+        "recorded_at": utc_now(),
+        "note": "Not scored. Resume the same sealed iteration to retry infrastructure failures only.",
+    })
+    state = load_json(STATE_PATH)
+    state["status"] = "infrastructure_retry_needed"
+    state["next_iteration"] = number
+    state["current_strategy_file"] = str(strategy_path(number).relative_to(ROOT))
+    state["updated_at"] = utc_now()
+    atomic_json(STATE_PATH, state)
+    raise LabError(
+        f"Iteration {number} {stage} stage has {len(exhausted)} infrastructure-exhausted "
+        "jobs. It was not scored; rerun the same iteration to resume them."
+    )
 
 
 class Progress:
@@ -2533,6 +2572,7 @@ def run_one(number: int | None = None) -> dict[str, Any]:
         int(config["timeout_seconds"]),
         base_normalizers,
     )
+    require_infrastructure_complete(number, "base", base_jobs, base_results)
     base_documents = result_documents(base_jobs, base_results)
     review_jobs, review_normalizers = freeze_review_jobs(number, cases, strategies, base_documents)
     cross_plans = freeze_cross_exam_plan(number, cases, strategies, base_documents)
@@ -2559,7 +2599,9 @@ def run_one(number: int | None = None) -> dict[str, Any]:
         int(config["timeout_seconds"]),
         review_normalizers,
     )
+    require_infrastructure_complete(number, "review", review_jobs, review_results)
     cross_jobs, cross_results = run_cross_exam_reviews(number, cases, strategies, cross_plans)
+    require_infrastructure_complete(number, "cross-review", cross_jobs, cross_results)
     integrator_jobs, integrator_results = run_regen_integrators(
         number,
         cases,
@@ -2568,6 +2610,9 @@ def run_one(number: int | None = None) -> dict[str, Any]:
         base_documents,
         review_jobs,
         review_results,
+    )
+    require_infrastructure_complete(
+        number, "regenerate-integrator", integrator_jobs, integrator_results
     )
     review_jobs.extend(cross_jobs)
     review_results.update(cross_results)
