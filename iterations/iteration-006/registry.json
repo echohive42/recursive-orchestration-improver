@@ -1,21 +1,28 @@
 {
-  "assembled_at": "2026-07-16T09:51:35.956Z",
-  "director_available": true,
-  "iteration": 6,
-  "registered_before_calls": true,
-  "selection_reasons": {
-    "choose-falsify-9x3-wide": "Sol research-director proposal",
-    "direct-1": "fixed direct baseline",
-    "plurality-5": "fixed five-vote baseline",
-    "repair-falsify-5x3-efficient": "Sol research-director proposal",
-    "repair-falsify-9x3": "mechanically retained current winner",
-    "committee-compare-9x3": "Sol-requested orthogonal primitive implemented by the main meta-director"
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
   },
-  "source": "mechanical anchors plus iteration 5 Sol director",
+  "iteration": 6,
+  "panel_hashes_sha256": "d1fef3049c1ee307092bb82c354efe46a88bd8d5a6932da5710479cdefeec473",
+  "protocol_sha256": "0da0305fa91b57369ce136c377fae80e30721dcfda3d79d552dc2ba25ebd68c7",
+  "protocol_snapshot_sha256": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+  "public_cases_sha256": "dd5c29bdb02f1bfea441e42d9274e0c9e96785c2bf038b0d599fa317890a3603",
+  "registered_at": "2026-07-16T09:58:27.324Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "7b6d37dc18b128eb6bf6801ef05b62db8f9c45b04b907f3c9a6c8a14315cd96b",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "0717feff9b855e78081b4e16ef9356de1b09523c63fb008c1cf57431bda16516",
   "strategies": [
     {
       "base_count": 1,
       "candidate_limit": 2,
+      "candidate_source": "base_unique",
       "final_rule": "base_plurality",
       "hypothesis": "A single independent answer is the minimum-cost baseline.",
       "name": "Direct One",
@@ -29,6 +36,7 @@
     {
       "base_count": 5,
       "candidate_limit": 2,
+      "candidate_source": "base_unique",
       "final_rule": "base_plurality",
       "hypothesis": "A small independent plurality is a stable low-cost baseline.",
       "name": "Five-Vote Plurality",
@@ -42,6 +50,7 @@
     {
       "base_count": 9,
       "candidate_limit": 5,
+      "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
       "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
       "name": "Nine Solvers plus Three Falsifying Repairers",
@@ -69,6 +78,7 @@
     {
       "base_count": 5,
       "candidate_limit": 5,
+      "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
       "hypothesis": "A five-answer bank paired with the validated three-reviewer falsification mechanism may retain much of the champion's accuracy at eight calls per case rather than twelve; earlier five-solver repair systems reached 0.417–0.500 pooled accuracy.",
       "name": "Efficient Five-Bank Falsifying Repair",
@@ -82,6 +92,7 @@
     {
       "base_count": 9,
       "candidate_limit": 7,
+      "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
       "hypothesis": "Because correct answers frequently already exist in the fragmented bank, reviewers that falsify a wider, shuffled candidate slate may recover rare correct candidates without introducing unsupported repairs; this separates candidate recovery from answer generation.",
       "name": "Wide-Slate Falsifying Candidate Selection",
@@ -92,5 +103,7 @@
       "show_frequencies": false,
       "strategy_id": "choose-falsify-9x3-wide"
     }
-  ]
+  ],
+  "strategy_file": "strategies/iteration-006.json",
+  "strategy_file_sha256": "344cd07cb0cb4062ad4d4ee33e4c0c14dd31ebbbd7fa4e3ba441bd6feaa17ca2"
 }

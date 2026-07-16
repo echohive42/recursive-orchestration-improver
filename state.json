@@ -1,9 +1,9 @@
 {
   "best_observed": {
-    "accuracy": 0.5,
-    "iteration": 4,
-    "name": "Nine Solvers plus Three Falsifying Repairers",
-    "strategy_id": "repair-falsify-9x3",
+    "accuracy": 0.5833333333333334,
+    "iteration": 6,
+    "name": "Efficient Five-Bank Falsifying Repair",
+    "strategy_id": "repair-falsify-5x3-efficient",
     "worst_family_accuracy": 0.5
   },
   "completed_iterations": [
@@ -11,17 +11,18 @@
     2,
     3,
     4,
-    5
+    5,
+    6
   ],
   "created_at": "2026-07-16T08:00:16.409Z",
-  "current_strategy_file": "strategies/iteration-006.json",
+  "current_strategy_file": "strategies/iteration-007.json",
   "experiment_id": "orchestration-autoresearch-lab-v1",
-  "next_iteration": 6,
+  "next_iteration": 7,
   "notes": [
     "Fresh panels are disposable search evidence, not independent final validation.",
     "The main agent may revise researcher.md between iterations; every director call records its hash."
   ],
-  "snapshot_scope": "completed iterations 1-5",
+  "snapshot_scope": "completed iterations 1-6",
   "status": "public-snapshot",
-  "updated_at": "2026-07-16T09:51:35.957Z"
+  "updated_at": "2026-07-16T10:09:52.699Z"
 }

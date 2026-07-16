@@ -24,6 +24,10 @@ Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 
 
 `review_plurality_fallback_base` lets the review panel decide when it returns valid outputs and otherwise falls back to the base plurality. `review_plus_base_plurality` gives the base plurality one delegate vote alongside the individual reviewer outputs. It does not add every raw base answer again. Describe this second rule as delegate fusion, not full vote pooling.
 
+The optional `committee_delegates` candidate source divides a nine-answer bank into three fixed, disjoint committees of three and takes one deterministic plurality delegate from each. The `committee_disagreement` trigger invokes review only when at least two valid committee delegates disagree. Reviewers see only the shuffled delegates, not the raw nine answers. This is an orthogonal aggregation architecture, not another repair-panel variant.
+
+Every proposal must explicitly set `candidate_source` to `base_unique` or `committee_delegates`.
+
 Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.
 
 Do not let the search collapse into local variations of the current winner. Each ordinary next batch should support distinct lanes: fixed controls, the current champion, one close evidence-driven improvement, one call-efficiency probe, and at least one meaningfully orthogonal organization. Within the current grammar, candidate selection, answer-generating repair, delegate fusion, and pure deterministic aggregation count as different mechanisms only when they test genuinely different hypotheses. If the grammar blocks a worthwhile orthogonal idea, request one concrete new primitive in `extensions_requested`, such as independent committees with disagreement routing, sequential cross-examination, a shared evidence board, or a decomposer-to-specialist pipeline. Prefer adding one interpretable primitive at a time.

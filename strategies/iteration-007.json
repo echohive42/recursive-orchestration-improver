@@ -1,0 +1,56 @@
+{
+  "assembled_at": "2026-07-16T10:09:52.698Z",
+  "director_available": false,
+  "iteration": 7,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-5x3-efficient": "mechanically retained current winner"
+  },
+  "source": "mechanical anchors plus iteration 6 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "A five-answer bank paired with the validated three-reviewer falsification mechanism may retain much of the champion's accuracy at eight calls per case rather than twelve; earlier five-solver repair systems reached 0.417–0.500 pooled accuracy.",
+      "name": "Efficient Five-Bank Falsifying Repair",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x3-efficient"
+    }
+  ]
+}

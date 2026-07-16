@@ -66,10 +66,11 @@ TOOL_MARKERS = (
 )
 ODD_BASE_COUNTS = {1, 3, 5, 7, 9, 11, 13, 15}
 REVIEW_COUNTS = {0, 1, 3, 5}
-REVIEW_TRIGGERS = {"never", "always", "any_disagreement", "no_strict_majority"}
+REVIEW_TRIGGERS = {"never", "always", "any_disagreement", "no_strict_majority", "committee_disagreement"}
 REVIEW_MODES = {"none", "choose", "repair"}
 REVIEW_STYLES = {"verify", "rederive", "falsify", "compare"}
 FINAL_RULES = {"base_plurality", "review_plurality_fallback_base", "review_plus_base_plurality"}
+CANDIDATE_SOURCES = {"base_unique", "committee_delegates"}
 FAMILY_LABELS = {"sequence": "Sequence", "constraint": "Planning", "logic": "Logic"}
 
 
@@ -424,9 +425,14 @@ def run_attempt(
     usage, reported_model = telemetry(events)
     document: dict[str, Any] | None = None
     errors: list[str] = []
+    event_text = canonical(events)
+    configuration_error = "invalid_json_schema" in event_text or "invalid_request_error" in event_text
     if tool_event:
         status = "protocol_violation"
         errors.append("forbidden tool event")
+    elif configuration_error and not response_text:
+        status = "configuration_failure"
+        errors.append("request rejected before inference")
     elif isinstance(response_text, str) and response_text.strip():
         try:
             raw_document = json.loads(response_text)
@@ -617,7 +623,8 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
         "review_trigger", "review_mode", "review_style", "candidate_limit",
         "show_frequencies", "final_rule",
     }
-    if not isinstance(value, dict) or set(value) != required:
+    allowed = required | {"candidate_source"}
+    if not isinstance(value, dict) or not required.issubset(value) or not set(value).issubset(allowed):
         return None, "strategy fields do not match the grammar"
     if not all(isinstance(value[key], str) and value[key].strip() for key in ("strategy_id", "name", "hypothesis")):
         return None, "strategy identifiers and prose must be nonempty strings"
@@ -640,12 +647,21 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
         return None, "candidate_limit must be 2 through 8"
     if not isinstance(value["show_frequencies"], bool):
         return None, "show_frequencies must be Boolean"
+    candidate_source = value.get("candidate_source", "base_unique")
+    if candidate_source not in CANDIDATE_SOURCES:
+        return None, "unsupported candidate_source"
+    if candidate_source == "committee_delegates" and value["base_count"] != 9:
+        return None, "committee delegates currently require exactly nine base solvers"
+    if value["review_trigger"] == "committee_disagreement" and candidate_source != "committee_delegates":
+        return None, "committee disagreement requires committee delegates"
     if value["review_count"] == 0:
         if value["review_mode"] != "none" or value["review_trigger"] != "never" or value["final_rule"] != "base_plurality":
             return None, "zero-review strategies must be pure base plurality"
     elif value["review_mode"] == "none" or value["review_trigger"] == "never" or value["final_rule"] == "base_plurality":
         return None, "review strategies must specify a real review mode, trigger, and final rule"
-    return dict(value), None
+    normalized = dict(value)
+    normalized["candidate_source"] = candidate_source
+    return normalized, None
 
 
 def validate_strategy_set(document: Any, cases: int) -> list[dict[str, Any]]:
@@ -924,12 +940,23 @@ def plurality(documents: Iterable[dict[str, Any] | None]) -> tuple[dict[str, Any
     }
 
 
-def review_needed(strategy: dict[str, Any], metrics: dict[str, Any]) -> bool:
+def committee_delegates(documents: list[dict[str, Any] | None]) -> list[dict[str, Any] | None]:
+    return [plurality(documents[start : start + 3])[0] for start in range(0, 9, 3)]
+
+
+def review_needed(
+    strategy: dict[str, Any],
+    metrics: dict[str, Any],
+    documents: list[dict[str, Any] | None],
+) -> bool:
     if strategy["review_count"] == 0 or metrics["valid"] == 0:
         return False
     trigger = strategy["review_trigger"]
     if trigger == "always":
         return True
+    if trigger == "committee_disagreement":
+        delegates = [item for item in committee_delegates(documents) if item is not None]
+        return len(delegates) >= 2 and len({canonical(item) for item in delegates}) > 1
     if metrics["unique"] <= 1:
         return False
     if trigger == "any_disagreement":
@@ -944,7 +971,11 @@ def candidates_for(
     base_documents: list[dict[str, Any] | None],
     seed: int,
 ) -> list[dict[str, Any]]:
-    valid = [item for item in base_documents[: strategy["base_count"]] if item is not None]
+    selected = base_documents[: strategy["base_count"]]
+    if strategy.get("candidate_source", "base_unique") == "committee_delegates":
+        valid = [item for item in committee_delegates(selected) if item is not None]
+    else:
+        valid = [item for item in selected if item is not None]
     counts = Counter(canonical(item) for item in valid)
     first_seen: dict[str, int] = {}
     values: dict[str, dict[str, Any]] = {}
@@ -1006,7 +1037,7 @@ def freeze_review_jobs(
         for case_index, case in enumerate(cases):
             documents = base_documents[case["case_id"]][: strategy["base_count"]]
             _, metrics = plurality(documents)
-            if not review_needed(strategy, metrics):
+            if not review_needed(strategy, metrics, documents):
                 continue
             for reviewer_index in range(1, strategy["review_count"] + 1):
                 seed = number * 1_000_000 + strategy_index * 10_000 + case_index * 100 + reviewer_index
@@ -1505,13 +1536,14 @@ def strategy_json_schema() -> dict[str, Any]:
             "review_mode": {"type": "string", "enum": sorted(REVIEW_MODES)},
             "review_style": {"type": "string", "enum": sorted(REVIEW_STYLES)},
             "candidate_limit": {"type": "integer", "minimum": 2, "maximum": 8},
+            "candidate_source": {"type": "string", "enum": sorted(CANDIDATE_SOURCES)},
             "show_frequencies": {"type": "boolean"},
             "final_rule": {"type": "string", "enum": sorted(FINAL_RULES)},
         },
         "required": [
             "strategy_id", "name", "hypothesis", "base_count", "review_count",
             "review_trigger", "review_mode", "review_style", "candidate_limit",
-            "show_frequencies", "final_rule",
+            "candidate_source", "show_frequencies", "final_rule",
         ],
         "additionalProperties": False,
     }
@@ -1569,10 +1601,10 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
         "status_counts": summary["status_counts"],
         "strategies": [
             {
-                key: item[key] for key in (
+                key: item.get(key, "base_unique" if key == "candidate_source" else None) for key in (
                     "strategy_id", "name", "hypothesis", "base_count", "review_count",
                     "review_trigger", "review_mode", "review_style", "candidate_limit",
-                    "show_frequencies", "final_rule", "correct", "total", "accuracy",
+                    "candidate_source", "show_frequencies", "final_rule", "correct", "total", "accuracy",
                     "partial_accuracy", "worst_family_accuracy", "families",
                     "base_oracle_correct", "helpful_interventions", "harmful_interventions",
                     "review_calls_used", "mean_effective_calls", "mean_unique_base_candidates",
@@ -1595,6 +1627,7 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
         + "and the current winner, then fill the remaining slots with your most distinct valid proposals. The maximum bank "
         + "cost is cases times the largest base_count. Each review strategy adds at most cases times review_count. Keep the "
         + "complete six-strategy batch within budget. Strategy IDs must contain only lowercase letters, digits, and hyphens. "
+        + "Every proposal must explicitly set candidate_source to base_unique or committee_delegates. "
         + "A zero-review strategy must use review_mode none, trigger never, and base_plurality. A review strategy must use a "
         + "real mode and review_plurality_fallback_base or review_plus_base_plurality. Base your diagnosis on the numbers, "
         + "especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions."
@@ -1655,6 +1688,55 @@ def run_director(number: int, summary: dict[str, Any]) -> dict[str, Any] | None:
     return result.get("document") if result.get("outcome") == "valid_output" else None
 
 
+def recover_director(number: int) -> None:
+    """Rerun only a failed director stage without touching sealed worker evidence."""
+    initialize()
+    state = load_json(STATE_PATH)
+    if number not in state.get("completed_iterations", []):
+        raise LabError(f"Iteration {number} is not complete")
+    next_directory = iteration_dir(number + 1)
+    if next_directory.exists():
+        raise LabError(f"Iteration {number + 1} has already started")
+    summary = load_json(iteration_dir(number) / "results" / "summary.json")
+    prompt = director_prompt(number, summary)
+    recovery_root = iteration_dir(number) / "director-recoveries"
+    recovery_index = len([path for path in recovery_root.glob("recovery-*") if path.is_dir()]) + 1
+    directory = recovery_root / f"recovery-{recovery_index:02d}"
+    config = protocol()
+    job = {
+        "job_id": f"i{number:03d}-sol-director-recovery-{recovery_index:02d}",
+        "iteration": number,
+        "stage": "director-recovery",
+        "model": config["director_model"],
+        "reasoning_effort": config["director_reasoning_effort"],
+        "researcher_sha256": sha256_file(RESEARCHER_PATH),
+        "prompt": prompt,
+        "output_schema": director_schema(),
+    }
+    atomic_text(directory / "prompt.txt", prompt)
+    result = run_single_registered_job(
+        job,
+        directory,
+        int(config["director_timeout_seconds"]),
+        normalize_director,
+    )
+    atomic_json(directory / "result_summary.json", result)
+    director = result.get("document") if result.get("outcome") == "valid_output" else None
+    if director is None:
+        raise LabError(f"Director recovery failed: {result.get('outcome')}")
+    next_path = strategy_path(number + 1)
+    backup_path = directory / f"superseded-{next_path.name}"
+    if next_path.exists():
+        next_path.rename(backup_path)
+    try:
+        assemble_next_strategies(number, summary, director)
+    except Exception:
+        if backup_path.exists() and not next_path.exists():
+            backup_path.rename(next_path)
+        raise
+    print(f"Director recovery PASS: iteration {number}; rebuilt {next_path.name}")
+
+
 def fixed_strategy(strategy_id: str) -> dict[str, Any]:
     seed = load_json(strategy_path(1))["strategies"]
     return next(dict(item) for item in seed if item["strategy_id"] == strategy_id)
@@ -1673,7 +1755,7 @@ def assemble_next_strategies(
     required_fields = {
         "strategy_id", "name", "hypothesis", "base_count", "review_count",
         "review_trigger", "review_mode", "review_style", "candidate_limit",
-        "show_frequencies", "final_rule",
+        "candidate_source", "show_frequencies", "final_rule",
     }
 
     def add(item: dict[str, Any], reason: str) -> None:
@@ -1882,6 +1964,8 @@ def parser() -> argparse.ArgumentParser:
     one.add_argument("--iteration", type=int)
     continuous = subparsers.add_parser("loop")
     continuous.add_argument("--max-iterations", type=int)
+    recovery = subparsers.add_parser("recover-director")
+    recovery.add_argument("--iteration", type=int, required=True)
     subparsers.add_parser("status")
     return value
 
@@ -1899,6 +1983,8 @@ def main(argv: Iterable[str] | None = None) -> int:
             run_one(args.iteration)
         elif args.command == "loop":
             loop(args.max_iterations)
+        elif args.command == "recover-director":
+            recover_director(args.iteration)
         elif args.command == "status":
             show_status()
     except LabError as exc:

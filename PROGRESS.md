@@ -9,6 +9,7 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 | 3 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 2/12 · 16.7% | 228 |
 | 4 | Nine Solvers plus Three Falsifying Repairers | 6/12 · **50.0%** | 50.0% | 2/12 · 16.7% | 246 |
 | 5 | Nine Solvers plus Three Falsifying Repairers | 9/18 · **50.0%** | 33.3% | 2/18 · 11.1% | 480 |
+| 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
 
 ## Round notes
 
@@ -31,6 +32,10 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 ### Round 5
 
 **Nine Solvers plus Three Falsifying Repairers** won at 9/18 (50.0%). Family results: constraint 66.7%, logic 50.0%, sequence 33.3%. Helpful interventions: 6. Harmful interventions: 0.
+
+### Round 6
+
+**Efficient Five-Bank Falsifying Repair** won at 7/12 (58.3%). Family results: constraint 50.0%, logic 50.0%, sequence 75.0%. Helpful interventions: 3. Harmful interventions: 0.
 
 ## Interpretation
 

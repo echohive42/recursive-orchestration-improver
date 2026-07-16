@@ -1,0 +1,11 @@
+{
+  "attempt_count": 3,
+  "document": null,
+  "duration_ms": 4573,
+  "job_id": "i006-sol-director",
+  "outcome": "infrastructure_exhausted",
+  "reported_model": null,
+  "response_sha256": null,
+  "terminal_attempt": 3,
+  "usage": null
+}
