@@ -1,0 +1,120 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 19 was primarily a candidate-selection result, not a candidate-scarcity result: five-base banks covered 8/12 cases while base plurality solved only 1/12, and nine-base banks covered 9/12 while nine-bank one-review repair solved 6/12. Five-bank three-review repair led at 7/12 with a 50% family floor and six helpful versus zero harmful interventions. Regenerate-then-repair remains promising in aggregate but showed severe integration variance: despite three sequence answers being present in its base bank, it selected none. The next checkpoint should preserve both champions, replicate regeneration unchanged, and use five-bank one-review repair as the clean reviewer-dilution and call-efficiency probe.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Five-bank three-review repair scored 7/12 in Iteration 19, with 6 helpful and 0 harmful interventions, versus a 1/12 base plurality; every family reached at least 2/4.",
+      "Nine-bank one-review repair scored 6/12 with 5 helpful and 0 harmful interventions, but converted only 6 of 9 oracle-covered cases and fell to 1/4 on logic.",
+      "Including Iteration 19, nine-bank one-review repair is 27/54 exact across its operationally equivalent runs; the current panel nevertheless shows that its family balance and candidate selection remain unsettled.",
+      "Regenerate-then-repair is now 21/48 exact, with expanded-oracle coverage of 25/48 versus base-oracle coverage of 19/48, and 17 helpful versus 2 harmful interventions. Its six-case coverage gain is real development evidence, but final selection remains variable.",
+      "In Iteration 19, regenerate-then-repair solved all 4 logic cases but 0/4 sequence cases even though the sequence base bank covered 3/4. This argues for unchanged replication rather than a family-specific modification.",
+      "Five-bank one-review repair previously reached 11/18 with 8 helpful and 0 harmful interventions in Iteration 15. It directly tests whether one reviewer retains most correction benefit while saving two calls per case relative to three-review repair."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-call control unchanged so panel hardness and orchestration gains remain identifiable.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the deterministic five-answer plurality control unchanged to measure the value of candidate selection and answer-generating intervention.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged. A broader independent bank paired with one falsifying repairer tests whether candidate breadth can be integrated without reviewer-panel dilution.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the latest-panel winner unchanged. Its three parallel falsifying repairs provide the principal replicated answer-generating review control.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Holding the five-answer bank and falsifying repair instructions fixed while reducing three reviewers to one tests whether extra reviewers dilute good corrections. It is also the clean call-efficiency probe against five-bank three-review repair.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Replicate the candidate-generation pipeline unchanged on the larger sealed checkpoint. The test is whether its established expanded-oracle gain continues and whether one falsifying integrator reliably converts that gain across families.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      }
+    ],
+    "research_hypotheses": [
+      "If reviewer dilution caused prior variability, five-bank one-review repair should preserve a positive correction balance while approaching or exceeding five-bank three-review accuracy with two fewer calls per case.",
+      "Comparing the two one-review systems isolates whether four additional base answers improve exact accuracy and family balance enough to justify their extra calls.",
+      "If blind regeneration is a transferable candidate-generation primitive, its expanded-oracle advantage over the shared five-answer bank should persist on 18 fresh cases.",
+      "If integration rather than coverage is the dominant bottleneck, oracle-to-final conversion and harmful reversals will distinguish the repair systems more strongly than raw bank size."
+    ],
+    "risk_note": "This six-strategy batch costs at most 324 Luna calls under the shared-bank accounting rule: 18×9=162 base calls plus 18×(1+3+1+4)=162 follow-up calls, leaving 176 calls of headroom. Panel-to-panel and family-level variance remain large, so no single 18-case result should be treated as validation. Pool results strictly by operational fields, and separately track base oracle, expanded oracle, helpful corrections, harmful reversals, and family floors."
+  },
+  "duration_ms": 94089,
+  "job_id": "i019-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "854b042a1b10d799b30dbab85e303a1ded6016847067c69867e08387f2cca23f",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 21200,
+    "output_tokens": 4968,
+    "reasoning_output_tokens": 3624
+  }
+}

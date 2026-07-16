@@ -40,6 +40,8 @@ Iteration 17 replicated regenerate-then-repair at 5/12 versus 3/12 for five-bank
 
 Iteration 18 gave regenerate-then-repair 8/12 with 50% weakest-family accuracy. Across three panels it is 16/36 exact, expanded oracle 16/36 versus base oracle 11/36, thirteen helpful and two harmful interventions; logic remains weakest at 4/12. Nine-bank one-review repair also scored 8/12. Across its operationally equivalent runs it is 21/42 exact with 42.9% weakest-family accuracy, making it the new pooled champion on current point estimates. Both samples remain development evidence and require unchanged replication.
 
+Iteration 19 returned the fresh-panel lead to five-bank three-review repair at 7/12, versus 6/12 for nine-bank one-review repair and 5/12 for regenerate-then-repair. The five-base oracle was 8/12, so selection rather than coverage dominated. Across four pipeline panels it is 21/48 exact, expanded oracle 25/48 versus base oracle 19/48, seventeen helpful and two harmful interventions; its weakest family is 5/16. The long-run five-bank three-review mechanism is again the pooled champion by weakest-family accuracy. Preserve both at the Iteration 20 checkpoint.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
