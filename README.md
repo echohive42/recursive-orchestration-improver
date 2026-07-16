@@ -72,6 +72,8 @@ The retention fix affects future strategy selection, not historical scores. It n
 
 [Read the round-by-round progress notes](PROGRESS.md)
 
+[Read the matched 30-iteration deep evaluation](DEEP_EVALUATION_ITERATIONS_1_30.md)
+
 > [!NOTE]
 > Every point uses a different fresh sealed panel. This is an honest sequence of research outcomes, not a conventional training curve. Final performance still requires a frozen system and untouched validation.
 <!-- LIVE_PROGRESS_END -->

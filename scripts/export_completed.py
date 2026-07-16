@@ -131,6 +131,19 @@ def export(source_root: Path, through: int | None = None) -> None:
     for name in ("run.py", "researcher.md"):
         copy_file(source_root / name, PUBLIC_ROOT / name)
 
+    # Publish completed, reproducible checkpoint audits only after their full
+    # evidence boundary is included in the snapshot.
+    if max(completed) >= 30:
+        for relative in (
+            "DEEP_EVALUATION_ITERATIONS_1_30.md",
+            "deep_evaluate.py",
+            "analysis/iteration-030-summary.json",
+            "analysis/iteration-030-mechanisms.csv",
+            "analysis/iteration-030-paired.csv",
+            "plots/deep-evaluation-30.svg",
+        ):
+            copy_if_present(source_root / relative, PUBLIC_ROOT / relative)
+
     public_protocol = load_json(source_root / "protocol.json")
     generator_source = (source_root / public_protocol["panel_generation"]["source"]).resolve()
     public_protocol["panel_generation"]["source"] = "scripts/generate_extreme_calibration.py"
