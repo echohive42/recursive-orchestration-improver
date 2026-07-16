@@ -1,0 +1,11 @@
+{
+  "jobs": 18,
+  "jobs_sha256": "203c80878448a915e660f9d0773733bbd63551f60932b1c372a8a6b3f99d680c",
+  "layer": 2,
+  "model": "gpt-5.6-luna",
+  "prior_layer_outputs_sha256": "acfd16767cb474afc2d46a62e3f9d60a46da67c4ac2efda28d29dac57a803f66",
+  "reasoning_effort": "low",
+  "registered_at": "2026-07-16T19:29:41.681Z",
+  "registered_before_calls": true,
+  "sealed_answers_unopened": true
+}

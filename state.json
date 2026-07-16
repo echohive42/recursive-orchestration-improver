@@ -35,17 +35,18 @@
     26,
     27,
     28,
-    29
+    29,
+    30
   ],
   "created_at": "2026-07-16T08:00:16.409Z",
-  "current_strategy_file": "strategies/iteration-030.json",
+  "current_strategy_file": "strategies/iteration-031.json",
   "experiment_id": "orchestration-autoresearch-lab-v1",
-  "next_iteration": 30,
+  "next_iteration": 31,
   "notes": [
     "Fresh panels are disposable search evidence, not independent final validation.",
     "The main agent may revise researcher.md between iterations; every director call records its hash."
   ],
-  "snapshot_scope": "completed iterations 1-29",
+  "snapshot_scope": "completed iterations 1-30",
   "status": "public-snapshot",
-  "updated_at": "2026-07-16T19:12:17.111Z"
+  "updated_at": "2026-07-16T19:33:41.641Z"
 }
