@@ -38,6 +38,8 @@
     29,
     30
   ],
+  "concluded_after_iteration": 30,
+  "continuation_not_launched": true,
   "created_at": "2026-07-16T08:00:16.409Z",
   "current_strategy_file": "strategies/iteration-031.json",
   "experiment_id": "orchestration-autoresearch-lab-v1",
@@ -47,6 +49,6 @@
     "The main agent may revise researcher.md between iterations; every director call records its hash."
   ],
   "snapshot_scope": "completed iterations 1-30",
-  "status": "public-snapshot",
+  "status": "concluded-public-snapshot",
   "updated_at": "2026-07-16T19:33:41.641Z"
 }

@@ -168,11 +168,15 @@ def export(source_root: Path, through: int | None = None) -> None:
     copy_file(generator_source, PUBLIC_ROOT / "scripts" / "generate_extreme_calibration.py")
 
     public_state = dict(state)
-    public_state["status"] = "public-snapshot"
+    concluded = max(completed) >= 30 and (PUBLIC_ROOT / "transfer/cross-model-screen/results/summary.json").is_file()
+    public_state["status"] = "concluded-public-snapshot" if concluded else "public-snapshot"
     public_state["snapshot_scope"] = f"completed iterations {min(completed)}-{max(completed)}"
     public_state["completed_iterations"] = completed
     public_state["next_iteration"] = max(completed) + 1
     public_state["current_strategy_file"] = f"strategies/iteration-{max(completed) + 1:03d}.json"
+    if concluded:
+        public_state["concluded_after_iteration"] = max(completed)
+        public_state["continuation_not_launched"] = True
     write_json(PUBLIC_ROOT / "state.json", public_state)
 
     next_iteration = max(completed) + 1

@@ -1,86 +1,54 @@
 # Recursive Orchestration Improver
 
-### A self-improving search for better agent orchestration
+### Final research record: 30 rounds, 396 sealed cases, 7,535 Luna Light calls, and one cross-model transfer screen
 
-What happens when independent AI solvers are allowed to disagree, then a second group tries to repair their answers instead of merely judging them?
+[Echohive](https://www.echohive.ai/) · [Get Amplified](https://www.echohive.ai/get-amplified) · [1000x Lab](https://www.echohive.ai/1000x-lab)
 
-Recursive Orchestration Improver is a small, reproducible auto-research system that searches for domain-neutral ways to organize agents. Luna Light workers solve fresh, sealed sequence, planning, and logic problems. A Sol research director studies the results and proposes the next orchestration batch. A human-guided Codex agent remains the meta-director, improving both the search direction and the improver itself.
+This repository asked a practical question: **can a small outer research loop discover agent organizations that solve exact problems better, and can that loop keep improving them over time?**
 
-The recursion is in the research process, not the model weights: each completed experiment changes how the next swarm is designed, while fresh panels test whether those changes actually help.
+The concise answer is:
 
-> **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
+- **Orchestration worked.** Independent repair substantially outperformed direct answering and simple voting on matched Luna Light cases.
+- **Recursive improvement did not.** The retained repair swarm remained useful, but its accuracy did not trend upward across 30 rounds.
+- **Selection became the bottleneck.** Later systems often generated useful candidates but did not reliably integrate or choose among them.
+- **More depth was not universally better.** One repair pass was the best efficient default; deeper cross-examination helped only when the evaluator had enough capability and headroom.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains 30 completed research rounds and the registered strategy for Round 31. The numbers below are promising development evidence, not independent final validation.
+> This experiment is concluded. The evidence is developmental, uses three exact symbolic families, and does not establish unrelated-domain generality. Round 31 remains in the repository as a proposed continuation, but it was not launched.
 
-## Explore the wider lab
+![Final conclusions: orchestration effect, plateau, and cross-model implication](images/final-conclusions.svg)
 
-- [Echohive](https://www.echohive.ai/) is a living laboratory for building better with AI, seeing markets more clearly, and strengthening the mind behind both.
-- [Get Amplified](https://www.echohive.ai/get-amplified) is an evolving field guide across AI mastery, markets, and the Latent Lab of the Mind.
-- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday room where AI, markets, and mind meet, new ideas are tested, and useful methods are worked out together.
+## The strongest evidence
 
-<!-- LIVE_PROGRESS_START -->
-## Live research progress
+The same fixed five-solver plus three-repairer mechanism ran on 354 sealed Luna Light cases. On those identical cases:
 
-**30 completed rounds.** Latest panel winner: **Sequential Five-Bank Cross-Examination**, **7/18 (38.9%)**, with **16.7%** weakest-family accuracy.
+| Organization | Exact accuracy |
+|---|---:|
+| Direct one-call baseline | 33/354 · **9.3%** |
+| Five-solver plurality | 44/354 · **12.4%** |
+| Five solvers + three falsifying repairers | 146/354 · **41.2%** |
 
-**Best single-panel observation:** **Blind Regeneration then Falsifying Integration**, **8/12 (66.7%)** in Round 18. This is one panel, not the expected accuracy of a new architecture.
+The repair swarm gained **28.8 percentage points** over plurality. It made **107 helpful corrections** and **5 harmful reversals**.
 
-**Leading replicated mechanisms:**
+That is the clearest result in the repository: independent answer-generating repair can recover solutions that a simple vote misses.
 
-| Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
-|---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 27 | 146/354 · **41.2%** | 36.4% | 8.0 |
-| Nine-Bank One-Selector Falsifying Selection | 6 | 32/84 · **38.1%** | 35.7% | 10.0 |
+## What did not improve
 
-The retention fix affects future strategy selection, not historical scores. It now groups operationally identical systems across panels and retains repeated evidence instead of the latest panel winner.
+The fixed repair swarm did not become more accurate as the outer loop continued:
 
-| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |
-|---:|---|---:|---:|---:|---:|
-| 1 | Five Solvers plus Three Repairers | 6/12 · **50.0%** | 25.0% | 1/12 · 8.3% | 252 |
-| 2 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 273 |
-| 3 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 2/12 · 16.7% | 228 |
-| 4 | Nine Solvers plus Three Falsifying Repairers | 6/12 · **50.0%** | 50.0% | 2/12 · 16.7% | 246 |
-| 5 | Nine Solvers plus Three Falsifying Repairers | 9/18 · **50.0%** | 33.3% | 2/18 · 11.1% | 480 |
-| 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
-| 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
-| 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
-| 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
-| 10 | One-Review Five-Bank Falsifying Repair | 9/18 · **50.0%** | 33.3% | 0/18 · 0.0% | 342 |
-| 11 | Nine Solvers plus Three Falsifying Repairers | 3/12 · **25.0%** | 0.0% | 2/12 · 16.7% | 202 |
-| 12 | Sequential Five-Bank Cross-Examination | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 221 |
-| 13 | Efficient Five-Bank Falsifying Repair | 3/12 · **25.0%** | 25.0% | 0/12 · 0.0% | 221 |
-| 14 | One-Review Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 204 |
-| 15 | One-Review Five-Bank Falsifying Repair | 11/18 · **61.1%** | 50.0% | 3/18 · 16.7% | 306 |
-| 16 | Blind Regeneration then Falsifying Integration | 3/12 · **25.0%** | 0.0% | 1/12 · 8.3% | 205 |
-| 17 | Blind Regeneration then Falsifying Integration | 5/12 · **41.7%** | 0.0% | 0/12 · 0.0% | 192 |
-| 18 | Blind Regeneration then Falsifying Integration | 8/12 · **66.7%** | 50.0% | 4/12 · 33.3% | 216 |
-| 19 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 240 |
-| 20 | Efficient Five-Bank Falsifying Repair | 6/18 · **33.3%** | 33.3% | 2/18 · 11.1% | 324 |
-| 21 | Efficient Five-Bank Falsifying Repair | 8/12 · **66.7%** | 50.0% | 3/12 · 25.0% | 192 |
-| 22 | One-Review Nine-Bank Falsifying Repair | 7/12 · **58.3%** | 25.0% | 2/12 · 16.7% | 237 |
-| 23 | Blind Regeneration then Falsifying Integration | 4/12 · **33.3%** | 25.0% | 0/12 · 0.0% | 240 |
-| 24 | Nine-Bank Falsifying Selection Panel | 6/12 · **50.0%** | 25.0% | 2/12 · 16.7% | 233 |
-| 25 | Efficient Five-Bank Falsifying Repair | 10/18 · **55.6%** | 33.3% | 3/18 · 16.7% | 360 |
-| 26 | Efficient Five-Bank Falsifying Repair | 6/12 · **50.0%** | 50.0% | 0/12 · 0.0% | 240 |
-| 27 | Nine-Bank One-Selector Falsifying Selection | 7/12 · **58.3%** | 50.0% | 0/12 · 0.0% | 216 |
-| 28 | Nine-Bank One-Selector Falsifying Selection | 6/12 · **50.0%** | 50.0% | 1/12 · 8.3% | 216 |
-| 29 | Sequential Five-Bank Cross-Examination | 4/12 · **33.3%** | 25.0% | 1/12 · 8.3% | 204 |
-| 30 | Sequential Five-Bank Cross-Examination | 7/18 · **38.9%** | 16.7% | 2/18 · 11.1% | 306 |
+| Development phase | Exact accuracy |
+|---|---:|
+| Rounds 1-10 | 45/102 · **44.1%** |
+| Rounds 11-20 | 47/120 · **39.2%** |
+| Rounds 21-30 | 54/132 · **40.9%** |
 
-![Research progress across completed rounds](images/progress.svg)
+Later mechanisms did not show a persuasive matched advantage over the retained swarm. The outer loop found a robust pattern early, then mostly explored nearby variants inside a constrained strategy grammar.
 
-[Read the round-by-round progress notes](PROGRESS.md)
+The research director proposed a more explicit evidence-board architecture 12 times, but the experiment grammar never implemented it. This is an important failure mode for self-improving systems: **the improver cannot explore mechanisms its own representation cannot express.**
 
-[Read the matched 30-iteration deep evaluation](DEEP_EVALUATION_ITERATIONS_1_30.md)
+## Cross-model transfer
 
-> [!NOTE]
-> Every point uses a different fresh sealed panel. This is an honest sequence of research outcomes, not a conventional training curve. Final performance still requires a frozen system and untouched validation.
-<!-- LIVE_PROGRESS_END -->
-
-## Cross-model transfer screen
-
-The same five organizations were replayed on 12 answer-blind historical cases with Terra Low and Luna Medium. Luna Light is the exact historical reference on those cases.
+Five fixed organizations were replayed on the same 12 historical cases with Luna Light, Terra Low, and Luna Medium.
 
 | Organization | Luna Light | Terra Low | Luna Medium |
 |---|---:|---:|---:|
@@ -90,98 +58,76 @@ The same five organizations were replayed on 12 answer-blind historical cases wi
 | Three parallel repairers | 33.3% | **91.7%** | 83.3% |
 | Sequential cross-examination | 8.3% | **91.7%** | **91.7%** |
 
-The directional result is that orchestration depth depends on evaluator capability and remaining headroom. One repairer was the most efficient default. Sequential cross-examination produced the highest Luna Medium ceiling, while adding depth hurt Luna Light and added no accuracy for the already-strong Terra bank.
-
-This is a 12-case same-distribution transfer screen, not validated general performance. [Read the full interpretation](transfer/cross-model-screen/POST_RUN_ANALYSIS.md).
-
 ![Cross-model orchestration transfer](transfer/cross-model-screen/results/transfer.svg)
 
-## Initial repair signal (Rounds 1-3)
+The practical routing rule from this small screen is:
 
-One stable system appeared in all three completed iterations:
+> **Start with five independent answers, add one falsifying repairer, and escalate to deeper review only after calibration shows that the model can use it.**
 
-> **Five independent solvers → three independent answer-generating repairers → deterministic repair plurality, with base plurality as fallback**
+One repairer was the most efficient default. Deeper cross-examination raised the Luna Medium ceiling, added no accuracy for the already-strong Terra bank, and hurt Luna Light. This transfer screen is only 12 cases, with wide uncertainty.
 
-| Fresh panel | Direct answer | Five-vote plurality | Repair swarm | Helpful repairs | Harmful repairs |
-|---|---:|---:|---:|---:|---:|
-| Iteration 1 | 1/12 · 8.3% | 1/12 · 8.3% | **6/12 · 50.0%** | 5 | 0 |
-| Iteration 2 | 0/12 · 0.0% | 0/12 · 0.0% | **5/12 · 41.7%** | 5 | 0 |
-| Iteration 3 | 2/12 · 16.7% | 2/12 · 16.7% | **5/12 · 41.7%** | 3 | 0 |
-| **Combined** | **3/36 · 8.3%** | **3/36 · 8.3%** | **16/36 · 44.4%** | **13** | **0** |
+## What the search learned
 
-![Iterations 1–3 comparison](images/iterations-1-3-comparison.svg)
+1. **Repair is more valuable than another vote when the base bank contains complementary partial reasoning.**
+2. **Candidate generation and candidate selection are different problems.** More solvers do not help if the final selector cannot identify the right candidate.
+3. **One strong repair pass is a good default.** Extra repair layers should earn their cost empirically.
+4. **Orchestration depth is capability-dependent.** A weaker evaluator can be confused by more transcripts and more branches.
+5. **Fresh panels prevent false learning curves.** Round-to-round dips mostly reflect panel difficulty and ordinary variance.
+6. **A recursive improver is limited by its search language.** Repeatedly recommending an unavailable architecture does not make that architecture testable.
+7. **Logic remained the weakest family.** Sequence gains transferred more readily than the hardest logic and constraint cases.
 
-Across these 36 fresh problems, the repair swarm solved over five times as many cases as either simple baseline. Its pooled accuracy was strongest on sequences at 66.7%, while planning and logic each reached 33.3%.
+## What this experiment did not establish
 
-That does **not** mean performance improved from 50.0% to 41.7% to 41.7%. Every iteration used a different sealed panel. The three points are replications on new small samples, not a learning curve.
+- General performance outside sequence, logic, and constraint-planning tasks
+- A universal 91.7% orchestration result
+- Continuous self-improvement across rounds
+- That more agents are always better
+- That one model's ideal orchestration transfers unchanged to another
 
-## How the loop works
+## Evidence and audit trail
 
-1. Generate a fresh exact-verifiable panel with four sequence, four planning, and four logic cases.
-2. Freeze the panel, answer hash, protocol, strategies, and every worker prompt before execution.
+- [Matched 30-round deep evaluation](DEEP_EVALUATION_ITERATIONS_1_30.md)
+- [Deep evaluation plot](plots/deep-evaluation-30.svg)
+- [Complete round-by-round record](PROGRESS.md)
+- [All-round progress plot](images/progress.svg)
+- [Cross-model transfer analysis](transfer/cross-model-screen/POST_RUN_ANALYSIS.md)
+- [Cross-model protocol and reproducibility notes](transfer/cross-model-screen/README.md)
+- [Machine-readable 30-round summary](analysis/iteration-030-summary.json)
+
+Every completed panel, registered prompt, compact terminal result, score, strategy, and answer key needed to audit the published results is included. Raw runtime streams, local paths, and active partial work are excluded.
+
+## How the experiment worked
+
+1. Generate a fresh exact-verifiable panel across sequence, constraint planning, and logic.
+2. Freeze the panel, answer hash, protocol, strategies, and worker prompts.
 3. Run the registered Luna Light solver and reviewer calls.
-4. Open the sealed answers only after all worker calls are terminal.
-5. Score exact and partial accuracy, family performance, cost, helpful repairs, and harmful reversals.
-6. Let a Sol xhigh research director diagnose the evidence and propose the next small batch.
-7. Preserve fixed controls and the current winner while testing new mechanisms on another fresh panel.
+4. Open the sealed answers only after every call is terminal.
+5. Score exact accuracy, family performance, cost, helpful repairs, and harmful reversals.
+6. Let a Sol xhigh research director inspect the evidence and propose the next batch.
+7. Preserve replicated controls while testing new mechanisms on another fresh panel.
 
-That creates a compact recursive loop:
+The recursion was in the research process, not model weights:
 
-> **swarm → evidence → research director → meta-director → improved swarm**
+> **swarm → evidence → research director → meta-director → next swarm**
 
-Only infrastructure failures are retried. Valid but wrong, malformed, or protocol-violating outputs are kept as outcomes. The answer key is never included in a worker prompt.
+## Reproduce and inspect
 
-## What appears interesting so far
-
-- Independent repair can add answers that were absent from the original solver bank.
-- More voters did not reliably improve plurality. Candidate availability and answer selection are different problems.
-- A repair layer helped on 13 observed cases without an observed harmful reversal in this system.
-- More elaborate variants were not automatically better. In Iteration 3, five repairers reached 25%, while a smaller one-anchor plus three-rederiver system reached 33.3% at half the calls per problem.
-- Sequence performance is encouraging, but planning and logic remain weak. Those families are the current frontier.
-
-The zero-harm observation should be interpreted cautiously. Correct base answers were uncommon, so there were relatively few opportunities to measure harmful reversals.
-
-## What is still unknown
-
-- Whether the result survives a larger untouched validation set
-- Whether it transfers beyond the three exact symbolic families used for development
-- Whether repair remains beneficial when the base model is already frequently correct
-- Whether similar gains can be achieved with fewer than eight calls per problem
-
-No system should be called general until it is frozen and tested on genuinely different, untouched problem families.
-
-## Repository map
-
-```text
-run.py                         resumable experiment runner and scorer
-protocol.json                  models, budgets, sealing, retries, and selection
-researcher.md                  seed for the Sol research director
-scripts/                       panel generator and safe public-snapshot exporter
-strategies/                    exact strategy batch registered for each iteration
-iterations/iteration-00N/
-  panel/                       public cases, completed answer key, and hashes
-  base/jobs.jsonl              every registered base prompt
-  base/results.jsonl           every compact terminal base result
-  review/jobs.jsonl            every registered review prompt
-  review/results.jsonl         every compact terminal review result
-  director/                    prompt, request registration, and proposal
-  results/                     case-level scores, summary, CSV, and plot
-images/                        cross-iteration explanatory chart
-```
-
-Completed answer keys are public so the results can be audited. The active panel and partial outputs for the next round are intentionally absent. Its strategy file is included to show the registered research direction without leaking or freezing a mid-run result.
-
-## Run it
-
-The runner and generator use only the Python standard library. An authenticated Codex CLI with access to the configured models is required for actual model calls.
+The audit and renderer use the Python standard library.
 
 ```bash
 python3 scripts/validate_snapshot.py
-python3 run.py status
-python3 run.py one
+python3 deep_evaluate.py
+python3 scripts/render_final_conclusions.py
+python3 transfer/cross-model-screen/run_transfer.py status
 ```
 
-`python3 run.py loop` continues until a file named `STOP` is present or the process receives an interrupt. Review model names, service tier, concurrency, and budgets in `protocol.json` before launching calls.
+The actual model calls require an authenticated Codex CLI. The registered Luna Light calls ran through Codex CLI; Codex also coordinated the experiment and preserved its audit trail.
+
+## Explore the wider lab
+
+- [Echohive](https://www.echohive.ai/) is a living laboratory for building better with AI, seeing markets more clearly, and strengthening the mind behind both.
+- [Get Amplified](https://www.echohive.ai/get-amplified) is the evolving field guide for mastering current AI tools, following the frontier, and expanding what one person can attempt.
+- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday room where new AI methods, market signals, and ideas about mind are tested together.
 
 ## License
 

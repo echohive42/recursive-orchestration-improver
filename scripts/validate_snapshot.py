@@ -133,6 +133,10 @@ def main() -> None:
 
     transfer = ROOT / "transfer" / "cross-model-screen"
     if transfer.is_dir():
+        if max(completed) >= 30:
+            assert state["status"] == "concluded-public-snapshot"
+            assert state["concluded_after_iteration"] == 30
+            assert state["continuation_not_launched"] is True
         required = (
             "README.md",
             "POST_RUN_ANALYSIS.md",

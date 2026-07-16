@@ -1,6 +1,6 @@
 # Research progress
 
-This page is regenerated only after a round is fully sealed, scored, and followed by a registered next strategy. Active partial work is never published.
+This is the final round-by-round record for the concluded 30-round search. Round 31 is preserved only as a proposed continuation and was not launched.
 
 ## How to read this
 
@@ -13,7 +13,7 @@ The best single-panel observation is **Blind Regeneration then Falsifying Integr
 | Efficient Five-Bank Falsifying Repair | 27 | 146/354 · **41.2%** | 36.4% | 8.0 |
 | Nine-Bank One-Selector Falsifying Selection | 6 | 32/84 · **38.1%** | 35.7% | 10.0 |
 
-These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
+These are the final development estimates for this concluded run. The full record is retained for auditability, not as a claim of independent validation.
 
 The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.
 

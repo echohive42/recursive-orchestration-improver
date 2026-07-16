@@ -226,6 +226,13 @@ def render_progress(rounds: list[dict]) -> None:
     completed = [item["iteration"] for item in rounds]
     table = progress_table(rounds)
     state = load(ROOT / "state.json")
+    concluded = str(state.get("status", "")).startswith("concluded")
+    section_title = "Completed research record" if concluded else "Live research progress"
+    retention_note = (
+        "These are the final development estimates for this concluded run. Round 31 is preserved only as a proposed continuation and was not launched."
+        if concluded
+        else "These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them."
+    )
     best = state.get("best_observed", {})
     replicated = pooled_rankings(rounds)
     replicated_leaders = replicated[:2]
@@ -245,7 +252,7 @@ def render_progress(rounds: list[dict]) -> None:
     )
 
     block = f'''{LIVE_START}
-## Live research progress
+## {section_title}
 
 **{len(rounds)} completed rounds.** Latest panel winner: **{latest['name']}**, **{latest['correct']}/{latest['total']} ({percent(latest['accuracy'])})**, with **{percent(latest['worst_family_accuracy'])}** weakest-family accuracy.
 
@@ -269,29 +276,34 @@ The retention fix affects future strategy selection, not historical scores. It n
 > Every point uses a different fresh sealed panel. This is an honest sequence of research outcomes, not a conventional training curve. Final performance still requires a frozen system and untouched validation.
 {LIVE_END}'''
 
-    readme_path = ROOT / "README.md"
-    readme = readme_path.read_text(encoding="utf-8")
-    if LIVE_START in readme and LIVE_END in readme:
-        before, remainder = readme.split(LIVE_START, 1)
-        _, after = remainder.split(LIVE_END, 1)
-        readme = before + block + after
-    else:
-        marker = "## Initial repair signal (Rounds 1-3)"
-        if marker not in readme:
-            raise ValueError(f"README insertion marker missing: {marker}")
-        readme = readme.replace(marker, block + "\n\n" + marker, 1)
+    if not concluded:
+        readme_path = ROOT / "README.md"
+        readme = readme_path.read_text(encoding="utf-8")
+        if LIVE_START in readme and LIVE_END in readme:
+            before, remainder = readme.split(LIVE_START, 1)
+            _, after = remainder.split(LIVE_END, 1)
+            readme = before + block + after
+        else:
+            marker = "## Initial repair signal (Rounds 1-3)"
+            if marker not in readme:
+                raise ValueError(f"README insertion marker missing: {marker}")
+            readme = readme.replace(marker, block + "\n\n" + marker, 1)
 
-    readme = rephrase_snapshot_count(readme, len(rounds), max(completed) + 1)
-    write(readme_path, readme)
+        readme = rephrase_snapshot_count(readme, len(rounds), max(completed) + 1)
+        write(readme_path, readme)
 
     details = [
         "# Research progress\n",
-        "This page is regenerated only after a round is fully sealed, scored, and followed by a registered next strategy. Active partial work is never published.\n",
+        (
+            "This is the final round-by-round record for the concluded 30-round search. Round 31 is preserved only as a proposed continuation and was not launched.\n"
+            if concluded
+            else "This page is regenerated only after a round is fully sealed, scored, and followed by a registered next strategy. Active partial work is never published.\n"
+        ),
         "## How to read this\n",
         f"The best single-panel observation is **{best_winner['name']}** at **{best_winner['correct']}/{best_winner['total']} ({percent(best_winner['accuracy'])})** in Round {best_summary['iteration']}.\n",
         "## Leading replicated mechanisms\n",
         replicated_table + "\n",
-        "These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.\n",
+        retention_note + "\n",
         "The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.\n",
         "| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |",
         "|---:|---|---:|---:|---:|---:|",
