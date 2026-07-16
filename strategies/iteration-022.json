@@ -1,0 +1,101 @@
+{
+  "assembled_at": "2026-07-16T15:13:22.512Z",
+  "director_available": true,
+  "iteration": 22,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "committee-delegate-falsify-9x3-fusion": "Sol research-director proposal",
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "regenerate-then-repair-5x3x1": "Sol research-director proposal",
+    "repair-falsify-5x3-efficient": "pooled champion across 18 fresh panels: 100/234 exact; 41.0% weakest family",
+    "repair-falsify-9x1-efficient": "Sol research-director proposal"
+  },
+  "source": "mechanical anchors plus iteration 21 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Retain the pooled champion unchanged. Its parallel falsifying repair panel remains the principal replicated control for answer-generating review.",
+      "name": "Efficient Five-Bank Falsifying Repair",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x3-efficient"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 8,
+      "candidate_source": "base_unique",
+      "final_rule": "generated_review_fallback_base",
+      "hypothesis": "Replicate the frozen pipeline unchanged. Its pooled regeneration gain of nine additional oracle-covered cases and strongly positive intervention balance remain promising, while another sealed panel will test whether Iteration 21's zero generation gain was panel variance.",
+      "name": "Blind Regeneration then Falsifying Integration",
+      "review_count": 4,
+      "review_mode": "regenerate_then_repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Retain the operationally equivalent nine-bank one-review mechanism as the close allocation and call-efficiency probe. It tests whether spending calls on independent candidate coverage rather than extra reviewers can overcome the selector gap on a fresh panel.",
+      "name": "One-Review Nine-Bank Falsifying Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x1-efficient"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 3,
+      "candidate_source": "committee_delegates",
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Test a genuinely different selection architecture. Three disjoint committee delegates expose independent support structure to falsifying selectors, while delegate fusion retains one deterministic base-plurality anchor against weak-review reversals.",
+      "name": "Committee-Delegate Falsifying Selection with Fusion",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "committee_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "committee-delegate-falsify-9x3-fusion"
+    }
+  ]
+}

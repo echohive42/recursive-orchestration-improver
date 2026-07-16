@@ -1,0 +1,119 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 22 again makes logic the weakest family: every reviewed system reached only 1/4 logic exact, despite the nine-bank oracle covering 2/4 logic cases. Selection therefore remains a bottleneck. The nine-bank one-review mechanism led at 7/12 by making five helpful and zero harmful interventions; the five-bank three-review champion reached 6/12 with four helpful and zero harmful interventions. Regenerate-then-repair reached 5/12 and increased oracle coverage from 5/12 to 7/12 by introducing two correct candidates, but failed to select both covered answers. Across seven pipeline panels, it is now 36/90 exact, with 48/90 expanded-oracle coverage versus 37/90 base-oracle coverage, 26 helpful interventions, and three harmful reversals. The next batch should therefore retain both repair allocations, replicate regeneration unchanged, and use sequential cross-examination as the orthogonal selector architecture.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Nine-bank one-review repair won Iteration 22 at 7/12, improving a 2/12 base plurality through five helpful interventions and no harmful reversals.",
+      "Five-bank three-review repair remained competitive at 6/12, with four helpful and zero harmful interventions, preserving its value as the pooled champion.",
+      "Regenerate-then-repair generated two newly correct candidates and raised coverage from 5/12 to 7/12, but converted only 5/12; candidate integration remains unresolved.",
+      "Logic was only 1/4 for every reviewed strategy, while the nine-bank oracle was 2/4, directly exposing a domain-neutral selection gap.",
+      "The proposed six-strategy batch has a worst-case cost of 240 calls: 108 shared base-bank calls plus 132 review or regeneration calls, below the 300-call cap."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-cost independent baseline for panel calibration and marginal-call comparisons.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain deterministic five-answer plurality as the shared-bank control for measuring the net value of every intervention.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged; its replicated parallel repair panel remains the principal control for answer-generating falsification.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the current winner unchanged to test whether allocating calls to broader independent coverage and one decisive reviewer continues to avoid multi-reviewer dilution.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Replicate the frozen pipeline unchanged because regeneration continues to add correct candidates and its pooled helpful-to-harmful intervention balance remains strongly positive; the test is whether the terminal integrator can close more of the expanded-oracle gap.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Sequential falsification may improve candidate integration by forcing each reviewer to attack one explicit predecessor proposal, providing an orthogonal test against independent review plurality without increasing the champion's call count.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The Iteration 22 lead of nine-bank one-review repair reflects a real allocation advantage: broader candidate coverage plus one reviewer is more reliable than three independent reviewers over five bases.",
+      "Blind regeneration has a reproducible domain-neutral coverage benefit, but final accuracy is constrained primarily by integration rather than generation.",
+      "Sequential cross-examination can reduce selector variance by making decisive claims explicit and falsifiable across stages.",
+      "Logic weakness will improve only if selection or repair converts already-covered candidates; merely enlarging the bank is insufficient."
+    ],
+    "risk_note": "All results remain noisy development evidence from small fresh panels, and the advanced systems shared a 25% weakest-family result in Iteration 22. The pipeline's 12-answer expanded-oracle gap and three pooled harmful reversals remain material. No mechanism should be called general until it wins unchanged on larger sealed panels and untouched exact-verifiable families."
+  },
+  "duration_ms": 61675,
+  "job_id": "i022-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "3fbcc7eaf9075d0462bc15a9ce72321dda0e95aa154b3fa3fe29abc172a1ade1",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 22025,
+    "output_tokens": 3283,
+    "reasoning_output_tokens": 2070
+  }
+}

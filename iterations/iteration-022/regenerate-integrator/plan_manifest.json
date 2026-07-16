@@ -1,0 +1,7 @@
+{
+  "derived_only_from_public_cases_and_base_outputs": true,
+  "plan_sha256": "514b947578ee87852c45bc33b3bb841882e0c4c66570211a16a3f6006d8670e0",
+  "planned_integrator_calls": 12,
+  "registered_before_regeneration_calls": true,
+  "sealed_answers_unopened": true
+}

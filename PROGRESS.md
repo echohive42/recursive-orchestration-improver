@@ -10,8 +10,8 @@ The best single-panel observation is **Blind Regeneration then Falsifying Integr
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 17 | 92/222 · **41.4%** | 39.2% | 8.0 |
-| Blind Regeneration then Falsifying Integration | 5 | 26/66 · **39.4%** | 31.8% | 8.9 |
+| Efficient Five-Bank Falsifying Repair | 19 | 106/246 · **43.1%** | 41.5% | 8.0 |
+| Blind Regeneration then Falsifying Integration | 7 | 36/90 · **40.0%** | 33.3% | 9.0 |
 
 These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
@@ -39,6 +39,8 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 18 | Blind Regeneration then Falsifying Integration | 8/12 · **66.7%** | 50.0% | 4/12 · 33.3% | 216 |
 | 19 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 240 |
 | 20 | Efficient Five-Bank Falsifying Repair | 6/18 · **33.3%** | 33.3% | 2/18 · 11.1% | 324 |
+| 21 | Efficient Five-Bank Falsifying Repair | 8/12 · **66.7%** | 50.0% | 3/12 · 25.0% | 192 |
+| 22 | One-Review Nine-Bank Falsifying Repair | 7/12 · **58.3%** | 25.0% | 2/12 · 16.7% | 237 |
 
 ## Round notes
 
@@ -121,6 +123,14 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 20
 
 **Efficient Five-Bank Falsifying Repair** won at 6/18 (33.3%). Family results: constraint 33.3%, logic 33.3%, sequence 33.3%. Helpful interventions: 4. Harmful interventions: 0.
+
+### Round 21
+
+**Efficient Five-Bank Falsifying Repair** won at 8/12 (66.7%). Family results: constraint 75.0%, logic 75.0%, sequence 50.0%. Helpful interventions: 6. Harmful interventions: 1.
+
+### Round 22
+
+**One-Review Nine-Bank Falsifying Repair** won at 7/12 (58.3%). Family results: constraint 75.0%, logic 25.0%, sequence 75.0%. Helpful interventions: 5. Harmful interventions: 0.
 
 ## Interpretation
 
