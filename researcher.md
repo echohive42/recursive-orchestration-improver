@@ -32,6 +32,10 @@ Iteration 13 again exposed candidate scarcity: five-base plurality scored 0/12, 
 
 Blind diversified regeneration first ran in Iteration 14. It raised five-bank oracle coverage from 7/12 to 9/12 and generated two correct answers absent from the base bank, but raw augmented plurality selected neither new answer and finished only 3/12. The candidate-generation primitive worked on coverage; its integration rule did not. Replicate the generation result before changing it, then test a base-delegate-plus-regenerators fusion or one falsifying reviewer over the augmented unique bank.
 
+Iteration 15 was an 18-case checkpoint. Five-bank one-review repair scored 11/18 with eight helpful and zero harmful interventions, versus 8/18 for three-review repair. Blind regeneration raised oracle coverage from 8/18 to 9/18 but finished 4/18. Across its first 30 cases, regeneration raised coverage from 15/30 to 18/30 while final accuracy rose only from a 5/30 base plurality to 7/30. Offline base-delegate fusion also scored 7/30, so another voting rule was not justified.
+
+Iteration 16 tested three blind regenerators followed by one falsifying integrator. On a difficult panel it led at 3/12 versus 2/12 for standard repair, with three helpful and one harmful intervention. Regeneration raised five-bank coverage from 3/12 to 4/12. However, a nine-answer committee bank had 8/12 oracle coverage and still finished 2/12, confirming that candidate selection remains a separate bottleneck. Replicate the pipeline unchanged before promotion.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.

@@ -102,7 +102,20 @@ def main() -> None:
                 assert line_count(layer / "results.jsonl") == expected
                 cross_review_calls += expected
             assert cross_review_calls == int(cross_manifest["planned_calls"])
-        assert ordinary_review_calls + cross_review_calls == summary["review_calls"]
+        integrator_calls = 0
+        integrator_root = folder / "regenerate-integrator"
+        if integrator_root.is_dir():
+            integrator_manifest = load(integrator_root / "manifest.json")
+            integrator_plan_manifest = load(integrator_root / "plan_manifest.json")
+            integrator_calls = int(integrator_manifest["jobs"])
+            assert integrator_manifest["registered_after_regeneration_before_integrator_calls"] is True
+            assert integrator_manifest["sealed_answers_unopened"] is True
+            assert integrator_plan_manifest["registered_before_regeneration_calls"] is True
+            assert integrator_plan_manifest["sealed_answers_unopened"] is True
+            assert int(integrator_plan_manifest["planned_integrator_calls"]) == integrator_calls
+            assert line_count(integrator_root / "jobs.jsonl") == integrator_calls
+            assert line_count(integrator_root / "results.jsonl") == integrator_calls
+        assert ordinary_review_calls + cross_review_calls + integrator_calls == summary["review_calls"]
 
         direct = strategy(summary, "direct-1")
         plurality = strategy(summary, "plurality-5")

@@ -90,6 +90,24 @@ def export_cross_review(source_iteration: Path, public_iteration: Path) -> int:
     return total
 
 
+def export_regenerate_integrator(source_iteration: Path, public_iteration: Path) -> int:
+    """Export an optional terminal integration stage and its compact results."""
+    source = source_iteration / "regenerate-integrator"
+    if not source.is_dir():
+        return 0
+
+    public = public_iteration / "regenerate-integrator"
+    for name in (
+        "jobs.jsonl",
+        "manifest.json",
+        "plan.json",
+        "plan_manifest.json",
+        "progress.json",
+    ):
+        copy_if_present(source / name, public / name)
+    return compact_results(source, public / "results.jsonl")
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -170,6 +188,9 @@ def export(source_root: Path, through: int | None = None) -> None:
                 source_iteration / "review", public_iteration / "review" / "results.jsonl"
             ),
             "cross_review": export_cross_review(source_iteration, public_iteration),
+            "regenerate_integrator": export_regenerate_integrator(
+                source_iteration, public_iteration
+            ),
         }
 
     manifest_files = sorted(

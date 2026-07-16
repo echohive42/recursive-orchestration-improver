@@ -3,77 +3,98 @@
     "iteration-001": {
       "base": 180,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 72
     },
     "iteration-002": {
       "base": 180,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 93
     },
     "iteration-003": {
       "base": 60,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 168
     },
     "iteration-004": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 138
     },
     "iteration-005": {
       "base": 270,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 210
     },
     "iteration-006": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 141
     },
     "iteration-007": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 138
     },
     "iteration-008": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 120
     },
     "iteration-009": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 108
     },
     "iteration-010": {
       "base": 162,
       "cross_review": 54,
+      "regenerate_integrator": 0,
       "review": 126
     },
     "iteration-011": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 94
     },
     "iteration-012": {
       "base": 108,
       "cross_review": 33,
+      "regenerate_integrator": 0,
       "review": 80
     },
     "iteration-013": {
       "base": 108,
       "cross_review": 33,
+      "regenerate_integrator": 0,
       "review": 80
     },
     "iteration-014": {
       "base": 108,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 96
     },
     "iteration-015": {
       "base": 162,
       "cross_review": 0,
+      "regenerate_integrator": 0,
       "review": 144
+    },
+    "iteration-016": {
+      "base": 108,
+      "cross_review": 0,
+      "regenerate_integrator": 11,
+      "review": 86
     }
   },
   "completed_iterations": [
@@ -91,15 +112,16 @@
     12,
     13,
     14,
-    15
+    15,
+    16
   ],
   "files": {
     ".gitignore": "788e71b4a03e875ec8eccc1617370fc20e877f0550253068929a4fe59b7911a8",
     "LICENSE": "62a9bf96f50344afbe6c62a6a1e0bd957dcdf9612edff15c417c0217dbfc2869",
-    "PROGRESS.md": "462901159b9bf89c058c53a28875a592671f37f7e432f92096016c96348092f9",
-    "README.md": "f2d953efa644af7216db3adc3cc98e3b3bfc8985a8c34e8911d060219c9dc835",
+    "PROGRESS.md": "eb2477c992ac7718b28ea5f33e4cee4b9ae6aded73cdaccc153a88373b336bbb",
+    "README.md": "e101f8184847711c0008bc8c78d41fd7667c4d4df565e7be12c004f120fa9d5a",
     "images/iterations-1-3-comparison.svg": "b9aa50d73831fdc6b0c5a30de0f3b4278c4755b202eb6ba269becac61619ae25",
-    "images/progress.svg": "44d6440c56751e987ffee8f37dbb9d32d6b91ffcd873069abaea790e337d2d36",
+    "images/progress.svg": "451718dda195740a85100e0ad46cbdb94d4bd927dbadb1a549b7cc2b6bf07ec1",
     "iterations/iteration-001/base/jobs.jsonl": "af169a7da5a70dc2e17559ca7f4b874825b689086391c4b5ff30f65f02a9f2f7",
     "iterations/iteration-001/base/manifest.json": "e5a0925741f9f7b5f739b0189ec65c635c28b2eea096a458bd743d3a7950faf7",
     "iterations/iteration-001/base/progress.json": "917dfd15e05feba402b2b5ba67af70f3fc2816a2993dadbb366771765fa8ab81",
@@ -451,14 +473,42 @@
     "iterations/iteration-015/review/manifest.json": "9a4b6c4d0cc699972b890461babfa3a7aaf551b3150443ba9caa5fd6efb0a8dd",
     "iterations/iteration-015/review/progress.json": "a9c74267b2b58bc0c8e9dd28d1621af3149614c70f95f34601ae3fbd65cae29a",
     "iterations/iteration-015/review/results.jsonl": "07ab68b7ab0f1c988c13291857d7b78a1f7c4b7c831a50d1360123148621d102",
+    "iterations/iteration-016/base/jobs.jsonl": "b73b2d258bc5e090de0d9adf5375b877677afe5ead5e2060b43bb182d001b494",
+    "iterations/iteration-016/base/manifest.json": "ecf41e3ddb4d88d3babec03c976f40a1f85cc5d1bfb93c68915595137c9b22e7",
+    "iterations/iteration-016/base/progress.json": "e1c923185644e1415cb023d08c578d4e4854a0140e72a2f2bfcc83ccc4786e2a",
+    "iterations/iteration-016/base/results.jsonl": "5a70c5640660c3ef63c1ae3fd06b10c910247755f1760f962e38a3f6933767f1",
+    "iterations/iteration-016/cross-review/manifest.json": "726ccc282d428397ee90191060fe30b1118e4d68c10b5d91f6a36be265e5b8c7",
+    "iterations/iteration-016/cross-review/plan.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "iterations/iteration-016/director/prompt.txt": "2a89277b40e66cb9f8dc66e738235abaaab4c2de12ce4bc573d33060c2fc2dc2",
+    "iterations/iteration-016/director/request.json": "82ae43ca2423e116669b072e121037dab48433a415865f39ca542fec737ce127",
+    "iterations/iteration-016/director/result_summary.json": "abc46f74cfcf2f05c66aaa1cd7145057934ebb9c14a8cb2d5de2cda8eb14271c",
+    "iterations/iteration-016/panel/panel_hashes.json": "b2f0a3b56018e39e75cba251ba7de841fdaea7191f4226ba20043a688909f30e",
+    "iterations/iteration-016/panel/public_cases.json": "27b47e5c8d6faa6101c545557d15477132a8e716215e2249d3c49128d804ec10",
+    "iterations/iteration-016/panel/sealed_answers.json": "717899686ce7aa878d4b41130cf5675904a19cb68f528e873bbd068834692fbf",
+    "iterations/iteration-016/protocol_snapshot.json": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+    "iterations/iteration-016/regenerate-integrator/jobs.jsonl": "cb7df59b90513ab9d6832188ac1af76c04f69af8bc5ef79886407d606c9d5387",
+    "iterations/iteration-016/regenerate-integrator/manifest.json": "d58ae632f5ad72f68125c5285d4f2202f6c7d11640c872793d6f996df88f6620",
+    "iterations/iteration-016/regenerate-integrator/plan.json": "58c4dafbb0fb7bad1cda9bf8669761c773cc7173276bc2d7f5c307d0179b9e4b",
+    "iterations/iteration-016/regenerate-integrator/plan_manifest.json": "1f60ee7b1c844d20ff0e16c755548e04c01c24fd14648570b4bf18c45f63e10a",
+    "iterations/iteration-016/regenerate-integrator/progress.json": "960e8a5967cd4f304b660965b0f0a4a29b610628a75536e1bd7953f44c9a1084",
+    "iterations/iteration-016/regenerate-integrator/results.jsonl": "d2f53dd13c3edd7a4457b30f5d8e0b21f804021e1a02a0348d207f5c449ef7dd",
+    "iterations/iteration-016/registry.json": "950a601876d92d75bf29198dc28cb7869379e0222861156495aa9ae1dee5b294",
+    "iterations/iteration-016/results/case_results.csv": "0099a3fbf63ba1928d78cc711f7da08489175c4bec0280634d56f44c5c191ead",
+    "iterations/iteration-016/results/case_results.json": "7411b3cff54a684292dee33591046673dd814dd5bc5def0f3b73ef001a04bf6c",
+    "iterations/iteration-016/results/plot.svg": "37b23556173f5989df753e621ebcd627471e06bcec8baa13a602e77a80b9b4a3",
+    "iterations/iteration-016/results/summary.json": "897d262938b47a877ba9a13545558bb3db995260a815977b195d88861a3295fa",
+    "iterations/iteration-016/review/jobs.jsonl": "d0f19b741ba021212948f9b772fbe148a8c4c87754be4fe8363aa0d4f6a968ee",
+    "iterations/iteration-016/review/manifest.json": "3d36a2b2e1bd47fad483001d053b6258e83d6491af9f0746050de65122815e54",
+    "iterations/iteration-016/review/progress.json": "1355b17f213c5a2f036d503905963937d4bbde3ce6585bc313004efedd18adca",
+    "iterations/iteration-016/review/results.jsonl": "3a1a9028e5c916d1f34db1f18ce94d1f8f6f5e63ceeb9330458df701a1b27e18",
     "protocol.json": "ebb2d1c1218dc0d37353eaf34ab056fca1aafef8e181e4574f5bad63cf2bf51d",
-    "researcher.md": "ec35f5497b1e7ad52dfd453b2338d79ce78ee53b5876eade48e783b8edadaac4",
+    "researcher.md": "44bf969e782925865dfef4c0f73e698c19f945e93b0e2336c5e0917354a77628",
     "run.py": "0d0690234d183a30ebf1d81d4d6db7fc79c9d8fbd3121dc9cc202dd7046f9aa2",
-    "scripts/export_completed.py": "da430f6cde544f00a78102a49653d87c4450912ad912ec47ff797598a21052c7",
+    "scripts/export_completed.py": "8d3b111aaed83a82b2026895e1948ec4a2d98694c2e8cfac48f192435b140560",
     "scripts/generate_extreme_calibration.py": "b84324426705335c59f6a4fa215fd2cfb46921a7e4c784df287c87cbbc74251d",
     "scripts/publish_progress.py": "6486fb367d8f300a9b9190f68625b081f7a60e23b027cd062c20c6218ab307d4",
-    "scripts/validate_snapshot.py": "2a97fa7c156fb928a378d0f2a7982dc0b58f5d65b5cb7701a8d8c2b5fa1c67db",
-    "state.json": "752e51a4cbc78cd030d1f05a9bf2dc26a95662c78312dc915df58235c944b5f2",
+    "scripts/validate_snapshot.py": "1f89ac2013c2c80d460463c0a6900891e7c08e198ccd507d7bbdc87eeeae0d92",
+    "state.json": "97655cf7f03f6d523e306c3516cdd74ec180fae49e645db2b1300e05b5779360",
     "strategies/iteration-001.json": "ecf9388b373eed270277c867da0f8a77ca726ab78f908b656d1724a63bab9ec9",
     "strategies/iteration-002.json": "df023a2a1501c26dd63994199e096d7a5a99848dceca6836aa6683e9d273ae9b",
     "strategies/iteration-003.json": "5fefe4fde3fbec1aa313257e98d7957ad7700f0cea42dc7aa18b02d0ddd4bb19",
@@ -474,7 +524,8 @@
     "strategies/iteration-013.json": "2926b6a01286e0b7c7fc6cd10e79ce9576acecbc36b72f5b61914f78c70130c1",
     "strategies/iteration-014.json": "59ed84372e9ef5911e577338969e564414040f7c5c4c90dc3808ce32f2970882",
     "strategies/iteration-015.json": "87ac00a065e0cdbf48077af36eaff4bd541db8c43b11dec4def68922ea8aa34f",
-    "strategies/iteration-016.json": "1453043a3428a682ad811f9d19f9bb4515e37d130a791f4b732a6a49385d646e"
+    "strategies/iteration-016.json": "1453043a3428a682ad811f9d19f9bb4515e37d130a791f4b732a6a49385d646e",
+    "strategies/iteration-017.json": "d8f7b0495db73187cdf5bbbadb981b1f9774b41e3edf4e159781a0a0b2727762"
   },
   "note": "Generated from completed stages only; raw runtime artifacts and active partial work are excluded."
 }

@@ -1,0 +1,122 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 16 shows a dual candidate-generation and integration bottleneck. Every strategy had 0% weakest-family accuracy. The five-answer bank contained a correct candidate on only 3/12 cases and none of the four constraint cases; regeneration increased coverage only to 4/12. Conversely, the nine-answer bank reached 8/12 oracle coverage, including 2/4 constraints, but committee repair finished at 2/12, showing that aggregation failed to exploit available answers. Regeneration-then-repair produced the best exact and partial results, with three helpful versus one harmful intervention, but still reversed the sole correct base plurality. The next batch should therefore preserve it and the pooled repair champion, replicate the efficient one-review comparator, and restore sequential cross-examination as the orthogonal organization rather than introduce another voting-rule variant.",
+    "extensions_requested": [
+      "Add an evidence-board regeneration primitive: three blind agents use frozen domain-neutral construction, falsification, and reformulation lenses to submit a candidate plus concise decisive checks; one fresh constructor sees the shuffled, frequency-hidden board—but no base votes or answer key—and generates one additional candidate. Report oracle uplift before final selection so candidate generation can be evaluated independently."
+    ],
+    "most_important_evidence": [
+      "All six Iteration 16 strategies had 0.0 weakest-family accuracy; no mechanism transferred reliably across all three families on the panel.",
+      "Five-base oracle coverage was 3/12 and 0/4 for constraints. Nine-base coverage was 8/12 and 2/4 for constraints, but committee-delegate repair converted that coverage into only 2/12 final answers while making two helpful and one harmful intervention.",
+      "Regeneration-then-repair raised oracle coverage from 3/12 to 4/12 and improved the base plurality from 1/12 to 3/12 through three helpful and one harmful intervention. Its 0.705 partial accuracy was also the panel's best.",
+      "Blind regeneration has now increased coverage directionally on two panels: 7/12 to 9/12 in Iteration 14 and 3/12 to 4/12 in Iteration 16. Candidate integration, rather than the existence of any uplift, remains uncertain.",
+      "The five-bank one-review and three-review repairs both scored 2/12 in Iteration 16 with identical two-helpful, one-harmful balances, while mean effective calls were 5.92 versus 7.75. Extra parallel reviewers again supplied no observed gain.",
+      "Sequential cross-examination is operationally orthogonal and previously scored 7/18 in Iteration 10 and 5/12 in Iteration 12; the latter panel included four helpful and zero harmful interventions."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the unchanged minimum-cost baseline to measure panel difficulty and the marginal value of every orchestration layer.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain deterministic five-answer plurality as the shared-bank control for measuring candidate coverage and all helpful or harmful interventions.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged. Its longer development record remains more informative than the severe variance of any single fresh panel, while its correction balance tests whether three independent falsifying repairs recover.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Retain the Iteration 16 winner unchanged. Directionally replicated oracle uplift and a three-to-one positive correction balance justify another sealed-panel test of whether one terminal integrator can reliably exploit blind regenerated candidates.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the unchanged call-efficiency probe. One reviewer matched three reviewers in Iteration 16 with the same correction balance and fewer calls, while its earlier pooled helpful-to-harmful record remains positive.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Restore the established orthogonal sequential architecture. Passing one proposed answer and critique forward may concentrate falsification more coherently than independent reviewer plurality, and its prior positive corrections warrant replication on a fresh panel.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "Blind regeneration has a real but modest domain-neutral effect on candidate coverage; the remaining uncertainty is whether terminal falsifying integration can select or construct the correct final answer without reversing correct base pluralities.",
+      "One independent falsifying reviewer may preserve most of the benefit of parallel repair while reducing reviewer variance and follow-up cost.",
+      "Sequentially inherited critiques may produce a better correction balance than three independent repairs because later agents must directly falsify the preceding proposal rather than restart an uncoordinated judgment.",
+      "Fresh-panel weakest-family accuracy, not a single pooled exact total, should decide whether any apparent recovery transfers across all three development families."
+    ],
+    "risk_note": "This six-strategy batch costs at most 60 shared base calls plus 132 follow-up calls, for 192 of the 300-call budget. Twelve cases remain highly noisy, and Iteration 16 shows that both absent correct candidates and harmful reviewer reversals can dominate results. Do not promote a mechanism from one panel; pool exact, weakest-family, oracle-coverage, and helpful-versus-harmful evidence by operational identity."
+  },
+  "duration_ms": 249068,
+  "job_id": "i016-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "0cbabe09762619a25fa1bbf31a3ca7dd4efabd990856b7f7f7059e38b403abff",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 20410,
+    "output_tokens": 9722,
+    "reasoning_output_tokens": 8262
+  }
+}
