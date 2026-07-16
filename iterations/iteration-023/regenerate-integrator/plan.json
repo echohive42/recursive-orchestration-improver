@@ -1,0 +1,90 @@
+{
+  "plans": [
+    {
+      "candidate_order_seed": 23040004,
+      "case_id": "cal-t4-sequence-01",
+      "family": "sequence",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040104,
+      "case_id": "cal-t4-sequence-02",
+      "family": "sequence",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040204,
+      "case_id": "cal-t4-sequence-03",
+      "family": "sequence",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040304,
+      "case_id": "cal-t4-sequence-04",
+      "family": "sequence",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040404,
+      "case_id": "cal-t4-constraint-01",
+      "family": "constraint",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040504,
+      "case_id": "cal-t4-constraint-02",
+      "family": "constraint",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040604,
+      "case_id": "cal-t4-constraint-03",
+      "family": "constraint",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040704,
+      "case_id": "cal-t4-constraint-04",
+      "family": "constraint",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040804,
+      "case_id": "cal-t4-logic-01",
+      "family": "logic",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23040904,
+      "case_id": "cal-t4-logic-02",
+      "family": "logic",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23041004,
+      "case_id": "cal-t4-logic-03",
+      "family": "logic",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    },
+    {
+      "candidate_order_seed": 23041104,
+      "case_id": "cal-t4-logic-04",
+      "family": "logic",
+      "reviewer_index": 4,
+      "strategy_id": "regenerate-then-repair-5x3x1"
+    }
+  ],
+  "registered_at": "2026-07-16T15:32:58.083Z",
+  "registered_before_regeneration_calls": true
+}

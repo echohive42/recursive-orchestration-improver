@@ -1,0 +1,122 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 23 was dominated by selection quality. Regenerate-then-repair and nine-bank one-review repair tied at 4/12 exact, but the pipeline wins under the stated objective because its weakest-family accuracy was 25% rather than 0% and its partial accuracy was 70.5% rather than 66.7%. The pipeline converted four of five expanded-oracle cases with three helpful and zero harmful interventions. In contrast, nine-bank one-review repair converted only four of seven oracle cases and missed its logic oracle candidate, while five-bank three-review repair converted only two of six expanded-oracle cases. Thus candidate availability still matters, but exposing or generating correct candidates is not sufficient; the main actionable gap is reliable candidate selection. The retained pooled champion should not be displaced by one poor panel, while the pipeline and nine-bank one-review mechanism both merit unchanged replication because their latest correction balances were positive.",
+    "extensions_requested": [
+      "Add a shared_evidence_board primitive: three parallel reviewers produce candidate-indexed support and falsification records for the same shuffled unique bank, then one separately registered terminal selector sees the problem, candidates, and merged evidence board and must choose an existing candidate, falling back to base plurality. Keep frequencies hidden and freeze all roles before calls. This would separate evidence production from final selection, which the current independent-vote and sequential-review modes cannot do."
+    ],
+    "most_important_evidence": [
+      "Regenerate-then-repair scored 4/12 with 25% in every weakest family, 5/12 expanded-oracle coverage versus 4/12 base-oracle coverage, and three helpful versus zero harmful interventions.",
+      "Nine-bank one-review repair also scored 4/12 and had seven oracle-covered cases, but finished 0/4 on logic despite one logic oracle case; its three-case oracle-to-final gap directly identifies selection failure.",
+      "Five-bank three-review repair had six expanded-oracle cases but only two correct finals, with one helpful and zero harmful interventions. Additional correct reviewer outputs were therefore not reliably converted by review plurality.",
+      "Sequential cross-examination made three helpful corrections but one harmful reversal and finished 3/12, so it does not currently justify another immediate slot.",
+      "The pipeline has now scored 40/102 across Iterations 16–23. Its recent results remain promising but noisy, so another unchanged replication is more informative than a new pipeline variation.",
+      "Direct One scored 0/12 and Five-Vote Plurality 1/12, confirming that Iteration 23 was difficult and arguing against interpreting the champion's 2/12 result in isolation."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-cost independent-answer control unchanged so fresh-panel difficulty and orchestration gains remain measurable.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the small deterministic plurality control unchanged; it distinguishes gains from review or regeneration from gains caused merely by additional independent sampling.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged. Its long-run weakest-family record remains the principal replicated control for parallel answer-generating repair despite its poor Iteration 23 result.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Replicate the current panel winner unchanged. The test is whether its positive regeneration coverage and helpful-to-harmful balance continue while its terminal integrator reliably converts the expanded bank.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the nine-bank one-review mechanism unchanged as the call-allocation probe. Its latest seven-case oracle coverage and zero harmful reversals test whether spending calls on independent candidates rather than extra reviewers remains competitive.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Test candidate-only selection on the high-coverage nine-answer bank. Three independent falsifying selectors see up to eight shuffled unique candidates and cannot synthesize replacements, isolating whether a selection panel can close the oracle-to-final gap without repair variance.",
+        "name": "Nine-Bank Falsifying Selection Panel",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x3-full-bank"
+      }
+    ],
+    "research_hypotheses": [
+      "The regenerate-then-repair pipeline's positive correction balance will persist on a fresh panel, but its success will track terminal conversion of expanded-oracle cases more strongly than raw coverage gains.",
+      "A nine-base bank followed by one repairer remains a competitive allocation because it buys candidate coverage while limiting reviewer dilution and harmful reversals.",
+      "Three candidate-only selectors over the broader nine-bank exposure will convert more oracle-covered cases than one answer-generating reviewer if synthesis variance is a major source of selection failure.",
+      "Helpful and harmful intervention counts, family balance, and oracle-to-final conversion will be more diagnostic than a single 12-case exact-accuracy ranking."
+    ],
+    "risk_note": "The intended six-strategy batch costs at most 240 Luna calls: 108 for the shared nine-answer base bank plus 132 for eleven follow-up calls per case, below the 300-call limit. The new selection panel may overwhelm reviewers with a larger candidate set or reproduce weak-judge errors, so it should be evaluated by oracle-to-final conversion and harmful reversals rather than promoted from one panel."
+  },
+  "duration_ms": 203198,
+  "job_id": "i023-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "1b252ec3b3534b1ffbcae6f5eca419d0cf00ae67c1b6b209e14e3e63f36c918f",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 22305,
+    "output_tokens": 8072,
+    "reasoning_output_tokens": 6637
+  }
+}
