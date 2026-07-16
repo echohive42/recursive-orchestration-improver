@@ -11,7 +11,7 @@ The recursion is in the research process, not the model weights: each completed 
 > **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains 8 completed research rounds and the registered strategy for Round 9. The numbers below are promising development evidence, not independent final validation.
+> **This is active research, not a finished benchmark.** The repository currently contains 9 completed research rounds and the registered strategy for Round 10. The numbers below are promising development evidence, not independent final validation.
 
 ## Explore the wider lab
 
@@ -22,9 +22,20 @@ The recursion is in the research process, not the model weights: each completed 
 <!-- LIVE_PROGRESS_START -->
 ## Live research progress
 
-**8 completed rounds.** The latest winner was **Committee Comparison Fallback Replication**, which solved **2/12 (16.7%)** with a weakest-family accuracy of **0.0%**.
+**9 completed rounds.** Latest panel winner: **Efficient Five-Bank Falsifying Repair**, **5/12 (41.7%)**, with **0.0%** weakest-family accuracy.
 
-| Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |
+**Best single-panel observation:** **Efficient Five-Bank Falsifying Repair**, **7/12 (58.3%)** in Round 6. This is one panel, not the expected accuracy of a new architecture.
+
+**Leading replicated mechanisms:**
+
+| Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
+|---|---:|---:|---:|---:|
+| Nine Solvers plus Three Falsifying Repairers | 3 | 20/42 · **47.6%** | 35.7% | 12.0 |
+| Efficient Five-Bank Falsifying Repair | 7 | 38/84 · **45.2%** | 35.7% | 8.0 |
+
+The retention fix affects future strategy selection, not historical scores. It now groups operationally identical systems across panels and retains repeated evidence instead of the latest panel winner.
+
+| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |
 |---:|---|---:|---:|---:|---:|
 | 1 | Five Solvers plus Three Repairers | 6/12 · **50.0%** | 25.0% | 1/12 · 8.3% | 252 |
 | 2 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 273 |
@@ -34,6 +45,7 @@ The recursion is in the research process, not the model weights: each completed 
 | 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
 | 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
 | 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
+| 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
 
 ![Research progress across completed rounds](images/progress.svg)
 

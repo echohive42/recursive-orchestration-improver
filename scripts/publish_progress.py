@@ -17,6 +17,17 @@ from export_completed import export
 ROOT = Path(__file__).resolve().parent.parent
 LIVE_START = "<!-- LIVE_PROGRESS_START -->"
 LIVE_END = "<!-- LIVE_PROGRESS_END -->"
+OPERATIONAL_FIELDS = (
+    "base_count",
+    "review_count",
+    "review_trigger",
+    "review_mode",
+    "review_style",
+    "candidate_limit",
+    "candidate_source",
+    "show_frequencies",
+    "final_rule",
+)
 
 
 def load(path: Path):
@@ -54,7 +65,79 @@ def named_strategy(summary: dict, strategy_id: str) -> dict:
     return next(item for item in summary["strategies"] if item["strategy_id"] == strategy_id)
 
 
-def render_svg(rounds: list[dict]) -> str:
+def operational_signature(strategy: dict) -> str:
+    """Group equivalent orchestration mechanics across fresh panels."""
+    values = {
+        key: strategy.get(key, "base_unique" if key == "candidate_source" else None)
+        for key in OPERATIONAL_FIELDS
+    }
+    return json.dumps(values, sort_keys=True, separators=(",", ":"))
+
+
+def pooled_rankings(rounds: list[dict]) -> list[dict]:
+    """Rank non-control mechanisms replicated on at least two fresh panels."""
+    groups: dict[str, dict] = {}
+    for summary in rounds:
+        for item in summary["strategies"]:
+            if item.get("review_count", 0) == 0:
+                continue
+            key = operational_signature(item)
+            group = groups.setdefault(
+                key,
+                {
+                    "panels": 0,
+                    "correct": 0,
+                    "total": 0,
+                    "partial_weight": 0.0,
+                    "call_weight": 0.0,
+                    "families": {},
+                    "strategy": item,
+                },
+            )
+            group["panels"] += 1
+            group["correct"] += item["correct"]
+            group["total"] += item["total"]
+            group["partial_weight"] += item["partial_accuracy"] * item["total"]
+            group["call_weight"] += item["mean_effective_calls"] * item["total"]
+            group["strategy"] = item
+            for family, metrics in item["families"].items():
+                correct, total = group["families"].get(family, (0, 0))
+                group["families"][family] = (correct + metrics["correct"], total + metrics["total"])
+
+    eligible = []
+    for group in groups.values():
+        if group["panels"] < 2:
+            continue
+        family_accuracy = {
+            family: correct / total
+            for family, (correct, total) in group["families"].items()
+            if total
+        }
+        group["accuracy"] = group["correct"] / group["total"]
+        group["worst_family_accuracy"] = min(family_accuracy.values())
+        group["partial_accuracy"] = group["partial_weight"] / group["total"]
+        group["mean_effective_calls"] = group["call_weight"] / group["total"]
+        group["family_accuracy"] = family_accuracy
+        eligible.append(group)
+
+    eligible.sort(
+        key=lambda group: (
+            group["worst_family_accuracy"],
+            group["accuracy"],
+            group["partial_accuracy"],
+            -group["mean_effective_calls"],
+        ),
+        reverse=True,
+    )
+    return eligible
+
+
+def pooled_champion(rounds: list[dict]) -> dict | None:
+    ranked = pooled_rankings(rounds)
+    return ranked[0] if ranked else None
+
+
+def render_svg(rounds: list[dict], replicated: list[dict]) -> str:
     width, height = 1200, 630
     left, right, top, bottom = 115, 70, 180, 130
     plot_w, plot_h = width - left - right, height - top - bottom
@@ -93,7 +176,7 @@ def render_svg(rounds: list[dict]) -> str:
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">Recursive Orchestration Improver progress</title>
-<desc id="desc">Best registered orchestration and direct baseline accuracy across {count} fresh sealed rounds.</desc>
+<desc id="desc">Panel-winner and direct-baseline accuracy across {count} fresh sealed rounds. A separate note reports the strongest replicated system.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#140b2d"/></linearGradient>
   <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -108,16 +191,16 @@ def render_svg(rounds: list[dict]) -> str:
 </style>
 <rect width="{width}" height="{height}" rx="28" fill="url(#bg)"/>
 <text x="70" y="68" class="title">Recursive Orchestration Improver</text>
-<text x="70" y="104" class="subtitle">Can AI agents improve how they work together?</text>
-<line x1="760" y1="70" x2="810" y2="70" class="line winner"/><text x="826" y="76" class="legend">Best registered system</text>
+<text x="70" y="104" class="subtitle">Fresh-panel outcomes vary. Replication is the durable signal.</text>
+<line x1="760" y1="70" x2="810" y2="70" class="line winner"/><text x="826" y="76" class="legend">Panel winner</text>
 <line x1="760" y1="105" x2="810" y2="105" class="line direct"/><text x="826" y="111" class="legend">One Luna Light call</text>
 {''.join(grid)}
 <polyline points="{winner_points}" class="line winner"/>
 <polyline points="{direct_points}" class="line direct"/>
 {''.join(dots)}
 {''.join(labels)}
-<text x="70" y="570" class="note">Each round uses a fresh sealed panel. The line shows observed round outcomes, not training accuracy.</text>
-<text x="70" y="598" class="note">Latest: R{rounds[-1]['iteration']} · Best orchestration · {latest['correct']}/{latest['total']} exact</text>
+<text x="70" y="570" class="note">Each round uses a fresh sealed panel. The line shows observed outcomes, not a training curve.</text>
+<text x="70" y="598" class="note">{('Repeated leaders: ' + ' | '.join(str(item['correct']) + '/' + str(item['total']) + ' exact across ' + str(item['panels']) + ' panels' for item in replicated[:2])) if replicated else ('Latest: R' + str(rounds[-1]['iteration']) + ' · ' + str(latest['correct']) + '/' + str(latest['total']) + ' exact')}</text>
 </svg>
 '''
 
@@ -142,13 +225,39 @@ def render_progress(rounds: list[dict]) -> None:
     latest = latest_summary["winner"]
     completed = [item["iteration"] for item in rounds]
     table = progress_table(rounds)
+    state = load(ROOT / "state.json")
+    best = state.get("best_observed", {})
+    replicated = pooled_rankings(rounds)
+    replicated_leaders = replicated[:2]
+    best_summary = next((item for item in rounds if item["iteration"] == best.get("iteration")), latest_summary)
+    best_winner = best_summary["winner"]
+    replicated_table = (
+        "| Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |\n"
+        "|---|---:|---:|---:|---:|\n"
+        + "\n".join(
+            f"| {item['strategy']['name']} | {item['panels']} | "
+            f"{item['correct']}/{item['total']} · **{percent(item['accuracy'])}** | "
+            f"{percent(item['worst_family_accuracy'])} | {item['mean_effective_calls']:.1f} |"
+            for item in replicated_leaders
+        )
+        if replicated_leaders
+        else "No non-control mechanism has completed two fresh panels yet."
+    )
 
     block = f'''{LIVE_START}
 ## Live research progress
 
-**{len(rounds)} completed rounds.** The latest winner was **{latest['name']}**, which solved **{latest['correct']}/{latest['total']} ({percent(latest['accuracy'])})** with a weakest-family accuracy of **{percent(latest['worst_family_accuracy'])}**.
+**{len(rounds)} completed rounds.** Latest panel winner: **{latest['name']}**, **{latest['correct']}/{latest['total']} ({percent(latest['accuracy'])})**, with **{percent(latest['worst_family_accuracy'])}** weakest-family accuracy.
 
-| Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |
+**Best single-panel observation:** **{best_winner['name']}**, **{best_winner['correct']}/{best_winner['total']} ({percent(best_winner['accuracy'])})** in Round {best_summary['iteration']}. This is one panel, not the expected accuracy of a new architecture.
+
+**Leading replicated mechanisms:**
+
+{replicated_table}
+
+The retention fix affects future strategy selection, not historical scores. It now groups operationally identical systems across panels and retains repeated evidence instead of the latest panel winner.
+
+| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |
 |---:|---|---:|---:|---:|---:|
 {table}
 
@@ -178,7 +287,13 @@ def render_progress(rounds: list[dict]) -> None:
     details = [
         "# Research progress\n",
         "This page is regenerated only after a round is fully sealed, scored, and followed by a registered next strategy. Active partial work is never published.\n",
-        "| Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |",
+        "## How to read this\n",
+        f"The best single-panel observation is **{best_winner['name']}** at **{best_winner['correct']}/{best_winner['total']} ({percent(best_winner['accuracy'])})** in Round {best_summary['iteration']}.\n",
+        "## Leading replicated mechanisms\n",
+        replicated_table + "\n",
+        "The two leading replicated systems currently share the same 35.7% weakest-family point estimate. The 9+3 system has the higher pooled exact rate; the 5+3 system has twice the panel evidence and lower cost. The next checkpoint retains both instead of making a premature choice.\n",
+        "The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.\n",
+        "| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |",
         "|---:|---|---:|---:|---:|---:|",
         table,
         "\n## Round notes\n",
@@ -196,12 +311,12 @@ def render_progress(rounds: list[dict]) -> None:
         )
     details.append(
         "## Interpretation\n\n"
-        "The chart compares each round's best registered orchestration with a one-call Luna Light baseline. "
+        "The chart compares each round's panel winner with a one-call Luna Light baseline. "
         "Because the panel changes every round, short-term rises and falls combine strategy differences with case difficulty. "
         "The useful signal is repeated performance across fresh panels and problem families, not a single peak.\n"
     )
     write(ROOT / "PROGRESS.md", "\n".join(details))
-    write(ROOT / "images" / "progress.svg", render_svg(rounds))
+    write(ROOT / "images" / "progress.svg", render_svg(rounds, replicated_leaders))
 
 
 def rephrase_snapshot_count(readme: str, rounds: int, next_iteration: int) -> str:

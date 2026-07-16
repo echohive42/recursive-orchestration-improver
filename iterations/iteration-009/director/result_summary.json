@@ -1,0 +1,94 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 9 was uniformly weak on logic: every strategy had 0/4 exact there, so weakest-family accuracy was zero throughout. The five-base champion nevertheless preserved its strongest signal: it finished 5/12, matching its 5/12 base oracle despite base plurality being correct only 1/12. Review produced four helpful interventions, no harmful reversals, and no newly created correct answers, indicating strong candidate conversion but little generative repair. The one-review version retained 4/12 at six mean calls, with three helpful and zero harmful interventions, making it the best efficiency lead. Nine-base banks raised oracle coverage to 6/12, including one logic case, but ordinary repair converted only 2/12 and committee repair 3/12; thus larger banks expose more correct answers without reliably recognizing them. Committee repair still had a positive 3-to-0 correction balance and created the panel's only correct answer absent from the raw bank, warranting an improved orthogonal replication. The recommended three additions cost 342 calls with the retained strategies; any three proposals listed remain at or below 432 calls.",
+    "extensions_requested": [
+      "Add sequential cross-examination as one domain-neutral primitive: later reviewers see the preceding critique and proposed repair, must explicitly try to falsify its decisive claims, and may return a revised exact answer. This tests whether accumulated adversarial evidence improves conversion and genuinely creates correct repairs without adding family routing."
+    ],
+    "most_important_evidence": [
+      "The champion's pooled development record remains 33/72 exact (45.8%), with family totals of 12/24 sequence, 11/24 constraint, and 10/24 logic; its Iteration 9 logic failure should not erase that replicated record.",
+      "In Iteration 9 the champion improved base plurality from 1/12 to 5/12 through four helpful interventions and zero harmful reversals, but repair_created_correct_answers was zero.",
+      "The one-review repair system reached 4/12 versus the champion's 5/12, used six rather than eight mean calls, and recorded three helpful interventions with no harms.",
+      "Both nine-answer systems had 6/12 base-oracle coverage while their base pluralities were 0/12; final exact scores of 2/12 and 3/12 identify conversion, not merely candidate supply, as a central failure.",
+      "Committee repair created one correct answer outside its raw bank and had three helpful versus zero harmful interventions, but its disagreement trigger skipped two cases and its overall result remained only 3/12."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "This is a transparent replication of the earlier nine-solver, three-falsifier mechanism, restoring review on any disagreement instead of trusting a strict but potentially correlated majority. It tests whether the extra oracle coverage of nine bases can improve the weakest family when overconfident wrong pluralities are still reviewed. Results matching prior operational fields should be pooled under this mechanism, not treated as a renamed invention.",
+        "name": "Nine Solvers plus Three Falsifying Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "The first panel of this exact mechanism retained four of the champion's five correct outcomes with one reviewer and no harmful reversals. A sealed replication tests whether its favorable correction-to-cost ratio is stable rather than a single-panel fluctuation.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Committee repair had a positive correction balance and uniquely generated one correct answer, but committee unanimity skipped two cases despite a 0/12 deterministic base result. Always reviewing the three shuffled delegates tests whether false committee consensus, rather than the delegate architecture itself, caused avoidable misses.",
+        "name": "Always-Reviewed Committee Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "always",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-9x3-always"
+      },
+      {
+        "base_count": 15,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A fifteen-answer deterministic plurality is a judge-free scale control. It tests whether correlated wrong modes persist even with substantially more independent sampling and provides a clean reference for deciding whether review mechanisms add value beyond bank size.",
+        "name": "Fifteen-Vote Plurality Scale Control",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-15"
+      }
+    ],
+    "research_hypotheses": [
+      "Reviewing disagreement within a nine-answer bank will outperform majority gating because strict majorities can reflect correlated errors rather than reliability.",
+      "A single falsifying repairer may preserve most of the champion's positive correction balance at materially lower call cost.",
+      "Committee delegates may retain useful error diversity, but their unanimity is not yet reliable enough to suppress review.",
+      "The principal nine-bank bottleneck is candidate conversion: additional candidate supply helps only if the final mechanism can identify or repair the correct answer.",
+      "If fifteen-agent plurality remains weak, further scaling of independent votes should be deprioritized in favor of mechanisms that improve evidence exchange and repair generation."
+    ],
+    "risk_note": "All comparisons remain noisy on 18 cases and share answer banks, so outcomes are correlated and susceptible to multiple-comparison optimism. The first three proposals best satisfy the close-improvement, efficiency, and orthogonal lanes; plurality-15 is a reserve scale control. Even a strong result is development evidence only and must be frozen and tested on untouched exact-verifiable families before any claim of generality."
+  },
+  "duration_ms": 125392,
+  "job_id": "i009-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "af7160c972ecd6a13f4737a026bd6b967efb3719033eac88a235d23329a21e13",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 18015,
+    "output_tokens": 6415,
+    "reasoning_output_tokens": 5126
+  }
+}

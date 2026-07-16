@@ -1,17 +1,17 @@
 {
-  "assembled_at": "2026-07-16T10:44:17.122Z",
+  "assembled_at": "2026-07-16T11:00:55.350Z",
   "director_available": true,
-  "iteration": 9,
+  "iteration": 10,
   "registered_before_calls": true,
   "selection_reasons": {
-    "committee-repair-9x3-fallback": "Sol research-director proposal",
+    "cross-examine-9x3": "Sol-requested orthogonal primitive implemented by the main meta-director",
     "direct-1": "fixed direct baseline",
     "plurality-5": "fixed five-vote baseline",
-    "repair-falsify-5x3-efficient": "pooled champion across 6 fresh panels: 33/72 exact; 41.7% weakest family",
     "repair-falsify-5x1-efficient": "Sol research-director proposal",
-    "repair-falsify-9x3-majority": "Sol research-director proposal"
+    "repair-falsify-5x3-efficient": "pooled champion across 6 fresh panels: 33/72 exact; 41.7% weakest family",
+    "repair-falsify-9x3": "Sol research-director proposal"
   },
-  "source": "mechanical anchors plus pooled champion plus iteration 8 Sol director",
+  "source": "mechanical anchors plus iteration 9 Sol director",
   "strategies": [
     {
       "base_count": 1,
@@ -46,7 +46,7 @@
       "candidate_limit": 5,
       "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
-      "hypothesis": "A five-answer bank paired with three falsifying repairers is the strongest replicated mechanism so far at 33/72 pooled exact, and remains the stable comparison for new architectures.",
+      "hypothesis": "A five-answer bank paired with the validated three-reviewer falsification mechanism may retain much of the champion's accuracy at eight calls per case rather than twelve; earlier five-solver repair systems reached 0.417–0.500 pooled accuracy.",
       "name": "Efficient Five-Bank Falsifying Repair",
       "review_count": 3,
       "review_mode": "repair",
@@ -60,21 +60,21 @@
       "candidate_limit": 8,
       "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
-      "hypothesis": "Nine bases materially improved candidate-oracle coverage in Iteration 8, while selection failed to convert most of that coverage. Falsifying repair can both select an existing candidate and generate a corrected exact answer; withholding review when the base has a strict majority should reduce unnecessary reversals and calls without introducing domain-specific logic.",
-      "name": "Majority-Gated Nine-Bank Falsifying Repair",
+      "hypothesis": "This is a transparent replication of the earlier nine-solver, three-falsifier mechanism, restoring review on any disagreement instead of trusting a strict but potentially correlated majority. It tests whether the extra oracle coverage of nine bases can improve the weakest family when overconfident wrong pluralities are still reviewed. Results matching prior operational fields should be pooled under this mechanism, not treated as a renamed invention.",
+      "name": "Nine Solvers plus Three Falsifying Repairers",
       "review_count": 3,
       "review_mode": "repair",
       "review_style": "falsify",
-      "review_trigger": "no_strict_majority",
+      "review_trigger": "any_disagreement",
       "show_frequencies": false,
-      "strategy_id": "repair-falsify-9x3-majority"
+      "strategy_id": "repair-falsify-9x3"
     },
     {
       "base_count": 5,
       "candidate_limit": 5,
       "candidate_source": "base_unique",
       "final_rule": "review_plurality_fallback_base",
-      "hypothesis": "A single answer-generating falsifier directly tests whether the pooled five-by-three repair mechanism retains useful correction power at six calls per activated case. Comparing it with the failed one-review selector isolates repair capability from reviewer replication.",
+      "hypothesis": "The first panel of this exact mechanism retained four of the champion's five correct outcomes with one reviewer and no harmful reversals. A sealed replication tests whether its favorable correction-to-cost ratio is stable rather than a single-panel fluctuation.",
       "name": "One-Review Five-Bank Falsifying Repair",
       "review_count": 1,
       "review_mode": "repair",
@@ -85,17 +85,17 @@
     },
     {
       "base_count": 9,
-      "candidate_limit": 3,
-      "candidate_source": "committee_delegates",
-      "final_rule": "review_plurality_fallback_base",
-      "hypothesis": "Committee fallback had a positive correction balance but compressed away most raw candidates and left constraint at zero. Allowing reviewers to repair rather than merely choose tests whether independent committee delegates provide useful diverse diagnoses while answer generation overcomes delegate-level candidate loss.",
-      "name": "Committee-Triggered Falsifying Repair",
+      "candidate_limit": 8,
+      "candidate_source": "base_unique",
+      "final_rule": "last_review_fallback_base",
+      "hypothesis": "A sequential chain can turn reviewer disagreement into accumulated evidence: each reviewer sees the preceding answer and critique, attempts to falsify its decisive claims, and passes a revised exact proposal forward.",
+      "name": "Sequential Cross-Examination",
       "review_count": 3,
-      "review_mode": "repair",
+      "review_mode": "cross_examine",
       "review_style": "falsify",
-      "review_trigger": "committee_disagreement",
+      "review_trigger": "any_disagreement",
       "show_frequencies": false,
-      "strategy_id": "committee-repair-9x3-fallback"
+      "strategy_id": "cross-examine-9x3"
     }
   ]
 }

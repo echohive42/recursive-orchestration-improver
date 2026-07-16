@@ -2,7 +2,22 @@
 
 This page is regenerated only after a round is fully sealed, scored, and followed by a registered next strategy. Active partial work is never published.
 
-| Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |
+## How to read this
+
+The best single-panel observation is **Efficient Five-Bank Falsifying Repair** at **7/12 (58.3%)** in Round 6.
+
+## Leading replicated mechanisms
+
+| Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
+|---|---:|---:|---:|---:|
+| Nine Solvers plus Three Falsifying Repairers | 3 | 20/42 · **47.6%** | 35.7% | 12.0 |
+| Efficient Five-Bank Falsifying Repair | 7 | 38/84 · **45.2%** | 35.7% | 8.0 |
+
+The two leading replicated systems currently share the same 35.7% weakest-family point estimate. The 9+3 system has the higher pooled exact rate; the 5+3 system has twice the panel evidence and lower cost. The next checkpoint retains both instead of making a premature choice.
+
+The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.
+
+| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |
 |---:|---|---:|---:|---:|---:|
 | 1 | Five Solvers plus Three Repairers | 6/12 · **50.0%** | 25.0% | 1/12 · 8.3% | 252 |
 | 2 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 273 |
@@ -12,6 +27,7 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 | 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
 | 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
 | 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
+| 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
 
 ## Round notes
 
@@ -47,6 +63,10 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 
 **Committee Comparison Fallback Replication** won at 2/12 (16.7%). Family results: constraint 0.0%, logic 25.0%, sequence 25.0%. Helpful interventions: 1. Harmful interventions: 0.
 
+### Round 9
+
+**Efficient Five-Bank Falsifying Repair** won at 5/12 (41.7%). Family results: constraint 25.0%, logic 0.0%, sequence 100.0%. Helpful interventions: 4. Harmful interventions: 0.
+
 ## Interpretation
 
-The chart compares each round's best registered orchestration with a one-call Luna Light baseline. Because the panel changes every round, short-term rises and falls combine strategy differences with case difficulty. The useful signal is repeated performance across fresh panels and problem families, not a single peak.
+The chart compares each round's panel winner with a one-call Luna Light baseline. Because the panel changes every round, short-term rises and falls combine strategy differences with case difficulty. The useful signal is repeated performance across fresh panels and problem families, not a single peak.

@@ -29,6 +29,8 @@ Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 
 
 The optional `committee_delegates` candidate source divides a nine-answer bank into three fixed, disjoint committees of three and takes one deterministic plurality delegate from each. The `committee_disagreement` trigger invokes review only when at least two valid committee delegates disagree. Reviewers see only the shuffled delegates, not the raw nine answers. This is an orthogonal aggregation architecture, not another repair-panel variant.
 
+The `cross_examine` review mode is a sequential architecture with exactly three reviewers and the `last_review_fallback_base` final rule. Reviewer 1 sees the shuffled raw candidate bank. Reviewers 2 and 3 each see the same candidates plus the immediately preceding reviewer’s proposed exact answer and concise critique, then must try to falsify its decisive claims before retaining or revising it. Each layer is registered before its calls and later layers never see the answer key. Use `candidate_source: base_unique` for this mode.
+
 Every proposal must explicitly set `candidate_source` to `base_unique` or `committee_delegates`.
 
 Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.

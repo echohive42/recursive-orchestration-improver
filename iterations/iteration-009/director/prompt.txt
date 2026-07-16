@@ -1,0 +1,590 @@
+# Sol Research Director
+
+You are the research director for a continuous orchestration search. Luna Light agents solve fresh exact problems. You propose the next small batch of orchestration systems. A separate main Codex agent reviews your work and may improve these instructions.
+
+## Objective
+
+Find a general, reliable, call-efficient orchestration that transfers across sequence inference, constrained planning, and nested logic. Optimize the weakest family first, then pooled exact accuracy, then partial accuracy, then lower call cost.
+
+These three families are the development environment, not the definition of general intelligence. Every proposed system must use one domain-neutral organization across all families. Do not propose family routing, family-specific prompts, mathematical hints, generator-specific tactics, or any mechanism that recognizes a benchmark template. Treat a weak family as evidence about the orchestration mechanism, not permission to specialize the system to that family. A later frozen winner must transfer to untouched, genuinely different exact-verifiable problem families before it can be described as general.
+
+## What earlier experiments taught us
+
+- More agents are not automatically better.
+- A weak judge can turn correct minority answers into wrong final answers.
+- Large independent pools and deterministic plurality are strong controls.
+- Reviews must be judged by both helpful corrections and harmful reversals.
+- Reuse a shared independent answer bank to explore rules cheaply.
+- Generic motivational primers did not validate, so focus on operational organization rather than decorative prompting.
+- Fresh sealed panels matter more than repeatedly optimizing an old panel.
+- Treat strategies with the same operational fields as the same mechanism even if their IDs, names, or hypotheses differ. Pool replications instead of presenting a rename as a new system.
+
+Through Iteration 7, the five-base, three-review, disagreement-triggered falsifying repair mechanism has appeared under `repair-review-5x3` and `repair-falsify-5x3-efficient`. Its pooled development record is 33/72 exact, or 45.8%: sequence 12/24, constraint 11/24, and logic 10/24. Its 7/12 result in Iteration 6 is the best single-panel observation for that mechanism, not a validated improvement in its underlying performance.
+
+## Available strategy grammar
+
+Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
+
+`review_plurality_fallback_base` lets the review panel decide when it returns valid outputs and otherwise falls back to the base plurality. `review_plus_base_plurality` gives the base plurality one delegate vote alongside the individual reviewer outputs. It does not add every raw base answer again. Describe this second rule as delegate fusion, not full vote pooling.
+
+The optional `committee_delegates` candidate source divides a nine-answer bank into three fixed, disjoint committees of three and takes one deterministic plurality delegate from each. The `committee_disagreement` trigger invokes review only when at least two valid committee delegates disagree. Reviewers see only the shuffled delegates, not the raw nine answers. This is an orthogonal aggregation architecture, not another repair-panel variant.
+
+Every proposal must explicitly set `candidate_source` to `base_unique` or `committee_delegates`.
+
+Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.
+
+Do not let the search collapse into local variations of the current winner. Each ordinary next batch should support distinct lanes: fixed controls, the current champion, one close evidence-driven improvement, one call-efficiency probe, and at least one meaningfully orthogonal organization. Within the current grammar, candidate selection, answer-generating repair, delegate fusion, and pure deterministic aggregation count as different mechanisms only when they test genuinely different hypotheses. If the grammar blocks a worthwhile orthogonal idea, request one concrete new primitive in `extensions_requested`, such as independent committees with disagreement routing, sequential cross-examination, a shared evidence board, or a decomposer-to-specialist pipeline. Prefer adding one interpretable primitive at a time.
+
+## Completed evidence
+
+{
+  "current": {
+    "cases": 12,
+    "checkpoint": false,
+    "iteration": 9,
+    "status_counts": {
+      "valid_output": 216
+    },
+    "strategies": [
+      {
+        "accuracy": 0.4166666666666667,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 4,
+            "correct": 4,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 1.0,
+            "helpful_interventions": 3,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.36363636363636365,
+        "helpful_interventions": 4,
+        "hypothesis": "A five-answer bank paired with three falsifying repairers is the strongest replicated mechanism so far at 33/72 pooled exact, and remains the stable comparison for new architectures.",
+        "mean_effective_calls": 8.0,
+        "mean_unique_base_candidates": 4.416666666666667,
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "partial_accuracy": 0.7348484848484849,
+        "review_calls_used": 36,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.3333333333333333,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "correct": 4,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.75,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 4,
+            "correct": 3,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.6666666666666666,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.2727272727272727,
+        "helpful_interventions": 3,
+        "hypothesis": "A single answer-generating falsifier directly tests whether the pooled five-by-three repair mechanism retains useful correction power at six calls per activated case. Comparing it with the failed one-review selector isolates repair capability from reviewer replication.",
+        "mean_effective_calls": 6.0,
+        "mean_unique_base_candidates": 4.416666666666667,
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "partial_accuracy": 0.7045454545454546,
+        "review_calls_used": 12,
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.25,
+        "base_count": 9,
+        "base_oracle_correct": 6,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "correct": 3,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 8.5,
+            "repair_created_correct_answers": 1,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 9.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 4,
+            "correct": 2,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 4.75,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 2,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": null,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.25,
+        "helpful_interventions": 3,
+        "hypothesis": "Committee fallback had a positive correction balance but compressed away most raw candidates and left constraint at zero. Allowing reviewers to repair rather than merely choose tests whether independent committee delegates provide useful diverse diagnoses while answer generation overcomes delegate-level candidate loss.",
+        "mean_effective_calls": 11.5,
+        "mean_unique_base_candidates": 7.416666666666667,
+        "name": "Committee-Triggered Falsifying Repair",
+        "partial_accuracy": 0.5984848484848485,
+        "review_calls_used": 30,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-9x3-fallback",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.16666666666666666,
+        "base_count": 9,
+        "base_oracle_correct": 6,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "correct": 2,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 8.5,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 9.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 4,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 4.75,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 2,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": null,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.16666666666666666,
+        "helpful_interventions": 2,
+        "hypothesis": "Nine bases materially improved candidate-oracle coverage in Iteration 8, while selection failed to convert most of that coverage. Falsifying repair can both select an existing candidate and generate a corrected exact answer; withholding review when the base has a strict majority should reduce unnecessary reversals and calls without introducing domain-specific logic.",
+        "mean_effective_calls": 11.5,
+        "mean_unique_base_candidates": 7.416666666666667,
+        "name": "Majority-Gated Nine-Bank Falsifying Repair",
+        "partial_accuracy": 0.6818181818181818,
+        "review_calls_used": 30,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3-majority",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.08333333333333333,
+        "base_count": 1,
+        "base_oracle_correct": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "correct": 1,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          }
+        },
+        "final_rule": "base_plurality",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.0,
+        "helpful_interventions": 0,
+        "hypothesis": "A single independent answer is the minimum-cost baseline.",
+        "mean_effective_calls": 1.0,
+        "mean_unique_base_candidates": 1.0,
+        "name": "Direct One",
+        "partial_accuracy": 0.6060606060606061,
+        "review_calls_used": 0,
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.08333333333333333,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "correct": 1,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 4,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          }
+        },
+        "final_rule": "base_plurality",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.0,
+        "helpful_interventions": 0,
+        "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+        "mean_effective_calls": 5.0,
+        "mean_unique_base_candidates": 4.416666666666667,
+        "name": "Five-Vote Plurality",
+        "partial_accuracy": 0.6060606060606061,
+        "review_calls_used": 0,
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      }
+    ],
+    "worker_calls": 216
+  },
+  "history": [
+    {
+      "cases": 12,
+      "direct_accuracy": 0.08333333333333333,
+      "iteration": 1,
+      "plurality5_accuracy": 0.08333333333333333,
+      "winner_accuracy": 0.5,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 252
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.0,
+      "iteration": 2,
+      "plurality5_accuracy": 0.0,
+      "winner_accuracy": 0.4166666666666667,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 273
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.16666666666666666,
+      "iteration": 3,
+      "plurality5_accuracy": 0.16666666666666666,
+      "winner_accuracy": 0.4166666666666667,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 228
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.16666666666666666,
+      "iteration": 4,
+      "plurality5_accuracy": 0.25,
+      "winner_accuracy": 0.5,
+      "winner_id": "repair-falsify-9x3",
+      "winner_name": "Nine Solvers plus Three Falsifying Repairers",
+      "winner_worst_family": 0.5,
+      "worker_calls": 246
+    },
+    {
+      "cases": 18,
+      "direct_accuracy": 0.1111111111111111,
+      "iteration": 5,
+      "plurality5_accuracy": 0.1111111111111111,
+      "winner_accuracy": 0.5,
+      "winner_id": "repair-falsify-9x3",
+      "winner_name": "Nine Solvers plus Three Falsifying Repairers",
+      "winner_worst_family": 0.3333333333333333,
+      "worker_calls": 480
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.08333333333333333,
+      "iteration": 6,
+      "plurality5_accuracy": 0.3333333333333333,
+      "winner_accuracy": 0.5833333333333334,
+      "winner_id": "repair-falsify-5x3-efficient",
+      "winner_name": "Efficient Five-Bank Falsifying Repair",
+      "winner_worst_family": 0.5,
+      "worker_calls": 249
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.0,
+      "iteration": 7,
+      "plurality5_accuracy": 0.0,
+      "winner_accuracy": 0.4166666666666667,
+      "winner_id": "choose-falsify-5x3",
+      "winner_name": "Five-Bank Falsifying Selection",
+      "winner_worst_family": 0.25,
+      "worker_calls": 246
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.0,
+      "iteration": 8,
+      "plurality5_accuracy": 0.0,
+      "winner_accuracy": 0.16666666666666666,
+      "winner_id": "committee-compare-9x3-fallback",
+      "winner_name": "Committee Comparison Fallback Replication",
+      "winner_worst_family": 0.0,
+      "worker_calls": 228
+    }
+  ]
+}
+
+## Design the next batch
+
+Iteration 10 will use 18 entirely fresh sealed cases and has a hard maximum of 500 Luna calls. Return 4 to 6 valid strategy proposals. The runner will mechanically retain Direct One, Five-Vote Plurality, and the current winner, then fill the remaining slots with your most distinct valid proposals. The maximum bank cost is cases times the largest base_count. Each review strategy adds at most cases times review_count. Keep the complete six-strategy batch within budget. Strategy IDs must contain only lowercase letters, digits, and hyphens. Every proposal must explicitly set candidate_source to base_unique or committee_delegates. A zero-review strategy must use review_mode none, trigger never, and base_plurality. A review strategy must use a real mode and review_plurality_fallback_base or review_plus_base_plurality. Base your diagnosis on the numbers, especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions.

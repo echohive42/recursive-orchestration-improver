@@ -67,11 +67,18 @@ TOOL_MARKERS = (
 ODD_BASE_COUNTS = {1, 3, 5, 7, 9, 11, 13, 15}
 REVIEW_COUNTS = {0, 1, 3, 5}
 REVIEW_TRIGGERS = {"never", "always", "any_disagreement", "no_strict_majority", "committee_disagreement"}
-REVIEW_MODES = {"none", "choose", "repair"}
+REVIEW_MODES = {"none", "choose", "repair", "cross_examine"}
 REVIEW_STYLES = {"verify", "rederive", "falsify", "compare"}
-FINAL_RULES = {"base_plurality", "review_plurality_fallback_base", "review_plus_base_plurality"}
+FINAL_RULES = {
+    "base_plurality", "review_plurality_fallback_base", "review_plus_base_plurality",
+    "last_review_fallback_base",
+}
 CANDIDATE_SOURCES = {"base_unique", "committee_delegates"}
 FAMILY_LABELS = {"sequence": "Sequence", "constraint": "Planning", "logic": "Logic"}
+OPERATIONAL_FIELDS = (
+    "base_count", "review_count", "review_trigger", "review_mode", "review_style",
+    "candidate_limit", "candidate_source", "show_frequencies", "final_rule",
+)
 
 
 class LabError(RuntimeError):
@@ -258,6 +265,27 @@ def normalize_choice(candidate_count: int, value: Any) -> dict[str, Any] | None:
     if not isinstance(choice, int) or isinstance(choice, bool) or not 0 <= choice < candidate_count:
         return None
     return {"choice": choice}
+
+
+def cross_exam_schema(case: dict[str, Any]) -> dict[str, Any]:
+    schema = output_schema(case)
+    schema["properties"] = dict(schema["properties"])
+    schema["properties"]["critique"] = {"type": "string", "minLength": 1, "maxLength": 600}
+    schema["required"] = list(schema["required"]) + ["critique"]
+    return schema
+
+
+def normalize_cross_exam(case: dict[str, Any], value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict) or not isinstance(value.get("critique"), str):
+        return None
+    critique = value["critique"].strip()
+    if not critique or len(critique) > 600:
+        return None
+    answer_value = {key: item for key, item in value.items() if key != "critique"}
+    answer = normalize_answer(case, answer_value)
+    if answer is None:
+        return None
+    return {"answer_document": answer, "critique": critique}
 
 
 def codex_command(
@@ -659,6 +687,17 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
             return None, "zero-review strategies must be pure base plurality"
     elif value["review_mode"] == "none" or value["review_trigger"] == "never" or value["final_rule"] == "base_plurality":
         return None, "review strategies must specify a real review mode, trigger, and final rule"
+    if value["review_mode"] == "cross_examine":
+        if value["review_count"] != 3:
+            return None, "cross-examination currently requires exactly three sequential reviewers"
+        if value["final_rule"] != "last_review_fallback_base":
+            return None, "cross-examination requires the last-review fallback rule"
+        if candidate_source != "base_unique":
+            return None, "cross-examination currently requires raw base candidates"
+        if value["review_style"] != "falsify" or value["show_frequencies"]:
+            return None, "cross-examination requires falsification with hidden frequencies"
+    elif value["final_rule"] == "last_review_fallback_base":
+        return None, "last-review fallback is reserved for cross-examination"
     normalized = dict(value)
     normalized["candidate_source"] = candidate_source
     return normalized, None
@@ -1032,7 +1071,7 @@ def freeze_review_jobs(
     jobs: list[dict[str, Any]] = []
     normalizers: dict[str, Normalizer] = {}
     for strategy_index, strategy in enumerate(strategies):
-        if strategy["review_count"] == 0:
+        if strategy["review_count"] == 0 or strategy["review_mode"] == "cross_examine":
             continue
         for case_index, case in enumerate(cases):
             documents = base_documents[case["case_id"]][: strategy["base_count"]]
@@ -1088,6 +1127,183 @@ def freeze_review_jobs(
         "base_jobs_sha256": sha256_file(iteration_dir(number) / "base" / "jobs.jsonl"),
     })
     return jobs, normalizers
+
+
+def cross_exam_prompt(
+    case: dict[str, Any],
+    candidates: list[dict[str, Any]],
+    prior_review: dict[str, Any] | None,
+    layer: int,
+) -> str:
+    entries = [
+        f"Candidate {index}:\n{json.dumps(candidate['document'], sort_keys=True)}"
+        for index, candidate in enumerate(candidates)
+    ]
+    if prior_review is None:
+        inherited = "No earlier review is available. Establish the strongest initial answer and its decisive critique."
+    else:
+        inherited = (
+            "The preceding reviewer proposed:\n"
+            + json.dumps(prior_review["answer_document"], sort_keys=True)
+            + "\n\nIts critique was:\n"
+            + prior_review["critique"]
+        )
+    return (
+        f"You are reviewer {layer} in a sequential cross-examination study. Work only from the problem, shuffled "
+        "candidate answers, and preceding review below. Use no tools, code execution, Python, web access, or external "
+        "files. Any candidate and the preceding reviewer may be wrong. Actively falsify the decisive claims in the "
+        "preceding critique, re-check the exact rules, and revise the answer when needed.\n\n"
+        f"<problem>\n{case['prompt'].strip()}\n</problem>\n\n"
+        f"<candidates>\n{'\n\n'.join(entries)}\n</candidates>\n\n"
+        f"<preceding_review>\n{inherited}\n</preceding_review>\n\n"
+        "Return only the exact requested answer JSON with one additional string field named critique. The critique must "
+        "concisely state what you tested, what failed or survived, and why the returned exact answer should replace or "
+        "retain the preceding proposal."
+    )
+
+
+def freeze_cross_exam_plan(
+    number: int,
+    cases: list[dict[str, Any]],
+    strategies: list[dict[str, Any]],
+    base_documents: dict[str, list[dict[str, Any] | None]],
+) -> list[dict[str, Any]]:
+    config = protocol()
+    plans: list[dict[str, Any]] = []
+    for strategy_index, strategy in enumerate(strategies):
+        if strategy["review_mode"] != "cross_examine":
+            continue
+        for case_index, case in enumerate(cases):
+            documents = base_documents[case["case_id"]][: strategy["base_count"]]
+            _, metrics = plurality(documents)
+            if not review_needed(strategy, metrics, documents):
+                continue
+            seed = number * 1_000_000 + strategy_index * 10_000 + case_index * 100 + 77
+            candidates = candidates_for(strategy, documents, seed)
+            if not candidates:
+                continue
+            plans.append({
+                "strategy_id": strategy["strategy_id"],
+                "case_id": case["case_id"],
+                "family": case["family"],
+                "review_count": strategy["review_count"],
+                "candidate_documents": [item["document"] for item in candidates],
+                "candidate_frequencies": [item["frequency"] for item in candidates],
+                "candidate_order_seed": seed,
+            })
+    plans.sort(key=lambda item: (item["strategy_id"], item["case_id"]))
+    stage = iteration_dir(number) / "cross-review"
+    registry_path = stage / "plan.jsonl"
+    rendered = "".join(canonical(plan) + "\n" for plan in plans)
+    if registry_path.exists() and registry_path.read_text(encoding="utf-8") != rendered:
+        raise LabError("Frozen cross-examination plan changed")
+    if not registry_path.exists():
+        atomic_text(registry_path, rendered)
+    freeze_json(stage / "manifest.json", {
+        "registered_before_calls": True,
+        "registered_at": registered_at(stage / "manifest.json"),
+        "chains": len(plans),
+        "planned_calls": sum(plan["review_count"] for plan in plans),
+        "plan_sha256": sha256_file(registry_path),
+        "derived_only_from_public_cases_and_base_outputs": True,
+        "sealed_answers_unopened": True,
+        "model": config["worker_model"],
+        "reasoning_effort": config["worker_reasoning_effort"],
+        "base_jobs_sha256": sha256_file(iteration_dir(number) / "base" / "jobs.jsonl"),
+    })
+    return plans
+
+
+def run_cross_exam_reviews(
+    number: int,
+    cases: list[dict[str, Any]],
+    strategies: list[dict[str, Any]],
+    plans: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
+    if not plans:
+        return [], {}
+    config = protocol()
+    cases_by_id = {case["case_id"]: case for case in cases}
+    strategies_by_id = {strategy["strategy_id"]: strategy for strategy in strategies}
+    prior: dict[tuple[str, str], dict[str, Any] | None] = {}
+    all_jobs: list[dict[str, Any]] = []
+    all_results: dict[str, dict[str, Any]] = {}
+    maximum_layer = max(plan["review_count"] for plan in plans)
+    for layer in range(1, maximum_layer + 1):
+        jobs: list[dict[str, Any]] = []
+        normalizers: dict[str, Normalizer] = {}
+        for plan in plans:
+            if layer > plan["review_count"]:
+                continue
+            chain_key = (plan["strategy_id"], plan["case_id"])
+            if layer > 1 and prior.get(chain_key) is None:
+                continue
+            case = cases_by_id[plan["case_id"]]
+            strategy = strategies_by_id[plan["strategy_id"]]
+            candidates = [
+                {"document": document, "frequency": frequency}
+                for document, frequency in zip(
+                    plan["candidate_documents"], plan["candidate_frequencies"], strict=True
+                )
+            ]
+            previous = prior.get(chain_key)
+            job_id = (
+                f"i{number:03d}-cross-{plan['strategy_id']}-{plan['case_id']}-r{layer:02d}"
+            )
+            job = {
+                "job_id": job_id,
+                "iteration": number,
+                "stage": f"cross-review-{layer}",
+                "strategy_id": strategy["strategy_id"],
+                "case_id": case["case_id"],
+                "family": case["family"],
+                "reviewer_index": layer,
+                "review_mode": "cross_examine",
+                "candidate_documents": plan["candidate_documents"],
+                "candidate_frequencies": plan["candidate_frequencies"],
+                "candidate_order_seed": plan["candidate_order_seed"],
+                "prior_review": previous,
+                "model": config["worker_model"],
+                "reasoning_effort": config["worker_reasoning_effort"],
+                "prompt": cross_exam_prompt(case, candidates, previous, layer),
+                "output_schema": cross_exam_schema(case),
+            }
+            jobs.append(job)
+            normalizers[job_id] = lambda value, case=case: normalize_cross_exam(case, value)
+        random.Random(300_000 + number * 10 + layer).shuffle(jobs)
+        layer_stage = iteration_dir(number) / "cross-review" / f"layer-{layer:02d}"
+        registry_path = layer_stage / "jobs.jsonl"
+        rendered = "".join(canonical(job) + "\n" for job in jobs)
+        if registry_path.exists() and registry_path.read_text(encoding="utf-8") != rendered:
+            raise LabError(f"Frozen cross-examination layer {layer} changed")
+        if not registry_path.exists():
+            atomic_text(registry_path, rendered)
+        prior_hash = sha256_bytes(canonical({
+            f"{key[0]}::{key[1]}": value for key, value in sorted(prior.items())
+        }).encode("utf-8"))
+        freeze_json(layer_stage / "manifest.json", {
+            "registered_before_calls": True,
+            "registered_at": registered_at(layer_stage / "manifest.json"),
+            "layer": layer,
+            "jobs": len(jobs),
+            "jobs_sha256": sha256_file(registry_path),
+            "prior_layer_outputs_sha256": prior_hash,
+            "sealed_answers_unopened": True,
+            "model": config["worker_model"],
+            "reasoning_effort": config["worker_reasoning_effort"],
+        })
+        results = run_jobs(
+            jobs,
+            layer_stage,
+            int(config["max_concurrency"]),
+            int(config["timeout_seconds"]),
+            normalizers,
+        )
+        for job in jobs:
+            prior[(job["strategy_id"], job["case_id"])] = results[job["job_id"]].get("document")
+        all_jobs.extend(jobs)
+        all_results.update(results)
+    return all_jobs, all_results
 
 
 def exact_score(document: dict[str, Any] | None, expected: dict[str, Any]) -> int:
@@ -1157,9 +1373,34 @@ def review_outputs_for(
                 outputs.append(candidates[choice] if 0 <= choice < len(candidates) else None)
             else:
                 outputs.append(None)
+        elif strategy["review_mode"] == "cross_examine":
+            if isinstance(document, dict) and isinstance(document.get("answer_document"), dict):
+                outputs.append(document["answer_document"])
+            else:
+                outputs.append(None)
         else:
             outputs.append(document)
     return outputs
+
+
+def terminal_cross_answer_for(
+    strategy: dict[str, Any],
+    case_id: str,
+    review_jobs: list[dict[str, Any]],
+    review_results: dict[str, dict[str, Any]],
+) -> dict[str, Any] | None:
+    terminal = next((
+        job for job in review_jobs
+        if job["strategy_id"] == strategy["strategy_id"]
+        and job["case_id"] == case_id
+        and job["reviewer_index"] == strategy["review_count"]
+    ), None)
+    if terminal is None:
+        return None
+    document = review_results[terminal["job_id"]].get("document")
+    if isinstance(document, dict) and isinstance(document.get("answer_document"), dict):
+        return document["answer_document"]
+    return None
 
 
 def final_answer_for(
@@ -1175,6 +1416,10 @@ def final_answer_for(
     review_answer, review_metrics = plurality(reviewed)
     if not reviewed or review_answer is None:
         final = base_answer
+    elif strategy["final_rule"] == "last_review_fallback_base":
+        final = terminal_cross_answer_for(
+            strategy, case_id, review_jobs, review_results
+        ) or base_answer
     elif strategy["final_rule"] == "review_plus_base_plurality":
         final, _ = plurality(reviewed + [base_answer])
     else:
@@ -1279,7 +1524,7 @@ def score_iteration(
                 "review_calls": details["review_calls"],
                 "review_candidate_oracle": review_candidate_oracle,
                 "repair_created_correct_answer": int(
-                    strategy["review_mode"] == "repair"
+                    strategy["review_mode"] in {"repair", "cross_examine"}
                     and bool(matching_review_jobs)
                     and review_candidate_oracle == 0
                     and exact == 1
@@ -1429,8 +1674,8 @@ def render_history_plot(history: list[dict[str, Any]], path: Path) -> None:
     left, right, top, bottom = 100, 70, 110, 80
     chart_width, chart_height = width - left - right, height - top - bottom
     body: list[str] = [
-        svg_text(54, 55, "Continuous orchestration frontier", 30, "#ffffff", weight=750),
-        svg_text(54, 85, "Fresh-panel winner and fixed baselines by iteration", 16, "#9fb0d0"),
+        svg_text(54, 55, "Continuous orchestration search", 30, "#ffffff", weight=750),
+        svg_text(54, 85, "Fresh-panel outcomes; difficulty varies, so compare pooled mechanisms", 16, "#9fb0d0"),
     ]
     for tick in range(0, 101, 10):
         y = top + chart_height * (1 - tick / 100)
@@ -1439,7 +1684,7 @@ def render_history_plot(history: list[dict[str, Any]], path: Path) -> None:
     if history:
         x_for = lambda index: left + (chart_width * index / max(1, len(history) - 1))
         series = [
-            ("winner_accuracy", "#72f1b8", "Best searched system"),
+            ("winner_accuracy", "#72f1b8", "Panel winner"),
             ("direct_accuracy", "#ff6b9d", "Direct one"),
             ("plurality5_accuracy", "#ffc857", "Five-vote plurality"),
         ]
@@ -1497,6 +1742,71 @@ def compact_history() -> list[dict[str, Any]]:
     return history
 
 
+def operational_signature(strategy: dict[str, Any]) -> str:
+    return canonical({
+        key: strategy.get(key, "base_unique" if key == "candidate_source" else None)
+        for key in OPERATIONAL_FIELDS
+    })
+
+
+def pooled_champion() -> dict[str, Any] | None:
+    """Return the best replicated non-control mechanism across completed panels."""
+    if not STATE_PATH.is_file():
+        return None
+    groups: dict[str, dict[str, Any]] = {}
+    for number in load_json(STATE_PATH).get("completed_iterations", []):
+        path = iteration_dir(number) / "results" / "summary.json"
+        if not path.is_file():
+            continue
+        for strategy in load_json(path)["strategies"]:
+            if strategy["review_count"] == 0:
+                continue
+            key = operational_signature(strategy)
+            group = groups.setdefault(key, {
+                "panels": 0,
+                "correct": 0,
+                "total": 0,
+                "partial_weight": 0.0,
+                "call_weight": 0.0,
+                "families": defaultdict(lambda: [0, 0]),
+                "strategy": strategy,
+            })
+            group["panels"] += 1
+            group["correct"] += strategy["correct"]
+            group["total"] += strategy["total"]
+            group["partial_weight"] += strategy["partial_accuracy"] * strategy["total"]
+            group["call_weight"] += strategy["mean_effective_calls"] * strategy["total"]
+            group["strategy"] = strategy
+            for family, metrics in strategy["families"].items():
+                group["families"][family][0] += metrics["correct"]
+                group["families"][family][1] += metrics["total"]
+    eligible: list[dict[str, Any]] = []
+    for group in groups.values():
+        if group["panels"] < 2:
+            continue
+        family_accuracy = {
+            family: correct / total
+            for family, (correct, total) in group["families"].items()
+            if total
+        }
+        total = group["total"]
+        group["accuracy"] = group["correct"] / total
+        group["worst_family_accuracy"] = min(family_accuracy.values())
+        group["partial_accuracy"] = group["partial_weight"] / total
+        group["mean_effective_calls"] = group["call_weight"] / total
+        group["family_accuracy"] = family_accuracy
+        eligible.append(group)
+    if not eligible:
+        return None
+    eligible.sort(key=lambda group: (
+        group["worst_family_accuracy"],
+        group["accuracy"],
+        group["partial_accuracy"],
+        -group["mean_effective_calls"],
+    ), reverse=True)
+    return eligible[0]
+
+
 def write_status() -> None:
     if not STATE_PATH.is_file():
         return
@@ -1511,7 +1821,14 @@ def write_status() -> None:
     ]
     best = state.get("best_observed", {})
     if best.get("strategy_id"):
-        lines.append(f"- Best observed search result: **{best['name']}**, {100 * best['accuracy']:.1f}% exact on iteration {best['iteration']}")
+        lines.append(f"- Best single-panel observation: **{best['name']}**, {100 * best['accuracy']:.1f}% exact on iteration {best['iteration']}")
+    pooled = pooled_champion()
+    if pooled is not None:
+        lines.append(
+            f"- Pooled replicated champion: **{pooled['strategy']['name']}**, "
+            f"{pooled['correct']}/{pooled['total']} exact across {pooled['panels']} panels; "
+            f"{100 * pooled['worst_family_accuracy']:.1f}% weakest family"
+        )
     lines.extend(("", "| Iteration | Cases | Luna calls | Winner | Exact | Weakest family |", "| ---: | ---: | ---: | --- | ---: | ---: |"))
     for item in history:
         lines.append(
@@ -1628,8 +1945,9 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
         + "cost is cases times the largest base_count. Each review strategy adds at most cases times review_count. Keep the "
         + "complete six-strategy batch within budget. Strategy IDs must contain only lowercase letters, digits, and hyphens. "
         + "Every proposal must explicitly set candidate_source to base_unique or committee_delegates. "
-        + "A zero-review strategy must use review_mode none, trigger never, and base_plurality. A review strategy must use a "
-        + "real mode and review_plurality_fallback_base or review_plus_base_plurality. Base your diagnosis on the numbers, "
+        + "A zero-review strategy must use review_mode none, trigger never, and base_plurality. An independent review strategy "
+        + "must use review_plurality_fallback_base or review_plus_base_plurality. Cross-examination requires exactly three "
+        + "reviewers, raw base candidates, and last_review_fallback_base. Base your diagnosis on the numbers, "
         + "especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions."
     )
 
@@ -1770,7 +2088,16 @@ def assemble_next_strategies(
 
     add(fixed_strategy("direct-1"), "fixed direct baseline")
     add(fixed_strategy("plurality-5"), "fixed five-vote baseline")
-    add(summary["winner"], "mechanically retained current winner")
+    pooled = pooled_champion()
+    if pooled is not None:
+        add(
+            pooled["strategy"],
+            f"pooled champion across {pooled['panels']} fresh panels: "
+            f"{pooled['correct']}/{pooled['total']} exact; "
+            f"{100 * pooled['worst_family_accuracy']:.1f}% weakest family",
+        )
+    else:
+        add(summary["winner"], "current winner retained because no mechanism has two panels yet")
     proposals = director.get("proposals", []) if director else []
     for proposal in proposals:
         if len(selected) >= int(protocol()["budgets"]["max_strategies"]):
@@ -1899,9 +2226,15 @@ def run_one(number: int | None = None) -> dict[str, Any]:
     )
     base_documents = result_documents(base_jobs, base_results)
     review_jobs, review_normalizers = freeze_review_jobs(number, cases, strategies, base_documents)
+    cross_plans = freeze_cross_exam_plan(number, cases, strategies, base_documents)
+    planned_cross_calls = sum(plan["review_count"] for plan in cross_plans)
     maximum = len(base_jobs) + sum(len(cases) * item["review_count"] for item in strategies)
-    actual = len(base_jobs) + len(review_jobs)
-    print(f"Iteration {number} review registry frozen: {len(review_jobs)} calls; actual total {actual}, registered maximum {maximum}.", flush=True)
+    actual = len(base_jobs) + len(review_jobs) + planned_cross_calls
+    print(
+        f"Iteration {number} review registry frozen: {len(review_jobs)} parallel and up to "
+        f"{planned_cross_calls} sequential calls; planned total {actual}, registered maximum {maximum}.",
+        flush=True,
+    )
     review_results = run_jobs(
         review_jobs,
         directory / "review",
@@ -1909,6 +2242,9 @@ def run_one(number: int | None = None) -> dict[str, Any]:
         int(config["timeout_seconds"]),
         review_normalizers,
     )
+    cross_jobs, cross_results = run_cross_exam_reviews(number, cases, strategies, cross_plans)
+    review_jobs.extend(cross_jobs)
+    review_results.update(cross_results)
     summary = score_iteration(number, cases, strategies, base_jobs, base_results, review_jobs, review_results)
     render_iteration_plot(summary, directory / "results" / "plot.svg")
     print(

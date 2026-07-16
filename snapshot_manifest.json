@@ -31,6 +31,10 @@
     "iteration-008": {
       "base": 108,
       "review": 120
+    },
+    "iteration-009": {
+      "base": 108,
+      "review": 108
     }
   },
   "completed_iterations": [
@@ -41,15 +45,16 @@
     5,
     6,
     7,
-    8
+    8,
+    9
   ],
   "files": {
     ".gitignore": "788e71b4a03e875ec8eccc1617370fc20e877f0550253068929a4fe59b7911a8",
     "LICENSE": "62a9bf96f50344afbe6c62a6a1e0bd957dcdf9612edff15c417c0217dbfc2869",
-    "PROGRESS.md": "e712085c3ae668819d26010cd5e9acbd52e835c742ff25c95f4e835aba29133b",
-    "README.md": "b2ec518307430104e43a6c3be82466376d2aedb623ec0a8392398b8fb2754bae",
+    "PROGRESS.md": "02cae0bcae09234713e951a67f62b12d5ee77501d615ce48ac051484388513b3",
+    "README.md": "b910a37ad52b681bd98b0540d4d88891c9c59255241ad16ef3e27337858912a8",
     "images/iterations-1-3-comparison.svg": "b9aa50d73831fdc6b0c5a30de0f3b4278c4755b202eb6ba269becac61619ae25",
-    "images/progress.svg": "fa45f85000f0e2be7cb2ac8fc758cb59c9e48e046f8d1a0421c7a927454411a7",
+    "images/progress.svg": "e225bf7f60b29fa085b8f2b411f3a7c4355dc697e85b9700c48bdac5a9cedfac",
     "iterations/iteration-001/base/jobs.jsonl": "af169a7da5a70dc2e17559ca7f4b874825b689086391c4b5ff30f65f02a9f2f7",
     "iterations/iteration-001/base/manifest.json": "e5a0925741f9f7b5f739b0189ec65c635c28b2eea096a458bd743d3a7950faf7",
     "iterations/iteration-001/base/progress.json": "917dfd15e05feba402b2b5ba67af70f3fc2816a2993dadbb366771765fa8ab81",
@@ -213,14 +218,34 @@
     "iterations/iteration-008/review/manifest.json": "63179996a00fc8784c59da3bbc8e14da84b0816fbd509091142ce523fdf8bef1",
     "iterations/iteration-008/review/progress.json": "eb7510523c3740de83543c80343a7fea08e1d79b67b036b31846c4d281a9f850",
     "iterations/iteration-008/review/results.jsonl": "a92b3752ecfd8d466ecbae390762d86a6c6932a062bb7315ed79d552d769b7fa",
+    "iterations/iteration-009/base/jobs.jsonl": "e2451097c2a10575ea84a6df53fe1e8a331352a959ed50d76c7410fcf056fa14",
+    "iterations/iteration-009/base/manifest.json": "1dfff04218cb3dc1899a94e05205e49a0dec935e43633e155572688bb2a3466c",
+    "iterations/iteration-009/base/progress.json": "aff5063df702bb81f4aa0313181a5fbb84620440e76d80cf173c87c06822c3f1",
+    "iterations/iteration-009/base/results.jsonl": "70c9549b8fd05ae8a45a5c3b1a49e3fa78d08a5596b231c865e8bc9c039fca67",
+    "iterations/iteration-009/director/prompt.txt": "038515f000fee0414c2b2e9b51927ff6cbe2fcc47c19607ce0321320434842fb",
+    "iterations/iteration-009/director/request.json": "a4d1049e834b104dc79bf835d23990a99656b16061c459a9b44ff59ab75883e0",
+    "iterations/iteration-009/director/result_summary.json": "fea6c455f7ad4fd9f5ee50cabd012a573a83ac4b518b9ffa430c787e907385f0",
+    "iterations/iteration-009/panel/panel_hashes.json": "1bdb67c1a4a3c44c03004eadc821548e805db2f1da95fe7084a91f300195314b",
+    "iterations/iteration-009/panel/public_cases.json": "da31520d98dca08e26d0fdc2717b2f36d35ad5118c5ed60a0a031b822b119dc9",
+    "iterations/iteration-009/panel/sealed_answers.json": "e9748c463a8a2f6ff9bcd4c0afb11d16e8c9e3a547f2eece7f80f176ce465086",
+    "iterations/iteration-009/protocol_snapshot.json": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+    "iterations/iteration-009/registry.json": "3f0f1c42ee96907eb4dd027d2debf193943f9c07ee553d7f6c76e01e03e06108",
+    "iterations/iteration-009/results/case_results.csv": "dfd01f66c0aa8d96ce915d7538a867dfe59f41a4b94b1dbba82896c963d21f0c",
+    "iterations/iteration-009/results/case_results.json": "988bddb340fb77329168c84e247f56e379528522b3585d2d1892f28ec8712d4d",
+    "iterations/iteration-009/results/plot.svg": "a9aa384992ae99514bcc3591c8ff18c1cc6f60c1b9e667edba1da1c9f241944a",
+    "iterations/iteration-009/results/summary.json": "25527b906dc8bb6bf5f223dbf43b9ba01d8a948434a224169680f86772179c9c",
+    "iterations/iteration-009/review/jobs.jsonl": "5ee877debeb491cfa2a7d329e278a2030daab9589dbd5ec04be92b8e1fa89013",
+    "iterations/iteration-009/review/manifest.json": "88442cf79da9cb8baf6d7e0552deec94a50cb922d9b2fc6416f89fd23f75aa9b",
+    "iterations/iteration-009/review/progress.json": "d206ef9f2552c0de963055bee4f47189bef2717fa4de3f952995c924a5e8501e",
+    "iterations/iteration-009/review/results.jsonl": "92a245ee818cee9e1f28f0b2b989b084b3a3be684d4a77928b5188cbdeadf874",
     "protocol.json": "ebb2d1c1218dc0d37353eaf34ab056fca1aafef8e181e4574f5bad63cf2bf51d",
-    "researcher.md": "6af97e09ae462a302717a3f27c9168e086ef0d15940c338bc4018f464f72b389",
-    "run.py": "f0d0f737824ab5b31333eab28121db7409565fbd1d19cdc130f1ed95e453433b",
+    "researcher.md": "a489573e34fe8b5f01ddc196118ed83a215501a0bce736dbc37a69d90bd5c4dd",
+    "run.py": "01ccb8b59a9ea8a8dff5e5fce309cb9c1a64b9d86c42bef5f06faf9352f29a85",
     "scripts/export_completed.py": "5f4e3a88eea3a5bef7c00fcf9ddc647fd26ef6c9b532ad3281ed47a9bc896642",
     "scripts/generate_extreme_calibration.py": "b84324426705335c59f6a4fa215fd2cfb46921a7e4c784df287c87cbbc74251d",
-    "scripts/publish_progress.py": "62de9453b7f4ced7ecf39f54890138ce98c2bc67f092a2b743daf50be229fb12",
+    "scripts/publish_progress.py": "4b3e8db94a9547e53032625a4c2f5edb0985f9a75282fd4099799af19c903823",
     "scripts/validate_snapshot.py": "436dcc3676d8e0c1a0c04197beebb2b141caa198f0b61fdc1f8a77297aaf3929",
-    "state.json": "978dbf980af0c5fec4445db7e02dc9f1e6c157c026cc48cd475eb4cfa551500b",
+    "state.json": "ce5ae6fdd7fb55a995afde5cb58907a0f0a7c33ca6330bb7381a860e1aa45200",
     "strategies/iteration-001.json": "ecf9388b373eed270277c867da0f8a77ca726ab78f908b656d1724a63bab9ec9",
     "strategies/iteration-002.json": "df023a2a1501c26dd63994199e096d7a5a99848dceca6836aa6683e9d273ae9b",
     "strategies/iteration-003.json": "5fefe4fde3fbec1aa313257e98d7957ad7700f0cea42dc7aa18b02d0ddd4bb19",
@@ -229,7 +254,8 @@
     "strategies/iteration-006.json": "344cd07cb0cb4062ad4d4ee33e4c0c14dd31ebbbd7fa4e3ba441bd6feaa17ca2",
     "strategies/iteration-007.json": "e5859aa9889336f4d7eff5264a79aef3b27f167cd85388071e495b50cacdee82",
     "strategies/iteration-008.json": "7c545858f04bdcdd02b75c3843b4695bd85294e42c5e0663e52419fc3120b62d",
-    "strategies/iteration-009.json": "8614af085e4937496e48a93237d0b20a192bd5bc0520122a547cb77b8370caaa"
+    "strategies/iteration-009.json": "14d77ed217a71c58a5a3b03ffc9c8e1f12666a81811bf378761f8ea36d75857b",
+    "strategies/iteration-010.json": "2982c2fb58572604091a642fd8ce31a4e82c74f50b708fb428caaf3b1d8924d0"
   },
   "note": "Generated from completed stages only; raw runtime artifacts and active partial work are excluded."
 }
