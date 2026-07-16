@@ -9,7 +9,7 @@ Recursive Orchestration Improver is a small, reproducible auto-research system t
 The recursion is in the research process, not the model weights: each completed experiment changes how the next swarm is designed, while fresh panels test whether those changes actually help.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains three completed search iterations and the registered strategy for Iteration 4. The numbers below are promising development evidence, not independent final validation.
+> **This is active research, not a finished benchmark.** The repository currently contains 5 completed research rounds and the registered strategy for Round 6. The numbers below are promising development evidence, not independent final validation.
 
 ## Explore the wider lab
 
@@ -17,7 +17,28 @@ The recursion is in the research process, not the model weights: each completed 
 - [Get Amplified](https://www.echohive.ai/get-amplified) is a practical field guide for using current AI models, agents, and harnesses to attempt larger work.
 - [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday session where new methods, research, and experiments are worked through together.
 
-## Current signal
+<!-- LIVE_PROGRESS_START -->
+## Live research progress
+
+**5 completed rounds.** The latest winner was **Nine Solvers plus Three Falsifying Repairers**, which solved **9/18 (50.0%)** with a weakest-family accuracy of **33.3%**.
+
+| Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |
+|---:|---|---:|---:|---:|---:|
+| 1 | Five Solvers plus Three Repairers | 6/12 · **50.0%** | 25.0% | 1/12 · 8.3% | 252 |
+| 2 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 273 |
+| 3 | Five Solvers plus Three Repairers | 5/12 · **41.7%** | 25.0% | 2/12 · 16.7% | 228 |
+| 4 | Nine Solvers plus Three Falsifying Repairers | 6/12 · **50.0%** | 50.0% | 2/12 · 16.7% | 246 |
+| 5 | Nine Solvers plus Three Falsifying Repairers | 9/18 · **50.0%** | 33.3% | 2/18 · 11.1% | 480 |
+
+![Research progress across completed rounds](images/progress.svg)
+
+[Read the round-by-round progress notes](PROGRESS.md)
+
+> [!NOTE]
+> Every point uses a different fresh sealed panel. This is an honest sequence of research outcomes, not a conventional training curve. Final performance still requires a frozen system and untouched validation.
+<!-- LIVE_PROGRESS_END -->
+
+## Initial repair signal (Rounds 1-3)
 
 One stable system appeared in all three completed iterations:
 
@@ -90,7 +111,7 @@ iterations/iteration-00N/
 images/                        cross-iteration explanatory chart
 ```
 
-Completed answer keys are public so the results can be audited. Iteration 4's active panel and partial outputs are intentionally absent. Its strategy file is included to show the next registered research direction without leaking or freezing a mid-run result.
+Completed answer keys are public so the results can be audited. The active panel and partial outputs for the next round are intentionally absent. Its strategy file is included to show the registered research direction without leaking or freezing a mid-run result.
 
 ## Run it
 

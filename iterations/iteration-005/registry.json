@@ -1,0 +1,103 @@
+{
+  "answers_loaded_after_worker_calls": true,
+  "cases": 18,
+  "checkpoint": true,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 6,
+    "logic": 6,
+    "sequence": 6
+  },
+  "iteration": 5,
+  "panel_hashes_sha256": "afc0c394a8f4561afcc18cea6e7996a44e38350ad75e51a54fdb55b8eb649edd",
+  "protocol_sha256": "0da0305fa91b57369ce136c377fae80e30721dcfda3d79d552dc2ba25ebd68c7",
+  "protocol_snapshot_sha256": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+  "public_cases_sha256": "cbdc0b000417f9b5614dcbe033390b2909ac62327fb6e82ae40a2c5d9c378f89",
+  "registered_at": "2026-07-16T09:31:22.756Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "761ea22a765432699b4993816497ca2ac48e31f646fa4f1270366b105f2958d2",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "51e737268a6c9e96657f0728575ec9d1a555cd5eb0a584c34a5d3f319ae1e650",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+      "name": "Nine Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x3"
+    },
+    {
+      "base_count": 15,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "If missing-answer coverage is the main remaining bottleneck, expanding the independent bank from nine to fifteen while preserving the validated falsifying-repair mechanism should raise weakest-family and pooled exact accuracy without changing the orchestration principle.",
+      "name": "Fifteen Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-15x3"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Because most successful repairs did not create a new correct answer, three frequency-blind comparative reviewers may more reliably recover an existing minority candidate while the strict-majority trigger protects unusually coherent base outcomes.",
+      "name": "Guarded Nine-Bank Candidate Adjudication",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "compare",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "choose-compare-9x3-guarded"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Independent rederivation may reduce anchoring to fragmented candidates, while delegate fusion gives the base plurality one protective vote without reintroducing the full correlated base pool.",
+      "name": "Guarded Rederivation with Delegate Fusion",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-9x3-delegate"
+    }
+  ],
+  "strategy_file": "strategies/iteration-005.json",
+  "strategy_file_sha256": "8bc544f1b7487410e1a109c5b733ff675787e9c1c65a7a7b1827a29cf875837d"
+}

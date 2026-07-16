@@ -1,0 +1,90 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "The main bottleneck is aggregation, especially for sequence problems, rather than answer-bank coverage. The champion's sequence bank contains a correct answer in 5/6 cases but finishes correctly in only 2/6. Overall, nine solvers provide oracle coverage on 11/18 cases while base plurality solves only 3/18. Expanding to fifteen solvers adds just one oracle-covered case and reduces exact accuracy from 9/18 to 8/18. Nine-solver falsifying repair has the strongest correction balance—six helpful interventions and no harmful reversals—and the best partial accuracy, so the next batch should strengthen and compress that mechanism while testing candidate recovery and deterministic aggregation separately.",
+    "extensions_requested": [
+      "Add an independent-committees-with-disagreement-routing primitive: split a nine-answer bank into three disjoint committees of three, compute one deterministic plurality delegate per committee, and invoke an existing blinded review panel only when the delegates disagree, with global base plurality as the invalid-review fallback."
+    ],
+    "most_important_evidence": [
+      "Sequence is weakest for the champion at 0.333 exact accuracy despite 5/6 base-oracle coverage, leaving a large oracle-to-final selection gap.",
+      "Across all families, the champion's base plurality is correct on 3/18 cases while at least one base answer is correct on 11/18.",
+      "Increasing the bank from nine to fifteen raises oracle coverage only from 11/18 to 12/18, while exact accuracy falls from 0.500 to 0.444 and sequence accuracy falls from 0.333 to 0.167.",
+      "Nine-solver falsifying repair records six helpful interventions, zero harmful interventions, and 0.803 partial accuracy.",
+      "Frequency-blind comparative choice produces only three helpful interventions; rederivation with delegate fusion causes a harmful reversal and scores 0/6 on sequence.",
+      "Guarding on strict majority saves almost nothing on this fragmented panel: guarded strategies activate reviews on 17/18 cases versus 18/18 for any-disagreement review."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Five independent falsifying repairers should make the review plurality less sensitive to a single weak reviewer and close more of the oracle-to-final gap while retaining the champion's demonstrated positive correction balance.",
+        "name": "Nine Solvers plus Five Falsifying Repairers",
+        "review_count": 5,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "A five-answer bank paired with the validated three-reviewer falsification mechanism may retain much of the champion's accuracy at eight calls per case rather than twelve; earlier five-solver repair systems reached 0.417–0.500 pooled accuracy.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 7,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Because correct answers frequently already exist in the fragmented bank, reviewers that falsify a wider, shuffled candidate slate may recover rare correct candidates without introducing unsupported repairs; this separates candidate recovery from answer generation.",
+        "name": "Wide-Slate Falsifying Candidate Selection",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x3-wide"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 2,
+        "final_rule": "base_plurality",
+        "hypothesis": "A fresh nine-vote deterministic control isolates the contribution and harm of review from the contribution of bank scale, while adding no review calls to the shared-bank experiment.",
+        "name": "Nine-Vote Deterministic Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-9"
+      }
+    ],
+    "research_hypotheses": [
+      "Reviewer-panel stability, not additional base coverage, is the most promising immediate route to higher weakest-family accuracy.",
+      "The five-solver repair architecture may remain competitive enough to improve call efficiency materially.",
+      "Falsification may transfer its positive correction balance from repair generation to selection among a wider candidate slate.",
+      "Committee compression could make fragmented answer banks easier to adjudicate without recognizing any problem family."
+    ],
+    "risk_note": "Only six cases per family were observed, so one case changes a family score by 16.7 percentage points. Five reviewers may amplify correlated mistakes, and a seven-candidate slate may overload reviewers. With the three retained strategies, any three proposed strategies cost at most 108 shared base calls + 36 retained-champion reviews + 60 + 36 + 36 proposed reviews = 276 calls, safely below the 300-call cap."
+  },
+  "duration_ms": 195454,
+  "job_id": "i005-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "2ac0b10314c408138d80c29195a99f45eca3abc03059fc85981756d4671415a3",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 17408,
+    "output_tokens": 6755,
+    "reasoning_output_tokens": 5696
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "The current 9+3 falsifying-repair system is the first balanced result: 0.50 accuracy in every family, five corrections among 11 wrong base pluralities, and zero harmful reversals. Its main limitation is base coverage, not reviewer harm: only 7/12 cases contained a correct base answer, while the base plurality itself was correct only once. Four of five successful corrections did not require creating a new correct answer, suggesting that better harvesting of minority candidates may complement repair. The next batch should therefore preserve falsifying repair, test additional independent coverage, compare repair with guarded candidate selection, and retain an enlarged plurality control. With a 15-answer shared bank, the retained 9+3 winner, and any three proposed three-review systems, the worst-case cost is 270 + 54 + 162 = 486 calls.",
+    "extensions_requested": [
+      "Report exact accuracy and partial accuracy by family, retaining weakest-family accuracy as the primary selection criterion.",
+      "For every review strategy, report helpful and harmful interventions, repair-created correct answers, reviewer agreement, and whether the correct answer appeared among the candidates actually shown.",
+      "Report base-oracle accuracy by candidate-support rank so increased coverage can be distinguished from useful aggregation.",
+      "Use the 18 fresh sealed cases without tuning prompts or rules after seeing case-level results."
+    ],
+    "most_important_evidence": [
+      "The current winner reached 0.50 accuracy in constraint, logic, and sequence, improving the weakest-family result from 0.25 in the earlier 5+3 systems.",
+      "Nine base solvers contained a correct answer on 7/12 cases, but base plurality was correct on only 1/12; diversity improved coverage without producing reliable plurality consensus.",
+      "Falsifying repair corrected 5/11 wrong base outcomes and harmed 0/1 correct base outcomes in the current panel.",
+      "Only one of the five helpful corrections was a newly created correct answer, so four corrections apparently recovered or converged on answers already represented in the independent bank.",
+      "The five-solver repair system showed one harmful reversal, while guarded candidate adjudication showed no harmful reversals but recovered only 2/9 wrong bases; consensus protection remains worth testing.",
+      "The 9-solver bank averaged 6.92 unique answers, including 8.75 in logic, showing severe fragmentation and explaining why simply adding raw votes may not stabilize plurality."
+    ],
+    "proposals": [
+      {
+        "base_count": 15,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "If missing-answer coverage is the main remaining bottleneck, expanding the independent bank from nine to fifteen while preserving the validated falsifying-repair mechanism should raise weakest-family and pooled exact accuracy without changing the orchestration principle.",
+        "name": "Fifteen Solvers plus Three Falsifying Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-15x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Because most successful repairs did not create a new correct answer, three frequency-blind comparative reviewers may more reliably recover an existing minority candidate while the strict-majority trigger protects unusually coherent base outcomes.",
+        "name": "Guarded Nine-Bank Candidate Adjudication",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "compare",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "choose-compare-9x3-guarded"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Independent rederivation may reduce anchoring to fragmented candidates, while delegate fusion gives the base plurality one protective vote without reintroducing the full correlated base pool.",
+        "name": "Guarded Rederivation with Delegate Fusion",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "rederive",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-rederive-9x3-delegate"
+      },
+      {
+        "base_count": 15,
+        "candidate_limit": 2,
+        "final_rule": "base_plurality",
+        "hypothesis": "An enlarged no-review control will determine whether added independent coverage alone improves exact plurality or whether the gains require an adjudication layer.",
+        "name": "Fifteen-Vote Plurality Control",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-15"
+      }
+    ],
+    "research_hypotheses": [
+      "Increasing the independent bank primarily improves oracle coverage; it may not improve plurality because candidate diversity is already high.",
+      "Frequency-blind candidate selection can capture correct minority answers with fewer unsupported inventions than repair.",
+      "Rederivation changes reviewer behavior from candidate critique to independent reconstruction and may create correct answers when the bank lacks them.",
+      "Delegate fusion may preserve useful base evidence while requiring reviewer convergence before overturning it.",
+      "Fresh-panel performance will reveal whether the current zero-harm correction balance is stable or a 12-case sampling artifact."
+    ],
+    "risk_note": "The panel remains small, and the current winner's zero observed harm is based on only one base-correct case. A 15-answer bank may further fragment votes, while a five-candidate display can hide low-support correct answers. Selection should therefore prioritize fresh weakest-family accuracy and correction-minus-harm balance rather than treating the current 0.50 result as established."
+  },
+  "duration_ms": 100491,
+  "job_id": "i004-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "0982341110404e71fa9a5a4591aa4f7028eba99c066cb8573f8dea916071c4a0",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 16926,
+    "output_tokens": 3187,
+    "reasoning_output_tokens": 2070
+  }
+}

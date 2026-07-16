@@ -21,7 +21,7 @@
     "families": "sequence,constraint,logic",
     "ordinary_cases_per_family": 4,
     "phase": "disposable-calibration",
-    "source": "scripts/generate_extreme_calibration.py",
+    "source": "../guided-harness-lab/experiment/generate_extreme_calibration.py",
     "tier": 4
   },
   "retry_policy": "Only infrastructure failures are retried. Valid, wrong, malformed, or protocol-violating model outputs are never selectively rerun.",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public Iterations 1-3 snapshot with the standard library."""
+"""Validate every completed iteration in the public research snapshot."""
 
 from __future__ import annotations
 
@@ -10,10 +10,6 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ITERATIONS = (1, 2, 3)
-EXPECTED_REPAIR_CORRECT = (6, 5, 5)
-EXPECTED_DIRECT_CORRECT = (1, 0, 2)
-EXPECTED_PLURALITY_CORRECT = (1, 0, 2)
 FORBIDDEN = (
     re.compile("/" + "Users/"),
     re.compile("/private/" + "var/|/var/" + "folders/"),
@@ -44,25 +40,45 @@ def strategy(summary: dict, strategy_id: str) -> dict:
     return next(item for item in summary["strategies"] if item["strategy_id"] == strategy_id)
 
 
+def snapshot_files() -> set[str]:
+    return {
+        str(path.relative_to(ROOT))
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and "__pycache__" not in path.parts
+        and path.suffix != ".pyc"
+        and path.name not in {".DS_Store", "snapshot_manifest.json"}
+    }
+
+
 def main() -> None:
     state = load(ROOT / "state.json")
-    assert tuple(state["completed_iterations"]) == ITERATIONS
-    assert state["next_iteration"] == 4
-    assert not (ROOT / "iterations" / "iteration-004").exists()
-    assert (ROOT / "strategies" / "iteration-004.json").is_file()
+    completed = tuple(int(number) for number in state["completed_iterations"])
+    assert completed, "Snapshot contains no completed iterations"
+    assert completed == tuple(range(1, max(completed) + 1)), "Completed iterations must be contiguous"
 
-    repair_correct: list[int] = []
-    direct_correct: list[int] = []
-    plurality_correct: list[int] = []
-    helpful = 0
-    harmful = 0
+    next_iteration = max(completed) + 1
+    assert state["next_iteration"] == next_iteration
+    assert state["current_strategy_file"] == f"strategies/iteration-{next_iteration:03d}.json"
+    assert not (ROOT / "iterations" / f"iteration-{next_iteration:03d}").exists()
+    assert (ROOT / "strategies" / f"iteration-{next_iteration:03d}.json").is_file()
 
-    for number in ITERATIONS:
+    total_cases = 0
+    total_prompts = 0
+    latest_winner = None
+
+    for number in completed:
         folder = ROOT / "iterations" / f"iteration-{number:03d}"
         summary = load(folder / "results" / "summary.json")
         registry = load(folder / "registry.json")
+
+        assert summary["iteration"] == number
+        assert registry["iteration"] == number
+        assert registry["registered_before_calls"] is True
         assert registry["answers_loaded_after_worker_calls"] is True
         assert registry["sealed_answers_not_sent_to_workers"] is True
+        assert summary["cases"] == registry["cases"]
         assert sha256(folder / "panel" / "public_cases.json") == summary["public_cases_sha256"]
         assert sha256(folder / "panel" / "sealed_answers.json") == summary["sealed_answers_sha256"]
 
@@ -70,22 +86,27 @@ def main() -> None:
             assert line_count(folder / stage / "jobs.jsonl") == expected
             assert line_count(folder / stage / "results.jsonl") == expected
 
-        repair = strategy(summary, "repair-review-5x3")
         direct = strategy(summary, "direct-1")
         plurality = strategy(summary, "plurality-5")
-        repair_correct.append(repair["correct"])
-        direct_correct.append(direct["correct"])
-        plurality_correct.append(plurality["correct"])
-        helpful += repair["helpful_interventions"]
-        harmful += repair["harmful_interventions"]
+        winner = summary["winner"]
+        assert any(item["strategy_id"] == winner["strategy_id"] for item in summary["strategies"])
+        assert winner["total"] == summary["cases"]
+        assert abs(winner["accuracy"] - winner["correct"] / winner["total"]) < 1e-12
+        assert direct["total"] == summary["cases"]
+        assert plurality["total"] == summary["cases"]
+        assert sum(item["total"] for item in winner["families"].values()) == summary["cases"]
 
-    assert tuple(repair_correct) == EXPECTED_REPAIR_CORRECT
-    assert tuple(direct_correct) == EXPECTED_DIRECT_CORRECT
-    assert tuple(plurality_correct) == EXPECTED_PLURALITY_CORRECT
-    assert sum(repair_correct) == 16
-    assert sum(direct_correct) == 3
-    assert sum(plurality_correct) == 3
-    assert helpful == 13 and harmful == 0
+        total_cases += summary["cases"]
+        total_prompts += summary["worker_calls"]
+        latest_winner = winner
+
+    manifest = load(ROOT / "snapshot_manifest.json")
+    assert tuple(manifest["completed_iterations"]) == completed
+    listed = set(manifest["files"])
+    actual = snapshot_files()
+    assert listed == actual, f"Manifest mismatch: missing={sorted(actual-listed)}, stale={sorted(listed-actual)}"
+    for relative, expected in manifest["files"].items():
+        assert sha256(ROOT / relative) == expected, f"Hash mismatch: {relative}"
 
     text_suffixes = {".md", ".txt", ".json", ".jsonl", ".csv", ".py", ".svg"}
     for path in ROOT.rglob("*"):
@@ -95,9 +116,15 @@ def main() -> None:
         for pattern in FORBIDDEN:
             assert not pattern.search(text), f"Private runtime marker in {path.relative_to(ROOT)}"
 
-    print("Snapshot valid: 3 completed iterations, 768 prompts/results, no active panel or private runtime markers.")
-    print("Stable repair swarm: 16/36 exact (44.4%); direct and five-vote baselines: 3/36 (8.3%).")
-    print("Observed interventions: 13 helpful, 0 harmful.")
+    assert latest_winner is not None
+    print(
+        f"Snapshot valid: {len(completed)} completed iterations, {total_cases} sealed cases, "
+        f"{total_prompts} prompts/results, and no active panel or private runtime markers."
+    )
+    print(
+        f"Latest round winner: {latest_winner['name']} at "
+        f"{latest_winner['correct']}/{latest_winner['total']} ({latest_winner['accuracy']:.1%})."
+    )
 
 
 if __name__ == "__main__":

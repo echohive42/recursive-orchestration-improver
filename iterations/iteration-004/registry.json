@@ -1,0 +1,103 @@
+{
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
+  },
+  "iteration": 4,
+  "panel_hashes_sha256": "eb67c8569634d88f1c4bfb0165c379559db7e124795ef98ebc3a610f86d10818",
+  "protocol_sha256": "d2d7b10aba4cade85510ab0928e121119daad87437f0c80b72a6dab43df27557",
+  "protocol_snapshot_sha256": "1e18b913c9a7728906a68fefb9671d1d66ba5c848ef995f50e4c0dce1fdcebf0",
+  "public_cases_sha256": "86fbbb6fd74b20d6d9963b4a6f1ca9ea613e811be9f91adcbf6f7848371c942c",
+  "registered_at": "2026-07-16T09:11:25.941Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "a93106dc281907252dc65c096a665a28e69621498f57692b5826a33122124c51",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "2b99d00f7f27d1ee6a164bd9903121cea3d63e3ddf564394a52ea872e8976fd3",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+      "name": "Nine Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Pooling the three falsifying repairs with the five independent base votes may preserve useful base evidence while allowing convergent repairs, or repairs matching a correct minority candidate, to win.",
+      "name": "Five Solvers with Fused Repair Voting",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-fused-5x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "When the base has no strict majority, three frequency-blind comparative reviewers may recover correct minority candidates such as those exposed by the sequence oracle gap without disturbing stronger base consensus.",
+      "name": "Guarded Three-Way Candidate Adjudication",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "compare",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "choose-compare-5x3"
+    }
+  ],
+  "strategy_file": "strategies/iteration-004.json",
+  "strategy_file_sha256": "bc85b290dc310a7547f764d5cac952fcb9e05823bd12a80a843c06243b9ce026"
+}

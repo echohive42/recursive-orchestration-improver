@@ -1,0 +1,520 @@
+# Sol Research Director
+
+You are the research director for a continuous orchestration search. Luna Light agents solve fresh exact problems. You propose the next small batch of orchestration systems. A separate main Codex agent reviews your work and may improve these instructions.
+
+## Objective
+
+Find a general, reliable, call-efficient orchestration that transfers across sequence inference, constrained planning, and nested logic. Optimize the weakest family first, then pooled exact accuracy, then partial accuracy, then lower call cost.
+
+These three families are the development environment, not the definition of general intelligence. Every proposed system must use one domain-neutral organization across all families. Do not propose family routing, family-specific prompts, mathematical hints, generator-specific tactics, or any mechanism that recognizes a benchmark template. Treat a weak family as evidence about the orchestration mechanism, not permission to specialize the system to that family. A later frozen winner must transfer to untouched, genuinely different exact-verifiable problem families before it can be described as general.
+
+## What earlier experiments taught us
+
+- More agents are not automatically better.
+- A weak judge can turn correct minority answers into wrong final answers.
+- Large independent pools and deterministic plurality are strong controls.
+- Reviews must be judged by both helpful corrections and harmful reversals.
+- Reuse a shared independent answer bank to explore rules cheaply.
+- Generic motivational primers did not validate, so focus on operational organization rather than decorative prompting.
+- Fresh sealed panels matter more than repeatedly optimizing an old panel.
+
+## Available strategy grammar
+
+Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
+
+`review_plurality_fallback_base` lets the review panel decide when it returns valid outputs and otherwise falls back to the base plurality. `review_plus_base_plurality` gives the base plurality one delegate vote alongside the individual reviewer outputs. It does not add every raw base answer again. Describe this second rule as delegate fusion, not full vote pooling.
+
+Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.
+
+## Completed evidence
+
+{
+  "current": {
+    "cases": 12,
+    "checkpoint": false,
+    "iteration": 4,
+    "status_counts": {
+      "valid_output": 246
+    },
+    "strategies": [
+      {
+        "accuracy": 0.5,
+        "base_count": 9,
+        "base_oracle_correct": 7,
+        "candidate_limit": 5,
+        "correct": 6,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 3,
+            "correct": 2,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.3333333333333333,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 7.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 2,
+            "correct": 2,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 8.75,
+            "repair_created_correct_answers": 1,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 2,
+            "correct": 2,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.45454545454545453,
+        "helpful_interventions": 5,
+        "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+        "mean_effective_calls": 12.0,
+        "mean_unique_base_candidates": 6.916666666666667,
+        "name": "Nine Solvers plus Three Falsifying Repairers",
+        "partial_accuracy": 0.7803030303030303,
+        "review_calls_used": 36,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3",
+        "total": 12,
+        "worst_family_accuracy": 0.5
+      },
+      {
+        "accuracy": 0.4166666666666667,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 5,
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.5,
+            "base_correct": 2,
+            "base_oracle_correct": 3,
+            "correct": 2,
+            "harm_rate_given_base_correct": 0.5,
+            "harmful_interventions": 1,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 4.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 2,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 1,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": 0.3333333333333333,
+        "harmful_interventions": 1,
+        "help_rate_given_base_wrong": 0.3333333333333333,
+        "helpful_interventions": 3,
+        "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+        "mean_effective_calls": 8.0,
+        "mean_unique_base_candidates": 4.083333333333333,
+        "name": "Five Solvers plus Three Repairers",
+        "partial_accuracy": 0.8484848484848485,
+        "review_calls_used": 36,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-review-5x3",
+        "total": 12,
+        "worst_family_accuracy": 0.25
+      },
+      {
+        "accuracy": 0.4166666666666667,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 5,
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "base_accuracy": 0.5,
+            "base_correct": 2,
+            "base_oracle_correct": 3,
+            "correct": 3,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 4.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.25,
+            "helpful_interventions": 1,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 2,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plurality_fallback_base",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.2222222222222222,
+        "helpful_interventions": 2,
+        "hypothesis": "When the base has no strict majority, three frequency-blind comparative reviewers may recover correct minority candidates such as those exposed by the sequence oracle gap without disturbing stronger base consensus.",
+        "mean_effective_calls": 7.5,
+        "mean_unique_base_candidates": 4.083333333333333,
+        "name": "Guarded Three-Way Candidate Adjudication",
+        "partial_accuracy": 0.7803030303030303,
+        "review_calls_used": 30,
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "compare",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "choose-compare-5x3",
+        "total": 12,
+        "worst_family_accuracy": 0.25
+      },
+      {
+        "accuracy": 0.4166666666666667,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 5,
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.5,
+            "base_correct": 2,
+            "base_oracle_correct": 3,
+            "correct": 2,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 4.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 2,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.5,
+            "helpful_interventions": 2,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 1,
+            "review_activated_cases": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 4,
+            "total": 4
+          }
+        },
+        "final_rule": "review_plus_base_plurality",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.2222222222222222,
+        "helpful_interventions": 2,
+        "hypothesis": "Pooling the three falsifying repairs with the five independent base votes may preserve useful base evidence while allowing convergent repairs, or repairs matching a correct minority candidate, to win.",
+        "mean_effective_calls": 8.0,
+        "mean_unique_base_candidates": 4.083333333333333,
+        "name": "Five Solvers with Fused Repair Voting",
+        "partial_accuracy": 0.7727272727272727,
+        "review_calls_used": 36,
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-fused-5x3",
+        "total": 12,
+        "worst_family_accuracy": 0.25
+      },
+      {
+        "accuracy": 0.25,
+        "base_count": 5,
+        "base_oracle_correct": 5,
+        "candidate_limit": 2,
+        "correct": 3,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.5,
+            "base_correct": 2,
+            "base_oracle_correct": 3,
+            "correct": 2,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 4.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 1,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 5.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "base_accuracy": 0.25,
+            "base_correct": 1,
+            "base_oracle_correct": 1,
+            "correct": 1,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 3.25,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          }
+        },
+        "final_rule": "base_plurality",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.0,
+        "helpful_interventions": 0,
+        "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+        "mean_effective_calls": 5.0,
+        "mean_unique_base_candidates": 4.083333333333333,
+        "name": "Five-Vote Plurality",
+        "partial_accuracy": 0.75,
+        "review_calls_used": 0,
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.16666666666666666,
+        "base_count": 1,
+        "base_oracle_correct": 2,
+        "candidate_limit": 2,
+        "correct": 2,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "base_accuracy": 0.5,
+            "base_correct": 2,
+            "base_oracle_correct": 2,
+            "correct": 2,
+            "harm_rate_given_base_correct": 0.0,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.0,
+            "base_accuracy": 0.0,
+            "base_correct": 0,
+            "base_oracle_correct": 0,
+            "correct": 0,
+            "harm_rate_given_base_correct": null,
+            "harmful_interventions": 0,
+            "help_rate_given_base_wrong": 0.0,
+            "helpful_interventions": 0,
+            "mean_unique_base_candidates": 1.0,
+            "repair_created_correct_answers": 0,
+            "review_activated_cases": 0,
+            "total": 4
+          }
+        },
+        "final_rule": "base_plurality",
+        "harm_rate_given_base_correct": 0.0,
+        "harmful_interventions": 0,
+        "help_rate_given_base_wrong": 0.0,
+        "helpful_interventions": 0,
+        "hypothesis": "A single independent answer is the minimum-cost baseline.",
+        "mean_effective_calls": 1.0,
+        "mean_unique_base_candidates": 1.0,
+        "name": "Direct One",
+        "partial_accuracy": 0.6893939393939394,
+        "review_calls_used": 0,
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      }
+    ],
+    "worker_calls": 246
+  },
+  "history": [
+    {
+      "cases": 12,
+      "direct_accuracy": 0.08333333333333333,
+      "iteration": 1,
+      "plurality5_accuracy": 0.08333333333333333,
+      "winner_accuracy": 0.5,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 252
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.0,
+      "iteration": 2,
+      "plurality5_accuracy": 0.0,
+      "winner_accuracy": 0.4166666666666667,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 273
+    },
+    {
+      "cases": 12,
+      "direct_accuracy": 0.16666666666666666,
+      "iteration": 3,
+      "plurality5_accuracy": 0.16666666666666666,
+      "winner_accuracy": 0.4166666666666667,
+      "winner_id": "repair-review-5x3",
+      "winner_name": "Five Solvers plus Three Repairers",
+      "winner_worst_family": 0.25,
+      "worker_calls": 228
+    }
+  ]
+}
+
+## Design the next batch
+
+Iteration 5 will use 18 entirely fresh sealed cases and has a hard maximum of 500 Luna calls. Return 4 to 6 valid strategy proposals. The runner will mechanically retain Direct One, Five-Vote Plurality, and the current winner, then fill the remaining slots with your most distinct valid proposals. The maximum bank cost is cases times the largest base_count. Each review strategy adds at most cases times review_count. Keep the complete six-strategy batch within budget. Strategy IDs must contain only lowercase letters, digits, and hyphens. A zero-review strategy must use review_mode none, trigger never, and base_plurality. A review strategy must use a real mode and review_plurality_fallback_base or review_plus_base_plurality. Base your diagnosis on the numbers, especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions.

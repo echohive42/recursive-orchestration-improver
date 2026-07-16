@@ -21,7 +21,7 @@
     "families": "sequence,constraint,logic",
     "ordinary_cases_per_family": 4,
     "phase": "disposable-calibration",
-    "source": "scripts/generate_extreme_calibration.py",
+    "source": "../guided-harness-lab/experiment/generate_extreme_calibration.py",
     "tier": 4
   },
   "retry_policy": "Only infrastructure failures are retried. Valid, wrong, malformed, or protocol-violating model outputs are never selectively rerun.",
@@ -34,7 +34,7 @@
   ],
   "service_tier": "standard",
   "stop_policy": "Finish the current durable call, then stop before the next iteration when STOP exists or SIGINT is received. Every completed stage is resumable.",
-  "timeout_seconds": 300,
+  "timeout_seconds": 600,
   "worker_model": "gpt-5.6-luna",
   "worker_public_label": "Luna Light",
   "worker_reasoning_effort": "low"

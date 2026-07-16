@@ -1,0 +1,95 @@
+{
+  "assembled_at": "2026-07-16T09:29:23.184Z",
+  "director_available": true,
+  "iteration": 5,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "choose-compare-9x3-guarded": "Sol research-director proposal",
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-15x3": "Sol research-director proposal",
+    "repair-falsify-9x3": "mechanically retained current winner",
+    "repair-rederive-9x3-delegate": "Sol research-director proposal"
+  },
+  "source": "mechanical anchors plus iteration 4 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+      "name": "Nine Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x3"
+    },
+    {
+      "base_count": 15,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "If missing-answer coverage is the main remaining bottleneck, expanding the independent bank from nine to fifteen while preserving the validated falsifying-repair mechanism should raise weakest-family and pooled exact accuracy without changing the orchestration principle.",
+      "name": "Fifteen Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-15x3"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Because most successful repairs did not create a new correct answer, three frequency-blind comparative reviewers may more reliably recover an existing minority candidate while the strict-majority trigger protects unusually coherent base outcomes.",
+      "name": "Guarded Nine-Bank Candidate Adjudication",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "compare",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "choose-compare-9x3-guarded"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Independent rederivation may reduce anchoring to fragmented candidates, while delegate fusion gives the base plurality one protective vote without reintroducing the full correlated base pool.",
+      "name": "Guarded Rederivation with Delegate Fusion",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-9x3-delegate"
+    }
+  ]
+}
