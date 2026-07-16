@@ -2,7 +2,11 @@
 
 ### Final research record: 30 rounds, 396 sealed cases, 7,535 Luna Light calls, and one cross-model transfer screen
 
-[Echohive](https://www.echohive.ai/) · [Get Amplified](https://www.echohive.ai/get-amplified) · [1000x Lab](https://www.echohive.ai/1000x-lab)
+### Continue exploring Echohive
+
+- **[Enter Echohive](https://www.echohive.ai/)** to explore a living laboratory for building better with AI, seeing markets more clearly, and strengthening the mind behind both.
+- **[Get Amplified](https://www.echohive.ai/get-amplified)** to master current AI tools, follow the frontier, and expand what one person can realistically attempt.
+- **[Join the 1000x Lab](https://www.echohive.ai/1000x-lab)** for live Sunday sessions where new methods, research, market signals, and ideas about mind are tested together.
 
 This repository asked a practical question: **can a small outer research loop discover agent organizations that solve exact problems better, and can that loop keep improving them over time?**
 
