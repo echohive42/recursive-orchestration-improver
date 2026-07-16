@@ -1,0 +1,93 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 26 favors answer-generating review over deeper candidate-only selection. The retained five-bank champion reached 6/12 with 2/4 in every family, despite only 2/12 base-oracle coverage, by making five helpful and zero harmful interventions. Both nine-bank selectors converted all three covered cases but scored 0/4 on sequence, where their bank contained no correct candidate. The next batch should therefore retain the champion, replicate orthogonal regeneration, and test two cheaper one-review mechanisms rather than add selector depth.",
+    "extensions_requested": [
+      "Add a domain-neutral shared-evidence-board primitive: independent reviewers record concise candidate-indexed supporting and falsifying checks, then a separately registered terminal selector chooses from the unchanged shuffled candidate bank using the anonymized board. This directly tests evidence aggregation without answer generation or benchmark routing."
+    ],
+    "most_important_evidence": [
+      "The five-bank three-review champion scored 6/12 in Iteration 26 with 50% accuracy in every family, improving a 1/12 base plurality through five helpful and zero harmful interventions.",
+      "Five-bank base-oracle coverage was only 2/12, while the champion's review-expanded coverage reached 8/12 and four correct answers were created outside the base bank. Candidate-generating repair, not merely selection, drove the gain.",
+      "The nine-bank three-selector and one-selector systems tied at 9/18 in Iteration 25 and 3/12 in Iteration 26. Across those matched panels each is 12/30 exact, while one selector saves two calls per case.",
+      "In Iteration 26 both nine-bank selectors exactly matched their 3/12 oracle coverage. Their 0/4 sequence result coincided with zero sequence oracle coverage, so additional selector depth could not address the failure.",
+      "Regenerate-then-repair scored 5/12 with four helpful and zero harmful interventions, introduced two correct candidates through regeneration, and retained at least 1/4 accuracy in every family. It remains the most useful orthogonal candidate-generation replication."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion and Iteration 26 winner with identical operational fields. Its balanced weakest-family result and strongly positive correction balance make it the principal answer-generating control.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the established one-review depth ablation without renaming it. Earlier strong panels and its lower call cost justify testing whether one falsifying repairer preserves most helpful corrections while reducing reviewer variance.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Favor the exact cheaper selector after two matched panels produced identical exact accuracy to three selectors. This tests candidate-only selection with two fewer calls per case while pooling replication under the existing mechanism.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Retain the frozen regeneration pipeline unchanged as the orthogonal candidate-generation lane. Iteration 26 again showed newly generated correct answers and a positive intervention balance, while replication must continue measuring terminal integration losses.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      }
+    ],
+    "research_hypotheses": [
+      "One falsifying repairer may retain the five-bank mechanism's answer-generation benefit at six maximum calls per case instead of eight.",
+      "One nine-bank selector is preferable to three if the exact tie persists, because selector depth has shown no matched-panel gain and cannot repair absent candidates.",
+      "Blind diversified regeneration may improve weakest-family robustness when the base bank is sparse, but its terminal integrator must maintain a positive helpful-minus-harmful balance.",
+      "A shared evidence board may improve conversion of covered candidates by separating evidence production from the final selection decision."
+    ],
+    "risk_note": "The complete mechanically assembled six-strategy batch has a 216-call maximum: 108 shared base calls plus 108 review calls, leaving 84 calls of headroom. Twelve cases remain highly noisy, so results should be pooled by operational mechanism and treated as development evidence; neither a fresh-panel win nor the proposed extension would constitute validation."
+  },
+  "duration_ms": 156296,
+  "job_id": "i026-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "556b0e340f24945744108468444466e82212450653b98d4ca28dc9ae33160c17",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 23029,
+    "output_tokens": 6075,
+    "reasoning_output_tokens": 4970
+  }
+}

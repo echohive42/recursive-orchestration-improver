@@ -10,8 +10,8 @@ The best single-panel observation is **Blind Regeneration then Falsifying Integr
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 22 | 123/288 · **42.7%** | 39.6% | 8.0 |
-| Blind Regeneration then Falsifying Integration | 10 | 51/132 · **38.6%** | 36.4% | 8.9 |
+| Efficient Five-Bank Falsifying Repair | 23 | 129/300 · **43.0%** | 40.0% | 8.0 |
+| Nine-Bank One-Selector Falsifying Selection | 2 | 12/30 · **40.0%** | 40.0% | 10.0 |
 
 These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
@@ -44,6 +44,7 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 23 | Blind Regeneration then Falsifying Integration | 4/12 · **33.3%** | 25.0% | 0/12 · 0.0% | 240 |
 | 24 | Nine-Bank Falsifying Selection Panel | 6/12 · **50.0%** | 25.0% | 2/12 · 16.7% | 233 |
 | 25 | Efficient Five-Bank Falsifying Repair | 10/18 · **55.6%** | 33.3% | 3/18 · 16.7% | 360 |
+| 26 | Efficient Five-Bank Falsifying Repair | 6/12 · **50.0%** | 50.0% | 0/12 · 0.0% | 240 |
 
 ## Round notes
 
@@ -146,6 +147,10 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 25
 
 **Efficient Five-Bank Falsifying Repair** won at 10/18 (55.6%). Family results: constraint 66.7%, logic 33.3%, sequence 66.7%. Helpful interventions: 7. Harmful interventions: 0.
+
+### Round 26
+
+**Efficient Five-Bank Falsifying Repair** won at 6/12 (50.0%). Family results: constraint 50.0%, logic 50.0%, sequence 50.0%. Helpful interventions: 5. Harmful interventions: 0.
 
 ## Interpretation
 
