@@ -1,17 +1,23 @@
 {
-  "assembled_at": "2026-07-16T10:15:15.411Z",
-  "director_available": true,
-  "iteration": 7,
-  "registered_before_calls": true,
-  "selection_reasons": {
-    "choose-falsify-5x3": "Sol research-director proposal",
-    "committee-compare-9x3-fusion": "Sol research-director proposal",
-    "direct-1": "fixed direct baseline",
-    "plurality-5": "fixed five-vote baseline",
-    "repair-falsify-5x3-efficient": "mechanically retained current winner",
-    "repair-falsify-5x3-majority-gated": "Sol research-director proposal"
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
   },
-  "source": "mechanical anchors plus iteration 6 Sol director",
+  "iteration": 7,
+  "panel_hashes_sha256": "5e5c58723f9eeb36f4b9f91e8be3c529fc2ff4e6a810d58eb421bf5457693f8a",
+  "protocol_sha256": "0da0305fa91b57369ce136c377fae80e30721dcfda3d79d552dc2ba25ebd68c7",
+  "protocol_snapshot_sha256": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+  "public_cases_sha256": "b0eb6ffd6fd5d04bfaa5911e797d65971f2dfdeafe2d23f2010586ead3edef8f",
+  "registered_at": "2026-07-16T10:17:29.789Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "19d2fe3d378ce598f1dc634dd63f12f30af9a94de200718702f404e0df5fbc3d",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "581d91ebb52a8be6ba6d1ca492b6e8ff1cd293c9b0977e8f8d12391f486c27ec",
   "strategies": [
     {
       "base_count": 1,
@@ -97,5 +103,7 @@
       "show_frequencies": false,
       "strategy_id": "committee-compare-9x3-fusion"
     }
-  ]
+  ],
+  "strategy_file": "strategies/iteration-007.json",
+  "strategy_file_sha256": "e5859aa9889336f4d7eff5264a79aef3b27f167cd85388071e495b50cacdee82"
 }

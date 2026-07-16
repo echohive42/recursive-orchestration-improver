@@ -1,0 +1,95 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 7 exposed candidate selection and aggregation—not candidate generation alone—as the main bottleneck. Five-base plurality was 0/12 despite a 5/12 candidate oracle, while three-reviewer falsifying selection recovered all five oracle-supported answers. Repair also reached 5/12, but created only one correct answer and fell to 0/4 on the currently weakest sequence family. The nine-answer bank had substantially better coverage—8/12 overall and 3/4 on sequence—but committee compression converted it into only 3/12 exact, including one harmful reversal. The intended six-strategy batch is the three mechanically retained systems plus the first three proposals below; it costs at most 12 × (9 shared base calls + 3 retained-winner reviews + 3 + 1 + 3 proposed reviews) = 228 calls. The fourth proposal is a reserve attribution control.",
+    "extensions_requested": [
+      "sequential_cross_examination: allow later reviewers to see candidate-indexed objections from earlier reviewers and require them to confirm or refute those objections before applying the existing final rule."
+    ],
+    "most_important_evidence": [
+      "Five-Bank Falsifying Selection finished 5/12, exactly matching its 5/12 base oracle, with five helpful interventions and no generated repairs.",
+      "Five-Bank Falsifying Repair also finished 5/12, but its sole newly created correct answer was in constraint; it scored 0/4 on sequence despite one oracle-supported base candidate there.",
+      "Current weakest-family performance was sequence: 1/4 for selection and 0/4 for repair, majority-gated repair, and committee fusion, versus constraint results of 2/4 to 3/4.",
+      "The raw nine-answer committee bank contained a correct answer in 8/12 cases and 3/4 sequence cases, compared with 5/12 and 1/4 for the five-answer bank. Committee fusion nevertheless achieved only 3/12 and 0/4 sequence, so hiding raw candidates behind three delegates discarded much of the bank's potential.",
+      "Committee fusion made three helpful corrections but also reversed the only base-correct case. The earlier fallback version reportedly made two corrections without a harmful reversal, supporting a direct replication rather than another fusion variation.",
+      "Majority gating reduced review calls only from 36 to 30 while dropping exact results from 5/12 to 4/12 relative to always reviewing disagreements; it is not the strongest efficiency direction for the next panel."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "The full nine-answer bank should improve generic candidate coverage while retaining the successful falsifying-selection organization; this tests whether the large oracle gap can be converted without answer-generating repair.",
+        "name": "Full-Nine Falsifying Selection",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "One falsifying selector may retain a useful fraction of the three-reviewer panel's oracle recovery at six calls per activated case, directly measuring the marginal value of reviewer replication.",
+        "name": "One-Review Five-Bank Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Restoring review-plurality fallback without a full-bank delegate vote will test whether the harmful reversal observed in Iteration 7 came from delegate fusion while preserving the orthogonal committee architecture and its positive correction balance.",
+        "name": "Committee Comparison Fallback Replication",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "compare",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-compare-9x3-fallback"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A nine-answer deterministic plurality isolates whether any improvement from the larger bank comes from stronger raw consensus rather than reviewer selection.",
+        "name": "Nine-Vote Plurality Control",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-9-control"
+      }
+    ],
+    "research_hypotheses": [
+      "Candidate exposure is currently more valuable than unconstrained repair: selection matched the five-bank oracle, whereas repair generated only one additional correct answer and did not improve total exact accuracy.",
+      "Increasing the domain-neutral independent bank from five to nine should especially help cases where the smaller bank contains no correct candidate, without introducing family routing or specialized prompts.",
+      "If one selector approaches the three-selector result, reviewer replication is a major removable cost; if it collapses, the experiment quantifies the weak-judge failure mode directly.",
+      "Committee compression may remain useful for decorrelation, but full-bank delegate fusion is not yet protective against harmful reversals; the earlier fallback architecture needs replication.",
+      "The nine-vote plurality reserve separates gains caused by candidate supply from gains caused by review."
+    ],
+    "risk_note": "These are 12-case panel estimates with substantial variance. Iteration 7 offered no base-correct cases for the five-bank review systems, so their observed zero harmful reversals do not establish safety. A larger bank raises oracle coverage but may also overwhelm reviewers, a single reviewer may reproduce the known weak-judge problem, and committee delegates can omit a correct raw answer. No result should be called general until it replicates on fresh panels and transfers to untouched exact-verifiable families."
+  },
+  "duration_ms": 159855,
+  "job_id": "i007-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "ad0a59bc8b675a55f333816d693a3a2c3145844f1b534a7290b796d53a5598c9",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 17751,
+    "output_tokens": 6239,
+    "reasoning_output_tokens": 5014
+  }
+}

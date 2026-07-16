@@ -1,0 +1,101 @@
+{
+  "assembled_at": "2026-07-16T10:29:05.722Z",
+  "director_available": true,
+  "iteration": 8,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "choose-falsify-5x1-efficient": "Sol research-director proposal",
+    "choose-falsify-5x3": "mechanically retained current winner",
+    "choose-falsify-9x3": "Sol research-director proposal",
+    "committee-compare-9x3-fallback": "Sol research-director proposal",
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline"
+  },
+  "source": "mechanical anchors plus iteration 7 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Because the five-bank winner matched its candidate oracle without creating any new correct repairs, three falsifying reviewers that must choose from the same shuffled bank may preserve its corrections while reducing unsupported answer generation.",
+      "name": "Five-Bank Falsifying Selection",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choose-falsify-5x3"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 8,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "The full nine-answer bank should improve generic candidate coverage while retaining the successful falsifying-selection organization; this tests whether the large oracle gap can be converted without answer-generating repair.",
+      "name": "Full-Nine Falsifying Selection",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choose-falsify-9x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "One falsifying selector may retain a useful fraction of the three-reviewer panel's oracle recovery at six calls per activated case, directly measuring the marginal value of reviewer replication.",
+      "name": "One-Review Five-Bank Selection",
+      "review_count": 1,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choose-falsify-5x1-efficient"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 3,
+      "candidate_source": "committee_delegates",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Restoring review-plurality fallback without a full-bank delegate vote will test whether the harmful reversal observed in Iteration 7 came from delegate fusion while preserving the orthogonal committee architecture and its positive correction balance.",
+      "name": "Committee Comparison Fallback Replication",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "compare",
+      "review_trigger": "committee_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "committee-compare-9x3-fallback"
+    }
+  ]
+}

@@ -23,6 +23,10 @@
     "iteration-006": {
       "base": 108,
       "review": 141
+    },
+    "iteration-007": {
+      "base": 108,
+      "review": 138
     }
   },
   "completed_iterations": [
@@ -31,15 +35,16 @@
     3,
     4,
     5,
-    6
+    6,
+    7
   ],
   "files": {
     ".gitignore": "788e71b4a03e875ec8eccc1617370fc20e877f0550253068929a4fe59b7911a8",
     "LICENSE": "62a9bf96f50344afbe6c62a6a1e0bd957dcdf9612edff15c417c0217dbfc2869",
-    "PROGRESS.md": "26708fd19104425f67b6569be76936a7ca2fc226bc89d61c133888160d2b850a",
-    "README.md": "633026f465637197fbe3e07fd0831565a0a9d9d451b35436ba8824a47707fd8b",
+    "PROGRESS.md": "1b8a6915184cd6d4323506b730fea118657ffe6095385a99b70c95a4356e0783",
+    "README.md": "6a9d3196af5fa3435940974364a7f576aac10f83d6759ca166e2d3710d60900d",
     "images/iterations-1-3-comparison.svg": "b9aa50d73831fdc6b0c5a30de0f3b4278c4755b202eb6ba269becac61619ae25",
-    "images/progress.svg": "96c681a934690a707db2426a9d66dcf2a05c277fc51d7737a2e17d8dd5aa5044",
+    "images/progress.svg": "6a1bdb44707e552903f4a3bf937b8493feaebc44193710279fc095b0b6bcddcc",
     "iterations/iteration-001/base/jobs.jsonl": "af169a7da5a70dc2e17559ca7f4b874825b689086391c4b5ff30f65f02a9f2f7",
     "iterations/iteration-001/base/manifest.json": "e5a0925741f9f7b5f739b0189ec65c635c28b2eea096a458bd743d3a7950faf7",
     "iterations/iteration-001/base/progress.json": "917dfd15e05feba402b2b5ba67af70f3fc2816a2993dadbb366771765fa8ab81",
@@ -163,21 +168,42 @@
     "iterations/iteration-006/review/manifest.json": "9c78de9a762957eda8342c2e974ae3c1d8a8c2d91e187304a259b3cafc2f1145",
     "iterations/iteration-006/review/progress.json": "fe5531b838b3c47c5f671b79e3b73a8368297973fbf9bac152694a26da91d879",
     "iterations/iteration-006/review/results.jsonl": "b86d897338167bb1fa43f9570e29d1008ad08f8ab244acbb53353d094bdb9d1c",
+    "iterations/iteration-007/base/jobs.jsonl": "87d483affefba85774291c706857c7af9b1b4d975132633d8f74eb182145d1f3",
+    "iterations/iteration-007/base/manifest.json": "0d7e692dc6ad83c7e532261a811318f2b5ff95fcf3c5eb976c4ecee2b7582cfb",
+    "iterations/iteration-007/base/progress.json": "b988e911aeeca5472cf000e59afc7c5e5c0e80aa71e2a5820de4e733b4afa0cf",
+    "iterations/iteration-007/base/results.jsonl": "76a09a2099f7384580a6f9fec5765d719674785697022482160b1dc2e293c314",
+    "iterations/iteration-007/director/prompt.txt": "503296abf40475c5d961e050d050bd638e99cec0095abedcb3a8ad78d776d24a",
+    "iterations/iteration-007/director/request.json": "bf903601c8802e462faab66ed878c6b44cdca3aa79699ad1f442483cec1ddb7b",
+    "iterations/iteration-007/director/result_summary.json": "9c3eefc1541e9b4b6e7d85f399dee13c8cbaf61cdcd32aabb21a1623a92e018e",
+    "iterations/iteration-007/panel/panel_hashes.json": "5e5c58723f9eeb36f4b9f91e8be3c529fc2ff4e6a810d58eb421bf5457693f8a",
+    "iterations/iteration-007/panel/public_cases.json": "b0eb6ffd6fd5d04bfaa5911e797d65971f2dfdeafe2d23f2010586ead3edef8f",
+    "iterations/iteration-007/panel/sealed_answers.json": "581d91ebb52a8be6ba6d1ca492b6e8ff1cd293c9b0977e8f8d12391f486c27ec",
+    "iterations/iteration-007/protocol_snapshot.json": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+    "iterations/iteration-007/registry.json": "16e880c2acc5fa393cfe976ffce80c011a5eb0319e4f55cfd43d3d472441858a",
+    "iterations/iteration-007/results/case_results.csv": "73d50fec769ed546fed213e2b0db1692f8998b9ce4975ccad1c13a9684b2194e",
+    "iterations/iteration-007/results/case_results.json": "fc38c9d0247e6806441dbefa70cee94f58c7b5a1a27df851d9466c2dfd22cfdf",
+    "iterations/iteration-007/results/plot.svg": "8052bf70257bd337c0dfc1ebfb082f2353b152aa59af77a24ccd556bab721fe7",
+    "iterations/iteration-007/results/summary.json": "79afc6face11ca37e6bb8e3cf5ab08627872d0456c2b359982528ca2d1dfaa3d",
+    "iterations/iteration-007/review/jobs.jsonl": "a9303759f16cee1d1125e675377362704d008d9edc6905fc2320100b0dccfd12",
+    "iterations/iteration-007/review/manifest.json": "b5b08ca5bdb2ecca2e055c4ec78efcd9a51f302fee7dc6ecde7035591ce39425",
+    "iterations/iteration-007/review/progress.json": "2aa5e98212c50e95cb1d081790f1ee616290ca931d506cf6b4a339542e62099c",
+    "iterations/iteration-007/review/results.jsonl": "3177cad521e146ad0d518daadaf8127bd62b9a675972656e1aa99d96671ad719",
     "protocol.json": "ebb2d1c1218dc0d37353eaf34ab056fca1aafef8e181e4574f5bad63cf2bf51d",
-    "researcher.md": "e4d82ad265975aa611a50d2ae02994db0ba993f86809d63c29cb6c0d613a2184",
+    "researcher.md": "6af97e09ae462a302717a3f27c9168e086ef0d15940c338bc4018f464f72b389",
     "run.py": "f0d0f737824ab5b31333eab28121db7409565fbd1d19cdc130f1ed95e453433b",
     "scripts/export_completed.py": "5f4e3a88eea3a5bef7c00fcf9ddc647fd26ef6c9b532ad3281ed47a9bc896642",
     "scripts/generate_extreme_calibration.py": "b84324426705335c59f6a4fa215fd2cfb46921a7e4c784df287c87cbbc74251d",
     "scripts/publish_progress.py": "62de9453b7f4ced7ecf39f54890138ce98c2bc67f092a2b743daf50be229fb12",
     "scripts/validate_snapshot.py": "436dcc3676d8e0c1a0c04197beebb2b141caa198f0b61fdc1f8a77297aaf3929",
-    "state.json": "e1a0400c5d33a21fefaae7cc933c9f0d9ff14bc0a2248485c585691cacfaee45",
+    "state.json": "470f2a3a350cb6a5a72f329323cd2d732fb698054dbc831e1cf1cda67ddbc9e2",
     "strategies/iteration-001.json": "ecf9388b373eed270277c867da0f8a77ca726ab78f908b656d1724a63bab9ec9",
     "strategies/iteration-002.json": "df023a2a1501c26dd63994199e096d7a5a99848dceca6836aa6683e9d273ae9b",
     "strategies/iteration-003.json": "5fefe4fde3fbec1aa313257e98d7957ad7700f0cea42dc7aa18b02d0ddd4bb19",
     "strategies/iteration-004.json": "bc85b290dc310a7547f764d5cac952fcb9e05823bd12a80a843c06243b9ce026",
     "strategies/iteration-005.json": "8bc544f1b7487410e1a109c5b733ff675787e9c1c65a7a7b1827a29cf875837d",
     "strategies/iteration-006.json": "344cd07cb0cb4062ad4d4ee33e4c0c14dd31ebbbd7fa4e3ba441bd6feaa17ca2",
-    "strategies/iteration-007.json": "d3db5dffe8fb5fa51717eccbb8f81bbde07ffb4315bd1905be048d8be3f86a26"
+    "strategies/iteration-007.json": "e5859aa9889336f4d7eff5264a79aef3b27f167cd85388071e495b50cacdee82",
+    "strategies/iteration-008.json": "7c545858f04bdcdd02b75c3843b4695bd85294e42c5e0663e52419fc3120b62d"
   },
   "note": "Generated from completed stages only; raw runtime artifacts and active partial work are excluded."
 }

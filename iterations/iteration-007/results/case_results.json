@@ -1,0 +1,3007 @@
+[
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[0,0,0]}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[0,0,0]}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 6,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 3,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 10,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 12,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": false,
+      "top_count": 1,
+      "unique": 1,
+      "valid": 1
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 1,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 1,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "direct-1",
+    "strategy_name": "Direct One"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[12,34,56]}": 1,
+        "{\"answer\":[17,8,86]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 3,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 4
+      },
+      "tie": false,
+      "top_count": 4,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":205}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 6,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":124}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":115}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":115}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 3,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 10,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"W\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 12,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "plurality-5",
+    "strategy_name": "Five-Vote Plurality"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[12,34,56]}": 1,
+        "{\"answer\":[17,8,86]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[17,8,86]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[17,8,86]}": 2,
+        "{\"answer\":[51,76,84]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 3,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 1,
+        "{\"answer\":[96,63,30]}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 4
+      },
+      "tie": false,
+      "top_count": 4,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 1,
+        "{\"answer\":[59,82,53]}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[20,70,54]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 1,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[0,0,0]}": 1,
+        "{\"answer\":[20,70,54]}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":205}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 4,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"W\",\"J9\":\"Y\"},\"total_cost\":174}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":124}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":115}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":115}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 2,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 1,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"W\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 12,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 14,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-efficient",
+    "strategy_name": "Efficient Five-Bank Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[12,34,56]}": 1,
+        "{\"answer\":[17,8,86]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[17,8,86]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[17,8,86]}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 3,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[0,0,0]}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 4
+      },
+      "tie": false,
+      "top_count": 4,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[20,87,20]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 3,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":205}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 4,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":124}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":115}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":115}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 4,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"W\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 2,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "choose-falsify-5x3",
+    "strategy_name": "Five-Bank Falsifying Selection"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[12,34,56]}": 1,
+        "{\"answer\":[17,8,86]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[17,8,86]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[17,8,86]}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 3,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 4
+      },
+      "tie": false,
+      "top_count": 4,
+      "unique": 2,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 2,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 5,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 0,
+    "review_candidate_oracle": null,
+    "review_metrics": {
+      "tie": false,
+      "top_count": 0,
+      "unique": 0,
+      "valid": 0
+    },
+    "review_unique_outputs": 0,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2,
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 4,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[20,70,54]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 1,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[20,70,54]}": 2,
+        "{\"answer\":[20,87,20]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":205}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 4,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":124}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":115}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":115}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 2,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 1,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Z\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"W\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 12,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 8,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 5,
+      "valid": 5
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 5,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 8,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 15,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "repair-falsify-5x3-majority-gated",
+    "strategy_name": "Majority-Gated Falsifying Repair"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 3,
+        "{\"answer\":[12,34,56]}": 1,
+        "{\"answer\":[17,8,86]}": 1,
+        "{\"answer\":[37,84,16]}": 1,
+        "{\"answer\":[42,58,62]}": 1,
+        "{\"answer\":[51,76,84]}": 1
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 7,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 7,
+    "case_id": "cal-t4-sequence-01",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[37,84,16]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[37,84,16]}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 4,
+        "{\"answer\":[0,0,0]}": 4,
+        "{\"answer\":[8,57,31]}": 1
+      },
+      "tie": true,
+      "top_count": 4,
+      "unique": 3,
+      "valid": 9
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 3,
+    "case_id": "cal-t4-sequence-02",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[-1,-1,-1]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 2,
+        "{\"answer\":[0,0,0]}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 3,
+        "{\"answer\":[0,0,0]}": 4,
+        "{\"answer\":[41,32,81]}": 1,
+        "{\"answer\":[42,39,93]}": 1
+      },
+      "tie": false,
+      "top_count": 4,
+      "unique": 4,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 4,
+    "case_id": "cal-t4-sequence-03",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[0,0,0]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 2
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":[-1,-1,-1]}": 1,
+        "{\"answer\":[0,0,0]}": 3,
+        "{\"answer\":[20,70,54]}": 1,
+        "{\"answer\":[20,87,20]}": 2,
+        "{\"answer\":[49,91,40]}": 1,
+        "{\"answer\":[64,41,90]}": 1
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 6,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 6,
+    "case_id": "cal-t4-sequence-04",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "sequence",
+    "final_answer": "{\"answer\":[49,91,40]}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 0,
+    "partial_total": 3,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":[49,91,40]}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"X\",\"J9\":\"Z\"},\"total_cost\":196}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"Y\"},\"total_cost\":192}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"X\",\"J9\":\"Z\"},\"total_cost\":190}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":203}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Z\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"X\",\"J9\":\"Y\"},\"total_cost\":191}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":200}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"W\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"X\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":205}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-constraint-01",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Z\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"X\",\"J9\":\"Y\"},\"total_cost\":191}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 5,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"W\",\"J2\":\"Z\",\"J3\":\"Z\",\"J4\":\"Z\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"X\",\"J9\":\"Y\"},\"total_cost\":191}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 1,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":113}": 2,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":118}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":124}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Y\"},\"total_cost\":92}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"Z\"},\"total_cost\":115}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":115}": 2
+      },
+      "tie": true,
+      "top_count": 2,
+      "unique": 7,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 7,
+    "case_id": "cal-t4-constraint-02",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":118}",
+    "harmful_intervention": 1,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 8,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"X\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Z\",\"J6\":\"Z\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Y\"},\"total_cost\":118}": 2,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"W\",\"J3\":\"X\",\"J4\":\"Z\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"Y\",\"J8\":\"Y\",\"J9\":\"Z\"},\"total_cost\":107}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"X\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"Z\",\"J9\":\"W\"},\"total_cost\":193}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Y\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":186}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":166}": 1,
+        "{\"answer\":{\"J1\":\"W\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":170}": 1,
+        "{\"answer\":{\"J1\":\"X\",\"J10\":\"X\",\"J11\":\"Y\",\"J12\":\"W\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"Z\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":199}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":195}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Z\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":179}": 1,
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Z\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Y\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":169}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-constraint-03",
+    "effective_calls": 12,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Z\",\"J10\":\"Y\",\"J11\":\"X\",\"J12\":\"Y\",\"J2\":\"W\",\"J3\":\"Y\",\"J4\":\"X\",\"J5\":\"W\",\"J6\":\"Z\",\"J7\":\"Z\",\"J8\":\"X\",\"J9\":\"W\"},\"total_cost\":188}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":161}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 2,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"W\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"W\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":154}": 2,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Y\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"W\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":167}": 1,
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"X\",\"J11\":\"Z\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"X\",\"J4\":\"W\",\"J5\":\"Y\",\"J6\":\"X\",\"J7\":\"X\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":158}": 1
+      },
+      "tie": true,
+      "top_count": 2,
+      "unique": 7,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 7,
+    "case_id": "cal-t4-constraint-04",
+    "effective_calls": 12,
+    "exact": 1,
+    "family": "constraint",
+    "final_answer": "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 13,
+    "partial_total": 13,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"J1\":\"Y\",\"J10\":\"W\",\"J11\":\"X\",\"J12\":\"Z\",\"J2\":\"Y\",\"J3\":\"Z\",\"J4\":\"Y\",\"J5\":\"W\",\"J6\":\"X\",\"J7\":\"W\",\"J8\":\"Z\",\"J9\":\"X\"},\"total_cost\":152}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-logic-01",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 12,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 3,
+      "valid": 3
+    },
+    "review_unique_outputs": 3,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-logic-02",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 11,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 2,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"truthful\",\"F\":\"liar\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 0,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-logic-03",
+    "effective_calls": 12,
+    "exact": 0,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 0,
+    "iteration": 7,
+    "partial_correct": 9,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 0,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"truthful\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"liar\",\"P\":\"liar\",\"Q\":\"liar\"}}": 2,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"truthful\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"truthful\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": false,
+      "top_count": 2,
+      "unique": 2,
+      "valid": 3
+    },
+    "review_unique_outputs": 2,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  },
+  {
+    "base_exact": 0,
+    "base_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"liar\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"truthful\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"liar\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"truthful\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"liar\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"truthful\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"liar\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"truthful\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"liar\"}}": 1,
+        "{\"answer\":{\"A\":\"truthful\",\"B\":\"liar\",\"C\":\"truthful\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"truthful\",\"G\":\"truthful\",\"H\":\"liar\",\"I\":\"truthful\",\"J\":\"truthful\",\"K\":\"truthful\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"liar\",\"Q\":\"liar\"}}": 1
+      },
+      "tie": true,
+      "top_count": 1,
+      "unique": 9,
+      "valid": 9
+    },
+    "base_oracle": 1,
+    "base_unique_candidates": 9,
+    "case_id": "cal-t4-logic-04",
+    "effective_calls": 12,
+    "exact": 1,
+    "family": "logic",
+    "final_answer": "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}",
+    "harmful_intervention": 0,
+    "helpful_intervention": 1,
+    "iteration": 7,
+    "partial_correct": 17,
+    "partial_total": 17,
+    "repair_created_correct_answer": 0,
+    "review_calls": 3,
+    "review_candidate_oracle": 1,
+    "review_metrics": {
+      "counts": {
+        "{\"answer\":{\"A\":\"liar\",\"B\":\"liar\",\"C\":\"liar\",\"D\":\"truthful\",\"E\":\"liar\",\"F\":\"liar\",\"G\":\"liar\",\"H\":\"liar\",\"I\":\"liar\",\"J\":\"truthful\",\"K\":\"liar\",\"L\":\"liar\",\"M\":\"truthful\",\"N\":\"liar\",\"O\":\"truthful\",\"P\":\"truthful\",\"Q\":\"truthful\"}}": 3
+      },
+      "tie": false,
+      "top_count": 3,
+      "unique": 1,
+      "valid": 3
+    },
+    "review_unique_outputs": 1,
+    "strategy_id": "committee-compare-9x3-fusion",
+    "strategy_name": "Committee Delegate Fusion"
+  }
+]

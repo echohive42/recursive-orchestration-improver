@@ -11,7 +11,7 @@ The recursion is in the research process, not the model weights: each completed 
 > **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains 6 completed research rounds and the registered strategy for Round 7. The numbers below are promising development evidence, not independent final validation.
+> **This is active research, not a finished benchmark.** The repository currently contains 7 completed research rounds and the registered strategy for Round 8. The numbers below are promising development evidence, not independent final validation.
 
 ## Explore the wider lab
 
@@ -22,7 +22,7 @@ The recursion is in the research process, not the model weights: each completed 
 <!-- LIVE_PROGRESS_START -->
 ## Live research progress
 
-**6 completed rounds.** The latest winner was **Efficient Five-Bank Falsifying Repair**, which solved **7/12 (58.3%)** with a weakest-family accuracy of **50.0%**.
+**7 completed rounds.** The latest winner was **Five-Bank Falsifying Selection**, which solved **5/12 (41.7%)** with a weakest-family accuracy of **25.0%**.
 
 | Round | Best registered system | Exact accuracy | Weakest family | Direct baseline | Worker calls |
 |---:|---|---:|---:|---:|---:|
@@ -32,6 +32,7 @@ The recursion is in the research process, not the model weights: each completed 
 | 4 | Nine Solvers plus Three Falsifying Repairers | 6/12 · **50.0%** | 50.0% | 2/12 · 16.7% | 246 |
 | 5 | Nine Solvers plus Three Falsifying Repairers | 9/18 · **50.0%** | 33.3% | 2/18 · 11.1% | 480 |
 | 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
+| 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
 
 ![Research progress across completed rounds](images/progress.svg)
 

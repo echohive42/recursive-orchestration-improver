@@ -1,0 +1,185 @@
+{
+  "benchmark": "extreme-calibration-t4-s260723064",
+  "answers": {
+    "cal-t4-sequence-01": {
+      "answer": [
+        51,
+        76,
+        84
+      ]
+    },
+    "cal-t4-sequence-02": {
+      "answer": [
+        77,
+        94,
+        73
+      ]
+    },
+    "cal-t4-sequence-03": {
+      "answer": [
+        41,
+        32,
+        81
+      ]
+    },
+    "cal-t4-sequence-04": {
+      "answer": [
+        20,
+        87,
+        20
+      ]
+    },
+    "cal-t4-constraint-01": {
+      "answer": {
+        "J1": "X",
+        "J2": "Y",
+        "J3": "Z",
+        "J4": "Z",
+        "J5": "X",
+        "J6": "W",
+        "J7": "Z",
+        "J8": "X",
+        "J9": "Y",
+        "J10": "Y",
+        "J11": "W",
+        "J12": "W"
+      },
+      "total_cost": 182
+    },
+    "cal-t4-constraint-02": {
+      "answer": {
+        "J1": "W",
+        "J2": "X",
+        "J3": "X",
+        "J4": "W",
+        "J5": "Z",
+        "J6": "Y",
+        "J7": "Z",
+        "J8": "Z",
+        "J9": "Y",
+        "J10": "W",
+        "J11": "X",
+        "J12": "Y"
+      },
+      "total_cost": 113
+    },
+    "cal-t4-constraint-03": {
+      "answer": {
+        "J1": "Z",
+        "J2": "W",
+        "J3": "Y",
+        "J4": "X",
+        "J5": "W",
+        "J6": "Z",
+        "J7": "Z",
+        "J8": "X",
+        "J9": "W",
+        "J10": "Y",
+        "J11": "X",
+        "J12": "Y"
+      },
+      "total_cost": 188
+    },
+    "cal-t4-constraint-04": {
+      "answer": {
+        "J1": "Y",
+        "J2": "Y",
+        "J3": "Z",
+        "J4": "Y",
+        "J5": "W",
+        "J6": "X",
+        "J7": "W",
+        "J8": "Z",
+        "J9": "X",
+        "J10": "W",
+        "J11": "X",
+        "J12": "Z"
+      },
+      "total_cost": 152
+    },
+    "cal-t4-logic-01": {
+      "answer": {
+        "A": "liar",
+        "B": "liar",
+        "C": "liar",
+        "D": "liar",
+        "E": "liar",
+        "F": "truthful",
+        "G": "truthful",
+        "H": "truthful",
+        "I": "truthful",
+        "J": "truthful",
+        "K": "liar",
+        "L": "liar",
+        "M": "liar",
+        "N": "truthful",
+        "O": "truthful",
+        "P": "truthful",
+        "Q": "truthful"
+      }
+    },
+    "cal-t4-logic-02": {
+      "answer": {
+        "A": "truthful",
+        "B": "liar",
+        "C": "truthful",
+        "D": "liar",
+        "E": "truthful",
+        "F": "liar",
+        "G": "truthful",
+        "H": "liar",
+        "I": "truthful",
+        "J": "truthful",
+        "K": "truthful",
+        "L": "liar",
+        "M": "liar",
+        "N": "truthful",
+        "O": "truthful",
+        "P": "truthful",
+        "Q": "liar"
+      }
+    },
+    "cal-t4-logic-03": {
+      "answer": {
+        "A": "liar",
+        "B": "liar",
+        "C": "liar",
+        "D": "truthful",
+        "E": "truthful",
+        "F": "truthful",
+        "G": "truthful",
+        "H": "liar",
+        "I": "truthful",
+        "J": "truthful",
+        "K": "truthful",
+        "L": "truthful",
+        "M": "truthful",
+        "N": "liar",
+        "O": "liar",
+        "P": "truthful",
+        "Q": "liar"
+      }
+    },
+    "cal-t4-logic-04": {
+      "answer": {
+        "A": "liar",
+        "B": "liar",
+        "C": "liar",
+        "D": "truthful",
+        "E": "liar",
+        "F": "liar",
+        "G": "liar",
+        "H": "liar",
+        "I": "liar",
+        "J": "truthful",
+        "K": "liar",
+        "L": "liar",
+        "M": "truthful",
+        "N": "liar",
+        "O": "truthful",
+        "P": "truthful",
+        "Q": "truthful"
+      }
+    }
+  }
+}
