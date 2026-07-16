@@ -1,0 +1,93 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 25 did not improve weakest-family accuracy: every reviewed mechanism bottomed out at 2/6 in at least one family. The five-bank three-review champion remained strongest at 10/18, with seven helpful and zero harmful interventions. Nine-bank selection exposed the main unresolved gap: both selector depths converted only 9 of 13 oracle-covered cases. Three selectors provided no exact gain over one selector, although partial accuracy favored three selectors, 81.8% versus 77.8%. Regeneration again improved coverage, from 10/18 to 12/18, but its integrator finished at 6/18 and caused two harmful reversals. The next batch should therefore replicate full-bank selection, preserve its one-call efficiency ablation, and retain regeneration as the orthogonal candidate-generation lane without introducing another voting variant.",
+    "extensions_requested": [
+      "Add an `audit_then_choose` primitive: three independent reviewers examine the same shuffled, frequency-hidden candidate bank and write candidate-indexed falsification findings to a shared evidence board; one terminal choose-only selector sees the candidates and anonymized findings, cannot synthesize a new answer, and falls back to base plurality on invalid output. This directly tests whether explicit evidence aggregation closes the oracle-to-final gap better than reviewer plurality."
+    ],
+    "most_important_evidence": [
+      "The retained five-bank three-review repair mechanism scored 10/18 with 33.3% weakest-family accuracy, seven helpful interventions, and zero harmful reversals.",
+      "The nine-bank oracle covered 13/18 cases, but both three-selector and one-selector systems finished at 9/18, leaving four covered cases unconverted.",
+      "Three selectors and one selector tied at 9/18 with identical 33.3% weakest-family accuracy; the deeper panel used two additional calls per case and led only in partial accuracy, 81.8% versus 77.8%.",
+      "Regenerate-then-repair raised coverage from 10/18 to 12/18 and introduced two correct candidates absent from the base bank, but converted only 6/18 and made two harmful reversals.",
+      "Five-vote plurality converted only 3/10 oracle-covered cases and scored 0/6 on sequence, confirming that deterministic plurality remains a control rather than a solution to candidate selection."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact full-bank candidate-only selector. Across Iterations 24 and 25 it has positive correction evidence, while another fresh panel is needed to determine whether its three-selector conversion advantage over repair is stable.",
+        "name": "Nine-Bank Falsifying Selection Panel",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x3-full-bank"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact efficiency ablation after its Iteration 25 exact tie with three selectors. If the tie persists without a meaningful weakest-family or partial-accuracy loss, two selector calls per case can be removed.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Retain the frozen orthogonal pipeline unchanged. Its recurring coverage gains remain valuable evidence about candidate generation, while replication must measure whether the recent harmful integration rate persists.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Use as the first reserve proposal if a retained mechanism occupies another slot. Sequential falsification tests whether passing an explicit proposal and critique between reviewers improves conversion differently from independent selector plurality.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The nine-bank selector's gain comes primarily from candidate-only adjudication, so one selector may preserve exact and weakest-family accuracy at lower cost.",
+      "Three-selector plurality may still be worthwhile if its Iteration 25 partial-accuracy advantage becomes an exact or weakest-family advantage under replication.",
+      "Blind diversified regeneration reliably improves oracle coverage, but terminal integration—not generation—is currently limiting its final accuracy.",
+      "A shared, candidate-indexed evidence board may improve selection more than additional independent votes because it exposes reasons for rejecting attractive wrong candidates."
+    ],
+    "risk_note": "Assuming the Iteration 25 winner and pooled champion are the same retained five-bank repair mechanism, the six-strategy batch consists of three mechanical retentions plus the first three proposals. Its maximum cost is 240 calls: 108 shared bank calls and 132 review calls, safely below 300. Results will remain highly correlated through the shared banks and noisy over only 12 cases; the one-versus-three-selector tie should not trigger promotion or pruning from one additional panel alone."
+  },
+  "duration_ms": 100351,
+  "job_id": "i025-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "6b04986c1b6260a93e5f64df5030c53aac1766eb12f47cbe5d02858c25048862",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 22272,
+    "input_tokens": 25490,
+    "output_tokens": 1183,
+    "reasoning_output_tokens": 0
+  }
+}

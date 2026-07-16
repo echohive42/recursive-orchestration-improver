@@ -52,6 +52,8 @@ Iteration 23 was a difficult panel. Regenerate-then-repair won by family balance
 
 Iteration 24 gave the new full nine-bank, three-selector panel 6/12 with five helpful and zero harmful interventions. One-review nine-bank repair saw the same 7/12 base-oracle coverage but finished only 2/12, so the three-selector panel produced a real same-panel conversion gain. The five-bank pooled champion and regeneration pipeline each scored 5/12. This is one fresh development panel, not promotion evidence. Retain the exact full-bank selector unchanged and compare it with a one-selector choose-only version to separate panel depth from answer-generating repair.
 
+Iteration 25 was an 18-case checkpoint. The pooled five-bank three-review champion led at 10/18 with seven helpful and zero harmful interventions. Full nine-bank selection scored 9/18 with either three selectors or one selector; both had six helpful and zero harmful interventions, while one selector used two fewer calls per case. Across its first two panels, the three-selector version is 15/30 exact, but the checkpoint does not support its extra selector depth. Regenerate-then-repair fell to 6/18 with five helpful and two harmful interventions. Replicate the matched selector comparison once more before favoring the cheaper one-selector version, and continue to retain the pooled champion unchanged.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.

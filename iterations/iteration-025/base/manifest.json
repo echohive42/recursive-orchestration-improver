@@ -1,0 +1,12 @@
+{
+  "accuracy_withheld": true,
+  "jobs": 162,
+  "jobs_sha256": "b0687227855e9e838647aee1db36aa8b8bc52b6721751dea51df1f058f186002",
+  "max_base_count": 9,
+  "model": "gpt-5.6-luna",
+  "public_cases_sha256": "209cede585ea97737b8f897abb999711ead8ea82411f4746df93da22c3c0dc81",
+  "reasoning_effort": "low",
+  "registered_at": "2026-07-16T16:01:42.025Z",
+  "registered_before_calls": true,
+  "sealed_answers_sha256": "5556d44f52e74461eeb43dd8d7ade6a27578e8dde661b561cb3999f600d5adca"
+}
