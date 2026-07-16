@@ -1,0 +1,120 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 18 was chiefly an integration success: regenerate-then-repair scored 8/12 with the best weakest-family accuracy (0.50), five helpful corrections, and one harmful reversal. It expanded five-base oracle coverage from 5/12 to 7/12, then produced an additional correct answer beyond that expanded bank. Across its three panels, it is now 16/36 exact with 13 helpful versus two harmful interventions, but logic remains its weakest family. Nine-bank one-review repair also scored 8/12 and recorded seven helpful with zero harmful interventions; combined with Iteration 14, it is 15/24 with 12 helpful and no harmful interventions, warranting exact replication despite the small sample. Five-bank three-review repair reached 6/12 with two helpful and no harmful corrections, while five-bank one-review repair fell to 3/12 and harmed one base-correct case. Candidate scarcity remains material: the five-answer oracle was only 5/12, although the nine-answer oracle reached 8/12. The next batch therefore preserves the controls and both retained mechanisms, replicates promising nine-bank single-review integration, and uses sequential cross-examination as the orthogonal organization. Maximum cost is 240 calls: 108 shared base calls plus 132 follow-up calls.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Regenerate-then-repair won Iteration 18 on family balance at 8/12 exact and 0.50 weakest-family accuracy, with five helpful interventions and one harmful reversal.",
+      "Across Iterations 16–18, regenerate-then-repair is 16/36 exact with 13 helpful and two harmful interventions; regeneration increased aggregate base-oracle coverage from 11/36 to 16/36.",
+      "Nine-bank one-review repair scored 8/12 in Iteration 18 with seven helpful and zero harmful interventions. Together with Iteration 14, its exact mechanism is 15/24 with 12 helpful and no harmful interventions.",
+      "Iteration 18 five-base oracle coverage was only 5/12, versus 8/12 for nine bases. The pipeline nevertheless created correct final answers absent from both the original and expanded candidate banks.",
+      "Logic remained the clearest weakness: direct and five-vote plurality scored 0/4, ordinary five-bank repair scored 1/4, nine-bank one-review repair scored 1/4, and regenerate-then-repair scored 2/4.",
+      "Parallel reviewer count is not monotonically beneficial: Iteration 15 favored one-review over three-review repair 11/18 to 8/18, while Iteration 18 showed substantial reviewer and bank-size variance. Sequential cross-examination offers a cleaner architectural contrast than another parallel-panel variant."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-cost independent-answer control unchanged so panel difficulty and orchestration gains remain measurable.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the deterministic five-answer plurality control unchanged to measure base-bank quality, oracle gaps, and the net value of every intervention.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged. Its parallel falsifying repair panel remains the principal replicated control for answer-generating review.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Replicate the current winner unchanged. A fourth fresh panel tests whether its improved candidate coverage and strongly positive correction balance persist, particularly in its weakest family.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact nine-bank single-review mechanism after two strong panels. Holding the broad candidate bank and one falsifying integrator fixed tests whether it preserves its zero-harm correction record while avoiding parallel-review dilution.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Sequential falsification may make later reviewers engage with one concrete proposed solution and critique instead of producing three weakly coordinated parallel repairs. This tests an orthogonal information-flow architecture at the same eight-call nominal cost as the pooled champion.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The regenerate-then-repair pipeline's 13-to-2 helpful-versus-harmful balance reflects a reproducible integration advantage rather than three-panel variance.",
+      "A broad nine-answer bank plus one falsifying reviewer is sufficient to exploit added oracle coverage; additional parallel reviewers primarily add variance.",
+      "Sequential cross-examination improves candidate selection and answer repair by forcing explicit falsification of the immediately preceding proposal.",
+      "If logic remains weak despite regeneration and sequential review, the limiting factor is likely domain-neutral reasoning quality rather than candidate count alone."
+    ],
+    "risk_note": "Each family contributes only four cases, so weakest-family estimates remain extremely noisy. The nine-bank one-review record covers just 24 cases, and regeneration can still introduce harmful reversals or candidates that the integrator fails to select. Treat Iteration 19 as replication evidence, not validation or grounds for family-specific changes."
+  },
+  "duration_ms": 200968,
+  "job_id": "i018-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "7b0c0991333e4c6d2b3191bbbed22e400082adf1085903fa814b4a53141a9dbe",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 20997,
+    "output_tokens": 8091,
+    "reasoning_output_tokens": 6675
+  }
+}

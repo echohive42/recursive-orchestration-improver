@@ -4,14 +4,14 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 
 ## How to read this
 
-The best single-panel observation is **One-Review Five-Bank Falsifying Repair** at **11/18 (61.1%)** in Round 15.
+The best single-panel observation is **Blind Regeneration then Falsifying Integration** at **8/12 (66.7%)** in Round 18.
 
 ## Leading replicated mechanisms
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 14 | 73/180 · **40.6%** | 38.3% | 8.0 |
-| One-Review Five-Bank Falsifying Repair | 9 | 42/120 · **35.0%** | 32.5% | 6.0 |
+| One-Review Nine-Bank Falsifying Repair | 3 | 21/42 · **50.0%** | 42.9% | 10.0 |
+| Efficient Five-Bank Falsifying Repair | 15 | 79/192 · **41.1%** | 39.1% | 8.0 |
 
 These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
@@ -36,6 +36,7 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 15 | One-Review Five-Bank Falsifying Repair | 11/18 · **61.1%** | 50.0% | 3/18 · 16.7% | 306 |
 | 16 | Blind Regeneration then Falsifying Integration | 3/12 · **25.0%** | 0.0% | 1/12 · 8.3% | 205 |
 | 17 | Blind Regeneration then Falsifying Integration | 5/12 · **41.7%** | 0.0% | 0/12 · 0.0% | 192 |
+| 18 | Blind Regeneration then Falsifying Integration | 8/12 · **66.7%** | 50.0% | 4/12 · 33.3% | 216 |
 
 ## Round notes
 
@@ -106,6 +107,10 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 17
 
 **Blind Regeneration then Falsifying Integration** won at 5/12 (41.7%). Family results: constraint 75.0%, logic 0.0%, sequence 50.0%. Helpful interventions: 5. Harmful interventions: 0.
+
+### Round 18
+
+**Blind Regeneration then Falsifying Integration** won at 8/12 (66.7%). Family results: constraint 100.0%, logic 50.0%, sequence 50.0%. Helpful interventions: 5. Harmful interventions: 1.
 
 ## Interpretation
 

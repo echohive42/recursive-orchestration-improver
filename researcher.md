@@ -38,6 +38,8 @@ Iteration 16 tested three blind regenerators followed by one falsifying integrat
 
 Iteration 17 replicated regenerate-then-repair at 5/12 versus 3/12 for five-bank three-review repair and 2/12 for one-review repair. Regeneration raised coverage from 3/12 to 5/12, and the integrator converted all five covered cases with five helpful and zero harmful interventions. Across its first 24 cases, the pipeline has 8/24 exact, base-oracle coverage 6/24, expanded coverage 9/24, eight helpful interventions, and one harmful reversal. Logic remains weak at 2/8. This is promising development evidence but still too small for promotion; replicate unchanged.
 
+Iteration 18 gave regenerate-then-repair 8/12 with 50% weakest-family accuracy. Across three panels it is 16/36 exact, expanded oracle 16/36 versus base oracle 11/36, thirteen helpful and two harmful interventions; logic remains weakest at 4/12. Nine-bank one-review repair also scored 8/12. Across its operationally equivalent runs it is 21/42 exact with 42.9% weakest-family accuracy, making it the new pooled champion on current point estimates. Both samples remain development evidence and require unchanged replication.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.
