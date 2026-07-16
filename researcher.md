@@ -26,6 +26,8 @@ Iteration 10 was an 18-case checkpoint. One five-bank falsifying reviewer scored
 
 Iteration 11 was much harder. Five-answer banks contained a correct answer on only 2/12 cases and nine-answer banks on only 3/12. Nine-bank three-review repair won at 3/12, merely matching its base plurality after one helpful and one harmful intervention. Five-bank one-review repair fell to 1/12 after one helpful and two harmful interventions; pooled through three panels it is 14/42 with ten helpful and two harmful interventions. The dip is evidence of candidate-generation failure plus reviewer variance, not a reason to discard prior mechanisms or specialize to this panel.
 
+Iteration 12 recovered to 5/12 for five-bank parallel repair, nine-bank parallel repair, and five-bank sequential cross-examination. Cross-examination won only through family balance and partial credit. Parallel five-bank repair and cross-examination each made four helpful and zero harmful interventions; one-review repair reached 4/12 with three helpful and zero harmful interventions. Candidate oracles remained low at 4/12 for five bases and 6/12 for nine. Preserve these replications, but the next new primitive should improve domain-neutral candidate generation rather than add another voting rule.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.

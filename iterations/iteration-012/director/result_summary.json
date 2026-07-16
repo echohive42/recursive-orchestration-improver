@@ -1,0 +1,120 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 12 again shows that candidate generation is the primary bottleneck, while repair quality and reviewer variance determine how much the systems recover. Five-answer banks contained a correct answer on only 4/12 cases and nine-answer banks on 6/12; nevertheless, cross-examination and five-bank three-review repair each reached 5/12 through four helpful and zero harmful interventions. Weakest-family accuracy remained only 0.25 for those leaders, while nine-bank repair fell to 0.00 on logic despite matching 5/12 overall. The next batch should therefore replicate the positive mechanisms, preserve the nine-bank coverage probe, and directly test reviewer dilution without domain-specific changes.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "Five-bank base plurality scored 1/12 and its candidate oracle only 4/12, but cross-examination and three-review repair each scored 5/12 with four helpful and zero harmful interventions; answer-generating review can exceed the raw-bank ceiling.",
+      "The exact one-review mechanism scored 4/12 in Iteration 12 with three helpful and zero harmful interventions. Pooled through four panels it is 18/54 exact with a 13-to-2 helpful-to-harmful intervention balance, making it the strongest call-efficiency probe.",
+      "The nine-answer bank improved candidate-oracle coverage from 4/12 to 6/12, but nine-bank repair still scored 5/12 and had 0/4 logic accuracy. More candidates improve coverage without reliably improving the weakest family.",
+      "Cross-examination and five-bank repair both had 0.25 weakest-family accuracy; none of the reviewed leaders solved the weakest-family problem robustly.",
+      "With a largest bank of nine and four three-review-equivalent systems at most, any six-strategy batch formed from the retained strategies and these proposals remains below 300 calls; the intended retained-plus-top-proposals configuration costs at most 228 calls."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "An unchanged replication tests whether the established five-bank, three-review mechanism's 4-to-0 correction balance in Iteration 12 persists. Pairing it with the exact one-review mechanism on a shared bank isolates reviewer dilution.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "The unchanged mechanism now has a pooled 13-to-2 helpful-to-harmful intervention balance while using two fewer review calls than three-review repair. Another sealed replication tests whether that advantage reflects lower reviewer variance rather than panel noise.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retaining the unchanged nine-bank mechanism tests whether its higher candidate-oracle coverage can translate into better weakest-family accuracy, rather than merely adding distractors for reviewers.",
+        "name": "Nine Solvers plus Three Falsifying Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Delegate fusion gives the deterministic base plurality one vote alongside three repaired outputs. It may preserve answer-generating corrections while reducing reversals or fragmentation when reviewers propose incompatible repairs.",
+        "name": "Five-Bank Repair with Delegate Fusion",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-delegate-fusion"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Three disjoint committee delegates compress a diverse nine-answer bank before one answer-generating reviewer is invoked on committee disagreement. This tests whether candidate overload, rather than insufficient bank coverage, causes review variance.",
+        "name": "Committee-Delegated One-Review Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-falsify-9x1"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A deterministic nine-answer plurality isolates the value of bank expansion from all reviewer effects and provides a low-variance control for interpreting nine-bank repair.",
+        "name": "Nine-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-9"
+      }
+    ],
+    "research_hypotheses": [
+      "The positive correction balance of falsifying repair is reproducible, but additional independent reviewers can dilute it by fragmenting among different repairs.",
+      "Increasing bank size raises candidate-oracle coverage, yet may not improve exact accuracy unless aggregation can manage the additional distractors.",
+      "Delegate fusion can protect a defensible base plurality without eliminating the ability of repairers to create an answer absent from the bank.",
+      "Committee delegation may reduce reviewer overload while preserving independent evidence from a larger bank.",
+      "Weakest-family gains must arise from domain-neutral improvements in candidate coverage and error correction, not from family routing."
+    ],
+    "risk_note": "Only four cases per family make weakest-family accuracy move in 25-point increments, and the strategies sharing answer banks are strongly correlated. Positive intervention counts remain small, the nine-bank logic failure could be noise, and none of these development results establishes transfer beyond the three studied families."
+  },
+  "duration_ms": 171921,
+  "job_id": "i012-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "b81186082e65d5b46f6370745fb99b026fe2178eb16f022ad7c8ad6ed568c24a",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 18807,
+    "output_tokens": 6774,
+    "reasoning_output_tokens": 5471
+  }
+}
