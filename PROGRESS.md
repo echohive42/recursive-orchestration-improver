@@ -10,8 +10,8 @@ The best single-panel observation is **Efficient Five-Bank Falsifying Repair** a
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 9 | 50/114 · **43.9%** | 39.5% | 8.0 |
-| Nine Solvers plus Three Falsifying Repairers | 5 | 28/66 · **42.4%** | 36.4% | 12.0 |
+| Efficient Five-Bank Falsifying Repair | 10 | 53/126 · **42.1%** | 38.1% | 8.0 |
+| Nine Solvers plus Three Falsifying Repairers | 6 | 30/78 · **38.5%** | 30.8% | 12.0 |
 
 These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
@@ -31,6 +31,7 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 10 | One-Review Five-Bank Falsifying Repair | 9/18 · **50.0%** | 33.3% | 0/18 · 0.0% | 342 |
 | 11 | Nine Solvers plus Three Falsifying Repairers | 3/12 · **25.0%** | 0.0% | 2/12 · 16.7% | 202 |
 | 12 | Sequential Five-Bank Cross-Examination | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 221 |
+| 13 | Efficient Five-Bank Falsifying Repair | 3/12 · **25.0%** | 25.0% | 0/12 · 0.0% | 221 |
 
 ## Round notes
 
@@ -81,6 +82,10 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 12
 
 **Sequential Five-Bank Cross-Examination** won at 5/12 (41.7%). Family results: constraint 50.0%, logic 50.0%, sequence 25.0%. Helpful interventions: 4. Harmful interventions: 0.
+
+### Round 13
+
+**Efficient Five-Bank Falsifying Repair** won at 3/12 (25.0%). Family results: constraint 25.0%, logic 25.0%, sequence 25.0%. Helpful interventions: 3. Harmful interventions: 0.
 
 ## Interpretation
 

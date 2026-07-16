@@ -1,0 +1,108 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 13 was dominated by candidate-generation failure: five-answer banks contained a correct answer on only 2/12 cases, nine-answer banks on 4/12, and every base plurality scored 0/12. The retained five-bank three-review champion recovered three answers, achieved 25% in every family, and had the best partial accuracy (69.7%) with no harmful reversal. Review remains useful, but the nine-bank reviewers converted greater oracle coverage into only 2/12 exact, showing that larger banks also increase selection burden. The next batch should therefore retain the balanced champion, combine broader generation with the lower-variance one-review mechanism, replicate the efficient five-bank reviewer, and test committee compression as the orthogonal organization.",
+    "extensions_requested": [
+      "Add a shared_evidence_board base-generation primitive: three independent scouts post shuffled concise claims, evidence, and counterchecks; subsequent base answerers independently derive exact candidates while explicitly testing the board. Count every call and expose neither family labels nor the answer key."
+    ],
+    "most_important_evidence": [
+      "The five-bank candidate oracle was only 2/12 and the nine-bank oracle only 4/12; all observed base pluralities were 0/12.",
+      "Five-bank three-review repair reached 3/12 with one correct result in each family, three helpful interventions, zero harmful interventions, and 69.7% partial accuracy.",
+      "Nine-bank three-review repair had twice the five-bank oracle coverage but finished at 2/12, with no constraint or logic successes; broader generation alone did not solve candidate selection.",
+      "Five-bank one-review repair is now 20/66 exact across its five observed panels, with 15 helpful versus two harmful interventions. In Iteration 13 it used 5.92 mean calls versus 7.75 for three-review repair.",
+      "Every strategy other than the retained current winner had 0% weakest-family accuracy in Iteration 13, so its balanced 25% result should not be displaced based on pooled accuracy alone."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Iteration 13's nine-answer bank doubled candidate-oracle coverage from 2/12 to 4/12, while the one-review mechanism has a pooled 15-to-2 helpful-to-harmful intervention balance. Pairing them tests whether one falsifying repairer can exploit broader generation without three-review fragmentation.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the unchanged call-efficient mechanism because its strongly positive pooled correction balance remains promising despite noisy exact accuracy, and it requires two fewer review calls than the retained champion whenever review activates.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Three disjoint committee delegates may compress a diverse nine-answer bank into a smaller, less distracting evidence set. Routing one answer-generating falsifier only on committee disagreement tests this orthogonal aggregation architecture without recreating a large repair panel.",
+        "name": "Committee Delegates with One Falsifying Repairer",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-falsify-9x1"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the unchanged nine-bank three-review challenger for replication: it is 37/96 exact through Iteration 13 and remains the established test of whether higher candidate coverage can outweigh additional distractors.",
+        "name": "Nine Solvers plus Three Falsifying Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3"
+      },
+      {
+        "base_count": 15,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A fifteen-answer deterministic plurality tests whether independent scale alone improves exact aggregation on panels where five-answer plurality fails, without introducing reviewer variance or another decision rule.",
+        "name": "Fifteen-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-15"
+      }
+    ],
+    "research_hypotheses": [
+      "The immediate bottleneck is producing at least one correct candidate, especially for constraint and logic cases, rather than choosing among already-correct majorities.",
+      "A nine-bank, one-review system can combine higher candidate coverage with the favorable correction balance of single-review repair.",
+      "Committee delegates will help if repeated partial reasoning is more reliable than isolated raw candidates; they will hurt if correct answers usually occur as unique minorities inside committees.",
+      "A fifteen-answer plurality will distinguish benefits from independent sampling scale from benefits attributable to repair.",
+      "A shared evidence board may improve absent-answer creation by letting final answerers reuse independently discovered decisive evidence without family-specific routing."
+    ],
+    "risk_note": "All estimates remain noisy on 12-case panels. Committee compression can discard a correct raw minority, and a larger bank can add distractors without improving plurality. With the three automatic retentions, any three of these proposals remain within budget: the worst selectable combination costs at most 288 Luna calls (180 shared base calls plus 108 review calls). No development result should be described as general until a frozen mechanism transfers to untouched exact-verifiable families."
+  },
+  "duration_ms": 233426,
+  "job_id": "i013-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "cfdd0a80af339e45f0747f9b0054df98966d3161fdeefab0242ce1c358d73627",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 18176,
+    "input_tokens": 24678,
+    "output_tokens": 3375,
+    "reasoning_output_tokens": 2103
+  }
+}

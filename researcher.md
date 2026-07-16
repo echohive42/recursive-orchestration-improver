@@ -38,6 +38,8 @@ The optional `committee_delegates` candidate source divides a nine-answer bank i
 
 The `cross_examine` review mode is a sequential architecture with exactly three reviewers and the `last_review_fallback_base` final rule. Reviewer 1 sees the shuffled raw candidate bank. Reviewers 2 and 3 each see the same candidates plus the immediately preceding reviewer’s proposed exact answer and concise critique, then must try to falsify its decisive claims before retaining or revising it. Each layer is registered before its calls and later layers never see the answer key. Use `candidate_source: base_unique` for this mode.
 
+The `regenerate` mode is a candidate-generation architecture, not a judge. Exactly three blind Luna Light solvers see only the original problem, never the base answers. They use fixed domain-neutral lenses: first-principles construction, contradiction hunting, and independent reformulation. Their answers join the raw base votes under `augmented_plurality`; a top-count tie favors the original base plurality. Require `review_style: rederive`, `candidate_source: base_unique`, `candidate_limit` equal to `base_count`, and hidden frequencies. Track expanded-oracle coverage and correct answers newly introduced by regeneration.
+
 Every proposal must explicitly set `candidate_source` to `base_unique` or `committee_delegates`.
 
 Keep the next batch diverse and interpretable. Preserve successful controls, improve mechanisms that show a positive correction balance, attack observed failure modes, and include genuinely different ideas. Do not add complexity without a testable reason.

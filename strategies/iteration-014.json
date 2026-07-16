@@ -1,0 +1,101 @@
+{
+  "assembled_at": "2026-07-16T12:22:09.294Z",
+  "director_available": true,
+  "iteration": 14,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "regenerate-rederive-5x3": "main-agent candidate-generation primitive prompted by repeated oracle collapse",
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-5x1-efficient": "Sol research-director proposal",
+    "repair-falsify-5x3-efficient": "pooled champion across 10 fresh panels: 53/126 exact; 38.1% weakest family",
+    "repair-falsify-9x1": "Sol research-director proposal"
+  },
+  "source": "mechanical anchors plus iteration 13 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "A five-answer bank paired with the validated three-reviewer falsification mechanism may retain much of the champion's accuracy at eight calls per case rather than twelve; earlier five-solver repair systems reached 0.417–0.500 pooled accuracy.",
+      "name": "Efficient Five-Bank Falsifying Repair",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x3-efficient"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Iteration 13's nine-answer bank doubled candidate-oracle coverage from 2/12 to 4/12, while the one-review mechanism has a pooled 15-to-2 helpful-to-harmful intervention balance. Pairing them tests whether one falsifying repairer can exploit broader generation without three-review fragmentation.",
+      "name": "One-Review Nine-Bank Falsifying Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Replicate the unchanged call-efficient mechanism because its strongly positive pooled correction balance remains promising despite noisy exact accuracy, and it requires two fewer review calls than the retained champion whenever review activates.",
+      "name": "One-Review Five-Bank Falsifying Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x1-efficient"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "augmented_plurality",
+      "hypothesis": "Recent five-answer banks often omitted the correct answer. Three blind regenerators use distinct domain-neutral lenses without seeing the bank, then join its votes under a deterministic base-favoring plurality. This tests candidate-coverage gain without relying on a judge.",
+      "name": "Blind Diversified Regeneration",
+      "review_count": 3,
+      "review_mode": "regenerate",
+      "review_style": "rederive",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "regenerate-rederive-5x3"
+    }
+  ]
+}

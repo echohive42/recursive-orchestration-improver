@@ -67,11 +67,11 @@ TOOL_MARKERS = (
 ODD_BASE_COUNTS = {1, 3, 5, 7, 9, 11, 13, 15}
 REVIEW_COUNTS = {0, 1, 3, 5}
 REVIEW_TRIGGERS = {"never", "always", "any_disagreement", "no_strict_majority", "committee_disagreement"}
-REVIEW_MODES = {"none", "choose", "repair", "cross_examine"}
+REVIEW_MODES = {"none", "choose", "repair", "cross_examine", "regenerate"}
 REVIEW_STYLES = {"verify", "rederive", "falsify", "compare"}
 FINAL_RULES = {
     "base_plurality", "review_plurality_fallback_base", "review_plus_base_plurality",
-    "last_review_fallback_base",
+    "last_review_fallback_base", "augmented_plurality",
 }
 CANDIDATE_SOURCES = {"base_unique", "committee_delegates"}
 FAMILY_LABELS = {"sequence": "Sequence", "constraint": "Planning", "logic": "Logic"}
@@ -698,6 +698,19 @@ def validate_strategy(value: Any) -> tuple[dict[str, Any] | None, str | None]:
             return None, "cross-examination requires falsification with hidden frequencies"
     elif value["final_rule"] == "last_review_fallback_base":
         return None, "last-review fallback is reserved for cross-examination"
+    if value["review_mode"] == "regenerate":
+        if value["review_count"] != 3:
+            return None, "blind regeneration requires exactly three regenerators"
+        if value["final_rule"] != "augmented_plurality":
+            return None, "blind regeneration requires augmented plurality"
+        if candidate_source != "base_unique":
+            return None, "blind regeneration requires the raw base bank"
+        if value["review_style"] != "rederive" or value["show_frequencies"]:
+            return None, "blind regeneration uses fixed rederivation lenses without frequencies"
+        if value["candidate_limit"] != value["base_count"]:
+            return None, "blind regeneration requires candidate_limit to equal base_count"
+    elif value["final_rule"] == "augmented_plurality":
+        return None, "augmented plurality is reserved for blind regeneration"
     normalized = dict(value)
     normalized["candidate_source"] = candidate_source
     return normalized, None
@@ -979,6 +992,19 @@ def plurality(documents: Iterable[dict[str, Any] | None]) -> tuple[dict[str, Any
     }
 
 
+def plurality_prefer(
+    documents: Iterable[dict[str, Any] | None],
+    preferred: dict[str, Any] | None,
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    selected, metrics = plurality(documents)
+    if preferred is None or selected is None:
+        return selected, metrics
+    preferred_count = metrics.get("counts", {}).get(canonical(preferred), 0)
+    if preferred_count == metrics["top_count"]:
+        return preferred, metrics
+    return selected, metrics
+
+
 def committee_delegates(documents: list[dict[str, Any] | None]) -> list[dict[str, Any] | None]:
     return [plurality(documents[start : start + 3])[0] for start in range(0, 9, 3)]
 
@@ -1061,6 +1087,31 @@ def review_prompt(
     )
 
 
+def regeneration_prompt(case: dict[str, Any], regenerator_index: int) -> str:
+    lenses = {
+        1: (
+            "Construct the solution independently from first principles. Make every decisive constraint explicit and "
+            "verify the exact requested output before answering."
+        ),
+        2: (
+            "Solve independently by hunting for contradictions, boundary failures, and tempting false answers. "
+            "Eliminate what cannot satisfy every rule, then verify the survivor."
+        ),
+        3: (
+            "Reformulate the problem in an equivalent representation, solve it independently in that form, then "
+            "translate back and verify the exact requested output."
+        ),
+    }
+    return (
+        "You are a blind independent regenerator in a controlled reasoning study. You receive only the original "
+        "problem. You do not see other agents' answers, votes, or confidence. Use no tools, code execution, Python, "
+        "web access, or external files.\n\n"
+        f"<problem>\n{case['prompt'].strip()}\n</problem>\n\n"
+        f"<independent_lens>\n{lenses[regenerator_index]}\n</independent_lens>\n\n"
+        "Return only the exact requested JSON object."
+    )
+
+
 def freeze_review_jobs(
     number: int,
     cases: list[dict[str, Any]],
@@ -1080,11 +1131,19 @@ def freeze_review_jobs(
                 continue
             for reviewer_index in range(1, strategy["review_count"] + 1):
                 seed = number * 1_000_000 + strategy_index * 10_000 + case_index * 100 + reviewer_index
-                candidates = candidates_for(strategy, documents, seed)
-                if not candidates or (strategy["review_mode"] == "choose" and len(candidates) < 2):
-                    continue
+                if strategy["review_mode"] == "regenerate":
+                    candidates: list[dict[str, Any]] = []
+                else:
+                    candidates = candidates_for(strategy, documents, seed)
+                    if not candidates or (strategy["review_mode"] == "choose" and len(candidates) < 2):
+                        continue
                 job_id = f"i{number:03d}-review-{strategy['strategy_id']}-{case['case_id']}-r{reviewer_index:02d}"
                 schema = choice_schema(len(candidates)) if strategy["review_mode"] == "choose" else output_schema(case)
+                prompt = (
+                    regeneration_prompt(case, reviewer_index)
+                    if strategy["review_mode"] == "regenerate"
+                    else review_prompt(case, strategy, candidates)
+                )
                 job = {
                     "job_id": job_id,
                     "iteration": number,
@@ -1099,7 +1158,7 @@ def freeze_review_jobs(
                     "candidate_order_seed": seed,
                     "model": config["worker_model"],
                     "reasoning_effort": config["worker_reasoning_effort"],
-                    "prompt": review_prompt(case, strategy, candidates),
+                    "prompt": prompt,
                     "output_schema": schema,
                 }
                 jobs.append(job)
@@ -1422,6 +1481,8 @@ def final_answer_for(
         ) or base_answer
     elif strategy["final_rule"] == "review_plus_base_plurality":
         final, _ = plurality(reviewed + [base_answer])
+    elif strategy["final_rule"] == "augmented_plurality":
+        final, _ = plurality_prefer(base + reviewed, base_answer)
     else:
         final = review_answer
     return final, {
@@ -1438,7 +1499,8 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     fields = [
         "iteration", "strategy_id", "strategy_name", "case_id", "family", "exact",
         "partial_correct", "partial_total", "base_exact", "base_oracle", "review_calls",
-        "review_candidate_oracle", "repair_created_correct_answer", "effective_calls",
+        "review_candidate_oracle", "expanded_oracle", "new_correct_generated",
+        "repair_created_correct_answer", "effective_calls",
         "base_unique_candidates", "review_unique_outputs", "helpful_intervention",
         "harmful_intervention", "final_answer",
     ]
@@ -1510,6 +1572,17 @@ def score_iteration(
                 int(any(item == answer for item in exposed_candidates))
                 if matching_review_jobs else None
             )
+            reviewed_outputs = review_outputs_for(
+                strategy, case_id, review_jobs, review_results
+            )
+            expanded_oracle = int(any(
+                item == answer for item in candidate_pool + reviewed_outputs
+            ))
+            new_correct_generated = int(
+                strategy["review_mode"] == "regenerate"
+                and not base_oracle
+                and any(item == answer for item in reviewed_outputs)
+            )
             row = {
                 "iteration": number,
                 "strategy_id": strategy["strategy_id"],
@@ -1523,8 +1596,10 @@ def score_iteration(
                 "base_oracle": base_oracle,
                 "review_calls": details["review_calls"],
                 "review_candidate_oracle": review_candidate_oracle,
+                "expanded_oracle": expanded_oracle,
+                "new_correct_generated": new_correct_generated,
                 "repair_created_correct_answer": int(
-                    strategy["review_mode"] in {"repair", "cross_examine"}
+                    strategy["review_mode"] in {"repair", "cross_examine", "regenerate"}
                     and bool(matching_review_jobs)
                     and review_candidate_oracle == 0
                     and exact == 1
@@ -1550,6 +1625,8 @@ def score_iteration(
                 "base_correct": sum(row["base_exact"] for row in subset),
                 "base_accuracy": sum(row["base_exact"] for row in subset) / len(subset),
                 "base_oracle_correct": sum(row["base_oracle"] for row in subset),
+                "expanded_oracle_correct": sum(row["expanded_oracle"] for row in subset),
+                "new_correct_generated": sum(row["new_correct_generated"] for row in subset),
                 "review_activated_cases": sum(row["review_calls"] > 0 for row in subset),
                 "helpful_interventions": sum(row["helpful_intervention"] for row in subset),
                 "harmful_interventions": sum(row["harmful_intervention"] for row in subset),
@@ -1578,6 +1655,8 @@ def score_iteration(
             "worst_family_accuracy": min(item["accuracy"] for item in families.values()),
             "families": families,
             "base_oracle_correct": sum(row["base_oracle"] for row in strategy_rows),
+            "expanded_oracle_correct": sum(row["expanded_oracle"] for row in strategy_rows),
+            "new_correct_generated": sum(row["new_correct_generated"] for row in strategy_rows),
             "helpful_interventions": sum(row["helpful_intervention"] for row in strategy_rows),
             "harmful_interventions": sum(row["harmful_intervention"] for row in strategy_rows),
             "review_calls_used": sum(row["review_calls"] for row in strategy_rows),
@@ -1749,16 +1828,25 @@ def operational_signature(strategy: dict[str, Any]) -> str:
     })
 
 
-def pooled_champion() -> dict[str, Any] | None:
-    """Return the best replicated non-control mechanism across completed panels."""
+def pooled_champion(extra_summary: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Return the best replicated non-control mechanism, including a just-scored panel."""
     if not STATE_PATH.is_file():
         return None
-    groups: dict[str, dict[str, Any]] = {}
+    summaries: list[dict[str, Any]] = []
+    seen_iterations: set[int] = set()
     for number in load_json(STATE_PATH).get("completed_iterations", []):
         path = iteration_dir(number) / "results" / "summary.json"
         if not path.is_file():
             continue
-        for strategy in load_json(path)["strategies"]:
+        summaries.append(load_json(path))
+        seen_iterations.add(number)
+    if extra_summary is not None:
+        extra_number = int(extra_summary["iteration"])
+        if extra_number not in seen_iterations:
+            summaries.append(extra_summary)
+    groups: dict[str, dict[str, Any]] = {}
+    for summary in summaries:
+        for strategy in summary["strategies"]:
             if strategy["review_count"] == 0:
                 continue
             key = operational_signature(strategy)
@@ -1924,6 +2012,7 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
                     "candidate_source", "show_frequencies", "final_rule", "correct", "total", "accuracy",
                     "partial_accuracy", "worst_family_accuracy", "families",
                     "base_oracle_correct", "helpful_interventions", "harmful_interventions",
+                    "expanded_oracle_correct", "new_correct_generated",
                     "review_calls_used", "mean_effective_calls", "mean_unique_base_candidates",
                     "harm_rate_given_base_correct", "help_rate_given_base_wrong",
                 )
@@ -1941,13 +2030,15 @@ def director_prompt(number: int, summary: dict[str, Any]) -> str:
         + "\n\n## Design the next batch\n\n"
         + f"Iteration {number + 1} will use {next_cases} entirely fresh sealed cases and has a hard maximum of {budget} Luna calls. "
         + "Return 4 to 6 valid strategy proposals. The runner will mechanically retain Direct One, Five-Vote Plurality, "
-        + "and the current winner, then fill the remaining slots with your most distinct valid proposals. The maximum bank "
+        + "the pooled champion, and the current winner when distinct, then fill the remaining slots with your most distinct valid proposals. The maximum bank "
         + "cost is cases times the largest base_count. Each review strategy adds at most cases times review_count. Keep the "
         + "complete six-strategy batch within budget. Strategy IDs must contain only lowercase letters, digits, and hyphens. "
         + "Every proposal must explicitly set candidate_source to base_unique or committee_delegates. "
         + "A zero-review strategy must use review_mode none, trigger never, and base_plurality. An independent review strategy "
         + "must use review_plurality_fallback_base or review_plus_base_plurality. Cross-examination requires exactly three "
-        + "reviewers, raw base candidates, and last_review_fallback_base. Base your diagnosis on the numbers, "
+        + "reviewers, raw base candidates, and last_review_fallback_base. Blind regeneration requires exactly three "
+        + "regenerators, review_style rederive, raw base candidates, candidate_limit equal to base_count, hidden frequencies, "
+        + "and augmented_plurality. Base your diagnosis on the numbers, "
         + "especially weakest-family accuracy, candidate oracle gaps, and helpful versus harmful interventions."
     )
 
@@ -2088,7 +2179,7 @@ def assemble_next_strategies(
 
     add(fixed_strategy("direct-1"), "fixed direct baseline")
     add(fixed_strategy("plurality-5"), "fixed five-vote baseline")
-    pooled = pooled_champion()
+    pooled = pooled_champion(summary)
     if pooled is not None:
         add(
             pooled["strategy"],
