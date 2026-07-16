@@ -1,0 +1,96 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 8 is a broad failure signal rather than evidence for a new winner: every strategy had 0% accuracy in at least one family, and the best systems reached only 2/12 exact. The main bottleneck was conversion, not candidate supply. The nine-answer bank contained a correct answer on 4/12 cases, but both nine-bank review organizations finished at 2/12 and produced only one helpful intervention each. The five-answer bank contained a correct answer on only 1/12, structurally capping every five-bank selection system; three-review selection recovered that one answer, while one-review selection recovered none. The strongest replicated evidence remains the five-base, three-review falsifying-repair mechanism at 33/72 exact, with logic weakest at 10/24. The next batch should therefore preserve answer-generating repair, test whether nine-base coverage can be converted, measure a one-review efficiency point, and retain an orthogonal committee architecture.",
+    "extensions_requested": [
+      "sequential_cross_examination: allow a second reviewer to see one prior falsification critique and then defend, reject, or repair the proposed answer before deterministic aggregation"
+    ],
+    "most_important_evidence": [
+      "The pooled five-base, three-review falsifying-repair mechanism is 33/72 exact (45.8%), with sequence 12/24, constraint 11/24, and logic 10/24; its weakest-family accuracy is therefore 41.7%.",
+      "Iteration 8's nine-answer bank had base-oracle coverage of 4/12, versus only 1/12 for the five-answer bank.",
+      "Full-nine falsifying selection converted only 2/12 cases, including one helpful intervention among 11 base-wrong cases; it left sequence at 0/4.",
+      "Committee comparison fallback also reached 2/12 with one helpful and zero harmful interventions, but constraint remained 0/4.",
+      "Five-bank three-review selection recovered the bank's sole correct candidate, whereas its one-review counterpart recovered none, suggesting reviewer replication matters for selection.",
+      "Direct One and Five-Vote Plurality both scored 0/12 in Iteration 8, while all tested strategies had a weakest-family accuracy of 0%, so the panel does not validate any apparent Iteration 8 winner."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Nine bases materially improved candidate-oracle coverage in Iteration 8, while selection failed to convert most of that coverage. Falsifying repair can both select an existing candidate and generate a corrected exact answer; withholding review when the base has a strict majority should reduce unnecessary reversals and calls without introducing domain-specific logic.",
+        "name": "Majority-Gated Nine-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3-majority"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "A single answer-generating falsifier directly tests whether the pooled five-by-three repair mechanism retains useful correction power at six calls per activated case. Comparing it with the failed one-review selector isolates repair capability from reviewer replication.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Committee fallback had a positive correction balance but compressed away most raw candidates and left constraint at zero. Allowing reviewers to repair rather than merely choose tests whether independent committee delegates provide useful diverse diagnoses while answer generation overcomes delegate-level candidate loss.",
+        "name": "Committee-Triggered Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-9x3-fallback"
+      },
+      {
+        "base_count": 13,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A larger deterministic plurality is a clean control for whether additional independent coverage and consensus outperform fallible review. It adds no review mechanism and remains domain-neutral.",
+        "name": "Thirteen-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-13"
+      }
+    ],
+    "research_hypotheses": [
+      "The Iteration 8 oracle gap favors increasing independent candidate coverage, but coverage must be paired with a mechanism capable of converting or repairing candidates.",
+      "Answer-generating falsification is more transferable than candidate-only selection when the correct answer is absent from the visible candidate set.",
+      "A strict-majority gate can reduce harmful review reversals while preserving intervention on highly diverse banks.",
+      "One repair reviewer may offer a better call-efficiency frontier than three reviewers even though one-review candidate selection failed.",
+      "Committee delegates may provide useful independent summaries, but repair is needed to compensate for information lost during committee compression.",
+      "A thirteen-vote deterministic plurality establishes whether review adds value beyond a larger independent pool."
+    ],
+    "risk_note": "The sealed panel has only four cases per family, so strategy rankings will remain noisy and should be pooled by exact operational fields. The preferred three additions are the first three proposals; with the retained three-review winner, their worst-case batch cost is 108 base calls plus 120 review calls, or 228 total. Substituting the thirteen-vote control for any one of them remains within budget; the largest such batch costs at most 264 calls. Any proposal matching an earlier operational configuration should be recorded as a replication, not a new mechanism."
+  },
+  "duration_ms": 143228,
+  "job_id": "i008-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "dc24e5ddd2c6c05799f6e3cac323264bd5ca93f7a742a8e03d0de31ad76d4020",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 17807,
+    "output_tokens": 6419,
+    "reasoning_output_tokens": 5178
+  }
+}

@@ -13,17 +13,18 @@
     4,
     5,
     6,
-    7
+    7,
+    8
   ],
   "created_at": "2026-07-16T08:00:16.409Z",
-  "current_strategy_file": "strategies/iteration-008.json",
+  "current_strategy_file": "strategies/iteration-009.json",
   "experiment_id": "orchestration-autoresearch-lab-v1",
-  "next_iteration": 8,
+  "next_iteration": 9,
   "notes": [
     "Fresh panels are disposable search evidence, not independent final validation.",
     "The main agent may revise researcher.md between iterations; every director call records its hash."
   ],
-  "snapshot_scope": "completed iterations 1-7",
+  "snapshot_scope": "completed iterations 1-8",
   "status": "public-snapshot",
-  "updated_at": "2026-07-16T10:31:41.046Z"
+  "updated_at": "2026-07-16T10:44:17.122Z"
 }

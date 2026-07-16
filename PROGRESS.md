@@ -11,6 +11,7 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 | 5 | Nine Solvers plus Three Falsifying Repairers | 9/18 · **50.0%** | 33.3% | 2/18 · 11.1% | 480 |
 | 6 | Efficient Five-Bank Falsifying Repair | 7/12 · **58.3%** | 50.0% | 1/12 · 8.3% | 249 |
 | 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
+| 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
 
 ## Round notes
 
@@ -41,6 +42,10 @@ This page is regenerated only after a round is fully sealed, scored, and followe
 ### Round 7
 
 **Five-Bank Falsifying Selection** won at 5/12 (41.7%). Family results: constraint 50.0%, logic 50.0%, sequence 25.0%. Helpful interventions: 5. Harmful interventions: 0.
+
+### Round 8
+
+**Committee Comparison Fallback Replication** won at 2/12 (16.7%). Family results: constraint 0.0%, logic 25.0%, sequence 25.0%. Helpful interventions: 1. Harmful interventions: 0.
 
 ## Interpretation
 
