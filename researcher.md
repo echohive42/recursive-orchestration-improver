@@ -36,6 +36,8 @@ Iteration 15 was an 18-case checkpoint. Five-bank one-review repair scored 11/18
 
 Iteration 16 tested three blind regenerators followed by one falsifying integrator. On a difficult panel it led at 3/12 versus 2/12 for standard repair, with three helpful and one harmful intervention. Regeneration raised five-bank coverage from 3/12 to 4/12. However, a nine-answer committee bank had 8/12 oracle coverage and still finished 2/12, confirming that candidate selection remains a separate bottleneck. Replicate the pipeline unchanged before promotion.
 
+Iteration 17 replicated regenerate-then-repair at 5/12 versus 3/12 for five-bank three-review repair and 2/12 for one-review repair. Regeneration raised coverage from 3/12 to 5/12, and the integrator converted all five covered cases with five helpful and zero harmful interventions. Across its first 24 cases, the pipeline has 8/24 exact, base-oracle coverage 6/24, expanded coverage 9/24, eight helpful interventions, and one harmful reversal. Logic remains weak at 2/8. This is promising development evidence but still too small for promotion; replicate unchanged.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.

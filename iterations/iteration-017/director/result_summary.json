@@ -1,0 +1,93 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 17 was primarily a candidate-generation failure in logic: both five-base and expanded oracle coverage were 0/4, so no selection rule could recover that family. Elsewhere, regenerate-then-repair improved coverage from 3/12 to 5/12 and converted all five interventions into corrections with no reversals, justifying its automatic unchanged replication. The preferred additional fillers are the unchanged five-bank one-review mechanism and a replication of nine-bank one-review repair. Together they form an interpretable comparison with the retained five-bank three-review champion: 5x1 versus 5x3 tests reviewer dilution, while 5x1 versus 9x1 tests candidate breadth. The preferred six-strategy batch costs at most 216 calls; any two fillers listed below keep it at or below 264 calls, under the 300-call limit.",
+    "extensions_requested": [
+      "Add an `evidence_board_then_construct` primitive: exactly three blind scouts independently derive source-anonymous constraints, invariants, assumptions, and falsification tests from only the original problem; one fresh constructor sees the original problem and shuffled merged board and returns an exact answer, with invalid output falling back to base plurality. This creates a domain-neutral four-call candidate-generation comparison against regenerate-then-repair."
+    ],
+    "most_important_evidence": [
+      "Iteration 17 regenerate-then-repair scored 5/12 versus a 0/12 five-base plurality, with five helpful and zero harmful interventions, expanded oracle coverage of 5/12 versus 3/12, and two newly generated correct answers.",
+      "Every Iteration 17 strategy had 0/4 logic accuracy; five-base oracle coverage and regenerate-then-repair expanded coverage were also 0/4 in logic. The weakest-family problem therefore began before candidate selection.",
+      "Five-bank one-review repair scored 7/12 in Iteration 14 and 11/18 in Iteration 15; Iteration 15 recorded eight helpful and zero harmful interventions. Its weaker 2/12 Iteration 17 result still had two helpful and zero harmful interventions, supporting replication rather than promotion.",
+      "Nine-bank one-review repair scored 7/12 with five helpful and zero harmful interventions in Iteration 14. Separately, Iteration 16 showed that nine answers could provide 8/12 oracle coverage while finishing only 2/12, motivating a direct test of whether a single reviewer can convert breadth without multi-review dilution.",
+      "Through Iteration 9, five-bank three-review repair was 38/84 exact and nine-bank three-review repair was 20/42; their weakest-family estimates were both 35.7%. The apparent scale advantage was therefore uncertain and should remain a controlled fallback rather than a declared improvement."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact one-review mechanism as the primary efficiency probe. Comparing it with the automatically retained five-bank three-review champion on the same sealed bank isolates whether independent reviewer plurality adds useful signal or merely introduces variance.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the Iteration 14 mechanism that paired a broader answer bank with one falsifying reviewer. Against the five-bank one-review proposal, this tests whether additional independent candidates improve recoverable coverage while holding the integration rule and reviewer count fixed.",
+        "name": "One-Review Nine-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the established nine-bank three-review mechanism as a scale control. Its earlier exact estimate exceeded the five-bank version but used half as many cases and had identical weakest-family accuracy; another sealed replication distinguishes candidate breadth from noise.",
+        "name": "Nine-Bank Three-Review Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Use the unchanged sequential architecture as the orthogonal fallback. It produced three helpful and zero harmful interventions in Iteration 17 and previously produced four helpful and zero harmful interventions in Iteration 12, testing whether critique passed between reviewers is more coherent than independent review plurality.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "On the same five-answer bank, one falsifying reviewer will retain most helpful corrections while reducing the variance and call cost of three independent reviewers.",
+      "Holding one-review integration fixed, expanding from five to nine base answers will improve exact accuracy only if the reviewer can exploit additional oracle coverage rather than being distracted by more plausible errors.",
+      "The automatically retained regenerate-then-repair pipeline should be promoted only if its positive correction balance and creation of correct answers absent from the base bank replicate on fresh cases, especially in the weakest family.",
+      "If logic again has near-zero expanded oracle coverage, the next intervention should change domain-neutral evidence construction rather than add another voting or selection rule."
+    ],
+    "risk_note": "Iteration 17 contained no base-plurality-correct cases, so its zero harmful reversals do not measure safety when the base answer is correct. Fresh-panel variance remains large, and broader oracle coverage has repeatedly failed to translate into final accuracy. The preferred first two fillers cost 216 total calls with the retained strategies; even the two most expensive listed fillers keep the complete batch within 264 calls."
+  },
+  "duration_ms": 212519,
+  "job_id": "i017-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "5e77d93035bde923ee989f215c08687d1f14f0867b245d26171c9ca83ed27fdc",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 20670,
+    "output_tokens": 8051,
+    "reasoning_output_tokens": 6732
+  }
+}
