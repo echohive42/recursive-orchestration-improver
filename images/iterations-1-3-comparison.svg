@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Recursive Swarm Lab Iterations 1 through 3</title>
+  <title id="title">Recursive Orchestration Improver Iterations 1 through 3</title>
   <desc id="desc">Repair swarm accuracy versus direct baseline across three fresh panels, pooled family performance, and helpful versus harmful repairs.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -29,7 +29,7 @@
   <circle cx="150" cy="900" r="220" fill="#11b8b0" opacity=".09"/>
 
   <g class="sans">
-    <text x="92" y="92" fill="#5ef2d0" font-size="20" font-weight="800" letter-spacing="5">RECURSIVE SWARM LAB</text>
+    <text x="92" y="92" fill="#5ef2d0" font-size="20" font-weight="800" letter-spacing="4">RECURSIVE ORCHESTRATION IMPROVER</text>
     <text x="92" y="155" fill="#f7fbff" font-size="48" font-weight="800">Three fresh panels. One stable repair swarm.</text>
     <text x="92" y="198" class="muted" font-size="23">Exact accuracy, higher is better. Fresh panels mean these are replications, not a learning curve.</text>
 

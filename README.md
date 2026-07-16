@@ -1,10 +1,10 @@
-# Recursive Swarm Lab
+# Recursive Orchestration Improver
 
 ### A self-improving search for better agent orchestration
 
 What happens when independent AI solvers are allowed to disagree, then a second group tries to repair their answers instead of merely judging them?
 
-Recursive Swarm Lab is a small, reproducible auto-research system that searches for domain-neutral ways to organize agents. Luna Light workers solve fresh, sealed sequence, planning, and logic problems. A Sol research director studies the results and proposes the next orchestration batch. A human-guided Codex agent remains the meta-director, improving both the search direction and the improver itself.
+Recursive Orchestration Improver is a small, reproducible auto-research system that searches for domain-neutral ways to organize agents. Luna Light workers solve fresh, sealed sequence, planning, and logic problems. A Sol research director studies the results and proposes the next orchestration batch. A human-guided Codex agent remains the meta-director, improving both the search direction and the improver itself.
 
 The recursion is in the research process, not the model weights: each completed experiment changes how the next swarm is designed, while fresh panels test whether those changes actually help.
 

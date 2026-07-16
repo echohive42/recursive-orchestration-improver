@@ -21,8 +21,8 @@
   "files": {
     ".gitignore": "788e71b4a03e875ec8eccc1617370fc20e877f0550253068929a4fe59b7911a8",
     "LICENSE": "62a9bf96f50344afbe6c62a6a1e0bd957dcdf9612edff15c417c0217dbfc2869",
-    "README.md": "cdcb05dfbc1918ae5044675f25d1c3044ff4b6ec1b244f0f267f12d7d2837cbf",
-    "images/iterations-1-3-comparison.svg": "921c98b2cea106ae54e12fba6980a4e18f9d5e16d980b3c669b4c5e83f6c81fe",
+    "README.md": "d81d450a44167e86fed3ace1069ecf71aa10370e457fffefa70fe0dad4957c86",
+    "images/iterations-1-3-comparison.svg": "b9aa50d73831fdc6b0c5a30de0f3b4278c4755b202eb6ba269becac61619ae25",
     "iterations/iteration-001/base/jobs.jsonl": "af169a7da5a70dc2e17559ca7f4b874825b689086391c4b5ff30f65f02a9f2f7",
     "iterations/iteration-001/base/manifest.json": "e5a0925741f9f7b5f739b0189ec65c635c28b2eea096a458bd743d3a7950faf7",
     "iterations/iteration-001/base/progress.json": "917dfd15e05feba402b2b5ba67af70f3fc2816a2993dadbb366771765fa8ab81",
