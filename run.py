@@ -270,7 +270,7 @@ def normalize_choice(candidate_count: int, value: Any) -> dict[str, Any] | None:
 def cross_exam_schema(case: dict[str, Any]) -> dict[str, Any]:
     schema = output_schema(case)
     schema["properties"] = dict(schema["properties"])
-    schema["properties"]["critique"] = {"type": "string", "minLength": 1, "maxLength": 600}
+    schema["properties"]["critique"] = {"type": "string"}
     schema["required"] = list(schema["required"]) + ["critique"]
     return schema
 
@@ -1157,7 +1157,7 @@ def cross_exam_prompt(
         f"<candidates>\n{'\n\n'.join(entries)}\n</candidates>\n\n"
         f"<preceding_review>\n{inherited}\n</preceding_review>\n\n"
         "Return only the exact requested answer JSON with one additional string field named critique. The critique must "
-        "concisely state what you tested, what failed or survived, and why the returned exact answer should replace or "
+        "use fewer than 600 characters and state what you tested, what failed or survived, and why the returned exact answer should replace or "
         "retain the preceding proposal."
     )
 
@@ -2095,6 +2095,10 @@ def assemble_next_strategies(
             f"pooled champion across {pooled['panels']} fresh panels: "
             f"{pooled['correct']}/{pooled['total']} exact; "
             f"{100 * pooled['worst_family_accuracy']:.1f}% weakest family",
+        )
+        add(
+            summary["winner"],
+            "current panel winner retained unchanged for replication",
         )
     else:
         add(summary["winner"], "current winner retained because no mechanism has two panels yet")

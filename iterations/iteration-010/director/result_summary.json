@@ -1,0 +1,93 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 10 favors improving review control rather than adding raw solvers or deeper review chains. The one-review five-bank repair system led at 9/18 exact with 0.333 weakest-family accuracy, making six helpful corrections and no harmful reversals. On the same five-answer bank, three reviewers fell to 7/18, with five helpful corrections and one harmful reversal; sequential cross-examination also reached only 7/18 and caused two harmful reversals. The five-bank oracle contained a correct answer in 8/18 cases while plurality found only 3/18, so aggregation and repair remain the main opportunity. Expanding to nine bases raised oracle coverage by only one case and base plurality by only one case, at four additional calls. Repair nevertheless created correct answers absent from the candidate bank, so candidate-only selection should remain a control rather than replace repair. The next batch should therefore retain the current one-review winner, test a majority-gated efficiency variant, test protection against fragmented reviewer reversals through delegate fusion, and preserve an orthogonal committee-repair lane.",
+    "extensions_requested": [],
+    "most_important_evidence": [
+      "The current one-review five-bank mechanism scored 9/18 exact, 0.793 partial accuracy, and 0.333 in its weakest family, with a 6:0 helpful-to-harmful intervention balance.",
+      "The comparable five-bank three-review mechanism scored 7/18 and had a 5:1 helpful-to-harmful balance; its weakest family fell to 1/6.",
+      "The nine-bank three-review mechanism also scored 7/18, despite costing four more base calls per case; five- and nine-bank oracle coverage was 8/18 versus 9/18.",
+      "Five-base plurality converted only 3 of 8 oracle-covered cases into correct finals, showing a large candidate-selection and synthesis gap.",
+      "The winning repair system recorded three repair-created correct answers and finished with more correct cases than its candidate oracle count, so forbidding answer generation would impose a meaningful ceiling.",
+      "Cross-examination produced five helpful corrections but two harmful reversals and only 1/6 accuracy in its weakest family, so another immediate replication is not justified."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Most five-answer banks are diverse, but review can be skipped when they form a strict majority. This tests whether the current winner retains its corrections while saving calls and avoiding intervention against concentrated base evidence; it deliberately risks missing repairable but correlated wrong majorities.",
+        "name": "Majority-Gated One-Review Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-majority-gated"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Three repairers still generated five helpful corrections, but occasionally reversed a correct base result. Giving the base plurality one delegate vote may preserve useful repairs while resolving fragmented reviewer outputs in favor of the independent base consensus. This is delegate fusion, not full vote pooling.",
+        "name": "Five-Bank Repair with Delegate Fusion",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-delegate-fusion"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Earlier committee comparison was weak, but it could neither inspect raw candidates nor create an answer filtered out by committee compression. Falsifying repair over three disjoint committee delegates tests whether compression can reduce distractors while generative review restores answers omitted by delegation.",
+        "name": "Committee-Delegate Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "A transparent replication of the existing five-bank falsifying-selection mechanism tests whether reviewers can reliably recover correct minority candidates without introducing novel wrong answers. Its results should be pooled with prior runs under the same operational fields, while recognizing the observed candidate-oracle ceiling.",
+        "name": "Five-Bank Falsifying Selection Replication",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-5x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The first independent falsifying repair contributes more net value than the second and third reviewers because additional reviewer plurality introduces correlated judgment error.",
+      "Strict-majority gating can lower average call cost without materially reducing exact accuracy if most useful repairs occur on banks lacking concentrated agreement.",
+      "Delegate fusion will reduce harmful reversals when repairers split, while still allowing a coherent reviewer majority to replace the base answer.",
+      "Committee compression failed previously partly because candidate comparison could not recover answers lost during delegation; generative repair provides a direct test of that explanation.",
+      "Candidate-only selection may have a lower harmful-reversal rate than repair but will underperform whenever the correct answer is absent from all base candidates."
+    ],
+    "risk_note": "With the three mandatory retained strategies and any three proposals, the worst call envelope is 108 shared base calls plus 120 review calls, totaling 228 of 300. Even running all four proposals would total at most 240 calls. Twelve sealed cases will leave family estimates very noisy, so results should update pooled mechanism records rather than establish a winner from this panel alone."
+  },
+  "duration_ms": 130210,
+  "job_id": "i010-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "792cc5702f2b3b8864537d9f51312d80b27fc0f1984e56b27ab12cc2af140611",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 18500,
+    "output_tokens": 6706,
+    "reasoning_output_tokens": 5489
+  }
+}

@@ -291,7 +291,7 @@ The retention fix affects future strategy selection, not historical scores. It n
         f"The best single-panel observation is **{best_winner['name']}** at **{best_winner['correct']}/{best_winner['total']} ({percent(best_winner['accuracy'])})** in Round {best_summary['iteration']}.\n",
         "## Leading replicated mechanisms\n",
         replicated_table + "\n",
-        "The two leading replicated systems currently share the same 35.7% weakest-family point estimate. The 9+3 system has the higher pooled exact rate; the 5+3 system has twice the panel evidence and lower cost. The next checkpoint retains both instead of making a premature choice.\n",
+        "These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.\n",
         "The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.\n",
         "| Round | Panel winner | Exact accuracy | Weakest family | Direct baseline | Worker calls |",
         "|---:|---|---:|---:|---:|---:|",

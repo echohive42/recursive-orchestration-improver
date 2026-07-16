@@ -11,18 +11,18 @@ The recursion is in the research process, not the model weights: each completed 
 > **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
 
 > [!IMPORTANT]
-> **This is active research, not a finished benchmark.** The repository currently contains 9 completed research rounds and the registered strategy for Round 10. The numbers below are promising development evidence, not independent final validation.
+> **This is active research, not a finished benchmark.** The repository currently contains 10 completed research rounds and the registered strategy for Round 11. The numbers below are promising development evidence, not independent final validation.
 
 ## Explore the wider lab
 
-- [Echohive](https://www.echohive.ai/) is the living laboratory where these systems, experiments, and ideas are built in public.
-- [Get Amplified](https://www.echohive.ai/get-amplified) is a practical field guide for using current AI models, agents, and harnesses to attempt larger work.
-- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday session where new methods, research, and experiments are worked through together.
+- [Echohive](https://www.echohive.ai/) is a living laboratory for building better with AI, seeing markets more clearly, and strengthening the mind behind both.
+- [Get Amplified](https://www.echohive.ai/get-amplified) is an evolving field guide across AI mastery, markets, and the Latent Lab of the Mind.
+- [1000x Lab](https://www.echohive.ai/1000x-lab) is the live Sunday room where AI, markets, and mind meet, new ideas are tested, and useful methods are worked out together.
 
 <!-- LIVE_PROGRESS_START -->
 ## Live research progress
 
-**9 completed rounds.** Latest panel winner: **Efficient Five-Bank Falsifying Repair**, **5/12 (41.7%)**, with **0.0%** weakest-family accuracy.
+**10 completed rounds.** Latest panel winner: **One-Review Five-Bank Falsifying Repair**, **9/18 (50.0%)**, with **33.3%** weakest-family accuracy.
 
 **Best single-panel observation:** **Efficient Five-Bank Falsifying Repair**, **7/12 (58.3%)** in Round 6. This is one panel, not the expected accuracy of a new architecture.
 
@@ -30,8 +30,8 @@ The recursion is in the research process, not the model weights: each completed 
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Nine Solvers plus Three Falsifying Repairers | 3 | 20/42 · **47.6%** | 35.7% | 12.0 |
-| Efficient Five-Bank Falsifying Repair | 7 | 38/84 · **45.2%** | 35.7% | 8.0 |
+| Efficient Five-Bank Falsifying Repair | 8 | 45/102 · **44.1%** | 41.2% | 8.0 |
+| One-Review Five-Bank Falsifying Repair | 2 | 13/30 · **43.3%** | 40.0% | 6.0 |
 
 The retention fix affects future strategy selection, not historical scores. It now groups operationally identical systems across panels and retains repeated evidence instead of the latest panel winner.
 
@@ -46,6 +46,7 @@ The retention fix affects future strategy selection, not historical scores. It n
 | 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
 | 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
 | 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
+| 10 | One-Review Five-Bank Falsifying Repair | 9/18 · **50.0%** | 33.3% | 0/18 · 0.0% | 342 |
 
 ![Research progress across completed rounds](images/progress.svg)
 

@@ -71,6 +71,25 @@ def compact_results(stage: Path, output: Path) -> int:
     return len(records)
 
 
+def export_cross_review(source_iteration: Path, public_iteration: Path) -> int:
+    """Export an optional layered cross-examination stage and its compact results."""
+    source = source_iteration / "cross-review"
+    if not source.is_dir():
+        return 0
+
+    public = public_iteration / "cross-review"
+    for name in ("manifest.json", "plan.jsonl"):
+        copy_if_present(source / name, public / name)
+
+    total = 0
+    for layer in sorted(path for path in source.glob("layer-*") if path.is_dir()):
+        target = public / layer.name
+        for name in ("jobs.jsonl", "manifest.json", "progress.json"):
+            copy_if_present(layer / name, target / name)
+        total += compact_results(layer, target / "results.jsonl")
+    return total
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -150,6 +169,7 @@ def export(source_root: Path, through: int | None = None) -> None:
             "review": compact_results(
                 source_iteration / "review", public_iteration / "review" / "results.jsonl"
             ),
+            "cross_review": export_cross_review(source_iteration, public_iteration),
         }
 
     manifest_files = sorted(

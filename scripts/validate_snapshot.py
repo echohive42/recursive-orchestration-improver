@@ -82,9 +82,27 @@ def main() -> None:
         assert sha256(folder / "panel" / "public_cases.json") == summary["public_cases_sha256"]
         assert sha256(folder / "panel" / "sealed_answers.json") == summary["sealed_answers_sha256"]
 
-        for stage, expected in (("base", summary["base_calls"]), ("review", summary["review_calls"])):
-            assert line_count(folder / stage / "jobs.jsonl") == expected
-            assert line_count(folder / stage / "results.jsonl") == expected
+        assert line_count(folder / "base" / "jobs.jsonl") == summary["base_calls"]
+        assert line_count(folder / "base" / "results.jsonl") == summary["base_calls"]
+
+        ordinary_review_calls = line_count(folder / "review" / "jobs.jsonl")
+        assert line_count(folder / "review" / "results.jsonl") == ordinary_review_calls
+        cross_review_calls = 0
+        cross_root = folder / "cross-review"
+        if cross_root.is_dir():
+            cross_manifest = load(cross_root / "manifest.json")
+            assert cross_manifest["registered_before_calls"] is True
+            assert cross_manifest["sealed_answers_unopened"] is True
+            for layer in sorted(cross_root.glob("layer-*")):
+                layer_manifest = load(layer / "manifest.json")
+                expected = int(layer_manifest["jobs"])
+                assert layer_manifest["registered_before_calls"] is True
+                assert layer_manifest["sealed_answers_unopened"] is True
+                assert line_count(layer / "jobs.jsonl") == expected
+                assert line_count(layer / "results.jsonl") == expected
+                cross_review_calls += expected
+            assert cross_review_calls == int(cross_manifest["planned_calls"])
+        assert ordinary_review_calls + cross_review_calls == summary["review_calls"]
 
         direct = strategy(summary, "direct-1")
         plurality = strategy(summary, "plurality-5")

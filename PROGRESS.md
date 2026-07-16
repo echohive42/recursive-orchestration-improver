@@ -10,10 +10,10 @@ The best single-panel observation is **Efficient Five-Bank Falsifying Repair** a
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Nine Solvers plus Three Falsifying Repairers | 3 | 20/42 · **47.6%** | 35.7% | 12.0 |
-| Efficient Five-Bank Falsifying Repair | 7 | 38/84 · **45.2%** | 35.7% | 8.0 |
+| Efficient Five-Bank Falsifying Repair | 8 | 45/102 · **44.1%** | 41.2% | 8.0 |
+| One-Review Five-Bank Falsifying Repair | 2 | 13/30 · **43.3%** | 40.0% | 6.0 |
 
-The two leading replicated systems currently share the same 35.7% weakest-family point estimate. The 9+3 system has the higher pooled exact rate; the 5+3 system has twice the panel evidence and lower cost. The next checkpoint retains both instead of making a premature choice.
+These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
 The retention fix affects future strategy selection, not historical scores. A panel winner is no longer automatically the continuing champion; operationally identical mechanisms are pooled across fresh panels first.
 
@@ -28,6 +28,7 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 7 | Five-Bank Falsifying Selection | 5/12 · **41.7%** | 25.0% | 0/12 · 0.0% | 246 |
 | 8 | Committee Comparison Fallback Replication | 2/12 · **16.7%** | 0.0% | 0/12 · 0.0% | 228 |
 | 9 | Efficient Five-Bank Falsifying Repair | 5/12 · **41.7%** | 0.0% | 1/12 · 8.3% | 216 |
+| 10 | One-Review Five-Bank Falsifying Repair | 9/18 · **50.0%** | 33.3% | 0/18 · 0.0% | 342 |
 
 ## Round notes
 
@@ -66,6 +67,10 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 9
 
 **Efficient Five-Bank Falsifying Repair** won at 5/12 (41.7%). Family results: constraint 25.0%, logic 0.0%, sequence 100.0%. Helpful interventions: 4. Harmful interventions: 0.
+
+### Round 10
+
+**One-Review Five-Bank Falsifying Repair** won at 9/18 (50.0%). Family results: constraint 50.0%, logic 66.7%, sequence 33.3%. Helpful interventions: 6. Harmful interventions: 0.
 
 ## Interpretation
 

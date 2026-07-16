@@ -1,0 +1,101 @@
+{
+  "assembled_at": "2026-07-16T11:29:05.127Z",
+  "director_available": true,
+  "iteration": 11,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-5x1-efficient": "current panel winner retained unchanged for replication",
+    "repair-falsify-5x1-majority-gated": "Sol research-director proposal",
+    "repair-falsify-5x3-delegate-fusion": "Sol research-director proposal",
+    "repair-falsify-9x3": "pooled champion across 3 fresh panels: 20/42 exact; 35.7% weakest family"
+  },
+  "source": "mechanical anchors plus iteration 10 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+      "name": "Nine Solvers plus Three Falsifying Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-9x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "The first panel of this exact mechanism retained four of the champion's five correct outcomes with one reviewer and no harmful reversals. A sealed replication tests whether its favorable correction-to-cost ratio is stable rather than a single-panel fluctuation.",
+      "name": "One-Review Five-Bank Falsifying Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x1-efficient"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Most five-answer banks are diverse, but review can be skipped when they form a strict majority. This tests whether the current winner retains its corrections while saving calls and avoiding intervention against concentrated base evidence; it deliberately risks missing repairable but correlated wrong majorities.",
+      "name": "Majority-Gated One-Review Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x1-majority-gated"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Three repairers still generated five helpful corrections, but occasionally reversed a correct base result. Giving the base plurality one delegate vote may preserve useful repairs while resolving fragmented reviewer outputs in favor of the independent base consensus. This is delegate fusion, not full vote pooling.",
+      "name": "Five-Bank Repair with Delegate Fusion",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x3-delegate-fusion"
+    }
+  ]
+}

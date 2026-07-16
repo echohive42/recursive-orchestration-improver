@@ -18,8 +18,11 @@ These three families are the development environment, not the definition of gene
 - Generic motivational primers did not validate, so focus on operational organization rather than decorative prompting.
 - Fresh sealed panels matter more than repeatedly optimizing an old panel.
 - Treat strategies with the same operational fields as the same mechanism even if their IDs, names, or hypotheses differ. Pool replications instead of presenting a rename as a new system.
+- Retain both the pooled champion and the latest panel winner unchanged when they differ. New variants do not count as retaining the original mechanism.
 
-Through Iteration 7, the five-base, three-review, disagreement-triggered falsifying repair mechanism has appeared under `repair-review-5x3` and `repair-falsify-5x3-efficient`. Its pooled development record is 33/72 exact, or 45.8%: sequence 12/24, constraint 11/24, and logic 10/24. Its 7/12 result in Iteration 6 is the best single-panel observation for that mechanism, not a validated improvement in its underlying performance.
+Through Iteration 9, the five-base, three-review, disagreement-triggered falsifying repair mechanism has appeared under `repair-review-5x3` and `repair-falsify-5x3-efficient`. Its pooled development record is 38/84 exact, or 45.2%: sequence 16/28, constraint 12/28, and logic 10/28. Its 7/12 result in Iteration 6 is the best single-panel observation for that mechanism, not a validated improvement in its underlying performance. The nine-base, three-review version is 20/42 exact, or 47.6%, but has only half as many cases and the same 35.7% weakest-family point estimate. Keep both in the next checkpoint instead of declaring a winner from these noisy estimates.
+
+Iteration 10 was an 18-case checkpoint. One five-bank falsifying reviewer scored 9/18, while five-bank three-review repair, nine-bank three-review repair, and sequential cross-examination each scored 7/18. The one-review mechanism made six helpful corrections, no harmful reversals, and created three correct answers absent from its base bank. Across its first two panels it is 13/30 exact with nine helpful and zero harmful interventions. This is promising development evidence, not validation; retain the exact mechanism for replication while testing why extra reviewers diluted it.
 
 ## Available strategy grammar
 
