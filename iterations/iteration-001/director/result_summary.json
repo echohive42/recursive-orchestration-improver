@@ -1,0 +1,90 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "The five-solver/three-repairer system is the provisional winner: 50.0% exact accuracy, 76.5% partial accuracy, and five helpful versus zero harmful interventions at eight calls per case. Its weakest-family accuracy is still only 25.0%, driven by constraint problems, so no family is solved reliably. Increasing the base pool improved answer availability—base-oracle correctness rose from 6/12 with five solvers to 9/12 with nine and 10/12 with fifteen—but plurality converted this into only 1/12, 2/12, and 4/12 exact answers, respectively. This indicates correlated plurality errors and motivates combining broader candidate coverage with conservative review rather than merely adding voters. The choice reviewers also produced five corrections but caused one harmful reversal, supporting aggregation rules that temper reviewer authority. Because all 36 possible repair reviews ran under the previous any-disagreement trigger, a no-strict-majority trigger is the clearest call-efficiency test.",
+    "extensions_requested": [
+      "Report base-plurality correctness, trigger activation, and helpful/harmful interventions separately for each problem family.",
+      "Record whether the exact answer was absent from the exposed candidate set whenever a reviewer changes the result; this distinguishes candidate selection from genuine repair."
+    ],
+    "most_important_evidence": [
+      "Five solvers plus three repairers achieved 6/12 exact with five helpful and zero harmful interventions; the analogous chooser achieved 5/12 with five helpful and one harmful intervention.",
+      "The winning strategy's constraint accuracy was only 1/4, so its 50% pooled result masks the objective's weakest family.",
+      "Base-oracle correctness increased from 6/12 at five solvers to 10/12 at fifteen, while judge-free plurality remained much weaker, showing that answer availability is not the same as reliable aggregation.",
+      "Fifteen-vote plurality was the strongest judge-free control at 4/12 exact and the only control reaching 2/4 on constraint cases, warranting replication on a sealed panel.",
+      "The proposed worst-case selected batch costs 180 shared-bank calls plus 36 retained-winner reviews plus two 36-call review systems, totaling 288 of 300 calls."
+    ],
+    "proposals": [
+      {
+        "base_count": 15,
+        "candidate_limit": 2,
+        "final_rule": "base_plurality",
+        "hypothesis": "Replicating the strongest judge-free control on a fresh panel will determine whether its improved constraint performance and 10/12 candidate oracle were signal or small-sample noise.",
+        "name": "Fifteen-Vote Plurality Replication",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-15-replication"
+      },
+      {
+        "base_count": 7,
+        "candidate_limit": 7,
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Three independent repairs added to seven base votes can overturn fragmented wrong pluralities while preserving base-supported answers; skipping review under a strict majority avoids calls in cases that three added votes generally cannot reverse.",
+        "name": "Seven Solvers plus Three Conservative Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-combined-7x3"
+      },
+      {
+        "base_count": 11,
+        "candidate_limit": 5,
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "A broader bank should improve candidate coverage, while frequency-aware falsification and combined voting can promote a verified minority candidate without giving reviewers unilateral power to reverse the base.",
+        "name": "Eleven Solvers plus Three Consensus Falsifiers",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": true,
+        "strategy_id": "choice-falsify-combined-11x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "One independent re-derivation on ambiguous cases may retain a useful fraction of the repair ensemble's positive correction balance at substantially lower review cost.",
+        "name": "Five Solvers plus One Ambiguity Repairer",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "rederive",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-ambiguous-5x1"
+      }
+    ],
+    "research_hypotheses": [
+      "Reviewer votes combined with base votes will reduce harmful reversals relative to reviewer-only selection while retaining corrections when the base plurality is fragmented.",
+      "The main benefit of larger banks is candidate coverage, but correlated wrong answers prevent raw plurality from exploiting that coverage consistently.",
+      "No-strict-majority gating should lower review cost without sacrificing many actionable interventions because three review votes cannot usually overturn a strict majority in the proposed combined-vote systems.",
+      "If a single repairer performs well, review depth rather than base breadth may be the best next target for call-efficiency optimization."
+    ],
+    "risk_note": "There are only four cases per family, so all family rankings and intervention balances have high variance. Frequency display may anchor choice reviewers to a correlated wrong plurality, while a single repairer may expose the system to reviewer variance. The repair-combined rule can also fail to overcome a sufficiently concentrated wrong base vote. Results should therefore be treated as mechanism tests on a fresh sealed panel, not as confirmation of general superiority."
+  },
+  "duration_ms": 143188,
+  "job_id": "i001-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "19efa20a7a2ded0ecd792bb800e65c4d97d12374438e1d7fa6006048901177a3",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 14188,
+    "output_tokens": 4593,
+    "reasoning_output_tokens": 3490
+  }
+}

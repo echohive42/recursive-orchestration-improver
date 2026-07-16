@@ -1,0 +1,12 @@
+{
+  "iteration": 2,
+  "job_id": "i002-sol-director",
+  "model": "gpt-5.6-sol",
+  "prompt_sha256": "baeb05fb8eefb099dcc05bbbc4c30bdd92fc47a3e6c19d9cd35785e64fab0a8e",
+  "reasoning_effort": "xhigh",
+  "registered_at": "2026-07-16T08:37:10.737Z",
+  "registered_before_call": true,
+  "researcher_sha256": "95e90d6f1904a688096fd2aa0eb9bedac37d3b24cc3e791406040910982a9da9",
+  "schema_sha256": "1a00375834fa3e2ebc28c8a227e42c562a3d45e937d029bd00a3ff2c91768187",
+  "stage": "director"
+}

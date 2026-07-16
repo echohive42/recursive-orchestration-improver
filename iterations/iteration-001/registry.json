@@ -1,0 +1,102 @@
+{
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
+  },
+  "iteration": 1,
+  "panel_hashes_sha256": "dde35bf20b7939ee8040574f58a272247a9b8edaca2593bae5f691a381952a5e",
+  "protocol_sha256": "ba3cb8ddfbddc770d65ffa4eebffb6b7b50512d38b1772abd676c719bb2fc423",
+  "public_cases_sha256": "89cec60b84570cb8f5feb7571063883550dabf55cdae79849bdc9b9a07b8343c",
+  "registered_at": "2026-07-16T08:02:47.030Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "95e90d6f1904a688096fd2aa0eb9bedac37d3b24cc3e791406040910982a9da9",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "04237c1dfd7b3adcd96903412cf65ddc5a851ec6b6bb25466977a16a1148f67f",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A larger judge-free pool can average away plausible mistakes.",
+      "name": "Nine-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-9"
+    },
+    {
+      "base_count": 15,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A broad judge-free pool may outperform fragile evaluation layers.",
+      "name": "Fifteen-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-15"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent re-derivation can select a correct minority answer when five solvers disagree.",
+      "name": "Five Solvers plus Three Verifiers",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "rederive",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choice-review-5x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    }
+  ],
+  "strategy_file": "strategies/iteration-001.json",
+  "strategy_file_sha256": "ecf9388b373eed270277c867da0f8a77ca726ab78f908b656d1724a63bab9ec9"
+}

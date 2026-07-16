@@ -1,0 +1,95 @@
+{
+  "assembled_at": "2026-07-16T08:26:18.706Z",
+  "director_available": true,
+  "iteration": 2,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "choice-falsify-combined-11x3": "Sol research-director proposal",
+    "direct-1": "fixed direct baseline",
+    "plurality-15-replication": "Sol research-director proposal",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-review-5x3": "mechanically retained current winner",
+    "repair-combined-7x3": "Sol research-director proposal"
+  },
+  "source": "mechanical anchors plus iteration 1 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    },
+    {
+      "base_count": 15,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "Replicating the strongest judge-free control on a fresh panel will determine whether its improved constraint performance and 10/12 candidate oracle were signal or small-sample noise.",
+      "name": "Fifteen-Vote Plurality Replication",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-15-replication"
+    },
+    {
+      "base_count": 7,
+      "candidate_limit": 7,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Three independent repairs added to seven base votes can overturn fragmented wrong pluralities while preserving base-supported answers; skipping review under a strict majority avoids calls in cases that three added votes generally cannot reverse.",
+      "name": "Seven Solvers plus Three Conservative Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "repair-combined-7x3"
+    },
+    {
+      "base_count": 11,
+      "candidate_limit": 5,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "A broader bank should improve candidate coverage, while frequency-aware falsification and combined voting can promote a verified minority candidate without giving reviewers unilateral power to reverse the base.",
+      "name": "Eleven Solvers plus Three Consensus Falsifiers",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": true,
+      "strategy_id": "choice-falsify-combined-11x3"
+    }
+  ]
+}

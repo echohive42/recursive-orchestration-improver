@@ -1,0 +1,95 @@
+{
+  "assembled_at": "2026-07-16T08:41:43.603Z",
+  "director_available": true,
+  "iteration": 3,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-5x5": "Sol research-director proposal",
+    "repair-rederive-1x3": "Sol research-director proposal",
+    "repair-rederive-5x3": "Sol research-director proposal",
+    "repair-review-5x3": "mechanically retained current winner"
+  },
+  "source": "mechanical anchors plus iteration 2 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Five falsifying repairers will make independently generated corrections more reproducible than the winning three-repairer panel, especially on logic cases where the correct answer is absent from the base bank.",
+      "name": "Five Solvers plus Five Falsifying Repairers",
+      "review_count": 5,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Requiring each reviewer to rederive the exact result will improve nested-logic performance relative to falsification, which may identify defects without consistently completing the necessary reconstruction.",
+      "name": "Five Solvers plus Three Exact Rederivers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-5x3"
+    },
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Three independent exact rederivations can retain much of the winner's repair benefit with only four effective calls, testing whether the repair panel rather than the weak base bank supplies most of the useful signal.",
+      "name": "One Anchor plus Three Exact Rederivers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "always",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-1x3"
+    }
+  ]
+}

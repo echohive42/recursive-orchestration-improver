@@ -1,0 +1,298 @@
+{
+  "base_calls": 180,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "iteration": 1,
+  "public_cases_sha256": "89cec60b84570cb8f5feb7571063883550dabf55cdae79849bdc9b9a07b8343c",
+  "review_calls": 72,
+  "scored_at": "2026-07-16T08:23:55.501Z",
+  "sealed_answers_sha256": "04237c1dfd7b3adcd96903412cf65ddc5a851ec6b6bb25466977a16a1148f67f",
+  "status_counts": {
+    "valid_output": 252
+  },
+  "strategies": [
+    {
+      "accuracy": 0.5,
+      "base_count": 5,
+      "base_oracle_correct": 6,
+      "candidate_limit": 5,
+      "correct": 6,
+      "families": {
+        "constraint": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.75,
+          "correct": 3,
+          "total": 4
+        }
+      },
+      "final_rule": "review_plurality_fallback_base",
+      "harmful_interventions": 0,
+      "helpful_interventions": 5,
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "mean_effective_calls": 8.0,
+      "name": "Five Solvers plus Three Repairers",
+      "partial_accuracy": 0.7651515151515151,
+      "review_calls_used": 36,
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3",
+      "total": 12,
+      "worst_family_accuracy": 0.25
+    },
+    {
+      "accuracy": 0.4166666666666667,
+      "base_count": 5,
+      "base_oracle_correct": 6,
+      "candidate_limit": 5,
+      "correct": 5,
+      "families": {
+        "constraint": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        }
+      },
+      "final_rule": "review_plurality_fallback_base",
+      "harmful_interventions": 1,
+      "helpful_interventions": 5,
+      "hypothesis": "Independent re-derivation can select a correct minority answer when five solvers disagree.",
+      "mean_effective_calls": 8.0,
+      "name": "Five Solvers plus Three Verifiers",
+      "partial_accuracy": 0.7196969696969697,
+      "review_calls_used": 36,
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "rederive",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choice-review-5x3",
+      "total": 12,
+      "worst_family_accuracy": 0.25
+    },
+    {
+      "accuracy": 0.3333333333333333,
+      "base_count": 15,
+      "base_oracle_correct": 10,
+      "candidate_limit": 2,
+      "correct": 4,
+      "families": {
+        "constraint": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        }
+      },
+      "final_rule": "base_plurality",
+      "harmful_interventions": 0,
+      "helpful_interventions": 0,
+      "hypothesis": "A broad judge-free pool may outperform fragile evaluation layers.",
+      "mean_effective_calls": 15.0,
+      "name": "Fifteen-Vote Plurality",
+      "partial_accuracy": 0.6742424242424242,
+      "review_calls_used": 0,
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-15",
+      "total": 12,
+      "worst_family_accuracy": 0.25
+    },
+    {
+      "accuracy": 0.16666666666666666,
+      "base_count": 9,
+      "base_oracle_correct": 9,
+      "candidate_limit": 2,
+      "correct": 2,
+      "families": {
+        "constraint": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        }
+      },
+      "final_rule": "base_plurality",
+      "harmful_interventions": 0,
+      "helpful_interventions": 0,
+      "hypothesis": "A larger judge-free pool can average away plausible mistakes.",
+      "mean_effective_calls": 9.0,
+      "name": "Nine-Vote Plurality",
+      "partial_accuracy": 0.6287878787878788,
+      "review_calls_used": 0,
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-9",
+      "total": 12,
+      "worst_family_accuracy": 0.0
+    },
+    {
+      "accuracy": 0.08333333333333333,
+      "base_count": 5,
+      "base_oracle_correct": 6,
+      "candidate_limit": 2,
+      "correct": 1,
+      "families": {
+        "constraint": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        }
+      },
+      "final_rule": "base_plurality",
+      "harmful_interventions": 0,
+      "helpful_interventions": 0,
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "mean_effective_calls": 5.0,
+      "name": "Five-Vote Plurality",
+      "partial_accuracy": 0.553030303030303,
+      "review_calls_used": 0,
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5",
+      "total": 12,
+      "worst_family_accuracy": 0.0
+    },
+    {
+      "accuracy": 0.08333333333333333,
+      "base_count": 1,
+      "base_oracle_correct": 1,
+      "candidate_limit": 2,
+      "correct": 1,
+      "families": {
+        "constraint": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "logic": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "sequence": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        }
+      },
+      "final_rule": "base_plurality",
+      "harmful_interventions": 0,
+      "helpful_interventions": 0,
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "mean_effective_calls": 1.0,
+      "name": "Direct One",
+      "partial_accuracy": 0.5454545454545454,
+      "review_calls_used": 0,
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1",
+      "total": 12,
+      "worst_family_accuracy": 0.0
+    }
+  ],
+  "transport_attempts": 254,
+  "winner": {
+    "accuracy": 0.5,
+    "base_count": 5,
+    "base_oracle_correct": 6,
+    "candidate_limit": 5,
+    "correct": 6,
+    "families": {
+      "constraint": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "total": 4
+      },
+      "logic": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "sequence": {
+        "accuracy": 0.75,
+        "correct": 3,
+        "total": 4
+      }
+    },
+    "final_rule": "review_plurality_fallback_base",
+    "harmful_interventions": 0,
+    "helpful_interventions": 5,
+    "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+    "mean_effective_calls": 8.0,
+    "name": "Five Solvers plus Three Repairers",
+    "partial_accuracy": 0.7651515151515151,
+    "review_calls_used": 36,
+    "review_count": 3,
+    "review_mode": "repair",
+    "review_style": "falsify",
+    "review_trigger": "any_disagreement",
+    "show_frequencies": false,
+    "strategy_id": "repair-review-5x3",
+    "total": 12,
+    "worst_family_accuracy": 0.25
+  },
+  "worker_calls": 252
+}

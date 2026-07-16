@@ -1,0 +1,102 @@
+{
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
+  },
+  "iteration": 3,
+  "panel_hashes_sha256": "cf42b78ee845508fb0a0f49468518f42d5c55455729f7d02ab0e25b698f248a1",
+  "protocol_sha256": "ba3cb8ddfbddc770d65ffa4eebffb6b7b50512d38b1772abd676c719bb2fc423",
+  "public_cases_sha256": "b27f174c813a336c3419a4e9e3bb4e546d3d2ae11fba2dfe9bff8b0615aa02df",
+  "registered_at": "2026-07-16T08:44:19.754Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "95e90d6f1904a688096fd2aa0eb9bedac37d3b24cc3e791406040910982a9da9",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "d950d9661fae288acf76551e174f4acf1e8e8d4111f3b9ec26862cebea70ad0e",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Five falsifying repairers will make independently generated corrections more reproducible than the winning three-repairer panel, especially on logic cases where the correct answer is absent from the base bank.",
+      "name": "Five Solvers plus Five Falsifying Repairers",
+      "review_count": 5,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Requiring each reviewer to rederive the exact result will improve nested-logic performance relative to falsification, which may identify defects without consistently completing the necessary reconstruction.",
+      "name": "Five Solvers plus Three Exact Rederivers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-5x3"
+    },
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Three independent exact rederivations can retain much of the winner's repair benefit with only four effective calls, testing whether the repair panel rather than the weak base bank supplies most of the useful signal.",
+      "name": "One Anchor plus Three Exact Rederivers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "rederive",
+      "review_trigger": "always",
+      "show_frequencies": false,
+      "strategy_id": "repair-rederive-1x3"
+    }
+  ],
+  "strategy_file": "strategies/iteration-003.json",
+  "strategy_file_sha256": "5fefe4fde3fbec1aa313257e98d7957ad7700f0cea42dc7aa18b02d0ddd4bb19"
+}

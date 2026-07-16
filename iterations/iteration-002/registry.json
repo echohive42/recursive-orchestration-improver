@@ -1,0 +1,102 @@
+{
+  "answers_loaded_after_worker_calls": true,
+  "cases": 12,
+  "checkpoint": false,
+  "experiment_id": "orchestration-autoresearch-lab-v1",
+  "family_counts": {
+    "constraint": 4,
+    "logic": 4,
+    "sequence": 4
+  },
+  "iteration": 2,
+  "panel_hashes_sha256": "7ee0e15e55adfec591003f66f951af49dff9b567e2b0ef7a953386a4be89b7e1",
+  "protocol_sha256": "ba3cb8ddfbddc770d65ffa4eebffb6b7b50512d38b1772abd676c719bb2fc423",
+  "public_cases_sha256": "bea34322d73b048555e67fdcc8366e213e4b38352656f25b9e10f386f19c43c6",
+  "registered_at": "2026-07-16T08:28:53.009Z",
+  "registered_before_calls": true,
+  "researcher_sha256_at_start": "95e90d6f1904a688096fd2aa0eb9bedac37d3b24cc3e791406040910982a9da9",
+  "sealed_answers_not_sent_to_workers": true,
+  "sealed_answers_sha256": "73d500858ee9698f5671894153065db20734c9e454cf60d9c7f45b5e1f8419cf",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "name": "Five Solvers plus Three Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-review-5x3"
+    },
+    {
+      "base_count": 15,
+      "candidate_limit": 2,
+      "final_rule": "base_plurality",
+      "hypothesis": "Replicating the strongest judge-free control on a fresh panel will determine whether its improved constraint performance and 10/12 candidate oracle were signal or small-sample noise.",
+      "name": "Fifteen-Vote Plurality Replication",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-15-replication"
+    },
+    {
+      "base_count": 7,
+      "candidate_limit": 7,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "Three independent repairs added to seven base votes can overturn fragmented wrong pluralities while preserving base-supported answers; skipping review under a strict majority avoids calls in cases that three added votes generally cannot reverse.",
+      "name": "Seven Solvers plus Three Conservative Repairers",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": false,
+      "strategy_id": "repair-combined-7x3"
+    },
+    {
+      "base_count": 11,
+      "candidate_limit": 5,
+      "final_rule": "review_plus_base_plurality",
+      "hypothesis": "A broader bank should improve candidate coverage, while frequency-aware falsification and combined voting can promote a verified minority candidate without giving reviewers unilateral power to reverse the base.",
+      "name": "Eleven Solvers plus Three Consensus Falsifiers",
+      "review_count": 3,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "no_strict_majority",
+      "show_frequencies": true,
+      "strategy_id": "choice-falsify-combined-11x3"
+    }
+  ],
+  "strategy_file": "strategies/iteration-002.json",
+  "strategy_file_sha256": "df023a2a1501c26dd63994199e096d7a5a99848dceca6836aa6683e9d273ae9b"
+}

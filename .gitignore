@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+STOP
+
+# Raw Codex execution artifacts can contain local paths and internal IDs.
+# The public snapshot keeps prompts plus compact terminal results instead.
+iterations/*/base/jobs/
+iterations/*/review/jobs/
+iterations/*/director/jobs/
+
+# Never publish an active, partially scored iteration.
+iterations/*/.in-progress

@@ -1,0 +1,92 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "The current winner is still the best mechanism, but its 0.25 weakest-family accuracy is unresolved. Logic is the central failure: the correct answer appeared in none of the five-answer base banks, and three falsifying repairers created a correct result on only 1 of 4 logic cases. Across all cases, those three repairers had a favorable correction balance—3 helpful interventions among 10 base-wrong cases and no harmful reversals—whereas five repairers produced only one helpful intervention, and three exact rederivers caused two harmful reversals without any helpful corrections. Candidate aggregation is a separate failure: in sequence, the base oracle was correct on 3 of 4 cases while base plurality was correct on only 1, showing that correct minority candidates are being discarded. The next batch should therefore retain falsifying repair, test broader candidate coverage and safer vote fusion, and include one guarded candidate-selection system.",
+    "extensions_requested": [
+      "Log normalized per-case base and reviewer answer frequencies so ties, strict-majority triggers, and combined-vote outcomes can be audited.",
+      "From each review panel's existing outputs, report counterfactual results under both eligible final rules when mechanically possible; this can isolate aggregation effects without additional Luna calls."
+    ],
+    "most_important_evidence": [
+      "The winner achieved 5/12 exact with worst-family accuracy 0.25, versus 2/12 for both retained base controls.",
+      "The winner's three falsifying repairers made 3 helpful corrections, no harmful reversals, and created the only correct logic answer.",
+      "Five falsifying repairers fell to 3/12, with only one helpful correction and no logic successes; increasing reviewer count did not improve reliability.",
+      "Five-base exact rederivation scored 0/12 and reversed both initially correct plurality answers, giving a 100% observed harm rate conditional on a correct base.",
+      "The five-answer base oracle covered only 4/12 cases. Its sequence coverage was 3/4 despite sequence plurality accuracy of 1/4, while logic coverage was 0/4.",
+      "The mean of 4.25 unique answers among five base solvers indicates severe vote fragmentation, making both minority recovery and aggregation rules consequential."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Expanding the shared independent bank from five to nine may improve exact-answer coverage and stabilize candidate support, while retaining the only review mechanism with a positive observed correction balance.",
+        "name": "Nine Solvers plus Three Falsifying Repairers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plus_base_plurality",
+        "hypothesis": "Pooling the three falsifying repairs with the five independent base votes may preserve useful base evidence while allowing convergent repairs, or repairs matching a correct minority candidate, to win.",
+        "name": "Five Solvers with Fused Repair Voting",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-fused-5x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "When the base has no strict majority, three frequency-blind comparative reviewers may recover correct minority candidates such as those exposed by the sequence oracle gap without disturbing stronger base consensus.",
+        "name": "Guarded Three-Way Candidate Adjudication",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "compare",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "choose-compare-5x3"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "A single falsifying repairer restricted to fragmented base votes tests whether useful corrections require reviewer consensus or whether one targeted repair can retain benefit at substantially lower cost.",
+        "name": "Guarded Single Falsifying Repairer",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "no_strict_majority",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-guarded"
+      }
+    ],
+    "research_hypotheses": [
+      "The five-answer bank is too narrow for the weakest family, so a nine-answer shared bank will raise base-oracle coverage.",
+      "Three falsifying repairers are near a better reliability point than five repairers or exact rederivers.",
+      "Combining base and repair votes will be at least as accurate as letting the review panel replace the base decision, with fewer harmful reversals on fresh cases.",
+      "Guarded comparative choice can exploit correct minority candidates but will not repair cases where every base candidate is wrong.",
+      "A single guarded repairer is a call-efficiency probe, not a presumed winner, because one mistaken reviewer can directly override an ambiguous base."
+    ],
+    "risk_note": "The recommended six-strategy batch is the three retained systems plus the first three proposals. Its worst-case cost is 108 bank calls (12 cases × base_count 9) plus 144 review calls (the retained winner and three new three-reviewer panels), totaling 252 of 300. Any substitution of the one-reviewer backup lowers that cost. The main scientific risk is that the nine-solver proposal and current winner share the same repair mechanism, but this controlled overlap is intentional: it isolates candidate-bank width while the other proposals isolate fusion and candidate adjudication."
+  },
+  "duration_ms": 171321,
+  "job_id": "i003-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "3db2bf01208c121d19bc37ea0ecc0dbb49bac1a15efece1b0502d59e328b86d0",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 16725,
+    "output_tokens": 5295,
+    "reasoning_output_tokens": 4142
+  }
+}

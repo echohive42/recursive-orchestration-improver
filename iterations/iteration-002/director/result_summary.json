@@ -1,0 +1,91 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Nested logic is the binding weakness. The current winner was the only strategy to solve any logic case (1/4), and that success was a newly created repair answer despite a 0/4 logic base oracle. Larger banks improved overall candidate coverage only slightly and did not improve logic coverage beyond 1/4: the 7- and 11-solver banks each had 6/12 overall oracle coverage, while 15 solvers reached only 7/12 and produced just 1/12 exact plurality answers. Repair review has the strongest evidence: the winner made five helpful interventions and zero harmful ones, versus four helpful for the conservative 7x3 repair strategy and three for the chooser. The next panel should therefore test full rederivation, repair-panel size, and a cheaper repair architecture. A candidate-choice arm remains useful as a distinct diagnostic, but its logic ceiling is constrained by base-oracle coverage.",
+    "extensions_requested": [
+      "Report whether the correct answer survived candidate_limit, along with the unique base-candidate count and reviewer vote histogram; this separates generation, truncation, and selection failures.",
+      "Report helpful and harmful interventions conditional on whether the unrevised base result was correct. Zero observed harm is weak evidence here because base pluralities were almost never correct."
+    ],
+    "most_important_evidence": [
+      "Five Solvers plus Three Repairers led exact accuracy at 5/12 and weakest-family accuracy at 1/4, with five helpful interventions and no harmful reversals.",
+      "Its sole logic success was created by a repairer when no base solver contained the correct answer, directly demonstrating the value of answer-generating review.",
+      "Direct One and Five-Vote Plurality scored 0/12; the 15-vote plurality scored only 1/12 despite containing a correct answer in 7/12 cases.",
+      "Increasing the bank from seven to eleven did not improve oracle coverage: both reached 6/12 overall and only 1/4 on logic.",
+      "The 7x3 conservative repair strategy had the best partial accuracy, 0.758, but review-plus-base voting still left logic at 0/4, suggesting that weak base votes diluted useful repair signals.",
+      "All observed review interventions had a positive correction balance, but the absence of harmful reversals has not been tested against many initially correct base results."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Five falsifying repairers will make independently generated corrections more reproducible than the winning three-repairer panel, especially on logic cases where the correct answer is absent from the base bank.",
+        "name": "Five Solvers plus Five Falsifying Repairers",
+        "review_count": 5,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Requiring each reviewer to rederive the exact result will improve nested-logic performance relative to falsification, which may identify defects without consistently completing the necessary reconstruction.",
+        "name": "Five Solvers plus Three Exact Rederivers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "rederive",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-rederive-5x3"
+      },
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Three independent exact rederivations can retain much of the winner's repair benefit with only four effective calls, testing whether the repair panel rather than the weak base bank supplies most of the useful signal.",
+        "name": "One Anchor plus Three Exact Rederivers",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "rederive",
+        "review_trigger": "always",
+        "show_frequencies": false,
+        "strategy_id": "repair-rederive-1x3"
+      },
+      {
+        "base_count": 7,
+        "candidate_limit": 7,
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "The seven-answer bank already matched the eleven-answer bank's oracle coverage. Showing all candidates without frequencies and letting three comparators decide by reviewer plurality may recover correct minority answers without combined-vote dilution or the cost of eleven solvers.",
+        "name": "Seven Candidates plus Three Blind Comparators",
+        "review_count": 3,
+        "review_mode": "choose",
+        "review_style": "compare",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choice-compare-7x3"
+      }
+    ],
+    "research_hypotheses": [
+      "The positive correction balance of repair review transfers to a fresh sealed panel and remains positive when reviewer count rises from three to five.",
+      "Full independent rederivation improves the weakest logic family more than candidate-focused falsification.",
+      "A one-answer anchor plus a three-repairer plurality is a competitive low-call substitute for a five-answer base bank.",
+      "When the correct candidate exists, hiding base frequencies and avoiding combined base-review voting improves minority-answer selection."
+    ],
+    "risk_note": "Only 12 fresh cases will be observed, so family estimates remain highly volatile. Repairers may also share correlated failure modes, and zero prior harmful reversals is partly explained by the scarcity of correct base pluralities. Budget is safe: retaining Direct One, Five-Vote Plurality, and the current 5x3 winner, then selecting any three proposals above costs at most 84 shared-bank calls plus 168 review calls, or 252 total—48 below the 300-call cap."
+  },
+  "duration_ms": 272857,
+  "job_id": "i002-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "bf02d3d7beb82861e7261725267d3fd4269f02e0a5573bf9adf6d96ebb301647",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 23332,
+    "output_tokens": 65,
+    "reasoning_output_tokens": 65
+  }
+}

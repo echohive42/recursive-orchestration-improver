@@ -1,0 +1,85 @@
+{
+  "iteration": 1,
+  "source": "preregistered seed batch",
+  "registered_before_calls": true,
+  "strategies": [
+    {
+      "strategy_id": "direct-1",
+      "name": "Direct One",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "base_count": 1,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "plurality-5",
+      "name": "Five-Vote Plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "base_count": 5,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "plurality-9",
+      "name": "Nine-Vote Plurality",
+      "hypothesis": "A larger judge-free pool can average away plausible mistakes.",
+      "base_count": 9,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "plurality-15",
+      "name": "Fifteen-Vote Plurality",
+      "hypothesis": "A broad judge-free pool may outperform fragile evaluation layers.",
+      "base_count": 15,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "choice-review-5x3",
+      "name": "Five Solvers plus Three Verifiers",
+      "hypothesis": "Independent re-derivation can select a correct minority answer when five solvers disagree.",
+      "base_count": 5,
+      "review_count": 3,
+      "review_trigger": "any_disagreement",
+      "review_mode": "choose",
+      "review_style": "rederive",
+      "candidate_limit": 5,
+      "show_frequencies": false,
+      "final_rule": "review_plurality_fallback_base"
+    },
+    {
+      "strategy_id": "repair-review-5x3",
+      "name": "Five Solvers plus Three Repairers",
+      "hypothesis": "Independent repairers can escape a candidate set whose correct answer is absent or underrepresented.",
+      "base_count": 5,
+      "review_count": 3,
+      "review_trigger": "any_disagreement",
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "candidate_limit": 5,
+      "show_frequencies": false,
+      "final_rule": "review_plurality_fallback_base"
+    }
+  ]
+}
