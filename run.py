@@ -2121,7 +2121,9 @@ def pooled_champion(extra_summary: dict[str, Any] | None = None) -> dict[str, An
                 group["families"][family][1] += metrics["total"]
     eligible: list[dict[str, Any]] = []
     for group in groups.values():
-        if group["panels"] < 2:
+        # A high point estimate from a handful of fresh panels is provisional,
+        # not enough evidence to displace a well-tested incumbent mechanically.
+        if group["panels"] < 5 or group["total"] < 60:
             continue
         family_accuracy = {
             family: correct / total

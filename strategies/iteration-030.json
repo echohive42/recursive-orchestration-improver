@@ -1,0 +1,101 @@
+{
+  "assembled_at": "2026-07-16T19:09:55.367Z",
+  "director_available": true,
+  "iteration": 30,
+  "registered_before_calls": true,
+  "selection_reasons": {
+    "choose-falsify-9x1-full-bank": "Sol research-director proposal",
+    "cross-examine-falsify-5x3": "current panel winner retained unchanged for replication",
+    "direct-1": "fixed direct baseline",
+    "plurality-5": "fixed five-vote baseline",
+    "repair-falsify-5x1-efficient": "Sol research-director proposal",
+    "repair-falsify-5x3-efficient": "pooled champion across 26 fresh panels: 140/336 exact; 37.5% weakest family"
+  },
+  "source": "mechanical anchors plus iteration 29 Sol director",
+  "strategies": [
+    {
+      "base_count": 1,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A single independent answer is the minimum-cost baseline.",
+      "name": "Direct One",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "direct-1"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "final_rule": "base_plurality",
+      "hypothesis": "A small independent plurality is a stable low-cost baseline.",
+      "name": "Five-Vote Plurality",
+      "review_count": 0,
+      "review_mode": "none",
+      "review_style": "verify",
+      "review_trigger": "never",
+      "show_frequencies": false,
+      "strategy_id": "plurality-5"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Retain the pooled champion unchanged as the principal replicated answer-generating repair control.",
+      "name": "Efficient Five-Bank Falsifying Repair",
+      "review_count": 3,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x3-efficient"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "last_review_fallback_base",
+      "hypothesis": "Reintroduce the previously tested sequential cross-examination architecture as the orthogonal lane. Against the same five-answer bank and three-call depth as the champion, it tests whether passing a falsifiable proposal and critique improves integration more than independent parallel repair.",
+      "name": "Sequential Five-Bank Cross-Examination",
+      "review_count": 3,
+      "review_mode": "cross_examine",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "cross-examine-falsify-5x3"
+    },
+    {
+      "base_count": 9,
+      "candidate_limit": 8,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Replicate the exact five-panel candidate-only selector at checkpoint scale. Its larger bank supplies materially higher oracle coverage, while its recent failure directly tests whether a single selector can convert that coverage reliably.",
+      "name": "Nine-Bank One-Selector Falsifying Selection",
+      "review_count": 1,
+      "review_mode": "choose",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "choose-falsify-9x1-full-bank"
+    },
+    {
+      "base_count": 5,
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "final_rule": "review_plurality_fallback_base",
+      "hypothesis": "Continue the matched call-efficiency comparison against the champion: one answer-generating falsifier costs two fewer calls per case and retains a positive helpful-minus-harmful intervention balance.",
+      "name": "One-Review Five-Bank Falsifying Repair",
+      "review_count": 1,
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "review_trigger": "any_disagreement",
+      "show_frequencies": false,
+      "strategy_id": "repair-falsify-5x1-efficient"
+    }
+  ]
+}

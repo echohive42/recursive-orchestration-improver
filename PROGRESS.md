@@ -10,8 +10,8 @@ The best single-panel observation is **Blind Regeneration then Falsifying Integr
 
 | Replicated mechanism | Panels | Pooled exact | Weakest family | Mean calls/problem |
 |---|---:|---:|---:|---:|
-| Efficient Five-Bank Falsifying Repair | 23 | 129/300 · **43.0%** | 40.0% | 8.0 |
-| Nine-Bank One-Selector Falsifying Selection | 2 | 12/30 · **40.0%** | 40.0% | 10.0 |
+| Efficient Five-Bank Falsifying Repair | 26 | 140/336 · **41.7%** | 37.5% | 8.0 |
+| Nine-Bank One-Selector Falsifying Selection | 5 | 27/66 · **40.9%** | 36.4% | 10.0 |
 
 These are development estimates pooled across fresh panels. The next round retains both the strongest repeated mechanism and the latest panel winner when they differ, while new organizations continue to compete beside them.
 
@@ -45,6 +45,9 @@ The retention fix affects future strategy selection, not historical scores. A pa
 | 24 | Nine-Bank Falsifying Selection Panel | 6/12 · **50.0%** | 25.0% | 2/12 · 16.7% | 233 |
 | 25 | Efficient Five-Bank Falsifying Repair | 10/18 · **55.6%** | 33.3% | 3/18 · 16.7% | 360 |
 | 26 | Efficient Five-Bank Falsifying Repair | 6/12 · **50.0%** | 50.0% | 0/12 · 0.0% | 240 |
+| 27 | Nine-Bank One-Selector Falsifying Selection | 7/12 · **58.3%** | 50.0% | 0/12 · 0.0% | 216 |
+| 28 | Nine-Bank One-Selector Falsifying Selection | 6/12 · **50.0%** | 50.0% | 1/12 · 8.3% | 216 |
+| 29 | Sequential Five-Bank Cross-Examination | 4/12 · **33.3%** | 25.0% | 1/12 · 8.3% | 204 |
 
 ## Round notes
 
@@ -151,6 +154,18 @@ The retention fix affects future strategy selection, not historical scores. A pa
 ### Round 26
 
 **Efficient Five-Bank Falsifying Repair** won at 6/12 (50.0%). Family results: constraint 50.0%, logic 50.0%, sequence 50.0%. Helpful interventions: 5. Harmful interventions: 0.
+
+### Round 27
+
+**Nine-Bank One-Selector Falsifying Selection** won at 7/12 (58.3%). Family results: constraint 50.0%, logic 50.0%, sequence 75.0%. Helpful interventions: 6. Harmful interventions: 0.
+
+### Round 28
+
+**Nine-Bank One-Selector Falsifying Selection** won at 6/12 (50.0%). Family results: constraint 50.0%, logic 50.0%, sequence 50.0%. Helpful interventions: 5. Harmful interventions: 0.
+
+### Round 29
+
+**Sequential Five-Bank Cross-Examination** won at 4/12 (33.3%). Family results: constraint 25.0%, logic 50.0%, sequence 25.0%. Helpful interventions: 3. Harmful interventions: 0.
 
 ## Interpretation
 

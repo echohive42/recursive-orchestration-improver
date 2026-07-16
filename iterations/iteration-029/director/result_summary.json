@@ -1,0 +1,121 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 29 was selection-limited. The nine-bank selector exposed correct candidates on 6/12 cases but converted only 2/12, including 0/4 constraint accuracy despite constraint oracle coverage. Cross-examination led at 4/12 by converting four of five expanded-oracle cases, making three helpful and zero harmful interventions, and creating one correct logic answer absent from the base bank. No strategy exceeded 25% weakest-family accuracy. The established five-bank three-review champion is now 140/336 exact (41.7%) through Iteration 29; the nine-bank one-selector reached the five-panel threshold at 27/66 (40.9%) but its latest-panel weakest-family accuracy was 0%, so it has not displaced the incumbent. Iteration 30 should retain both the champion and current cross-examination winner, replicate the candidate-only selector at checkpoint scale, and preserve the matched one-review efficiency ablation.",
+    "extensions_requested": [
+      "Add a shared-evidence-board primitive: one domain-neutral critic records candidate-by-candidate decisive claims, contradictions, checks, and unresolved issues without choosing; one subsequent selector sees the shuffled candidates and board and returns an exact answer. This directly tests whether explicit evidence externalization improves oracle conversion."
+    ],
+    "most_important_evidence": [
+      "Iteration 29 nine-bank selection: 6/12 base-oracle coverage but only 2/12 exact, leaving four covered cases unconverted.",
+      "Cross-examination improved the common five-bank plurality from 1/12 to 4/12 through three helpful interventions, zero harmful reversals, and one newly created correct logic answer.",
+      "The pooled champion improved the same 1/12 base plurality to 3/12 with two helpful and zero harmful interventions; its long-run record is 140/336 exact.",
+      "The nine-bank one-selector is 27/66 exact after five panels, but fell to 2/12 with 0% constraint accuracy in Iteration 29.",
+      "Five-bank one-review repair used two fewer calls than the champion and still produced two helpful and zero harmful interventions, although its current-panel weakest-family accuracy was 0%."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-call independent baseline unchanged for checkpoint calibration.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the deterministic five-answer plurality control unchanged to measure the value added by every review architecture.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the established pooled champion unchanged; its large-sample record and positive correction balance remain the strongest incumbent evidence.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Retain the Iteration 29 winner unchanged to test whether sequential falsification reliably reproduces its superior conversion of a shared five-answer bank.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact five-panel candidate-only selector at checkpoint scale. Its larger bank supplies materially higher oracle coverage, while its recent failure directly tests whether a single selector can convert that coverage reliably.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Continue the matched call-efficiency comparison against the champion: one answer-generating falsifier costs two fewer calls per case and retains a positive helpful-minus-harmful intervention balance.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      }
+    ],
+    "research_hypotheses": [
+      "Sequential cross-examination may improve conversion by carrying forward a falsifiable proposal and critique rather than aggregating independent repair outputs.",
+      "The nine-bank selector's main uncertainty is candidate conversion, not candidate availability; an 18-case replication will distinguish its earlier balanced panels from the Iteration 29 collapse.",
+      "If one-review repair remains close to three-review repair, the two additional reviewers are not justified by their call cost.",
+      "An explicit evidence board may address the persistent gap between oracle coverage and final accuracy more directly than adding candidates or selector votes."
+    ],
+    "risk_note": "The complete six-strategy batch has a worst-case cost of 306 Luna calls: 162 shared bank calls from the largest base_count of nine, plus 144 review calls from review depths 3+3+1+1 across 18 cases. This is safely below the 500-call cap. The main statistical risk is fresh-panel variance; crossing the five-panel threshold permits comparison but does not itself establish superiority."
+  },
+  "duration_ms": 126409,
+  "job_id": "i029-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "c84b6cefc0d02d0c9672c9691d657e8d47d35f2e2dfc2e0027e0511ad10ed1d2",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 23876,
+    "output_tokens": 5596,
+    "reasoning_output_tokens": 4319
+  }
+}

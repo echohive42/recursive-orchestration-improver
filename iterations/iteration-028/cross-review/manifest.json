@@ -1,0 +1,12 @@
+{
+  "base_jobs_sha256": "18470ce8b0d45b66965e4ab5aae4c289f20c888cc05ed1c68ad8c849d431d153",
+  "chains": 0,
+  "derived_only_from_public_cases_and_base_outputs": true,
+  "model": "gpt-5.6-luna",
+  "plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "planned_calls": 0,
+  "reasoning_effort": "low",
+  "registered_at": "2026-07-16T18:42:53.569Z",
+  "registered_before_calls": true,
+  "sealed_answers_unopened": true
+}

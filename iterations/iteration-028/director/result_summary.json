@@ -1,0 +1,122 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 28 favors selection replication and efficient answer-generating repair. The nine-bank one-selector system achieved the strongest family balance: 6/12 exact, 50% in every family, five helpful interventions, no harmful reversals, and conversion of six of seven base-oracle cases. The one-review five-bank repair also reached 6/12 with four helpful and zero harmful interventions, including one correct answer absent from its base bank. In contrast, the champion converted only four of six expanded-oracle cases, while regeneration increased coverage from five to six but finished 2/12 with one helpful and one harmful intervention. Thus candidate integration remains the main gap, while blind regeneration no longer merits an ordinary-batch slot without a different integration primitive.",
+    "extensions_requested": [
+      "shared_evidence_board: Allow several independent reviewers to record concise candidate claims, contradictions, and verification results on a sealed domain-neutral board, followed by one final selector that sees the shuffled candidates and anonymized board. Freeze all roles before calls and never expose frequencies or the answer key."
+    ],
+    "most_important_evidence": [
+      "The nine-bank one-selector mechanism is now 25/54 exact across four panels; its weakest-family point estimate improved from 6/14 to 8/18, or 44.4%. One unchanged replication would reach the five-panel, 60-case eligibility threshold.",
+      "On Iteration 28, nine-bank selection converted 6/7 base-oracle cases with five helpful and zero harmful interventions; its 50% accuracy in every family was the best weakest-family result.",
+      "Five-bank one-review repair converted a 2/12 base plurality into 6/12, with four helpful and zero harmful interventions, while using two fewer calls per case than the champion.",
+      "The established champion is now 137/324 exact after scoring 4/12 on Iteration 28. It remains the incumbent because the selector has not yet met the replication threshold.",
+      "Regenerate-then-repair raised oracle coverage only from 5/12 to 6/12 but selected 2/12, produced one helpful and one harmful intervention, and had 0% constraint accuracy. Its selector gap was four cases.",
+      "The proposed complete batch costs at most 204 Luna calls: 108 shared base calls from the nine-answer maximum bank plus 96 reviewer calls, leaving 96 calls of budget headroom."
+    ],
+    "proposals": [
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the efficient repair ablation after it tied the panel leader at 6/12, created a correct answer missing from the base bank, and made four helpful with zero harmful interventions. The matched five-bank comparison isolates whether two additional independent repairers justify their cost.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Reintroduce the previously tested sequential cross-examination architecture as the orthogonal lane. Against the same five-answer bank and three-call depth as the champion, it tests whether passing a falsifiable proposal and critique improves integration more than independent parallel repair.",
+        "name": "Sequential Five-Bank Cross-Examination",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the current winner exactly. A fifth unchanged panel tests whether its 25/54 pooled result and 44.4% weakest-family point estimate survive enough evidence to qualify for formal comparison with the incumbent.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the established pooled champion unchanged as the principal replicated answer-generating repair control.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the minimum-call independent baseline for panel calibration.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain deterministic five-answer plurality as the shared-bank aggregation control.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      }
+    ],
+    "research_hypotheses": [
+      "If the nine-bank selector preserves at least 44.4% weakest-family accuracy after this panel, its five-panel pooled record should be compared formally with—not automatically substituted for—the incumbent.",
+      "The five-bank one-review versus three-review matched pair will show whether reviewer depth adds exact accuracy or merely call cost and variance.",
+      "The five-bank cross-examination versus parallel three-review repair comparison isolates sequential critique from bank size and reviewer count.",
+      "Helpful and harmful intervention counts should remain primary diagnostics: exact gains caused by increased reversal of correct base answers would not support promotion."
+    ],
+    "risk_note": "The selector is still provisional despite its favorable point estimate. A single fifth panel can satisfy the minimum sample threshold but remains vulnerable to panel variance; promotion should require pooled weakest-family superiority, correction balance, and no material partial-accuracy regression. Sequential cross-examination may propagate an early wrong proposal, so harmful reversals must be audited. No development-family result warrants a claim of generality before frozen evaluation on untouched problem families."
+  },
+  "duration_ms": 136886,
+  "job_id": "i028-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "db07189d0ad64ac0edec3f1201edfdb105773fcdb7bbe052ca899f2bcb88b2f9",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 23566,
+    "output_tokens": 6538,
+    "reasoning_output_tokens": 5178
+  }
+}

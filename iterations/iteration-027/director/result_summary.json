@@ -1,0 +1,122 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "Iteration 27 favors selection from a broad uncompressed bank: nine-bank one-selector selection scored 7/12, converted seven of eight oracle-covered cases, had six helpful and zero harmful interventions, and achieved 2/4 or better in every family. Its three-panel record is now 19/42 exact, but the panel-to-panel range remains large. Five-bank one-review repair scored 5/12 versus 4/12 for the three-review champion while using two fewer calls and creating two correct answers absent from its base bank; this supports another unchanged depth comparison. Logic remains the weakest signal: the selector reached 2/4, one-review repair 1/4, and the champion and regeneration pipeline 0/4. Regenerate-then-repair added no coverage in Iteration 27, but across seven panels it is 34/90 exact with 44/90 expanded-oracle coverage versus 35/90 base-oracle coverage and a 26-helpful to 3-harmful intervention balance. The next batch should therefore replicate the balanced selector result, retain the pooled repair champion, test reviewer-depth efficiency, and preserve one orthogonal candidate-generation lane.",
+    "extensions_requested": [
+      "Add a two-stage shared-evidence-board primitive: one reviewer produces an anonymized candidate-by-candidate falsification ledger without selecting an answer, then one independent integrator sees the shuffled candidates and ledger and returns a choice or repair. Frequencies and the answer key remain hidden. This would test whether separating evidence production from the terminal decision improves oracle-to-final conversion."
+    ],
+    "most_important_evidence": [
+      "Nine-bank one-selector selection scored 7/12 in Iteration 27 with 50% weakest-family accuracy, six helpful interventions, no harmful reversals, and only one missed oracle-covered case.",
+      "Across Iterations 25-27, the one-selector mechanism is 19/42 exact; its variability means the latest balanced result requires unchanged replication.",
+      "Five-bank one-review repair scored 5/12 versus the three-review champion's 4/12 in Iteration 27, with five helpful and zero harmful interventions while using six rather than eight calls per case.",
+      "One-review repair expanded coverage from 3/12 to 5/12 by creating two correct answers absent from the base bank, whereas the three-review champion expanded it only to 4/12.",
+      "The regeneration pipeline's current panel added no new correct candidate, but its seven-panel expanded-oracle gain is nine cases and its pooled intervention balance remains strongly positive at 26 helpful versus 3 harmful.",
+      "The complete six-strategy batch has a worst-case cost of 216 calls: 12×9 shared base calls plus 12×9 total follow-up calls, safely below the 300-call limit."
+    ],
+    "proposals": [
+      {
+        "base_count": 1,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the unchanged minimum-call control to measure fresh-panel difficulty and partial-credit floor.",
+        "name": "Direct One",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "direct-1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 2,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "Retain the unchanged deterministic plurality control so repair and selection gains can be attributed against the shared five-answer bank.",
+        "name": "Five-Vote Plurality",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-5"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Retain the pooled champion unchanged as the principal replicated answer-generating repair control.",
+        "name": "Efficient Five-Bank Falsifying Repair",
+        "review_count": 3,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the current winner unchanged to test whether one falsifying selector can again convert broad-bank oracle coverage while preserving balanced weakest-family accuracy.",
+        "name": "Nine-Bank One-Selector Falsifying Selection",
+        "review_count": 1,
+        "review_mode": "choose",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "choose-falsify-9x1-full-bank"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Continue the reviewer-depth ablation: one repairer outperformed three on Iteration 27, generated more missing answers, and costs two fewer calls per case.",
+        "name": "One-Review Five-Bank Falsifying Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 8,
+        "candidate_source": "base_unique",
+        "final_rule": "generated_review_fallback_base",
+        "hypothesis": "Retain the frozen orthogonal candidate-generation pipeline unchanged to determine whether its pooled oracle-coverage gain and positive intervention balance survive another fresh panel.",
+        "name": "Blind Regeneration then Falsifying Integration",
+        "review_count": 4,
+        "review_mode": "regenerate_then_repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-then-repair-5x3x1"
+      }
+    ],
+    "research_hypotheses": [
+      "The Iteration 27 oracle-to-final conversion of the nine-bank one-selector mechanism is reproducible across a fresh panel and is not merely favorable panel variance.",
+      "A single answer-generating repairer retains or improves the helpful-correction rate of three parallel repairers while reducing reviewer variance and call cost.",
+      "Blind diversified regeneration continues to improve pooled candidate coverage even when an individual panel produces no new correct candidate.",
+      "Weak-family accuracy improves most when candidate coverage and terminal selection are treated as separate mechanisms rather than by adding selector votes."
+    ],
+    "risk_note": "Twelve cases yield very noisy family estimates, and strategies sharing answer banks are correlated. Do not promote the current selector or replace the pooled champion from one additional panel alone. The requested evidence-board primitive is for a later registered experiment and is not included in this 216-call batch."
+  },
+  "duration_ms": 125725,
+  "job_id": "i027-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "26ca72e1bc14726fba3b75a57c85d2c242f31823dedb01a0baa71c7dc091297d",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 23266,
+    "output_tokens": 6319,
+    "reasoning_output_tokens": 4955
+  }
+}
