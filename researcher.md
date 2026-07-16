@@ -28,6 +28,10 @@ Iteration 11 was much harder. Five-answer banks contained a correct answer on on
 
 Iteration 12 recovered to 5/12 for five-bank parallel repair, nine-bank parallel repair, and five-bank sequential cross-examination. Cross-examination won only through family balance and partial credit. Parallel five-bank repair and cross-examination each made four helpful and zero harmful interventions; one-review repair reached 4/12 with three helpful and zero harmful interventions. Candidate oracles remained low at 4/12 for five bases and 6/12 for nine. Preserve these replications, but the next new primitive should improve domain-neutral candidate generation rather than add another voting rule.
 
+Iteration 13 again exposed candidate scarcity: five-base plurality scored 0/12, five-base oracle coverage was 2/12, and nine-base coverage was 4/12. Five-bank three-review repair won at 3/12 by creating two correct final answers absent from its exposed bank. Iteration 14 then produced 7/12 for five-bank one-review repair, five-bank three-review repair, and nine-bank one-review repair, each with five helpful and zero harmful interventions. This contrast reinforces fresh-panel variance and the need for pooled evidence.
+
+Blind diversified regeneration first ran in Iteration 14. It raised five-bank oracle coverage from 7/12 to 9/12 and generated two correct answers absent from the base bank, but raw augmented plurality selected neither new answer and finished only 3/12. The candidate-generation primitive worked on coverage; its integration rule did not. Replicate the generation result before changing it, then test a base-delegate-plus-regenerators fusion or one falsifying reviewer over the augmented unique bank.
+
 ## Available strategy grammar
 
 Each strategy chooses an odd `base_count` from 1 through 15. It may then use 0, 1, 3, or 5 reviewers. Reviewers can either choose among the base candidates or return a repaired exact answer. Reviews may run always, on any disagreement, or only when there is no strict base majority. Candidate order is shuffled and the answer key is unavailable.

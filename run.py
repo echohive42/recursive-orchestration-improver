@@ -1583,6 +1583,20 @@ def score_iteration(
                 and not base_oracle
                 and any(item == answer for item in reviewed_outputs)
             )
+            repair_created_correct_answer = int(
+                bool(matching_review_jobs)
+                and exact == 1
+                and (
+                    (
+                        strategy["review_mode"] in {"repair", "cross_examine"}
+                        and review_candidate_oracle == 0
+                    )
+                    or (
+                        strategy["review_mode"] == "regenerate"
+                        and base_oracle == 0
+                    )
+                )
+            )
             row = {
                 "iteration": number,
                 "strategy_id": strategy["strategy_id"],
@@ -1598,12 +1612,7 @@ def score_iteration(
                 "review_candidate_oracle": review_candidate_oracle,
                 "expanded_oracle": expanded_oracle,
                 "new_correct_generated": new_correct_generated,
-                "repair_created_correct_answer": int(
-                    strategy["review_mode"] in {"repair", "cross_examine", "regenerate"}
-                    and bool(matching_review_jobs)
-                    and review_candidate_oracle == 0
-                    and exact == 1
-                ),
+                "repair_created_correct_answer": repair_created_correct_answer,
                 "effective_calls": details["effective_calls"],
                 "base_unique_candidates": details["base_metrics"]["unique"],
                 "review_unique_outputs": details["review_metrics"]["unique"],

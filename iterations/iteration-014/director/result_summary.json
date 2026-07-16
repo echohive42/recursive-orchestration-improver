@@ -1,0 +1,109 @@
+{
+  "attempt_count": 1,
+  "document": {
+    "diagnosis": "The main bottleneck is converting candidate coverage into a correct final answer, not merely increasing calls. In Iteration 14, all three repair systems reached 7/12 exact with 0.50 weakest-family accuracy, while five-base plurality reached only 2/12 despite a 7/12 candidate oracle. The nine-answer bank raised oracle coverage to 9/12, but its one-review system still finished at 7/12. Extra parallel reviewers showed no benefit: five-bank one-review and three-review repair each made five helpful and zero harmful corrections and both scored 7/12, despite the latter using two more review calls per activated case. Blind regeneration introduced two otherwise-absent correct answers and raised coverage from 7/12 to 9/12, but augmented plurality converted only one wrong base result and finished 3/12 with 0.00 sequence accuracy. This supports a paired one-versus-three-review test on the shared nine-answer bank, continued measurement of regeneration coverage, and a future mechanism that reviews generated candidates instead of relying on plurality to surface them.",
+    "extensions_requested": [
+      "Add one generation-then-falsification primitive: three blind domain-neutral regenerators augment the raw candidate bank, after which one falsifying repair reviewer sees shuffled unique augmented candidates with frequencies hidden. A valid review answer wins; otherwise fall back to the original base plurality. Track regeneration coverage and reviewer helpful/harmful interventions separately."
+    ],
+    "most_important_evidence": [
+      "Iteration 14 repair systems tied at 7/12 exact and 0.50 weakest-family accuracy; each recorded five helpful and zero harmful interventions.",
+      "Five-bank one-review matched five-bank three-review repair at 7/12 while using two fewer reviewer calls per activated case, directly motivating a reviewer-count comparison.",
+      "The nine-answer oracle covered 9/12 cases versus 7/12 for five answers, yet nine-bank one-review still scored 7/12, leaving a two-case oracle-to-final gap.",
+      "Five-vote plurality scored 2/12 despite its 7/12 oracle, showing that candidate availability alone is insufficient.",
+      "Blind regeneration increased oracle coverage by two cases and generated two new correct answers, but scored only 3/12 and had 0.00 weakest-family accuracy; its plurality fusion failed to exploit the new coverage.",
+      "Sequential cross-examination previously scored 5/12 with four helpful and zero harmful interventions, so it remains the strongest lower-priority orthogonal reviewer organization supported by a positive correction balance."
+    ],
+    "proposals": [
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Replicate the exact Iteration 14 mechanism and pair it with the retained nine-bank three-review champion. The shared nine-answer bank offers 9/12 oracle coverage, while one reviewer matched the best exact score with fewer calls; the paired result will test whether extra reviewers add signal or variance.",
+        "name": "One-Review Nine-Bank Falsifying Repair Replication",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "repair-falsify-9x1"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "augmented_plurality",
+        "hypothesis": "Replicate the unchanged candidate-generation mechanism on a larger sealed panel. Its first run added two correct answers absent from the base bank and raised oracle coverage from 7/12 to 9/12, although plurality converted that gain poorly; replication separates a stable coverage benefit from panel noise.",
+        "name": "Blind Diversified Regeneration Replication",
+        "review_count": 3,
+        "review_mode": "regenerate",
+        "review_style": "rederive",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "regenerate-rederive-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "base_plurality",
+        "hypothesis": "A deterministic nine-vote control uses the already-required shared nine-answer bank without reviewer calls. It isolates how much of the broader bank's oracle gain is converted by raw consensus before attributing improvement to repair.",
+        "name": "Nine-Vote Plurality Control",
+        "review_count": 0,
+        "review_mode": "none",
+        "review_style": "verify",
+        "review_trigger": "never",
+        "show_frequencies": false,
+        "strategy_id": "plurality-9"
+      },
+      {
+        "base_count": 5,
+        "candidate_limit": 5,
+        "candidate_source": "base_unique",
+        "final_rule": "last_review_fallback_base",
+        "hypothesis": "Sequential falsification previously produced four helpful and zero harmful interventions while scoring 5/12. Replication tests whether conditioning each reviewer on one predecessor preserves coherent correction better than independent parallel reviewers.",
+        "name": "Sequential Five-Bank Cross-Examination Replication",
+        "review_count": 3,
+        "review_mode": "cross_examine",
+        "review_style": "falsify",
+        "review_trigger": "any_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "base_count": 9,
+        "candidate_limit": 3,
+        "candidate_source": "committee_delegates",
+        "final_rule": "review_plurality_fallback_base",
+        "hypothesis": "Three disjoint committee delegates may suppress isolated answer noise before a single repairer acts, while committee-disagreement routing avoids unnecessary review. This is a lower-priority orthogonal aggregation test because earlier committee evidence was weak.",
+        "name": "Committee-Delegate Single Repair",
+        "review_count": 1,
+        "review_mode": "repair",
+        "review_style": "falsify",
+        "review_trigger": "committee_disagreement",
+        "show_frequencies": false,
+        "strategy_id": "committee-repair-falsify-9x1"
+      }
+    ],
+    "research_hypotheses": [
+      "On a shared nine-answer bank, one falsifying repairer will match or outperform three independent repairers because additional reviewers currently add variance without improving the correction balance.",
+      "Blind diversified regeneration provides a real domain-neutral oracle-coverage gain, but augmented plurality is an inadequate conversion rule when newly correct answers are isolated.",
+      "Nine-vote plurality will reveal whether broader candidate coverage improves consensus at all, at no marginal bank cost relative to the retained nine-base champion.",
+      "Sequential cross-examination may make three review calls more coherent than parallel review by forcing explicit falsification of the immediately preceding solution.",
+      "Committee delegates may improve robustness only if local pluralities suppress idiosyncratic errors; the fresh panel should treat this as a stress test, not a favored repair variant."
+    ],
+    "risk_note": "The 12-case Iteration 14 tie is noisy, and the 18-case panel will still have wide family-level uncertainty. Shared answer banks make strategy comparisons efficient but correlated. With the usual four retained mechanisms, adding the first two proposals costs at most 306 calls: 162 for a nine-answer bank and 144 for eight total reviewer/regenerator calls per case. Even selecting two three-review alternatives remains at most 342 calls, below the 500-call cap. No development result supports a claim of generality until a frozen mechanism transfers to untouched problem families."
+  },
+  "duration_ms": 161011,
+  "job_id": "i014-sol-director",
+  "outcome": "valid_output",
+  "reported_model": null,
+  "response_sha256": "f9e42e5a9523c20b586015025d6b310f7a3df307b36abfc268f1cc3fad92153b",
+  "terminal_attempt": 1,
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 19750,
+    "output_tokens": 6615,
+    "reasoning_output_tokens": 5178
+  }
+}
