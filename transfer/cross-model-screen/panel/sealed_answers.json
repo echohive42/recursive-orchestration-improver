@@ -1,0 +1,186 @@
+{
+  "answers": {
+    "i012-cal-t4-constraint-03": {
+      "answer": {
+        "J1": "Y",
+        "J10": "Z",
+        "J11": "W",
+        "J12": "W",
+        "J2": "Y",
+        "J3": "X",
+        "J4": "W",
+        "J5": "X",
+        "J6": "Y",
+        "J7": "Z",
+        "J8": "Z",
+        "J9": "X"
+      },
+      "total_cost": 155
+    },
+    "i012-cal-t4-sequence-01": {
+      "answer": [
+        90,
+        46,
+        78
+      ]
+    },
+    "i013-cal-t4-constraint-04": {
+      "answer": {
+        "J1": "W",
+        "J10": "W",
+        "J11": "W",
+        "J12": "X",
+        "J2": "Z",
+        "J3": "Y",
+        "J4": "X",
+        "J5": "Z",
+        "J6": "Z",
+        "J7": "X",
+        "J8": "Y",
+        "J9": "Y"
+      },
+      "total_cost": 138
+    },
+    "i013-cal-t4-logic-03": {
+      "answer": {
+        "A": "liar",
+        "B": "truthful",
+        "C": "liar",
+        "D": "truthful",
+        "E": "truthful",
+        "F": "truthful",
+        "G": "truthful",
+        "H": "liar",
+        "I": "liar",
+        "J": "liar",
+        "K": "truthful",
+        "L": "truthful",
+        "M": "liar",
+        "N": "liar",
+        "O": "liar",
+        "P": "truthful",
+        "Q": "truthful"
+      }
+    },
+    "i017-cal-t4-logic-02": {
+      "answer": {
+        "A": "truthful",
+        "B": "liar",
+        "C": "liar",
+        "D": "truthful",
+        "E": "liar",
+        "F": "truthful",
+        "G": "truthful",
+        "H": "liar",
+        "I": "liar",
+        "J": "truthful",
+        "K": "liar",
+        "L": "truthful",
+        "M": "liar",
+        "N": "truthful",
+        "O": "truthful",
+        "P": "liar",
+        "Q": "truthful"
+      }
+    },
+    "i017-cal-t4-sequence-01": {
+      "answer": [
+        85,
+        8,
+        87
+      ]
+    },
+    "i021-cal-t4-constraint-04": {
+      "answer": {
+        "J1": "W",
+        "J10": "Z",
+        "J11": "W",
+        "J12": "X",
+        "J2": "X",
+        "J3": "Y",
+        "J4": "Y",
+        "J5": "Z",
+        "J6": "Y",
+        "J7": "X",
+        "J8": "Z",
+        "J9": "W"
+      },
+      "total_cost": 133
+    },
+    "i021-cal-t4-sequence-01": {
+      "answer": [
+        56,
+        27,
+        37
+      ]
+    },
+    "i029-cal-t4-constraint-02": {
+      "answer": {
+        "J1": "W",
+        "J10": "W",
+        "J11": "Y",
+        "J12": "Z",
+        "J2": "Z",
+        "J3": "W",
+        "J4": "X",
+        "J5": "X",
+        "J6": "Z",
+        "J7": "X",
+        "J8": "Y",
+        "J9": "Y"
+      },
+      "total_cost": 173
+    },
+    "i029-cal-t4-logic-01": {
+      "answer": {
+        "A": "liar",
+        "B": "truthful",
+        "C": "truthful",
+        "D": "truthful",
+        "E": "liar",
+        "F": "liar",
+        "G": "truthful",
+        "H": "liar",
+        "I": "liar",
+        "J": "truthful",
+        "K": "liar",
+        "L": "liar",
+        "M": "truthful",
+        "N": "truthful",
+        "O": "truthful",
+        "P": "truthful",
+        "Q": "truthful"
+      }
+    },
+    "i030-cal-t4-logic-06": {
+      "answer": {
+        "A": "truthful",
+        "B": "truthful",
+        "C": "truthful",
+        "D": "truthful",
+        "E": "liar",
+        "F": "truthful",
+        "G": "liar",
+        "H": "truthful",
+        "I": "truthful",
+        "J": "liar",
+        "K": "truthful",
+        "L": "truthful",
+        "M": "truthful",
+        "N": "liar",
+        "O": "liar",
+        "P": "liar",
+        "Q": "truthful"
+      }
+    },
+    "i030-cal-t4-sequence-06": {
+      "answer": [
+        64,
+        67,
+        15
+      ]
+    }
+  },
+  "experiment_id": "cross-model-orchestration-transfer-v1",
+  "opened_only_after_terminal_worker_manifest": true
+}

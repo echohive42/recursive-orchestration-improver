@@ -144,6 +144,23 @@ def export(source_root: Path, through: int | None = None) -> None:
         ):
             copy_if_present(source_root / relative, PUBLIC_ROOT / relative)
 
+        for relative in (
+            "transfer/cross-model-screen/README.md",
+            "transfer/cross-model-screen/POST_RUN_ANALYSIS.md",
+            "transfer/cross-model-screen/REPORT.md",
+            "transfer/cross-model-screen/run_transfer.py",
+            "transfer/cross-model-screen/protocol.json",
+            "transfer/cross-model-screen/registry.json",
+            "transfer/cross-model-screen/terminal_worker_manifest.json",
+            "transfer/cross-model-screen/panel/public_cases.json",
+            "transfer/cross-model-screen/panel/sealed_answers.json",
+            "transfer/cross-model-screen/results/case_results.csv",
+            "transfer/cross-model-screen/results/case_results.json",
+            "transfer/cross-model-screen/results/summary.json",
+            "transfer/cross-model-screen/results/transfer.svg",
+        ):
+            copy_if_present(source_root / relative, PUBLIC_ROOT / relative)
+
     public_protocol = load_json(source_root / "protocol.json")
     generator_source = (source_root / public_protocol["panel_generation"]["source"]).resolve()
     public_protocol["panel_generation"]["source"] = "scripts/generate_extreme_calibration.py"

@@ -131,6 +131,49 @@ def main() -> None:
         total_prompts += summary["worker_calls"]
         latest_winner = winner
 
+    transfer = ROOT / "transfer" / "cross-model-screen"
+    if transfer.is_dir():
+        required = (
+            "README.md",
+            "POST_RUN_ANALYSIS.md",
+            "REPORT.md",
+            "run_transfer.py",
+            "protocol.json",
+            "registry.json",
+            "terminal_worker_manifest.json",
+            "panel/public_cases.json",
+            "panel/sealed_answers.json",
+            "results/case_results.csv",
+            "results/case_results.json",
+            "results/summary.json",
+            "results/transfer.svg",
+        )
+        assert all((transfer / relative).is_file() for relative in required)
+        assert not (transfer / "calls").exists(), "Raw runtime call directories must not be public"
+
+        protocol = load(transfer / "protocol.json")
+        registry = load(transfer / "registry.json")
+        terminal = load(transfer / "terminal_worker_manifest.json")
+        summary = load(transfer / "results" / "summary.json")
+        assert protocol["experiment_id"] == "cross-model-orchestration-transfer-v1"
+        assert protocol["selection_rule"]["answer_blind"] is True
+        assert len(protocol["case_selection"]) == 12
+        assert protocol["maximum_new_calls"] == 288
+        assert registry["registered_before_calls"] is True
+        assert registry["maximum_new_calls"] == 288
+        assert sha256(transfer / "run_transfer.py") == registry["runner_sha256"]
+        assert sha256(transfer / "protocol.json") == registry["protocol_sha256"]
+        assert sha256(transfer / "panel" / "public_cases.json") == registry["public_cases_sha256"]
+        assert terminal["all_registered_worker_stages_terminal"] is True
+        assert terminal["answers_not_yet_parsed"] is True
+        assert terminal["jobs"] == 274
+        assert terminal["outcomes"] == {"valid_output": 274}
+        assert summary["experiment_id"] == protocol["experiment_id"]
+        assert summary["cases"] == 12
+        assert summary["new_worker_calls"] == 274
+        assert summary["scored_after_terminal_worker_manifest"] is True
+        assert len(summary["summary"]["strategies"]) == 15
+
     manifest = load(ROOT / "snapshot_manifest.json")
     assert tuple(manifest["completed_iterations"]) == completed
     listed = set(manifest["files"])

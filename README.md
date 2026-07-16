@@ -78,6 +78,24 @@ The retention fix affects future strategy selection, not historical scores. It n
 > Every point uses a different fresh sealed panel. This is an honest sequence of research outcomes, not a conventional training curve. Final performance still requires a frozen system and untouched validation.
 <!-- LIVE_PROGRESS_END -->
 
+## Cross-model transfer screen
+
+The same five organizations were replayed on 12 answer-blind historical cases with Terra Low and Luna Medium. Luna Light is the exact historical reference on those cases.
+
+| Organization | Luna Light | Terra Low | Luna Medium |
+|---|---:|---:|---:|
+| Direct | 8.3% | 58.3% | 25.0% |
+| Five-agent plurality | 8.3% | 83.3% | 41.7% |
+| One falsifying repairer | **41.7%** | **91.7%** | 75.0% |
+| Three parallel repairers | 33.3% | **91.7%** | 83.3% |
+| Sequential cross-examination | 8.3% | **91.7%** | **91.7%** |
+
+The directional result is that orchestration depth depends on evaluator capability and remaining headroom. One repairer was the most efficient default. Sequential cross-examination produced the highest Luna Medium ceiling, while adding depth hurt Luna Light and added no accuracy for the already-strong Terra bank.
+
+This is a 12-case same-distribution transfer screen, not validated general performance. [Read the full interpretation](transfer/cross-model-screen/POST_RUN_ANALYSIS.md).
+
+![Cross-model orchestration transfer](transfer/cross-model-screen/results/transfer.svg)
+
 ## Initial repair signal (Rounds 1-3)
 
 One stable system appeared in all three completed iterations:

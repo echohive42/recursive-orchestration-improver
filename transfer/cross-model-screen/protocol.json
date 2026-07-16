@@ -1,0 +1,130 @@
+{
+  "experiment_id": "cross-model-orchestration-transfer-v1",
+  "purpose": "Test whether Luna-Light orchestration effects transfer to Terra Low and Luna Medium on identical historical cases.",
+  "created_at": "2026-07-16",
+  "conditions": [
+    {
+      "condition_id": "terra-low",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "low",
+      "label": "Terra Low"
+    },
+    {
+      "condition_id": "luna-medium",
+      "model": "gpt-5.6-luna",
+      "reasoning_effort": "medium",
+      "label": "Luna Medium"
+    }
+  ],
+  "existing_condition": {
+    "condition_id": "luna-light-existing",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "low",
+    "label": "Luna Light (existing)"
+  },
+  "selection_rule": {
+    "method": "For each assigned iteration/family pair, select the case with the lexicographically smallest SHA256 rank. rank = SHA256(salt + newline + decimal iteration + newline + case_id + newline + SHA256(exact UTF-8 prompt)).",
+    "salt_source": "Common frozen protocol_snapshot.json shared by source Iterations 12, 13, 17, 21, 29, and 30.",
+    "salt_sha256": "a7a9bfab3940a79d45fe77eac258e18058377e22925a466a9baedd0c44ca15e9",
+    "family_pairs_by_iteration": {
+      "12": ["sequence", "constraint"],
+      "13": ["constraint", "logic"],
+      "17": ["logic", "sequence"],
+      "21": ["sequence", "constraint"],
+      "29": ["constraint", "logic"],
+      "30": ["logic", "sequence"]
+    },
+    "answer_blind": true
+  },
+  "case_selection": [
+    {"iteration": 12, "case_id": "cal-t4-sequence-01", "rank_sha256": "0e95e15fdc519e1ba1dde447938db3880a8e88b81b4cb82044ef3f756e7ba351"},
+    {"iteration": 12, "case_id": "cal-t4-constraint-03", "rank_sha256": "417ebcdf2d281e42ec75c134381b90f618881f72cbea36b53e5048de7e723b7d"},
+    {"iteration": 13, "case_id": "cal-t4-constraint-04", "rank_sha256": "01da5286b5fc61c67ea6609f4d1720c83efc23fac65eeca86e9a3e8c2c9ef3fb"},
+    {"iteration": 13, "case_id": "cal-t4-logic-03", "rank_sha256": "a2d49fa581cb0b89c4574f6efe8d672facdd06f935bae88af7b63e032a0aedec"},
+    {"iteration": 17, "case_id": "cal-t4-logic-02", "rank_sha256": "5ef6ccb28f0b3e2f7aa4728d1013f4504e14644637eb63fc3afd14d325ff961d"},
+    {"iteration": 17, "case_id": "cal-t4-sequence-01", "rank_sha256": "07a8fc93299600781129ba37c2c463ee4e1427d2ce9eef01ebb4cbbcc7aa19af"},
+    {"iteration": 21, "case_id": "cal-t4-sequence-01", "rank_sha256": "1174b81273702fac3d23eb82704501c05cdc08020adac9400c36aa7b142b2a1b"},
+    {"iteration": 21, "case_id": "cal-t4-constraint-04", "rank_sha256": "631e344ba2994cbf2265fe0a4fb6dfef2a316a418982d195010184c87d3d3079"},
+    {"iteration": 29, "case_id": "cal-t4-constraint-02", "rank_sha256": "2cfd9001e6466fbbb73d4643fe81e3d46b34f3b61950e634d8bc09186474c1d8"},
+    {"iteration": 29, "case_id": "cal-t4-logic-01", "rank_sha256": "0723281c458d17e4babddc66afb8c5d2d052913d65499fe3974824d3f2508305"},
+    {"iteration": 30, "case_id": "cal-t4-logic-06", "rank_sha256": "2566f3631d3da296fba405193955f4aefd4911bbc967d6d5835bef3356002181"},
+    {"iteration": 30, "case_id": "cal-t4-sequence-06", "rank_sha256": "24390d72fbb5e05cb03132eb1912c06b70a8a9f8e6f2e1ea17d88a81e588f07b"}
+  ],
+  "strategies": [
+    {
+      "strategy_id": "direct-1",
+      "name": "Direct One",
+      "hypothesis": "Minimum-cost direct baseline.",
+      "base_count": 1,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "plurality-5",
+      "name": "Five-Vote Plurality",
+      "hypothesis": "Shared-bank deterministic aggregation baseline.",
+      "base_count": 5,
+      "review_count": 0,
+      "review_trigger": "never",
+      "review_mode": "none",
+      "review_style": "verify",
+      "candidate_limit": 2,
+      "candidate_source": "base_unique",
+      "show_frequencies": false,
+      "final_rule": "base_plurality"
+    },
+    {
+      "strategy_id": "repair-falsify-5x1-efficient",
+      "name": "One-Review Five-Bank Falsifying Repair",
+      "hypothesis": "Test whether one repairer preserves most orchestration benefit at lower cost.",
+      "base_count": 5,
+      "review_count": 1,
+      "review_trigger": "any_disagreement",
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "show_frequencies": false,
+      "final_rule": "review_plurality_fallback_base"
+    },
+    {
+      "strategy_id": "repair-falsify-5x3-efficient",
+      "name": "Three-Review Five-Bank Falsifying Repair",
+      "hypothesis": "Test whether the Luna-Light pooled champion transfers unchanged.",
+      "base_count": 5,
+      "review_count": 3,
+      "review_trigger": "any_disagreement",
+      "review_mode": "repair",
+      "review_style": "falsify",
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "show_frequencies": false,
+      "final_rule": "review_plurality_fallback_base"
+    },
+    {
+      "strategy_id": "cross-examine-falsify-5x3",
+      "name": "Sequential Five-Bank Cross-Examination",
+      "hypothesis": "Test whether sequential critique transfers differently as model capability changes.",
+      "base_count": 5,
+      "review_count": 3,
+      "review_trigger": "any_disagreement",
+      "review_mode": "cross_examine",
+      "review_style": "falsify",
+      "candidate_limit": 5,
+      "candidate_source": "base_unique",
+      "show_frequencies": false,
+      "final_rule": "last_review_fallback_base"
+    }
+  ],
+  "maximum_new_calls": 288,
+  "max_concurrency": 40,
+  "timeout_seconds": 300,
+  "retry_policy": "Only infrastructure failures may be retried. Configuration failures halt the screen. Valid, wrong, malformed, and protocol-violating outputs are never selectively rerun.",
+  "sealing_policy": "Selection and strategies are frozen before calls. Source sealed answers are hash-checked before calls but not parsed until every registered worker stage is terminal."
+}

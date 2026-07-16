@@ -1,0 +1,595 @@
+{
+  "cases": 12,
+  "experiment_id": "cross-model-orchestration-transfer-v1",
+  "maximum_new_calls": 288,
+  "new_worker_calls": 274,
+  "scored_after_terminal_worker_manifest": true,
+  "summary": {
+    "lifts": [
+      {
+        "accuracy": 0.4166666666666667,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "lift_over_plurality": 0.33333333333333337,
+        "plurality_accuracy": 0.08333333333333333,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "accuracy": 0.3333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "lift_over_plurality": 0.25,
+        "plurality_accuracy": 0.08333333333333333,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "accuracy": 0.08333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "lift_over_plurality": 0.0,
+        "plurality_accuracy": 0.08333333333333333,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "lift_over_plurality": 0.08333333333333326,
+        "plurality_accuracy": 0.8333333333333334,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "lift_over_plurality": 0.08333333333333326,
+        "plurality_accuracy": 0.8333333333333334,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "lift_over_plurality": 0.08333333333333326,
+        "plurality_accuracy": 0.8333333333333334,
+        "strategy_id": "cross-examine-falsify-5x3"
+      },
+      {
+        "accuracy": 0.75,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "lift_over_plurality": 0.3333333333333333,
+        "plurality_accuracy": 0.4166666666666667,
+        "strategy_id": "repair-falsify-5x1-efficient"
+      },
+      {
+        "accuracy": 0.8333333333333334,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "lift_over_plurality": 0.4166666666666667,
+        "plurality_accuracy": 0.4166666666666667,
+        "strategy_id": "repair-falsify-5x3-efficient"
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "lift_over_plurality": 0.49999999999999994,
+        "plurality_accuracy": 0.4166666666666667,
+        "strategy_id": "cross-examine-falsify-5x3"
+      }
+    ],
+    "strategies": [
+      {
+        "accuracy": 0.08333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "correct": 1,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 1.0,
+        "partial_accuracy": 0.5757575757575758,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 0,
+        "strategy_id": "direct-1",
+        "strategy_name": "Direct One",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.08333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "correct": 1,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 5.0,
+        "partial_accuracy": 0.5757575757575758,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 0,
+        "strategy_id": "plurality-5",
+        "strategy_name": "Five-Vote Plurality",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.4166666666666667,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 4,
+        "mean_effective_calls": 6.0,
+        "partial_accuracy": 0.7651515151515151,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 12,
+        "strategy_id": "repair-falsify-5x1-efficient",
+        "strategy_name": "One-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.25
+      },
+      {
+        "accuracy": 0.3333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "correct": 4,
+        "families": {
+          "constraint": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 3,
+        "mean_effective_calls": 8.0,
+        "partial_accuracy": 0.6515151515151515,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 36,
+        "strategy_id": "repair-falsify-5x3-efficient",
+        "strategy_name": "Three-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.08333333333333333,
+        "condition_id": "luna-light-existing",
+        "condition_label": "Luna Light (existing)",
+        "correct": 1,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 1,
+        "helpful_interventions": 1,
+        "mean_effective_calls": 8.0,
+        "partial_accuracy": 0.696969696969697,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 36,
+        "strategy_id": "cross-examine-falsify-5x3",
+        "strategy_name": "Sequential Five-Bank Cross-Examination",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.5833333333333334,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "correct": 7,
+        "families": {
+          "constraint": {
+            "accuracy": 0.5,
+            "correct": 2,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 1.0,
+        "partial_accuracy": 0.6742424242424242,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-terra",
+        "review_calls": 0,
+        "strategy_id": "direct-1",
+        "strategy_name": "Direct One",
+        "total": 12,
+        "worst_family_accuracy": 0.25
+      },
+      {
+        "accuracy": 0.8333333333333334,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "correct": 10,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 5.0,
+        "partial_accuracy": 0.9090909090909091,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-terra",
+        "review_calls": 0,
+        "strategy_id": "plurality-5",
+        "strategy_name": "Five-Vote Plurality",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "correct": 11,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 1,
+        "mean_effective_calls": 5.833333333333333,
+        "partial_accuracy": 0.9318181818181818,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-terra",
+        "review_calls": 10,
+        "strategy_id": "repair-falsify-5x1-efficient",
+        "strategy_name": "One-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "correct": 11,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 1,
+        "mean_effective_calls": 7.5,
+        "partial_accuracy": 0.9621212121212122,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-terra",
+        "review_calls": 30,
+        "strategy_id": "repair-falsify-5x3-efficient",
+        "strategy_name": "Three-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "terra-low",
+        "condition_label": "Terra Low",
+        "correct": 11,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 1,
+        "mean_effective_calls": 7.5,
+        "partial_accuracy": 0.9318181818181818,
+        "reasoning_effort": "low",
+        "requested_model": "gpt-5.6-terra",
+        "review_calls": 30,
+        "strategy_id": "cross-examine-falsify-5x3",
+        "strategy_name": "Sequential Five-Bank Cross-Examination",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      },
+      {
+        "accuracy": 0.25,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "correct": 3,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.5,
+            "correct": 2,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.25,
+            "correct": 1,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 1.0,
+        "partial_accuracy": 0.6060606060606061,
+        "reasoning_effort": "medium",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 0,
+        "strategy_id": "direct-1",
+        "strategy_name": "Direct One",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.4166666666666667,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "correct": 5,
+        "families": {
+          "constraint": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 0.5,
+            "correct": 2,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 0,
+        "mean_effective_calls": 5.0,
+        "partial_accuracy": 0.6893939393939394,
+        "reasoning_effort": "medium",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 0,
+        "strategy_id": "plurality-5",
+        "strategy_name": "Five-Vote Plurality",
+        "total": 12,
+        "worst_family_accuracy": 0.0
+      },
+      {
+        "accuracy": 0.75,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "correct": 9,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.5,
+            "correct": 2,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 1,
+        "helpful_interventions": 5,
+        "mean_effective_calls": 6.0,
+        "partial_accuracy": 0.9242424242424242,
+        "reasoning_effort": "medium",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 12,
+        "strategy_id": "repair-falsify-5x1-efficient",
+        "strategy_name": "One-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.5
+      },
+      {
+        "accuracy": 0.8333333333333334,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "correct": 10,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 5,
+        "mean_effective_calls": 8.0,
+        "partial_accuracy": 0.9242424242424242,
+        "reasoning_effort": "medium",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 36,
+        "strategy_id": "repair-falsify-5x3-efficient",
+        "strategy_name": "Three-Review Five-Bank Falsifying Repair",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      },
+      {
+        "accuracy": 0.9166666666666666,
+        "condition_id": "luna-medium",
+        "condition_label": "Luna Medium",
+        "correct": 11,
+        "families": {
+          "constraint": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "total": 4
+          },
+          "logic": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          },
+          "sequence": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "total": 4
+          }
+        },
+        "harmful_interventions": 0,
+        "helpful_interventions": 6,
+        "mean_effective_calls": 8.0,
+        "partial_accuracy": 0.9772727272727273,
+        "reasoning_effort": "medium",
+        "requested_model": "gpt-5.6-luna",
+        "review_calls": 36,
+        "strategy_id": "cross-examine-falsify-5x3",
+        "strategy_name": "Sequential Five-Bank Cross-Examination",
+        "total": 12,
+        "worst_family_accuracy": 0.75
+      }
+    ]
+  }
+}
