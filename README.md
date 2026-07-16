@@ -8,6 +8,8 @@ Recursive Orchestration Improver is a small, reproducible auto-research system t
 
 The recursion is in the research process, not the model weights: each completed experiment changes how the next swarm is designed, while fresh panels test whether those changes actually help.
 
+> **Runtime note:** The registered Luna Light calls run through the Codex CLI. Codex also coordinates the experiment and preserves its audit trail.
+
 > [!IMPORTANT]
 > **This is active research, not a finished benchmark.** The repository currently contains 6 completed research rounds and the registered strategy for Round 7. The numbers below are promising development evidence, not independent final validation.
 
